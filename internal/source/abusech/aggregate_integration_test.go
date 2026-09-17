@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync/atomic"
 	"testing"
 )
 
@@ -126,5 +127,55 @@ func TestClient_Aggregate_SkipsExistingFile(t *testing.T) {
 	}
 	if `{"pre":"existing"}` != string(contents) {
 		t.Errorf("existing file was overwritten: %s", contents)
+	}
+}
+
+// TestClient_Aggregate_RetriesExportOn502 guards against a regression to
+// https://github.com/hoardcti/file-reputation gateway 502s seen from CI
+// runners: a transient 502 on the recent-samples export must be retried
+// rather than aborting the whole run.
+func TestClient_Aggregate_RetriesExportOn502(t *testing.T) {
+	const knownHash = "1e934f76b891d4be57a5ef60fdf52235d10ccada12b061645238cf4f68b02b48"
+
+	var exportRequests int64
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch {
+		case http.MethodGet == r.Method && strings.HasSuffix(r.URL.Path, "/sha256_recent.txt"):
+			if 1 == atomic.AddInt64(&exportRequests, 1) {
+				w.WriteHeader(http.StatusBadGateway)
+				return
+			}
+			w.Write([]byte(knownHash + "\n"))
+		case http.MethodPost == r.Method && "/api/v1/" == r.URL.Path:
+			w.Write([]byte(`{"query_status":"ok","data":[{"sha256_hash":"` + knownHash + `"}]}`))
+		}
+	}))
+	defer server.Close()
+
+	outputDir := t.TempDir()
+
+	c, err := NewClient(
+		"test-key",
+		WithHTTPClient(testHTTPClient(server.URL)),
+		WithOutputDir(outputDir),
+		WithWorkers(1),
+		WithRateLimit(1000),
+		WithMaxRetries(2),
+	)
+	if nil != err {
+		t.Fatalf("NewClient: unexpected error: %v", err)
+	}
+	defer c.Close()
+
+	if err := c.Aggregate(context.Background()); nil != err {
+		t.Fatalf("Aggregate: unexpected error: %v", err)
+	}
+
+	if 2 != atomic.LoadInt64(&exportRequests) {
+		t.Errorf("server received %d export requests, want 2 (one 502 then one 200)", exportRequests)
+	}
+
+	if _, err := os.Stat(filepath.Join(outputDir, knownHash+".json")); nil != err {
+		t.Errorf("expected sample file to exist after recovering from the 502: %v", err)
 	}
 }

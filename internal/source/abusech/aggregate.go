@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 	"sync"
@@ -23,14 +24,17 @@ const progressInterval = 5 * time.Second
 // throttled by the Client's shared rate limiter; a failure on one hash does
 // not abort the rest of the batch.
 func (c *Client) Aggregate(ctx context.Context) error {
-	resp, err := c.get(ctx, exportURLPrefix+c.authKey+"/sha256_recent.txt")
+	resp, err := c.doWithRetry(ctx, "recent sample export", func() (*http.Request, error) {
+		return http.NewRequestWithContext(ctx, http.MethodGet, exportURLPrefix+c.authKey+"/sha256_recent.txt", nil)
+	})
 	if nil != err {
 		return fmt.Errorf("abusech: fetching recent sample export: %w", err)
 	}
 	defer resp.Body.Close()
 
 	if 200 != resp.StatusCode {
-		return fmt.Errorf("abusech: recent sample export returned status code %d", resp.StatusCode)
+		body, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
+		return fmt.Errorf("abusech: recent sample export returned status %d: %s", resp.StatusCode, strings.TrimSpace(string(body)))
 	}
 
 	body, err := io.ReadAll(resp.Body)

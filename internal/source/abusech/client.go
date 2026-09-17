@@ -25,6 +25,11 @@ const (
 	// recent-samples export URL.
 	exportURLPrefix = "https://mb-api.abuse.ch/v2/files/exports/"
 
+	// userAgent identifies this client to abuse.ch. Some feeds sit behind a
+	// CDN/WAF that blocks or 502s requests carrying Go's default
+	// "Go-http-client" user agent, especially from CI/cloud IP ranges.
+	userAgent = "hoardcti-file-reputation/1.0 (+https://github.com/hoardcti/file-reputation)"
+
 	// defaultWorkers is how many get_info lookups run concurrently during Aggregate.
 	defaultWorkers = 5
 
@@ -32,8 +37,8 @@ const (
 	// second, shared across all workers, to stay under abuse.ch's API rate limit.
 	defaultRateLimit = 2.0
 
-	// defaultMaxRetries is how many times a rate-limited (429) get_info
-	// request is retried.
+	// defaultMaxRetries is how many times a rate-limited (429) or transient
+	// gateway error (502/503/504) request is retried.
 	defaultMaxRetries = 5
 
 	// defaultOutputDir is where Aggregate writes sample JSON files.
@@ -113,28 +118,17 @@ func (c *Client) Close() {
 	c.limiter.Close()
 }
 
-// get performs an HTTP GET request to the specified URL.
-func (c *Client) get(ctx context.Context, u string) (*http.Response, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, nil)
-	if nil != err {
-		return nil, err
+// retryableStatus reports whether resp's status code is worth retrying:
+// rate limiting (429) or a transient upstream/gateway failure (502/503/504),
+// the latter being common from CDNs/WAFs in front of abuse.ch under load or
+// when fronting requests from CI/cloud IP ranges.
+func retryableStatus(code int) bool {
+	switch code {
+	case http.StatusTooManyRequests, http.StatusBadGateway, http.StatusServiceUnavailable, http.StatusGatewayTimeout:
+		return true
+	default:
+		return false
 	}
-	return c.httpClient.Do(req)
-}
-
-// post performs an HTTP POST request to the specified URL with a
-// form-encoded body. Entries in headers override the default Content-Type
-// when keys collide.
-func (c *Client) post(ctx context.Context, u string, body io.Reader, headers map[string]string) (*http.Response, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodPost, u, body)
-	if nil != err {
-		return nil, err
-	}
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	for key, value := range headers {
-		req.Header.Set(key, value)
-	}
-	return c.httpClient.Do(req)
 }
 
 // retryAfter reports how long to wait before retrying a rate-limited
@@ -153,60 +147,90 @@ func retryAfter(resp *http.Response, fallback time.Duration) time.Duration {
 	return fallback
 }
 
-// GetInfo queries the abuse.ch MalwareBazaar API for details about a single
-// hash. Requests are throttled by the Client's shared rate limiter, and 429
-// responses are retried with backoff honoring the Retry-After header.
-func (c *Client) GetInfo(ctx context.Context, hash string) (*GetInfoResponse, error) {
-	form := url.Values{}
-	form.Set("query", "get_info")
-	form.Set("hash", hash)
-
-	headers := map[string]string{"Auth-Key": c.authKey}
-
+// doWithRetry issues a request built by newReq, throttled by the Client's
+// shared rate limiter. It retries on rate limiting or a transient gateway
+// error (see retryableStatus) with backoff honoring the Retry-After header
+// when present. newReq must build a fresh *http.Request on every call since
+// a POST body reader can't be replayed after a failed attempt. The caller
+// gets back either a response with a non-retryable status (including a
+// successful one) or an error once retries are exhausted; either way it owns
+// closing resp.Body.
+func (c *Client) doWithRetry(ctx context.Context, label string, newReq func() (*http.Request, error)) (*http.Response, error) {
 	backoff := time.Second
 	for attempt := 0; ; attempt++ {
 		if err := c.limiter.Take(ctx); nil != err {
 			return nil, err
 		}
 
-		resp, err := c.post(ctx, baseURL, strings.NewReader(form.Encode()), headers)
+		req, err := newReq()
 		if nil != err {
-			return nil, fmt.Errorf("abusech: get_info request for %s failed: %w", hash, err)
+			return nil, err
+		}
+		req.Header.Set("User-Agent", userAgent)
+
+		resp, err := c.httpClient.Do(req)
+		if nil != err {
+			return nil, fmt.Errorf("abusech: %s: request failed: %w", label, err)
 		}
 
-		// Retry rate-limited requests instead of failing the whole batch.
-		if 429 == resp.StatusCode {
-			resp.Body.Close()
-			if attempt >= c.maxRetries {
-				return nil, fmt.Errorf("abusech: rate limit exceeded after %d retries for hash %s", attempt, hash)
-			}
-			wait := retryAfter(resp, backoff)
-			log.Printf("abusech: %s: rate limited (429), retrying in %s (attempt %d/%d)", hash, wait, attempt+1, c.maxRetries)
-			select {
-			case <-time.After(wait):
-			case <-ctx.Done():
-				return nil, ctx.Err()
-			}
-			backoff *= 2
-			continue
+		if !retryableStatus(resp.StatusCode) {
+			return resp, nil
 		}
 
-		if 200 != resp.StatusCode {
-			resp.Body.Close()
-			return nil, fmt.Errorf("abusech: get_info for %s returned status code %d", hash, resp.StatusCode)
-		}
-
-		respBody, err := io.ReadAll(resp.Body)
+		body, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
 		resp.Body.Close()
-		if nil != err {
-			return nil, fmt.Errorf("abusech: reading get_info response for %s: %w", hash, err)
-		}
 
-		var info GetInfoResponse
-		if err := json.Unmarshal(respBody, &info); nil != err {
-			return nil, fmt.Errorf("abusech: parsing get_info response for %s: %w", hash, err)
+		if attempt >= c.maxRetries {
+			return nil, fmt.Errorf("abusech: %s: giving up after %d retries, last status %d: %s", label, attempt, resp.StatusCode, strings.TrimSpace(string(body)))
 		}
-
-		return &info, nil
+		wait := retryAfter(resp, backoff)
+		log.Printf("abusech: %s: status %d, retrying in %s (attempt %d/%d)", label, resp.StatusCode, wait, attempt+1, c.maxRetries)
+		select {
+		case <-time.After(wait):
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		}
+		backoff *= 2
 	}
+}
+
+// GetInfo queries the abuse.ch MalwareBazaar API for details about a single
+// hash. Requests are throttled by the Client's shared rate limiter, and
+// rate-limited or gateway-error responses are retried with backoff.
+func (c *Client) GetInfo(ctx context.Context, hash string) (*GetInfoResponse, error) {
+	form := url.Values{}
+	form.Set("query", "get_info")
+	form.Set("hash", hash)
+	encodedForm := form.Encode()
+
+	resp, err := c.doWithRetry(ctx, fmt.Sprintf("get_info %s", hash), func() (*http.Request, error) {
+		req, err := http.NewRequestWithContext(ctx, http.MethodPost, baseURL, strings.NewReader(encodedForm))
+		if nil != err {
+			return nil, err
+		}
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		req.Header.Set("Auth-Key", c.authKey)
+		return req, nil
+	})
+	if nil != err {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if 200 != resp.StatusCode {
+		body, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
+		return nil, fmt.Errorf("abusech: get_info for %s returned status %d: %s", hash, resp.StatusCode, strings.TrimSpace(string(body)))
+	}
+
+	respBody, err := io.ReadAll(resp.Body)
+	if nil != err {
+		return nil, fmt.Errorf("abusech: reading get_info response for %s: %w", hash, err)
+	}
+
+	var info GetInfoResponse
+	if err := json.Unmarshal(respBody, &info); nil != err {
+		return nil, fmt.Errorf("abusech: parsing get_info response for %s: %w", hash, err)
+	}
+
+	return &info, nil
 }

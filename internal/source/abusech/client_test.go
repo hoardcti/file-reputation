@@ -211,6 +211,63 @@ func TestClient_GetInfo_UnexpectedStatus(t *testing.T) {
 		t.Fatal("GetInfo: expected error for 500 response, got nil")
 	}
 	if 1 != atomic.LoadInt64(&requests) {
-		t.Errorf("server received %d requests, want 1 (no retry on non-429 errors)", requests)
+		t.Errorf("server received %d requests, want 1 (500 isn't in the retryable set)", requests)
+	}
+}
+
+func TestClient_GetInfo_RetriesOn502(t *testing.T) {
+	const hash = "1e934f76b891d4be57a5ef60fdf52235d10ccada12b061645238cf4f68b02b48"
+
+	var requests int64
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if 1 == atomic.AddInt64(&requests, 1) {
+			w.WriteHeader(http.StatusBadGateway)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"query_status":"ok","data":[{"sha256_hash":"` + hash + `"}]}`))
+	}))
+	defer server.Close()
+
+	c, err := NewClient("test-key", WithHTTPClient(testHTTPClient(server.URL)), WithMaxRetries(2))
+	if nil != err {
+		t.Fatalf("NewClient: unexpected error: %v", err)
+	}
+	defer c.Close()
+
+	info, err := c.GetInfo(context.Background(), hash)
+	if nil != err {
+		t.Fatalf("GetInfo: unexpected error: %v", err)
+	}
+	if "ok" != info.QueryStatus {
+		t.Errorf("QueryStatus = %q, want ok", info.QueryStatus)
+	}
+	if 2 != atomic.LoadInt64(&requests) {
+		t.Errorf("server received %d requests, want 2 (one 502 then one 200)", requests)
+	}
+}
+
+func TestClient_GetInfo_SetsUserAgent(t *testing.T) {
+	const hash = "1e934f76b891d4be57a5ef60fdf52235d10ccada12b061645238cf4f68b02b48"
+
+	var gotUserAgent string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		gotUserAgent = r.Header.Get("User-Agent")
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"query_status":"ok","data":[{"sha256_hash":"` + hash + `"}]}`))
+	}))
+	defer server.Close()
+
+	c, err := NewClient("test-key", WithHTTPClient(testHTTPClient(server.URL)))
+	if nil != err {
+		t.Fatalf("NewClient: unexpected error: %v", err)
+	}
+	defer c.Close()
+
+	if _, err := c.GetInfo(context.Background(), hash); nil != err {
+		t.Fatalf("GetInfo: unexpected error: %v", err)
+	}
+	if userAgent != gotUserAgent {
+		t.Errorf("User-Agent = %q, want %q", gotUserAgent, userAgent)
 	}
 }
