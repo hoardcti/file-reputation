@@ -52,3 +52,29 @@ jobs:
           fi
           git commit -m "Update data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push origin HEAD:data
+
+      - name: Update stats.json
+        env:
+          GH_TOKEN: ${{ secrets.BOT_PAT }}
+        run: |
+          git clone --filter=blob:none --no-checkout --depth 1 --single-branch --branch data \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" data-clone
+
+          FILE_COUNT=$(git -C data-clone ls-tree -r --name-only HEAD | wc -l)
+          LAST_EDIT=$(TZ=UTC git -C data-clone log -1 --date=format-local:'%Y-%m-%dT%H:%M:%SZ' --format=%cd HEAD)
+          rm -rf data-clone
+
+          cat > stats.json <<EOF
+          {
+              "files": $FILE_COUNT,
+              "last_edit": "$LAST_EDIT"
+          }
+          EOF
+
+          git add stats.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Update stats $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push origin HEAD:main
