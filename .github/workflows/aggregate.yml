@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  generate:
+  aggregate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,11 +22,11 @@ jobs:
         with:
           go-version-file: go.mod
 
-      - name: Run generator
+      - name: Run aggregator
         env:
           API_KEY: ${{ secrets.ABUSECH_API_KEY }}
           OUTPUT_DIR: out
-        run: go run .
+        run: go run ./cmd/aggregate
 
       - name: Commit out/ to data branch
         run: |
