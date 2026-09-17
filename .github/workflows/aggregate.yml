@@ -61,12 +61,14 @@ jobs:
             "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" data-clone
 
           FILE_COUNT=$(git -C data-clone ls-tree -r --name-only HEAD | wc -l)
-          LAST_EDIT=$(TZ=UTC git -C data-clone log -1 --date=format-local:'%Y-%m-%dT%H:%M:%SZ' --format=%cd HEAD)
+          FILE_COUNT_FMT=$(printf "%d" "$FILE_COUNT" | rev | sed 's/\([0-9]\{3\}\)/\1,/g' | rev | sed 's/,$//')
+          EPOCH=$(git -C data-clone log -1 --format=%ct HEAD)
+          LAST_EDIT=$(date -u -d "@$EPOCH" +"%-d %b %Y, %H:%M UTC")
           rm -rf data-clone
 
           cat > stats.json <<EOF
           {
-              "files": $FILE_COUNT,
+              "files": "$FILE_COUNT_FMT",
               "last_edit": "$LAST_EDIT"
           }
           EOF
