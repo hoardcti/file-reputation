@@ -6,7 +6,7 @@ Collects file hash reputation data from public threat intelligence sources and e
 
 Security tooling often needs to answer one question quickly: *is this file hash known, and what is known about it?* Public sources publish this data in different formats, hash algorithms and timestamp conventions, so every consumer ends up writing the same parsers.
 
-`file-reputation` is a Hoard CTI source module. It pulls hash lists and sample metadata from upstream sources and stores each sample as its own JSON file, named by its SHA256 hash.
+[`file-reputation`](https://github.com/hoardcti/file-reputation) is a Hoard CTI source module. It pulls hash lists and sample metadata from upstream sources and stores each sample as its own JSON file, named by its SHA256 hash.
 
 It stores reputation data only. It does not download, execute or scan files.
 
@@ -77,6 +77,9 @@ python .github/scripts/secret_scan.py --mode tree
 ```
 
 ```bash
+# Run
+go run -tags dev ./cmd/aggregate
+
 # Build
 go build ./...
 
