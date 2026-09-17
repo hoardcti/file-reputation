@@ -142,7 +142,7 @@ func Aggregate() error {
 		// Check if the file already exists to avoid overwriting existing samples.
 		_, err := os.Stat(filePath)
 		if os.IsNotExist(err) {
-			sampleJSON, err := json.MarshalIndent(sample.ToSample(), "", "  ")
+			sampleJSON, err := json.Marshal(sample.ToSample())
 			if nil != err {
 				return err
 			}
