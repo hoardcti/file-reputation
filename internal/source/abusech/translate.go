@@ -1,9 +1,8 @@
 package abusech
 
 import (
-	"time"
-
 	"github.com/hoardcti/file-reputation/internal/feed"
+	"time"
 )
 
 // SourceName identifies abuse.ch's MalwareBazaar as a feed.Sample source.

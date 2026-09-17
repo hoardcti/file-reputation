@@ -111,6 +111,7 @@ HEURISTIC_EXEMPT_PATHS = re.compile(
     r"|(^|/)(test_[^/]+|[^/]+_test|conftest)\.(py|go|rb|js|ts|rs|java)$"
     r"|[^/]+\.(test|spec)\.(js|jsx|ts|tsx)$"
     r"|\.(md|rst|txt|lock)$"
+    r"|(^|/)go\.sum$"
 )
 
 # Literal values published in vendor documentation. These are not secrets and
