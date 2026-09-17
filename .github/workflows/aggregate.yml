@@ -1,0 +1,52 @@
+name: Aggregate data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *" # hourly, adjust or remove
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-branch
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run generator
+        env:
+          API_KEY: ${{ secrets.ABUSECH_API_KEY }}
+          OUTPUT_DIR: out
+        run: go run .
+
+      - name: Commit out/ to data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin data >/dev/null; then
+            git fetch --depth 1 origin data:refs/remotes/origin/data
+            git worktree add --detach data-branch origin/data
+          else
+            git worktree add --orphan -b data data-branch
+          fi
+
+          rsync -a --delete --exclude .git out/ data-branch/
+
+          cd data-branch
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Update data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push origin HEAD:data

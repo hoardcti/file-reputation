@@ -10,7 +10,7 @@ import (
 
 func Load(path string) error {
 	err := godotenv.Load()
-	if err != nil {
+	if nil != err {
 		log.Printf("load .env: %v", err)
 	}
 
