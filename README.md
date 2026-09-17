@@ -17,9 +17,9 @@ It is intended for:
 
 ### Sources
 
-| Source | Data | Access |
-|---|---|---|
-| [MalwareBazaar](https://bazaar.abuse.ch/) (abuse.ch) | Malware sample hashes (SHA256, SHA1, MD5), imphash, TLSH, ssdeep, signature, tags | Free Auth-Key required ([auth.abuse.ch](https://auth.abuse.ch/)) |
+| Source | Data |
+|---|---|
+| [MalwareBazaar (abuse.ch)](https://bazaar.abuse.ch/) | Malware sample hashes (SHA256, SHA1, MD5), imphash, TLSH, ssdeep, signature, tags |
 
 ### Output
 
@@ -104,4 +104,4 @@ for the private disclosure process.
 
 Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
-Upstream data is subject to each source's own terms. MalwareBazaar data is published under CC0.
+- [MalwareBazaar (abuse.ch)](https://bazaar.abuse.ch/) data is published under CC0.
