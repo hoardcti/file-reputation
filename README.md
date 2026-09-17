@@ -44,18 +44,36 @@ go build ./...
 
 ## Usage
 
+### API
+
+The API is the recommended way to query single hashes. It returns proper JSON on both hits and misses, and it is stable across the storage changes described below.
+
+Look up a hash:
+
+```bash
+curl -fsSL https://api.hoardcti.com/v1/file-reputation/<sha256>
+```
+
+A `404` with `{"query_status":"not_found"}` means the hash is not in the dataset.
+
+Module metadata — version, record count, last update time and repository URL:
+
+```bash
+curl -fsSL https://api.hoardcti.com/v1/file-reputation
+```
+
+Lookups are by SHA256 only. Responses are cached for 5 minutes.
+
+### Direct access
+
 > [!WARNING]
-> Storing output on the `data` branch is **temporary**. The storage and distribution mechanism will change as Hoard CTI's architecture is finalised. Do not build production integrations against the `data` branch or its layout.
+> Storing output on the `data` branch is **temporary**. The storage and distribution mechanism will change as Hoard CTI's architecture is finalised. Do not build production integrations against the `data` branch or its layout — use the API above.
 
 All collected data is currently committed to the [`data`](https://github.com/hoardcti/file-reputation/tree/data) branch as one JSON file per sample, named `<sha256>.json`.
-
-Look up a single hash:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/hoardcti/file-reputation/data/<sha256>.json
 ```
-
-A `404` means the hash is not in the dataset.
 
 Fetch the whole dataset:
 
