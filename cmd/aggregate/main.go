@@ -1,10 +1,14 @@
 package main
 
 import (
-	"github.com/hoardcti/file-reputation/internal/devenv"
-	"github.com/hoardcti/file-reputation/internal/source/abusech"
+	"context"
 	"log"
 	"os"
+	"os/signal"
+	"syscall"
+
+	"github.com/hoardcti/file-reputation/internal/devenv"
+	"github.com/hoardcti/file-reputation/internal/source/abusech"
 )
 
 func main() {
@@ -13,18 +17,23 @@ func main() {
 		log.Fatalf("load .env: %v", err)
 	}
 
-	// Check if the "out" directory exists, and create it if it doesn't.
-	_, err := os.Stat("./out")
-	if os.IsNotExist(err) {
-		err := os.Mkdir("./out", 0755)
-		if nil != err {
-			log.Fatalf("failed to create 'out' directory: %v", err)
-		}
+	authKey := os.Getenv("ABUSECH_API_KEY")
+	if "" == authKey {
+		log.Fatalf("ABUSECH_API_KEY environment variable is not set")
 	}
+
+	client, err := abusech.NewClient(authKey)
+	if nil != err {
+		log.Fatalf("abusech: %v", err)
+	}
+	defer client.Close()
+
+	// Stop cleanly on Ctrl+C / SIGTERM instead of leaving partial work behind mid-request.
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
 
 	// Aggregate data from abuse.ch's MalwareBazaar feed.
-	if err := abusech.Aggregate(); nil != err {
+	if err := client.Aggregate(ctx); nil != err {
 		log.Fatalf("aggregate: %v", err)
 	}
-
 }
