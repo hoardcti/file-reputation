@@ -1,0 +1,213 @@
+{
+  "hashes": {
+    "sha256": "fe6c540c57cc17b28c6f26bde4cf06d7b1f2d274953ba9fbc76f8cbcc9aabe8d",
+    "sha1": "da296ec7da6556ec54c62e65b6a02ee4603244f9",
+    "md5": "46539faa7675496ab1fd3608bb0d6f4b",
+    "sha3_384": "0fd3381066cf12b7b8afffdc496ba79195ade1cd5a9a3d26839306ebd7d6215a1406e9f7e3d872dbaedd51dc6af679ee",
+    "tlsh": "T1444423FFA60A8AE3F0643F78FB75C290660FD2CB43417AA4736171A554F5E05836A349",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:7WzaO+5d4cLcop9w6B5GfolAIHTn6slLiwS7gKmUL5j9Z/g0o:WTIdLcE9lmoPzVLOsUFj9Xo"
+  },
+  "file_metadata": {
+    "names": [
+      "sever1078.arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 267852,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3918585\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "cccfc7ef71caea5b4b41ff177a441ce057b16cc28878ecfdd3c3bb04f109c186"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "58f9b774220a86444a18e1d506bec81d"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/fe6c540c57cc17b28c6f26bde4cf06d7b1f2d274953ba9fbc76f8cbcc9aabe8d\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aad52c5c866250f1721e961\/reports\/76064701-bc20-4cd4-a56b-e6f47fb95b41\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5100076c-3e15-4cb5-9739-a3663a199e7b?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260918-sd87wsxdmc\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (22417) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "bigbigvol.qd.je"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-18T15:00:42Z",
+  "last_seen": null
+}

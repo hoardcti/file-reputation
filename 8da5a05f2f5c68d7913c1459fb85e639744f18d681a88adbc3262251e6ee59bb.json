@@ -1,0 +1,134 @@
+{
+  "hashes": {
+    "sha256": "8da5a05f2f5c68d7913c1459fb85e639744f18d681a88adbc3262251e6ee59bb",
+    "sha1": "0853f2180477b1dccf77fd52bb38a2279e051ddf",
+    "md5": "93321cf113b1ee91f25e5fa906e23b44",
+    "sha3_384": "161df4429233b309314ccf269b10604fd6c4d6a704114a1813935c5f4aff2ae50f2844e5ab653376e3878e49a56e1316",
+    "tlsh": "T1BB9323053B8C95E010CDDDBE0FC06CA956AEE072D3DADC9C66CF5A84AB43AFA459C474",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:be1FJGsdpjk0oNuPtgtQCTpnF9Q90adz4zcpNpfO+GL1jfrwNdW9/qSw7ieYi:bkF8spjPyuP+JpF9Q9Pz4zWOL1jfUnCu"
+  },
+  "file_metadata": {
+    "names": [
+      "8da5a05f2f5c68d7913c1459fb85e639744f18d681a88adbc3262251e6ee59bb.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "sh",
+    "size": 96179,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "OBFUS_PowerShell_Common_Replace",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the common usage of replace for obfuscation",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "SUSP_PowerShell_Base64_Decode",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects PowerShell code to decode Base64 data. This can yield many FP",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8da5a05f2f5c68d7913c1459fb85e639744f18d681a88adbc3262251e6ee59bb\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aad73c53fd5d6bbb5c7ed9c\/reports\/b4221b4f-6d57-4960-b674-2ac19330abe2\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Pantera",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-16 01:20:15",
+        "scanner_count": "24",
+        "scanner_match": "7",
+        "scanner_percent": "29.17"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/260918-vywhmsyfmg\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-18T16:40:34Z",
+  "last_seen": null
+}
