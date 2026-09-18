@@ -161,7 +161,7 @@ func (c *Client) fetchAndSave(ctx context.Context, sha256 string) error {
 		return nil
 	}
 
-	sampleJSON, err := json.Marshal(info.Data[0].ToSample())
+	sampleJSON, err := json.MarshalIndent(info.Data[0].ToSample(), "", "  ")
 	if nil != err {
 		return fmt.Errorf("abusech: marshaling sample %s: %w", sha256, err)
 	}
