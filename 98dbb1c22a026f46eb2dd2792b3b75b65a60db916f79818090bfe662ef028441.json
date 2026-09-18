@@ -1,0 +1,172 @@
+{
+  "hashes": {
+    "sha256": "98dbb1c22a026f46eb2dd2792b3b75b65a60db916f79818090bfe662ef028441",
+    "sha1": "62709c923a381f8e261d9c94505ed2ae7cfe4a2c",
+    "md5": "0e6374e223ba4fe114b32c797f324600",
+    "sha3_384": "c5c6b6f839cf3d596354a63f1ad138b5ec138187d4c9505a8c415a93b723a14b9d6e28a942199d680171301272241f43",
+    "tlsh": "T16BD3A668F7544B6D74840F8BE4E97E0EA1F3270ACE5262DC3286394F254FDAD630A947",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:LjHQZcODR8w7AmXGHhwBXqT5bq4ubChdRdUOXP+Dmt/j3TpmdxVBmNlAs+iDBx1D:LSF38BHhwzcdtRJ6xHk+4rpckx"
+  },
+  "file_metadata": {
+    "names": [
+      "6ez.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 133649,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "rhadamanthys_ps1_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Double_Base64_Encoded_Executable_RID34CC",
+        "author": "Florian Roth",
+        "description": "Detects an executable that has been encoded with base64 twice",
+        "reference": "https://twitter.com/TweeterCyber/status/1189073238803877889"
+      },
+      {
+        "rule_name": "SUSP_PowerShell_Base64_Decode",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects PowerShell code to decode Base64 data. This can yield many FP",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/98dbb1c22a026f46eb2dd2792b3b75b65a60db916f79818090bfe662ef028441\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aadacb66d39aeaa37b8f52c\/reports\/86b70778-6b2f-482b-9b9c-f77a0081a642\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "2026-09-18T17:16:00Z",
+        "last_seen": "2026-09-18T17:31:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/98dbb1c22a026f46eb2dd2792b3b75b65a60db916f79818090bfe662ef028441\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-18 21:27:40",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "njrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260918-1av5vss13k\/",
+        "tags": [
+          "family:njrat",
+          "botnet:hacked",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: njRAT\/Bladabindi",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Deobfuscate\/Decode Files or Information",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "njrat",
+            "c2": "127.0.0.1:3316"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-18T21:27:03Z",
+  "last_seen": null
+}
