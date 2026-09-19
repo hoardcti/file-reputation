@@ -1,0 +1,235 @@
+{
+  "hashes": {
+    "sha256": "5385a2b091db5ae12804074a1d0736f4444d9996ca5904524f0393034424d5e8",
+    "sha1": "c6b87c8a576320534fbfc23b3a2af6c4d9011d15",
+    "md5": "6cfd18ba35f3be6cc43c926296c1e071",
+    "sha3_384": "22e613e2f6dd4d90c36e02eb84cc291ed8be84718da71a0c6ad52a36583c9bc4802e7f93aa02b4518eaa6d1e1b90957a",
+    "tlsh": "T13C0833826D376E1BFC32057A928AB1E319D3BD39994B91D4EE0DFF1861701486D2CC2B",
+    "imphash": "9be4f90f50c714bc00cc8beb2e137299",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:PHy9M+L/ZiLvurT2CsBjiYgOxHzOB7GHGqOTydSzgBVoDpnsB0s:fuL/OoSCkGY7THG5TydSzGeFnNs",
+    "dhash_icon": "e4b0e0d4e0f0e871"
+  },
+  "file_metadata": {
+    "names": [
+      "LetsVPN.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 77541416,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "exe",
+      "signed",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_NSIS_Nullsoft_Installer",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects NSIS installers by .ndata section + NSIS header string",
+        "reference": null
+      },
+      {
+        "rule_name": "PE_Digital_Certificate",
+        "author": "albertzsigovits",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-09-19 20:00:31",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8c698c2a-985e-47c5-a5b3-d36687a5845e",
+          "tags": []
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaee8059257ef097227c4f6\/reports\/fd8c713c-9b3b-49bb-adcb-1d1609f6e5a2\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260919-ylq9yaxvd1\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "discovery",
+          "execution",
+          "installer",
+          "persistence",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "43.248.172.115:16443"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "43.248.172.115:5443"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "43.248.172.115:1443"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "ValleyRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/5385a2b091db\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "25",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "亚洲诚信代码签名测试证书",
+      "issuer_cn": "TrustAsia Code Signing CA",
+      "algorithm": "sha1WithRSAEncryption",
+      "valid_from": "2018-01-29T05:39:00Z",
+      "valid_to": "2020-01-29T05:39:00Z",
+      "serial_number": "0a",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T19:51:50Z",
+  "last_seen": null
+}
