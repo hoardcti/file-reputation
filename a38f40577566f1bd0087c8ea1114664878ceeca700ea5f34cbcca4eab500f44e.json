@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "a38f40577566f1bd0087c8ea1114664878ceeca700ea5f34cbcca4eab500f44e",
+    "sha1": "c4bcba533ee6940e40e77f7912766c33a35d04fa",
+    "md5": "c4e1468c2cddde592e7a7928653656b9",
+    "sha3_384": "5a9d084fe7d20d46ebacb4f163cb2e50aad2d0ceb26b9585ad791bfcd8c195a0a8a95aea0c3ddf7620099669600bcf5b",
+    "tlsh": "T1A124841139C0A375164EDCB72D814C199ED9F533D38A985C7ACE49C5AF87AF886E8C38",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:NYjHjD1kG/FnKNWzEof0RoWNFrEbR1GD0cTiLqPe1Tf7UfltL2M8q9vjLz0qrm0+:kJ/FnUBDrEXGDtTiLqML7OlbDJPz0Hpz"
+  },
+  "file_metadata": {
+    "names": [
+      "DC-F1-B1-F9-F4-6B.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 216085,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/260919-phrxmaty5m\/behavioral2"
+      },
+      {
+        "context": "dropped_by_malware",
+        "value": "ACRStealer"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "4f648bf2c2076533a0d5b887665a057cf6a5d4143711b08c7a9f34e87d3064b2"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "63b43a4d13490e53a46a4ffbde9c5cc8"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "178-104-144-200",
+      "Arechclient2",
+      "AsgardProtector",
+      "dropped-by-ACRStealer",
+      "ps1",
+      "SectopRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "SUSP_PowerShell_Base64_Decode",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects PowerShell code to decode Base64 data. This can yield many FP",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a38f40577566f1bd0087c8ea1114664878ceeca700ea5f34cbcca4eab500f44e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aae805cbf0a877a92dca37e\/reports\/d9ca4773-ff7e-4dcd-8a38-3a3af3a0c20d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-19 11:20:16",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "sectoprat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260919-ppmaqafd56\/",
+        "tags": [
+          "family:sectoprat",
+          "execution",
+          "persistence",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: SectopRAT",
+            "score": "10"
+          },
+          {
+            "signature": "SectopRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T12:29:45Z",
+  "last_seen": null
+}

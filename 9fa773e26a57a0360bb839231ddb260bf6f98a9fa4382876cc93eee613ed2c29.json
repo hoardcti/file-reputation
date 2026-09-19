@@ -1,0 +1,257 @@
+{
+  "hashes": {
+    "sha256": "9fa773e26a57a0360bb839231ddb260bf6f98a9fa4382876cc93eee613ed2c29",
+    "sha1": "f87e005c1f391a37c8923dfcbc893a1dcef9bd03",
+    "md5": "bbe825f727b4a739812229281da14f9b",
+    "sha3_384": "c6186b5e5c5ce2097295a605d3eeded2f7a621f9714d4150667519f71842d7e95cc6bf675fe51162c45ad51541d0b95a",
+    "tlsh": "T106041956F880DE66C6D1267AFA9D429C331317B8D3DA7002DD20AF2937EB45E0B3E546",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:0OzJ05P9VRmduC2f9vzdkE6nQXrl1VSwymSwPY1icSSlIO4zJnwozzJI4tx5kRv3:0cJ0Fp6nQbl1VSw3M1i8IO2JnwozzJI3"
+  },
+  "file_metadata": {
+    "names": [
+      "libbot.so"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 182112,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "7ae6b2c0002be8692a79a02b43dd62d333d727d953768f2c5c0f0f43c2e1f998"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "9052df2beb922887ee6aa833d61d21bc"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "deepfield_potassium_mirai_variant",
+        "author": "Nokia Deepfield ERT",
+        "description": "Detects Potassium Mirai variant (ChaCha20 table, HTTP C2 with token/guid, .woof dropper). Also known as Woof (internal) and Dichter (related variant with Dutch C2 domains, same key material).",
+        "reference": "Internal analysis of sample 6ef4ce02; external: @deobfuscately"
+      },
+      {
+        "rule_name": "elf_arm_mips_ko_so",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "enterpriseapps2",
+        "author": "Tim Brown @timb_machine",
+        "description": "Enterprise apps",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_OHSHIT_payload",
+        "author": "AfterPacket",
+        "description": "MIRAI_OHSHIT ELF payload -- compiled-in C2 set, all architectures",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "NSVPS_Hydra_SSH_Bruteforce",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Hydra SSH brute-force campaign credentials pattern from NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "test_rule_vldslv",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9fa773e26a57a0360bb839231ddb260bf6f98a9fa4382876cc93eee613ed2c29\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aae6a1bf9d8f16fca3444aa\/reports\/bd262e41-943f-4f07-bb78-2d8f0bfa6748\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/1b3c441d-9ce0-41cc-a8a8-13257d8a6337?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260919-m1apyszble\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies rc script",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Performs a bruteforce attack in the network"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T10:54:21Z",
+  "last_seen": null
+}
