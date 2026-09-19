@@ -1,0 +1,151 @@
+{
+  "hashes": {
+    "sha256": "b3ee99af1e9dc43036a5832b6aa4fbf6ac995bcea2d6fce9e933b2ee74550411",
+    "sha1": "c824dbb96b258b16571127338361c5e9a7421636",
+    "md5": "a85d2d98bae09d5ae53922aacd44debd",
+    "sha3_384": "001905725bf0ad1a400461c061f26136e52f155f89556066cfb6d29ac1f421fc23a0c97fd90922182ac854a4962d0759",
+    "tlsh": "T104734B21F9391927C0D5A17A21F74B23B5F643CE20A8861F3E710F9DBF615403A57AB9",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:0km4j59k6XTXypv4u4YF7tR7SYm5BHxS1H1tTJfT:7PQbrL7SYOBR2JfT"
+  },
+  "file_metadata": {
+    "names": [
+      "Space.spc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 80032,
+    "format": "ELF",
+    "arch": "SPARC",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3919107\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Gafgyt_28a2fe0c",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b3ee99af1e9dc43036a5832b6aa4fbf6ac995bcea2d6fce9e933b2ee74550411\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf116a3ff5796b437dee1e\/reports\/56d9e6b2-1fbb-45f1-9211-59e5a66d4aff\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/b87642c1-e58c-4462-85d7-d2db592b4130?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260919-2rq3xat18r\/",
+        "tags": [
+          "family:mirai",
+          "botnet:lzrd",
+          "botnet",
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "176.65.139.206"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T22:48:37Z",
+  "last_seen": null
+}

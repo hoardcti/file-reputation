@@ -1,0 +1,180 @@
+{
+  "hashes": {
+    "sha256": "3acb3901111c81c4204026c3fea5dfd7d3e78c019fd35422f98e42db058ba98d",
+    "sha1": "001ca8437529898c15175ba47d41519fa76933bd",
+    "md5": "591d00c6f51721d98d5e0c4e83949141",
+    "sha3_384": "5c8acdca845b0a43fc2d49ab0b1cde70bb7183ca73712ca6c50a30c93048458469050247b327007e9689494a1dadd436",
+    "tlsh": "T17A03E17C0D0904F5E46AC57EA2FD43E0753207A95941CE5A3254F6ABAA0E4BC78E27EC",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:cgN29x3ZpzZ5VjNuvtE54Fe7GbxBDbYsPs4P5WI4+xgJgGlzDpbuR1Jf:q9xJZZNKNFjBfRUMaVJud"
+  },
+  "file_metadata": {
+    "names": [
+      "Space.mips"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 38076,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "unknown",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3919094\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "f385a3133a314ce7fde0e5d6d91980bd08661070e37695ab57f48c64b7ece84f"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "ccb6f89cd6ec79a0f1c2d3433f1c7815"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3acb3901111c81c4204026c3fea5dfd7d3e78c019fd35422f98e42db058ba98d\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf1a5322f286643d74744f\/reports\/f9a88949-f80b-421c-8adf-6a03f8fd12b5\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/e04fa6e0-e8f5-48ef-9597-656aab9ca127?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-19 23:27:36",
+        "scanner_count": "36",
+        "scanner_match": "18",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260919-3ff91agl81\/",
+        "tags": [
+          "family:mirai",
+          "botnet:lzrd",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "176.65.139.206"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T23:26:43Z",
+  "last_seen": null
+}

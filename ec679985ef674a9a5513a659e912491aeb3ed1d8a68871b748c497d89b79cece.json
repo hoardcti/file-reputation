@@ -1,0 +1,250 @@
+{
+  "hashes": {
+    "sha256": "ec679985ef674a9a5513a659e912491aeb3ed1d8a68871b748c497d89b79cece",
+    "sha1": "31caa1da02b4e46a832272b6f8e20d47ff27f808",
+    "md5": "152d537570c2a0bdfd9f8eee88f888f8",
+    "sha3_384": "09fb6e4715677ad91557873c2a45deedd11e1b7da3df4626ae6b4e8d17f8bf78f0a203abba9463134e4db6b416b193c2",
+    "tlsh": "T121F733C51238D89FDAC131BF7F50492EC72988B356D92E1D26E760627B72EE09327712",
+    "imphash": "b34f154ec913d2d2c435cbd644e91687",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:aejOYfNsQHrhRFy1InQ4IX8S14kS4nbAiokghZQuuRgYvUf7:a4OOV84IXNGF9LhK3yhf7",
+    "dhash_icon": "b2a89c96a2cada72"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 72643011,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "50.3% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "10.6% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "10.5% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "8.1% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "7.2% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Amadey"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "9d2ca3",
+      "dropped-by-Amadey",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_NSIS_Nullsoft_Installer",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects NSIS installers by .ndata section + NSIS header string",
+        "reference": null
+      },
+      {
+        "rule_name": "GenesisStealer_Installer_NSIS_MaaS_Template",
+        "author": "n3r",
+        "description": "GenesisStealer NSIS installer (MaaS template). Imphash-based broad detector - also catches ScarfaceStealer / RemusStealer / VoidStealer variants sharing the same installer shell.",
+        "reference": null
+      },
+      {
+        "rule_name": "NSIS",
+        "author": "kevoreilly",
+        "description": "NSIS Integrity Check function",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-09-19 23:16:37",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/dee19e74-544d-41c6-82d4-f98e96b10e51",
+          "tags": []
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf15eb4dde0a0ffe7ac2cf\/reports\/2dccffa4-891d-4f38-9190-c434a84eae1c\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260919-24qb5sce38\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the %AppData% subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-19T23:07:40Z",
+  "last_seen": "2026-09-19T23:09:52Z"
+}
