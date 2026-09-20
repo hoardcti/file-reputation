@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    "sha256": "36dabc40fa8983ce900a90b8156d2c754875fe1b5413a997843c4a0ef3908220",
+    "sha1": "9c47ed07a762333a5b43c1a83933fcb4d819be29",
+    "md5": "ef11f2dd2e67ebad15df7f06dc1709e0",
+    "sha3_384": "1a41853536acd68f8ebeba4056eb31d2147e4279061ee258052acaaf914ff9152af06f3dd3101765b47b028b58f2123d",
+    "tlsh": "T1FB122F47A2D0CE3FC8E953384467122472B794BADF629713064915B53F427E81E6EB8B",
+    "imphash": null,
+    "telfhash": "t112b09b025470515d9bf561781c2588971245c1a3c5415f505d51f7549a3f48d905cb55",
+    "gimphash": null,
+    "ssdeep": "96:GqTVJWWGXzS66H5ML09V1J9G8Ym60+hrsrwegVekrf7mxaamBFBp8sBRnsH5vZAC:GqnWWH5ZMWT1YmuhrsnurfjTr8sbnsl"
+  },
+  "file_metadata": {
+    "names": [
+      "36dabc40fa8983ce900a90b8156d2c754875fe1b5413a997843c4a0ef3908220.elf"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 9800,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Snowlight",
+    "tags": [
+      "elf",
+      "Snowlight"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_3fa2df51",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "malware_SNOWLIGHT_ELF",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "SNOWLIGHT",
+        "reference": "https://sect.iij.ad.jp/blog/2025/11/unc5174-windows-snowlight-in-2025/"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/36dabc40fa8983ce900a90b8156d2c754875fe1b5413a997843c4a0ef3908220\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf6a446fbc0ae5a9b91c32\/reports\/86d7268c-5a7f-4d29-aa42-18e0d9735ff1\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a254c870-6d47-422c-a428-bf65e3677902?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Snowlight",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-20 05:08:18",
+        "scanner_count": "36",
+        "scanner_match": "18",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "snowlight",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260920-fsn42ssdmh\/",
+        "tags": [
+          "family:snowlight",
+          "actor:unc5174",
+          "apt",
+          "discovery",
+          "linux",
+          "loader"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "snowlight",
+            "c2": "82.157.13.47"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T05:08:03Z",
+  "last_seen": null
+}

@@ -1,0 +1,165 @@
+{
+  "hashes": {
+    "sha256": "d3c88d0ed2b95f6d13c04aaee1481c31a4ea8a4eb8f7d1dfcb5b38346e1c8b5f",
+    "sha1": "35c713abd18aa9a1dce464d141f94898bb9d6904",
+    "md5": "6b915fb2761245393ae8861fe7cfb7f8",
+    "sha3_384": "8123d9d26549093913c0428d46dab3ad1d93635a0397462aecb76ac518b7f6ebcb330be9f86587f5f4636e7099cb9309",
+    "tlsh": "T15B41D9C910600E71A1B2CA5E737FB848B19EE1E7269F4BD1889C3DB95648BC4F146F1D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:EyyOCsGN2b9yDMZbPdQlQreC6E11fwmO5gCDMA:EylCsGNw9yD4EQreC6i1fbO5gCDMA"
+  },
+  "file_metadata": {
+    "names": [
+      "ssh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1907,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3919198\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202412_suspect_bash_script",
+        "author": "abuse.ch",
+        "description": "Detects suspicious Linux bash scripts",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d3c88d0ed2b95f6d13c04aaee1481c31a4ea8a4eb8f7d1dfcb5b38346e1c8b5f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf709b6fbc0ae5a9b92157\/reports\/23a9f576-d949-4605-92d7-e3ca8cced74f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-20 05:35:30",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260920-f954wsyz5m\/",
+        "tags": [
+          "family:mirai",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "realsus.net"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Mirai",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/d3c88d0ed2b9\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T05:34:47Z",
+  "last_seen": null
+}
