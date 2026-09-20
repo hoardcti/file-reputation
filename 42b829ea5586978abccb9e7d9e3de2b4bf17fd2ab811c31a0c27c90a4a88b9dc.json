@@ -1,0 +1,145 @@
+{
+  "hashes": {
+    "sha256": "42b829ea5586978abccb9e7d9e3de2b4bf17fd2ab811c31a0c27c90a4a88b9dc",
+    "sha1": "6609aaa1704e4e1320f7bd3eb79eb0d10555a0c3",
+    "md5": "98ba4cfedb0352e16a0130c5255a1166",
+    "sha3_384": "66f31287ffa3735e85e3c5b24b730f362e1f8fcec5273e5606e6ffe3bbf69221343796421c4da63eccbd5c9fc3a6671a",
+    "tlsh": "T10D9323053B8C95E010CDDDBE0FC06CA956AEE072D3DADC9C66CF5A84AB43AFA459C474",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:be1FJGsdpjk0oNuPtgtQCTpnF9Q90adz4zcpNpfO+GL1jfrwNdB9/qSw7ieYi:bkF8spjPyuP+JpF9Q9Pz4zWOL1jfUnju"
+  },
+  "file_metadata": {
+    "names": [
+      "322119744CC-4"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 96173,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "pantera",
+      "powershell",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "OBFUS_PowerShell_Common_Replace",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the common usage of replace for obfuscation",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "SUSP_PowerShell_Base64_Decode",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects PowerShell code to decode Base64 data. This can yield many FP",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/42b829ea5586978abccb9e7d9e3de2b4bf17fd2ab811c31a0c27c90a4a88b9dc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaff39715ebb42cbb30e2da\/reports\/f181987b-b372-42d9-a04c-6b8289170239\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Egairtigado",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-19 01:27:11",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260920-r9zgwswx5p\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T13:15:48Z",
+  "last_seen": null
+}

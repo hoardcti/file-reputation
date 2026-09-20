@@ -1,0 +1,366 @@
+{
+  "hashes": {
+    "sha256": "3cfd3c6512de02c73f4a4ce14d9f600fab07f2f7115b88653f5dba49c3e7da98",
+    "sha1": "ce022766dbea3261c223125e5b290527527c26dd",
+    "md5": "b15cfa8ebae212ef69637f4f6ccdbc66",
+    "sha3_384": "e50dc462a6f5e9309154bc542f76b4b4102c385d78fcb1e3fe70a22ed5e2efa568330a763ee7dc7f4773c562a165a039",
+    "tlsh": "T10125AE26AA520CFDC12681B0819B7E7DA763B4543E205E1B1B7DF73D2E30CF1666B618",
+    "imphash": "b8b4e8e858f5f52641b95fa7a3ebe407",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:c3td+H6fS5z0qJkdIoOAy9n0aWQlRYog6:cb+aflqJkaoOH9nVWQ7g"
+  },
+  "file_metadata": {
+    "names": [
+      "rop.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 1018880,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "45.6% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "18.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "13.9% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "5.6% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "5.6% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/87598\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "exe",
+      "pgil",
+      "salatstealer",
+      "u1sm8h"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Check_OutputDebugStringA_iat",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-20 13:30:32",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/50a76512-733e-405e-a2e8-e96a8792521a",
+          "tags": [
+            "uac",
+            "etherhiding",
+            "miner",
+            "corvusminer",
+            "loader",
+            "auto-reg",
+            "xmrig",
+            "themida",
+            "fsg",
+            "vmprotect",
+            "upx"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/87598\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3cfd3c6512de02c73f4a4ce14d9f600fab07f2f7115b88653f5dba49c3e7da98\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aafdc9c8376e3c652d99994\/reports\/811c0b97-6ea7-4677-9d92-eb26d201ab13\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "XMRig Miner",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2fea2447-fb4d-402c-93fe-dcb4c95e4025?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-19 15:04:54",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xmrig",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260920-qhwfgsxtf1\/",
+        "tags": [
+          "family:xmrig",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "themida",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "Suspicious use of NtCreateUserProcessOtherParentProcess",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": "Adds policy Run key to start application",
+            "score": "8"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Registers new Windows logon scripts automatically executed at logon.",
+            "score": "7"
+          },
+          {
+            "signature": "Themida packer",
+            "score": "7"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "3cfd3c6512de02c73f4a4ce14d9f600fab07f2f7115b88653f5dba49c3e7da98",
+          "md5_hash": "b15cfa8ebae212ef69637f4f6ccdbc66",
+          "sha1_hash": "ce022766dbea3261c223125e5b290527527c26dd",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/a9134cb7-e60d-48e8-bdd2-1a849ff17e51\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "XMRig,Petite",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/3cfd3c6512de\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Adding exclusions to Windows Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP POST request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching cmd.exe command interpreter"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T13:15:33Z",
+  "last_seen": null
+}

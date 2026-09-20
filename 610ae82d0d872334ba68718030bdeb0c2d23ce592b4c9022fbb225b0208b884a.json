@@ -1,0 +1,112 @@
+{
+  "hashes": {
+    "sha256": "610ae82d0d872334ba68718030bdeb0c2d23ce592b4c9022fbb225b0208b884a",
+    "sha1": "a949236058ce40a59e23baaf6071f92fd336d870",
+    "md5": "501dd25edd37c057b2ddbf25d2e73a92",
+    "sha3_384": "3ce2dba4534982b6f77a6cb5894a0e42f559baa710544fe30a60353cd85320ed01eecd72ca9d37fa881869ce025d542d",
+    "tlsh": "T1C725E0018EB650D6F9CCDA303B3B99338F616560858951DE63A61E98CE353E3F16B31E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:qDtSwb/GMYXxvZc/0FEh8Ow08cQrM3JwG8WngOYB99rc7IBSN8eqQ:q8Q/G3vZk408/Eng79r83"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_610ae82d0d87.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1003328,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/www.virustotal.com\/gui\/file\/610ae82d0d872334ba68718030bdeb0c2d23ce592b4c9022fbb225b0208b884a"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/ec780ca8df9d10df905f3f77641f88ece7651303843802c37a57c484c6251a42\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/a3dabccd14492f4c70658ece96a3ed7b4e275ff9d70c434298bd6f863d1e24b9\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_B64_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader, 2026-09-18 apph4/cc2 repackaging: no dlsym and no ad-hoc setup- identity, symbols resolved by walking loaded images via __dyld_image_count/__dyld_get_image_header/__dyld_get_image_vmaddr_slide, empty __AUX\u003crand\u003e segment in both slices, payload stored as a long base64 chunk array",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/610ae82d0d872334ba68718030bdeb0c2d23ce592b4c9022fbb225b0208b884a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aaf9fe8188d185f579aa0f7\/reports\/f4d841f5-5de9-492d-8256-65ccaec6f625\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-20 08:57:25",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T08:57:04Z",
+  "last_seen": null
+}
