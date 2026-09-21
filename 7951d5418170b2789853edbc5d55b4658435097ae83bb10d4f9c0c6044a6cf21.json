@@ -1,0 +1,326 @@
+{
+  "hashes": {
+    "sha256": "7951d5418170b2789853edbc5d55b4658435097ae83bb10d4f9c0c6044a6cf21",
+    "sha1": "976a305cbb36810311af6f54dd313a7a3979a178",
+    "md5": "56e1ff3671e6755f234f4c4847090f7f",
+    "sha3_384": "381320d92bda05fb87d984fff202a7027b29652b997c355e10161e9069bbae8ef9c9f17736bd3def88364203a3b5b73c",
+    "tlsh": "T1669733AF6F1631FEDECA4445C1E9CEDC41CD9046DFA2485AD3CC3696F988F90A179228",
+    "imphash": "140094f13383e9ae168c4b35b6af3356",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "786432:TCpTwlL5ZoeOeyfw1lvarlD2ZICRKYDargfH4Irxy8agRxK1Qq:TNp6bfgRxq",
+    "dhash_icon": "e8e87132b2b2b2e8"
+  },
+  "file_metadata": {
+    "names": [
+      "tgproxy.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 40187904,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "32.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "28.9% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "13.0% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "12.8% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "12.8% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Backdoor",
+      "Crysan",
+      "exe",
+      "Kryptik",
+      "QuasarRAT",
+      "Stealer",
+      "TrojanSpy"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-21 17:36:38",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ec94741f-06b3-4eab-8c44-c1bed4b9957c",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "auto",
+            "python",
+            "telegram",
+            "ms-smartcard",
+            "pyinstaller",
+            "upx",
+            "susp-powershell",
+            "golang",
+            "rust",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab169b22557699060487881\/reports\/24f658e6-aa69-4c40-acaf-0616b2d2baee\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Infostealer.Tinba",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-21 17:30:32",
+        "scanner_count": "36",
+        "scanner_match": "26",
+        "scanner_percent": "72.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "salatstealer",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260921-v3cw4adh99\/",
+        "tags": [
+          "family:salatstealer",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "pyinstaller",
+          "spyware",
+          "stealer",
+          "trojan",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect SalatStealer payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: salatstealer",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Detects Pyinstaller",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "SalatStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/7951d5418170\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Delayed reading of the file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a system driver"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Alex_sev",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T17:29:34Z",
+  "last_seen": null
+}

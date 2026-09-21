@@ -1,0 +1,165 @@
+{
+  "hashes": {
+    "sha256": "a05eae6d07b82e2e5451a72266f21fbaf76486ef4920a820988de93e15353a10",
+    "sha1": "40cbe3364429a9c7fb18e73ca1a0b7b611f916f6",
+    "md5": "ca72b6a4cc683973bbe5fd4931179eab",
+    "sha3_384": "158601c8a913100158be4c7fb1356396f41ad67d783d384c0f004e1e7abb1e1d9bab37d478da5683b5dab65e7877814b",
+    "tlsh": "T133E23917A5A374FCC25FD030C6ABD272BC32B46412243E7F63D9DE712D28E616648B26",
+    "imphash": null,
+    "telfhash": "t1030119f18c9624a0b1e7f4627b8dd1b6447d487712a433e5dbb9b4f0e822f841ba1c25",
+    "gimphash": null,
+    "ssdeep": "384:TXUM8N03TPBp+ljDWShQ5N2Fx/mU4pwFrLMPkTp4MWI75c+lcfF7Ru:TXb8NQp+ljDPhwNqx/r4pwuktykDIu"
+  },
+  "file_metadata": {
+    "names": [
+      "vmtools"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 33944,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "elf"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "esxi_commands_ransomware",
+        "author": "Marius 'f0wL' Genheimer \u003chello@dissectingmalwa.re\u003e",
+        "description": "Detects commands issued by Ransomware to interact with ESXi VMs",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a05eae6d07b82e2e5451a72266f21fbaf76486ef4920a820988de93e15353a10\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab18206f073fce9792a6d6a\/reports\/daa5b774-4a4b-4485-83ce-23773879dceb\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5fa3001d-632f-4a44-9ac6-e5fabcc11fb8?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260921-xxq8mswy7j\/",
+        "tags": [
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates a reverse shell",
+            "score": "8"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "94",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T19:14:04Z",
+  "last_seen": null
+}

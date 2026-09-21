@@ -1,0 +1,180 @@
+{
+  "hashes": {
+    "sha256": "c0a728159db3b0ae20d09c4ef2074ed7dcb0176726c29590f82a6ef28f15f81c",
+    "sha1": "7450d41a20b238fa0b1fd32e78e02515474523b5",
+    "md5": "81368a6d0c7b26d3488dfd0d4bba6390",
+    "sha3_384": "ea0b066e2db1b02aff7918184136eae4da19d84ca81ce901151a9a2e7f57188229423283bf51f081938623e9f8d93071",
+    "tlsh": "T1C921D842AECE3E1E9F36E910A1ECE6CA5607718521B024C5AB6E5BC41DC345CD4E059C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:VYl9FOwaDP+Z2xIF/FK8RJugfuDqTdTA7u95vBx+Bdzva2A1:VYl9FQDPkeU3mEuDq5xGNvaj"
+  },
+  "file_metadata": {
+    "names": [
+      "c0a728159db3b0ae20d09c4ef2074ed7dcb0176726c29590f82a6ef28f15f81c.bin"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "bat",
+    "size": 1413,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88035\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "bat"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Base64_Encoded_Powershell_Directives",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-09-21 16:06:33",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/96e2b579-c3c1-461e-8d36-5ad5900f836f",
+          "tags": [
+            "uac-bypass"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88035\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c0a728159db3b0ae20d09c4ef2074ed7dcb0176726c29590f82a6ef28f15f81c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab153da1288bf2e82083220\/reports\/7f5eb562-8763-42d2-9c91-15cc942b4540\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Malware.Boxter",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-01 10:30:58",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260921-td3wjswycy\/",
+        "tags": [
+          "defense_evasion",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Runs net.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "31",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the process to interact with network services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T15:08:54Z",
+  "last_seen": null
+}
