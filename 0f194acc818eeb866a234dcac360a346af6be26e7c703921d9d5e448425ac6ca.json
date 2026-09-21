@@ -1,0 +1,154 @@
+{
+  "hashes": {
+    "sha256": "0f194acc818eeb866a234dcac360a346af6be26e7c703921d9d5e448425ac6ca",
+    "sha1": "1741876e65b0605659cb482b45e0ea35a482a483",
+    "md5": "df31c4b967940efba4a16015628edb17",
+    "sha3_384": "9feba9536bd0d74d6e634b428a8ff0db53612b7846c51fdddc3f3363d446296d33039391590be5984ca26fa931156922",
+    "tlsh": "T1AAB62221A38BC232E15E01B7E42DEE0E9135BDA7073051DBA3F4799E1E724C15A7E792",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:2ylQ2OBDoSXtlVlXFHzO7RPR/GM1BrJrDul2rdhMILox8zhgIX:212O9oSXt3lVTO1PR/H1BrdyMbMILA83"
+  },
+  "file_metadata": {
+    "names": [
+      "ToDesk_hll.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 10667008,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88017\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Async",
+      "AsyncRAT",
+      "msi",
+      "RAT",
+      "SilverFox"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_MSI_LATAM_Banker_From_LatAm",
+        "author": null,
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": "DCRat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88017\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0f194acc818eeb866a234dcac360a346af6be26e7c703921d9d5e448425ac6ca\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab13ce585b878e0b17a3ec8\/reports\/6b242dbf-eb33-4d3d-82c6-2c7660ef5443\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260921-rmz5xa1w7p\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "CNGaoLing",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T14:19:05Z",
+  "last_seen": null
+}

@@ -1,0 +1,183 @@
+{
+  "hashes": {
+    "sha256": "07623448429a02c23d568207e8ff42f08578bdc7fc626d0aa1ad5a56f880853d",
+    "sha1": "40be8216cd904ee60949232dab6dc0c61f1bfab0",
+    "md5": "98cd2594ad5909883b298c0753051cfe",
+    "sha3_384": "c379595b90db21b9732d6eb4724b11068637df88840082a501ca73628cf5af52b8a961197679acd470e24804acb2e775",
+    "tlsh": "T1C5E47C5277318F64E361D27105E3CBA19AA921930AE354C6A37CC7207A50B2D2D6FFF9",
+    "imphash": null,
+    "telfhash": "t17c0126354b2066225a51de8898eea763612c865a9b0cfc77d431440c21050fee63bc8f",
+    "gimphash": null,
+    "ssdeep": "12288:Ziu+6ImQwJ/vPCKddKyi4UXGZEFLSBngpjyw8tN1DOIsuH7:fdImvjS4UXGZEpSB68EIsub"
+  },
+  "file_metadata": {
+    "names": [
+      "07623448429a02c23d568207e8ff42f08578bdc7fc626d0aa1ad5a56f880853d"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 720728,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "auto-submitted",
+      "cowrie",
+      "elf",
+      "honeypot",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ldpreload",
+        "author": "xorseed",
+        "description": null,
+        "reference": "https://stuff.rop.io/"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_0bce98a2",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "malwareelf55503",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_ARM_LNX_Mirai_Mar13_2022",
+        "author": "Mehmet Ali Kerimoglu a.k.a. CYB3RMX",
+        "description": "Detects new ARM Mirai variant",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_OHSHIT_payload",
+        "author": "AfterPacket",
+        "description": "MIRAI_OHSHIT ELF payload -- compiled-in C2 set, all architectures",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-20 20:15:01",
+        "scanner_count": "36",
+        "scanner_match": "21",
+        "scanner_percent": "58.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Performs a bruteforce attack in the network"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamxorum",
+    "anonymous": false,
+    "origin_country": "IR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-20T18:41:50Z",
+  "last_seen": null
+}

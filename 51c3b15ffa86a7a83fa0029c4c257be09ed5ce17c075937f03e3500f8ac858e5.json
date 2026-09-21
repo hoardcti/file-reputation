@@ -1,0 +1,174 @@
+{
+  "hashes": {
+    "sha256": "51c3b15ffa86a7a83fa0029c4c257be09ed5ce17c075937f03e3500f8ac858e5",
+    "sha1": "6b1f01ebc00c7f4f3d7684ecb796ad699852417b",
+    "md5": "d330bc0f51601f41d014234c8464034c",
+    "sha3_384": "388f06b1c4e991735bcb359d6a1ee61a4f30164646d3a90bd5833aff9ed0fbe573f9f9e62e28e9dc57812dbb0259008d",
+    "tlsh": "T1AE51618AE29242B6ACB9D91272A9F41CB0B154D7A5CF3F6F98DC38E4849DE087304642",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:ip7CpuAppOpygpIEpscpSOSOkpzipEzuLpd4JpewpwIpB+pnWp/0/Wbbyv:ioDW35NcAsuLCLpu4J8"
+  },
+  "file_metadata": {
+    "names": [
+      "ar15.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 2999,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3919793\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "c9f5d40dff610f8436f01cc0c2ffa418"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "cdd2834bc0dff9a8cd1952389a80c41d5e840c68c303e622ad1e755860293adb"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202412_suspect_bash_script",
+        "author": "abuse.ch",
+        "description": "Detects suspicious Linux bash scripts",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Shellscript_Downloader",
+        "author": "albertzsigovits",
+        "description": "Generic Approach to Shellscript downloaders",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/51c3b15ffa86a7a83fa0029c4c257be09ed5ce17c075937f03e3500f8ac858e5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab0dede2f5cd8642199e134\/reports\/f78bc3e4-8c95-40a2-a312-dd418ce489a7\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-19 09:52:49",
+        "scanner_count": "36",
+        "scanner_match": "22",
+        "scanner_percent": "61.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260921-jc5cwaxw7p\/",
+        "tags": [
+          "family:mirai",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "cnc.stormpanel.cc"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Mirai,Mirai.CondiBot",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/51c3b15ffa86\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.39"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "IN",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T07:31:32Z",
+  "last_seen": null
+}

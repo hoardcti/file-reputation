@@ -1,0 +1,174 @@
+{
+  "hashes": {
+    "sha256": "b85166c9e23be5f1397489ba1380dd853116b38e5b5b1915ad6b313bd4c62958",
+    "sha1": "fbaca27663ae2f351d4f02415d08bf72ebfeaead",
+    "md5": "4a71af9646b7d26a6132d3987663212c",
+    "sha3_384": "5bff3482910b01d724efaac556d87bd8f3eb6d0ac0c4fd149f205aaaadf43a34f3bb844f64a3eab7c7b4901819cad7e7",
+    "tlsh": "T12D66CF01F2A241B5CA1D0578CC5AB2FFE6299E040F171BEBD65EFF2579321C1523A2B9",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:F1G1U1X4EOtyIJ/kJsZ1xJ/+7RoO4uIzkBAh:FA1Yn8nZb1+7mOUgA"
+  },
+  "file_metadata": {
+    "names": [
+      "1.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 6600704,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.4% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.2% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.1% (.ASSETS) Unity binary serialized Assets (generic) (2509\/3\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "iso",
+      "WinosStager"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b85166c9e23be5f1397489ba1380dd853116b38e5b5b1915ad6b313bd4c62958\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab12c7d8c31695a143f5267\/reports\/d20a96f0-f0d7-44d5-a540-e4e2e183a152\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-21 06:00:00",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260921-qeh1zszz3n\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Drops file in Drivers directory",
+            "score": "8"
+          },
+          {
+            "signature": "Sets service image path in registry",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-21T13:08:58Z",
+  "last_seen": null
+}
