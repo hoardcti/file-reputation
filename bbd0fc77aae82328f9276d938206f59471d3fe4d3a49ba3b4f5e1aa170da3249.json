@@ -1,0 +1,173 @@
+{
+  "hashes": {
+    "sha256": "bbd0fc77aae82328f9276d938206f59471d3fe4d3a49ba3b4f5e1aa170da3249",
+    "sha1": "3b48dc38f4b528cd938d8001b547f8a20534b781",
+    "md5": "80cb45c1a8d056cc19e5dbaded5b49de",
+    "sha3_384": "8b4e9fa0855f6d00e2c78a92db39a9ca10407c208cb876c617c4d833d9c58fcfd83d4ee6225eaf83c1b6384eb3ae3884",
+    "tlsh": "T1D005E0201A39E01F8277D11163EB124CAABD9749855DB62A713CD1F14FFB0B512ABBCB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:H4Rh2ajcteSTmiQkubeOkn5mGtZoBe+4tA:HdZ9GesGx+4e"
+  },
+  "file_metadata": {
+    "names": [
+      "Distributions.js"
+    ],
+    "mime_type": "text/plain",
+    "type": "js",
+    "size": 798721,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": [
+      "57.1% (.S) Digital Micrograph Script (4000\/1\/1)",
+      "42.8% (.TRA) Infinity Engine Translation (with rem) (3001\/2\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "LxBaseRAT",
+    "tags": [
+      "js",
+      "LxBaseRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bbd0fc77aae82328f9276d938206f59471d3fe4d3a49ba3b4f5e1aa170da3249\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab2996d2a2575f639d4be50\/reports\/7fae8bc3-b796-43c1-9efb-394a253ce039\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "js",
+        "first_seen": "2026-09-21T15:02:00Z",
+        "last_seen": "2026-09-21T23:19:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/bbd0fc77aae82328f9276d938206f59471d3fe4d3a49ba3b4f5e1aa170da3249\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-21 18:02:26",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "lxbaserat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260922-sgwe7sgh94\/",
+        "tags": [
+          "family:lxbaserat",
+          "botnet:group1",
+          "campaign:7eea0dab659e4f26a42350715e9cdf86",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: LxBaseRAT",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "lxbaserat",
+            "c2": "lxxhostrvt.noip.at:4021"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-22T15:06:13Z",
+  "last_seen": null
+}
