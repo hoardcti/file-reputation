@@ -1,0 +1,173 @@
+{
+  "hashes": {
+    "sha256": "4e1be65b2bbbb73ff6fe6c1c9cfef0fa250b1ceaae02f89d3c3d028056ba601b",
+    "sha1": "03f463869112428e4d79b212075b9ef0f3207ea9",
+    "md5": "4d3089f13dec251924e053b35a7b09c2",
+    "sha3_384": "0f5fa7ad6be1953a10c16f9f6d2e3f942a4143abb772834f3aa6ebd1a4d80aaf77b2bd661da254b497fc27e5647d4ead",
+    "tlsh": "T1754183C952700975682BD94DF2B9B888719EF1FB2E8B57E4CCCC1DA95108A46F041B4D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:EsgZ0fNIzAKYyfUJqKUSwp6RQiuMxWNT2dSTsysCGTsOsRs:EsgZlAgJKUSy6RQQgTWSTsysCysOsRs"
+  },
+  "file_metadata": {
+    "names": [
+      "ok"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1922,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3897671\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "1f95a07aa3fe23b9f7e16c939a24b6f7"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "03c77e109a9faa3e99b0f3e9b83eea4f5f7f030662c08c374cb37a04e92c74cc"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202412_suspect_bash_script",
+        "author": "abuse.ch",
+        "description": "Detects suspicious Linux bash scripts",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4e1be65b2bbbb73ff6fe6c1c9cfef0fa250b1ceaae02f89d3c3d028056ba601b\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab20ae5ac7d3eacb2fb2b7c\/reports\/858dc8e6-c538-4b33-9d98-1bb104671f6e\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Geninst",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-22 04:58:22",
+        "scanner_count": "36",
+        "scanner_match": "18",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260922-flyd5sgb76\/",
+        "tags": [
+          "family:mirai",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "realsus.net"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Mirai",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/4e1be65b2bbb\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-22T04:57:41Z",
+  "last_seen": null
+}

@@ -1,0 +1,166 @@
+{
+  "hashes": {
+    "sha256": "c8846afb4b816dbb6eb25433f9c2c649b4fa8a8a7f64296cdf92c92ae038a51a",
+    "sha1": "dac6baf232b828b5211c4723cf5366c292f6afa1",
+    "md5": "7cfeaed39a30b48c0ce178719016db31",
+    "sha3_384": "ff5d2032d9c0c5e516218c2ccc7c47a08687d92bb5656de625b3d05bb0d02de248ba9f67f14d07a93ff915b6904984bc",
+    "tlsh": "T1D936D8A042EEB98F59283758644E2A584FA9C55909D3E5CCE4E793DC300FC9E35D0EBB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:V+fPxmnJaIX01cMinmvc/q7a+aPBGEcGlOrO70+E1mUc86NLPJQet+ShWpFK/vBL:t"
+  },
+  "file_metadata": {
+    "names": [
+      "Drawing-1098844.js"
+    ],
+    "mime_type": "text/plain",
+    "type": "js",
+    "size": 5009919,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "js"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_JS_HexObfuscated_ActiveX_Launcher",
+        "author": "Marjoriefort",
+        "description": "JS obfusque (identifiants _0x) instanciant ActiveX sous WScript - dropper JScript frais",
+        "reference": "Veille fraicheur 2026-09-14 / cluster JS _0x"
+      },
+      {
+        "rule_name": "SUSP_obfuscated_JS_obfuscatorio",
+        "author": "@imp0rtp3",
+        "description": "Detect JS obfuscation done by the js obfuscator (often malicious)",
+        "reference": "https://obfuscator.io"
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c8846afb4b816dbb6eb25433f9c2c649b4fa8a8a7f64296cdf92c92ae038a51a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab21f846aafcfb11a18ccc6\/reports\/8ab47f77-7336-456c-852a-7fd19afd3e91\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-JS.Backdoor.FormBook",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-18 10:15:24",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260922-g6944szclb\/",
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "collection",
+          "defense_evasion",
+          "execution",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Kills process with taskkill",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "107.172.63.161:2404"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "lowmal3",
+    "anonymous": false,
+    "origin_country": "DE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-22T06:25:35Z",
+  "last_seen": null
+}

@@ -1,0 +1,138 @@
+{
+  "hashes": {
+    "sha256": "bd1aab4a66dbeba0c410ce86c45ba0bb6605b76e3b9d6207036c10439dc2f1df",
+    "sha1": "3bfc0b4bf9a3e9926c0070a59418b00e4299ed35",
+    "md5": "580f83a240fb99b3d8f5693612f65958",
+    "sha3_384": "1b2d57bacf9c95cd3766b8c385cbaf34be0d3e8800eed060a081959af33fe8c67d89d17599da8c31eaebb6cbd669f44a",
+    "tlsh": "T1E222573B21F08B32D3C410CA52A65E654E72AB1F452614B5F4BEA336AF2C90771E7B71",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:cCuCTb1B6csht+O+v1fsn+h4+tIiKqCTyOysYtujtuHKNpUj4waHv6dEzb3kKaKq:cCu6H6p4hvZ5m5FG4j4HKNphvXzDaKq"
+  },
+  "file_metadata": {
+    "names": [
+      "bd1aab4a66dbeba0c410ce86c45ba0bb6605b76e3b9d6207036c10439dc2f1df.sh"
+    ],
+    "mime_type": "text/plain",
+    "type": "sh",
+    "size": 10590,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xml",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3783297\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "856c33fd87cb70105dbe542429203617"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "6d311d98eefa252d3bc1b285381119f8e1a58af9191333727b8a7c0ca638edc5"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Sample_Unique_1a75fef9",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "1a75fef91a93f610bd25b0587def046962456499845d188d0207976dd732492f.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bd1aab4a66dbeba0c410ce86c45ba0bb6605b76e3b9d6207036c10439dc2f1df\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab21626e6d6701c57c452a7\/reports\/c19e0c73-2183-4df3-a55d-76a16fd313cb\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-BAT.Downloader.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-22 05:46:17",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/260922-ggelxayema\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-22T05:45:56Z",
+  "last_seen": null
+}
