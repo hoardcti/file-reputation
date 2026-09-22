@@ -37,15 +37,22 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "MassLogger",
     "tags": [
-      "exe"
+      "exe",
+      "MassLogger"
     ],
     "yara_rules": [
       {
         "rule_name": "CP_Script_Inject_Detector",
         "author": "DiegoAnalytics",
         "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "crime_snake_keylogger",
+        "author": "Rony (r0ny_123)",
+        "description": "Detects Snake keylogger payload",
         "reference": null
       },
       {
@@ -61,9 +68,51 @@
         "reference": "http://www.gironsec.com/blog/2015/06/anti-debugger-trick-quicky/"
       },
       {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
         "rule_name": "golang_bin_JCorn_CSC846",
         "author": "Justin Cornwell",
         "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+        "author": "ditekSHen",
+        "description": "Detects binaries (Windows and macOS) referencing many web browsers. Observed in information stealers.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_TelegramChatBot",
+        "author": "ditekSHen",
+        "description": "Detects executables using Telegram Chat Bot",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Envrial_Jan18_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects Encrial credential stealer malware",
+        "reference": "https://twitter.com/malwrhunterteam/status/953313514629853184"
+      },
+      {
+        "rule_name": "MAL_Envrial_Jan18_1_RID2D8C",
+        "author": "Florian Roth",
+        "description": "Detects Encrial credential stealer malware",
+        "reference": "https://twitter.com/malwrhunterteam/status/953313514629853184"
+      },
+      {
+        "rule_name": "masslogger_gcch",
+        "author": "govcert_ch",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "meth_peb_parsing",
+        "author": "Willi Ballenthin",
+        "description": null,
         "reference": null
       },
       {
@@ -73,8 +122,32 @@
         "reference": null
       },
       {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "pe_detect_tls_callbacks",
         "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
         "description": null,
         "reference": null
       },
@@ -97,6 +170,36 @@
         "reference": null
       },
       {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TelegramAPIMalware_PowerShell_EXE",
+        "author": "@polygonben",
+        "description": "Hunting for pwsh malware using Telegram for C2",
+        "reference": null
+      },
+      {
+        "rule_name": "telegram_bot_api",
+        "author": "rectifyq",
+        "description": "Detects file containing Telegram Bot API",
+        "reference": null
+      },
+      {
         "rule_name": "ThreadControl__Context",
         "author": null,
         "description": null,
@@ -112,6 +215,24 @@
         "rule_name": "VECT_Ransomware",
         "author": "Mustafa Bakhit",
         "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Trojan_SnakeKeylogger_af3faa65",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "win_dotnet_vb_stealer_rat",
+        "author": "Arrbat",
+        "description": "Detects .NET/VB executables with stealer/RAT capabilities (sockets, HTTP, processes, registry, etc).",
+        "reference": null
+      },
+      {
+        "rule_name": "win_masslogger_w0",
+        "author": "govcert_ch",
+        "description": null,
         "reference": null
       },
       {
@@ -152,12 +273,12 @@
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/efc0407a-92b4-4e9e-a8fd-c0c1816b8e38?utm_source=MalwareBazaar"
       },
       "ReversingLabs": {
-        "threat_name": "Win64.Packed.Generic",
+        "threat_name": "Win64.Trojan.Generic",
         "status": "SUSPICIOUS",
         "first_seen": "2026-09-21 14:08:42",
-        "scanner_count": "24",
-        "scanner_match": "6",
-        "scanner_percent": "25.00"
+        "scanner_count": "36",
+        "scanner_match": "12",
+        "scanner_percent": "33.33"
       },
       "Spamhaus_HBL": [
         {
@@ -182,6 +303,15 @@
           "link": "https:\/\/www.unpac.me\/results\/330d59f7-e62f-4d42-bc35-d36a5914b780\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "MassLogger",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/23244f01d449\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
       "vxCube": {
         "verdict": "clean1",
         "maliciousness": "6",
