@@ -3,7 +3,7 @@ name: Aggregate data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *" 
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
@@ -20,6 +20,12 @@ jobs:
         with:
           persist-credentials: true
           token: ${{ secrets.BOT_PAT }}
+          clean: true
+
+      - name: Clear stale worktree state
+        run: |
+          git worktree prune
+          rm -rf data-branch
 
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
@@ -44,39 +50,38 @@ jobs:
 
           rsync -a --exclude .git out/ data-branch/
 
-          cd data-branch
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
+          git -C data-branch add -A
+          if git -C data-branch diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git -C data-branch commit -m "Update data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git -C data-branch push origin HEAD:data
           fi
-          git commit -m "Update data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push origin HEAD:data
 
       - name: Update stats.json
-        env:
-          GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
-          git clone --filter=blob:none --no-checkout --depth 1 --single-branch --branch data \
-            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" data-clone
-
-          FILE_COUNT=$(git -C data-clone ls-tree -r --name-only HEAD | wc -l)
-          FILE_COUNT_FMT=$(printf "%d" "$FILE_COUNT" | rev | sed 's/\([0-9]\{3\}\)/\1,/g' | rev | sed 's/,$//')
-          EPOCH=$(git -C data-clone log -1 --format=%ct HEAD)
-          LAST_EDIT=$(date -u -d "@$EPOCH" +"%-d %b %Y, %H:%M UTC")
-          rm -rf data-clone
+          FILE_COUNT=$(git -C data-branch ls-files | wc -l)
+          EPOCH=$(git -C data-branch log -1 --format=%ct HEAD)
 
           cat > stats.json <<EOF
           {
-              "files": "$FILE_COUNT_FMT",
-              "last_edit": "$LAST_EDIT"
+            "files": $FILE_COUNT,
+            "files_display": "$(printf "%'d" "$FILE_COUNT")",
+            "last_edit": "$(date -u -d "@$EPOCH" +%Y-%m-%dT%H:%M:%SZ)",
+            "last_edit_display": "$(date -u -d "@$EPOCH" +"%-d %b %Y, %H:%M UTC")"
           }
           EOF
 
           git add stats.json
           if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
+            echo "No stats changes"
+          else
+            git commit -m "Update stats $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin HEAD:main
           fi
-          git commit -m "Update stats $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push origin HEAD:main
+
+      - name: Clean up worktree
+        if: always()
+        run: |
+          git worktree remove --force data-branch || true
+          git worktree prune
