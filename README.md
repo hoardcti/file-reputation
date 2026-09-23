@@ -2,7 +2,7 @@
 
 Collects file hash reputation data from public threat intelligence sources and emits it as normalised Hoard CTI records.
 
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhoardcti%2Ffile-reputation%2Frefs%2Fheads%2Fmain%2Fstats.json&query=files&label=Hashed%20Files&color=A1BC98&style=flat-square) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhoardcti%2Ffile-reputation%2Frefs%2Fheads%2Fmain%2Fstats.json&query=last_edit&label=Last%20Updated&color=A1BC98&style=flat-square)
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhoardcti%2Ffile-reputation%2Frefs%2Fheads%2Fmain%2Fstats.json&query=files&label=Hashed%20Files&color=A1BC98&style=flat-square) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhoardcti%2Ffile-reputation%2Frefs%2Fheads%2Fmain%2Fstats.json&query=last_edit_display&label=Last%20Updated&color=A1BC98&style=flat-square)
 
 
 ## Overview
