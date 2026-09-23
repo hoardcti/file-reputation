@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "f19707ff656c1232e4d7200046e39334ba485bdab50d625c5f89c7333b92e8bd",
+    "sha1": "abc4e2758a39ab360076a18e5d1b4e7ccc4ec478",
+    "md5": "a66e6f7316064ab433df1b4bce1560d3",
+    "sha3_384": "1782cee1adb30197481e9cf807f686b56e5e9d7bbc6dcf1cdbe4b06f054f3657f8ffedcfc6157c0813272deac1b0f270",
+    "tlsh": "T13C235CB1EA1C12054E8F2F66ED810982D5BDD94D5B1714A1BEEB470DE00766CE3BE31E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:+YG6bH6n1z0dm14cKgP70AlGl8zrU4+bNu6OmcPPYCoQaCiMF5t+xlycz4:1G2Hs04sggeaivhPwCAg5t+xr4"
+  },
+  "file_metadata": {
+    "names": [
+      "Shipping Cost_Export Form.vbe"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbe",
+    "size": 48460,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RemcosRAT",
+      "vbe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_tiny_vbs",
+        "author": "daniyyell",
+        "description": "Detects tiny VBS delivery technique",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f19707ff656c1232e4d7200046e39334ba485bdab50d625c5f89c7333b92e8bd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab38e7f54481d9be982a007\/reports\/3425c95c-b550-4486-a2a9-cb525106614a\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-09-22T22:05:00Z",
+        "last_seen": "2026-09-23T01:48:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f19707ff656c1232e4d7200046e39334ba485bdab50d625c5f89c7333b92e8bd\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-23 04:27:26",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260923-keze3sgg83\/",
+        "tags": [
+          "family:guloader",
+          "family:remcos",
+          "botnet:remotehost",
+          "collection",
+          "discovery",
+          "downloader",
+          "execution",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Guloader,Cloudeye",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtCreateThreadExHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "102.220.161.52:2404"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-23T08:31:00Z",
+  "last_seen": null
+}
