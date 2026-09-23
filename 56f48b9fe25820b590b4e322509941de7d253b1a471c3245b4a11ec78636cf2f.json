@@ -1,0 +1,178 @@
+{
+  "hashes": {
+    "sha256": "56f48b9fe25820b590b4e322509941de7d253b1a471c3245b4a11ec78636cf2f",
+    "sha1": "e0a5b36bce2945d78277cb1448b2ba7defd3ffe2",
+    "md5": "e7d1cfcf6d7a98072877715a64a64519",
+    "sha3_384": "05cf1dfe62893e207bb7fde6c2f494e62e3264456b5fc64a3f170ea87f7d3fe418c979fcc2d5fe0be5bd0dcf47f2f3bb",
+    "tlsh": "T173E2A71676049331C58607324A2FE7E48B76AC48DF570527769AF39C2F739D062B7AE0",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:EItwZsdQqWeTAOJADey3M5loXoDcnHo1x5Pey3M5sC0x:k8RWGmeWMNeWMmCU"
+  },
+  "file_metadata": {
+    "names": [
+      "fixline.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 32768,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88718\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_in_Word_Doc_RID2FBC",
+        "author": "Florian Roth",
+        "description": "Detects a powershell and bypass keyword in a Word document",
+        "reference": "Internal Research - ME"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88718\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/56f48b9fe25820b590b4e322509941de7d253b1a471c3245b4a11ec78636cf2f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab435b6dccc2f2ef16c0e5d\/reports\/249b100f-4812-4ef9-9f4e-10fe35c06402\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260923-y7eg9sweqf\/",
+        "tags": [
+          "defense_evasion",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Hide Artifacts: Hidden Window",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-23T20:24:46Z",
+  "last_seen": null
+}

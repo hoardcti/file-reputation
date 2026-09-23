@@ -1,0 +1,263 @@
+{
+  "hashes": {
+    "sha256": "d222455bf7f6fb149222a13d3b728178726896b8664743a5a7aca6da336263d1",
+    "sha1": "19d47a97bd5b2fd32bd80fd87124518bec241d2e",
+    "md5": "456d0c9cd9b225ed8faa807f7dbd8558",
+    "sha3_384": "99ce27c1547a709e370876be69f99572f68ca72c1f80bf727ac4b87ea549737e87e88434103706543ddb9fc5c8ad33f9",
+    "tlsh": "T1A453C7237A445333C5421372961FA3E49F798C5C4BF74212356AB29C1EB1EB462FB8E6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:HuZTbl+MomHmBwCuXbgRpRCG+fYGAScLYid4OMZ:kTD6wVgRyG+fYVMUTG"
+  },
+  "file_metadata": {
+    "names": [
+      "d222455bf7f6fb149222a13d3b728178726896b8664743a5a7aca6da336263d1.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 65536,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "84.7% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "15.2% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88703\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "downloader",
+      "msi",
+      "trojan"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88703\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d222455bf7f6fb149222a13d3b728178726896b8664743a5a7aca6da336263d1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab423e37a4ba30b45597195\/reports\/ecaf3146-a6c2-4321-924c-d923fca1ba79\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "2026-09-23T15:59:00Z",
+        "last_seen": "2026-09-23T15:59:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/d222455bf7f6fb149222a13d3b728178726896b8664743a5a7aca6da336263d1\/results?tab=lookup",
+        "detections": [
+          "HEUR:Trojan-Downloader.Script.Generic",
+          "Trojan-Downloader.Bitmin.TCP.ServerRequest",
+          "Trojan-Downloader.Agent.HTTP.C\u0026C",
+          "HEUR:Trojan.Script.Generic"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260923-xtwc7ass3k\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "spyware"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/sarumangoatlove.pro\/d\/nash"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/jic-corp.com\/takefiles\/NASH\/latest.zip"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/plywooddetroit.com\/takefiles\/NASH\/latest.zip"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/sarumangoatlove.pro\/d\/7za"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/jic-corp.com\/7z\/7za.exe"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/plywooddetroit.com\/7z\/7za.exe"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/d222455bf7f6\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "GR",
+    "delivery_method": "web_drive-by"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-23T19:08:36Z",
+  "last_seen": null
+}
