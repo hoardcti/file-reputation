@@ -1,0 +1,377 @@
+{
+  "hashes": {
+    "sha256": "b14b737c48708235edb9035cc09b35a9e0e888b25c8ee6959919fb6123810c81",
+    "sha1": "f9c83110b111ffbf8ff129c251dcdf1494504f99",
+    "md5": "c87cdff96cf2f30bd7665a151e6ee3a5",
+    "sha3_384": "1e45bdfe11e93437ab928001f2055a2cdfea12cc9028839af052d5819ad004775c4be9421b1f5000d67e401dcebbe250",
+    "tlsh": "T1B5473319EBA445ACF132C2F1D5D3C509EAB73C991735E2AF23A8E5160F635D4C83A362",
+    "imphash": "2057790ae7855765d51bdc4142e62f9c",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:5GxxyswBuioBBlNE/0XeYhejrmWxMLrPCh9H+T7SFl99XINFN6uPEfJ:8xx+ButE0OUejr38GeYeEuPER",
+    "dhash_icon": "9494b494d4aeaeac"
+  },
+  "file_metadata": {
+    "names": [
+      "instapp.a.1.08.sfx.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 27000196,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "93.7% (.EXE) WinRAR Self Extracting archive (4.x-5.x) (265042\/9\/39)",
+      "2.3% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "1.7% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "0.7% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "0.7% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88639\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "exe",
+      "SilverFox",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SelfExtractingRAR",
+        "author": "Xavier Mertens",
+        "description": "Detects an SFX archive with automatic script execution",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "gh0st",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-23 17:04:50",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/6989942b-2509-4e8f-b7ea-045a776ae589",
+          "tags": [
+            "rat",
+            "gh0st",
+            "stego",
+            "payload",
+            "auto-reg",
+            "auto-sch",
+            "uac"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88639\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab3ddd59e369e6ac12e8408\/reports\/b0b70267-e1e1-40d0-837b-dd7a8f4e1e5e\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-09-23T06:18:00Z",
+        "last_seen": "2026-09-23T07:09:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/b14b737c48708235edb9035cc09b35a9e0e888b25c8ee6959919fb6123810c81\/results?tab=lookup",
+        "detections": [
+          "Trojan.Win32.Agent.sba",
+          "Trojan.Agent.HTTP.C\u0026C",
+          "HackTool.Multi.AmsiETWPatch.sb",
+          "Trojan.Win32.Zapchast.bpbc",
+          "Trojan.Win32.Zapchast.bpbb",
+          "HEUR:Trojan-Dropper.Win32.Generic"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Backdoor.Zapchast",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-23 12:13:55",
+        "scanner_count": "38",
+        "scanner_match": "10",
+        "scanner_percent": "26.32"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260923-rgvm8s1vgx\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "exploit",
+          "persistence",
+          "privilege_escalation",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Windows security bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Drops file in Drivers directory",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies RDP port number used by Windows",
+            "score": "8"
+          },
+          {
+            "signature": "Possible privilege escalation attempt",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Disables service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies file permissions",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Indicator Removal: Clear Persistence",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Screensaver",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies Control Panel",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Runs net.exe",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "CobaltStrike",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/b14b737c4870\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "CNGaoLing",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-23T14:09:50Z",
+  "last_seen": null
+}
