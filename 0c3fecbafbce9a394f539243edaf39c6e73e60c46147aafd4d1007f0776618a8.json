@@ -1,0 +1,197 @@
+{
+  "hashes": {
+    "sha256": "0c3fecbafbce9a394f539243edaf39c6e73e60c46147aafd4d1007f0776618a8",
+    "sha1": "26402397abbd1dd512e5a8ec84c4999b389663aa",
+    "md5": "29a5843025bc73dde8438a7d7a4bfe56",
+    "sha3_384": "2446831de18cb37e7fe38154f0526e8ec854af548976a667fc5afcf73864cf11ca991d43fc5bb2a58a8e3764af2d190f",
+    "tlsh": "T1B75633112D92493BF6BA2932C59ADA71BD3EFE380720C906D360B44D6E30DC167F6667",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:IXotUQmfqWYkOvRtpAGzGkpOUwUdlpy18uQDRuCg6yIYT8UUUPUfJJwPrrkX6Z/t:xPX4OZtpTqzklkmiWNilUUPUxJIrAM"
+  },
+  "file_metadata": {
+    "names": [
+      "Planner5D.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 6041600,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "45.8% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "33.4% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "14.6% (.WPS) Kingsoft WPS Office document (alt.) (19502\/3\/2)",
+      "6.0% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88837\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/88837\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0c3fecbafbce9a394f539243edaf39c6e73e60c46147aafd4d1007f0776618a8\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab559b069f52a79b635296b\/reports\/7979dbd1-4c7b-47d9-9ab4-180958db94bc\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-05 10:47:14",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260924-vqcqkazzas\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "X G.K.",
+      "issuer_cn": "SSL.com EV Code Signing Intermediate CA RSA R3",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-06-03T18:30:18Z",
+      "valid_to": "2027-06-03T18:30:18Z",
+      "serial_number": "0d62cec85f515804b93f2e36a6bb6591",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-24T17:11:00Z",
+  "last_seen": null
+}

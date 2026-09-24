@@ -1,0 +1,130 @@
+{
+  "hashes": {
+    "sha256": "7c2a428c057812a2b1a505727a8b27572fe7893ef7d28442f814dc150d5224b5",
+    "sha1": "fba64fbca5a3cf299483c015fe69b79b37eebdc1",
+    "md5": "25ab92ee82ade84a25afec680f055e3c",
+    "sha3_384": "6d151487d1382e0e047a90bc3cc69554e634da3a0e83ce09d4472efabef8b9c5cd43449aa9a8e50ae34ec292bcb061d5",
+    "tlsh": "T18E435D1255B95A07C4E4937B42F75312B2EB3B9C1054E64F7E3D4E8FBB913902E29A70",
+    "imphash": null,
+    "telfhash": "t1a0e06101fd65da1999cb9a74ee9d03a59900231761174b21cf50d7e4c83f054f709eda",
+    "gimphash": null,
+    "ssdeep": "768:FUVW3FWfWx1RSE/W3FwBFAaP/3NSjxxEybozDOVCK4M4hV+cxsEOnwVDZvxA8Yre:FP3fx1oE/W3F94P4jIybozDOybPAe"
+  },
+  "file_metadata": {
+    "names": [
+      "spc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 59360,
+    "format": "ELF",
+    "arch": "SPARC",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3922174\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7c2a428c057812a2b1a505727a8b27572fe7893ef7d28442f814dc150d5224b5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab546f8d59515534c14e52c\/reports\/af221b54-fb0e-4164-8aab-419a138d6a81\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8c1922ce-cbe2-455b-ae25-91b8b48cab9d?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-24 15:52:20",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/260924-tanbpawz7q\/",
+        "tags": [
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-24T15:51:17Z",
+  "last_seen": null
+}
