@@ -1,0 +1,214 @@
+{
+  "hashes": {
+    "sha256": "35d09719b7c7db250495b84eda81e59862199019b3012d5ec3ea3d60144215b5",
+    "sha1": "eb70aa3cfab12c6e4e0ac4548892e6d34522745e",
+    "md5": "e63458f5ac83360f9ed6cbbe00957591",
+    "sha3_384": "896ae8d907035beca66a4c44e2653883012e82becc16cec1dc100214e66644235f3eb85f05accc5fe8812a5140da8fab",
+    "tlsh": "T18C1733B668225D63CA61317B63534765AF300EB17B118B092E70F85D1DFE0FA6B4938B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:6gH/h1nwkf5HIJEYBgL84H8fCwT+XFzdvh+3s3C+r+ZKM4EciuGv:JfwGoJEYGH8fCweLp+8y+KiEc"
+  },
+  "file_metadata": {
+    "names": [
+      "CrimsonMods.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 19836928,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "53.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "39.2% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "7.0% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/crimsonmods[dot]co\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/crimsonmods[dot]biz\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/88748\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/35d09719b7c7db250495b84eda81e59862199019b3012d5ec3ea3d60144215b5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab45d4966e0fc549ccdef35\/reports\/a0d50ef0-3295-401d-89d4-e1de9999bd5d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-23 22:33:14",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260923-273rmswx7l\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/35d09719b7c7\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "CedarWood Theme Switch",
+      "issuer_cn": "CedarWood Theme Switch",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-09-23T05:08:44Z",
+      "valid_to": "2027-09-23T05:18:44Z",
+      "serial_number": "798c8d7b091d3dbe431de35c0387c762",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-23T23:13:47Z",
+  "last_seen": null
+}

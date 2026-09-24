@@ -1,0 +1,245 @@
+{
+  "hashes": {
+    "sha256": "33808b9f42db8919e8666e34e77c28ee2d3f40efa091523f57afe1e78aa8b43b",
+    "sha1": "e375542d5321ab75829c50708a3b5f7d825b0b67",
+    "md5": "cdb313dd60bafc83068eb204263494b8",
+    "sha3_384": "0653f995f72068e3d257b6f2471710641083b3a455dc4a33b829ea921fd1caca5879d2a7e7c35deb1e3259717183acc4",
+    "tlsh": "T19AE7333B239B24BDD0AE46BA7636D165103FB76065164C42CAE8C48CDF2A4741E3FB97",
+    "imphash": "88016fcdef7f227c62171d0afad9aae4",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:uN92EQkGiqntkS4hdsQCt8Fd418tO0ZlbU7O6im:uNAEQe0kS4bpW8k8tO0ZlAim",
+    "dhash_icon": "0000000000000000"
+  },
+  "file_metadata": {
+    "names": [
+      "Arcane.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 68004006,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "61.4% (.EXE) Inno Setup installer (107240\/4\/30)",
+      "23.8% (.EXE) Win32 EXE PECompact compressed (generic) (41569\/9\/9)",
+      "3.7% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "3.7% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "2.5% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Borland",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab47787d022228967f3b15e\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260924-bfrbesae75\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "installer"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Inno Setup is an open-source installation builder for Windows applications.",
+            "score": "1"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Infecting executable files"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Launching a tool to kill processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the Windows subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the Program Files subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Replacing executable files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "nextpro",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-24T01:05:24Z",
+  "last_seen": null
+}
