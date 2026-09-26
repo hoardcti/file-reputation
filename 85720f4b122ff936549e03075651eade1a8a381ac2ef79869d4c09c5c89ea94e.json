@@ -1,0 +1,298 @@
+{
+  "hashes": {
+    "sha256": "85720f4b122ff936549e03075651eade1a8a381ac2ef79869d4c09c5c89ea94e",
+    "sha1": "7033651b3e462f3218937cd9407850611780919f",
+    "md5": "1126d88d1e0b444a42393ec47dfda7b9",
+    "sha3_384": "d0bf6f4c4601e1b5fa632507113048fc4073300d5095ccd07941c2a44d7b7fc49424670851c729b8bfe77c791bdb9bef",
+    "tlsh": "T114B3125543176882E6660D77F79448CCCEA370A020FA778B6155FC2DE01349C3EA7AFA",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:tQ0eVmLAqCnXnvQ+rMEdBsXDfE0Tow+b2HMIEIbEzqPXfz9:tjeQL9WpIE0To6MTbzOXfz9"
+  },
+  "file_metadata": {
+    "names": [
+      "arm4"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 112208,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3921984\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "334a7d8fb058a3e599c93a5999fa1bca985c989514ade747be7e46768e54bba9"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "2a996fd183e26259bf92070948468f23"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/85720f4b122ff936549e03075651eade1a8a381ac2ef79869d4c09c5c89ea94e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab710fbeb24c8f0e7bad583\/reports\/8e8f52b7-5069-4bcd-9401-463817983620\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Ngioweb",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/7f51f876-7427-4586-8564-266af60a9eba?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-26 00:25:28",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260926-aqtnvs1t6r\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies the \/etc\/hosts DNS resolution file",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies environment variables",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies rc script",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Bash startup script",
+            "score": "5"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies symbolic links in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creates directories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Mounts file systems"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-26T00:24:40Z",
+  "last_seen": "2026-09-26T03:21:14Z"
+}

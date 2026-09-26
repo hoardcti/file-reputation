@@ -1,0 +1,212 @@
+{
+  "hashes": {
+    "sha256": "49cf9dbaef457a2cba724ed3fc3bed08951103a363dc819dda896ebb4b89ed23",
+    "sha1": "1d6ef637aeae6abbe2083ded7ec29e5e9e1bda36",
+    "md5": "9064f0bd31fba20188c60365f30ff40e",
+    "sha3_384": "ddddad656fe3840d18e57930451d55ac76378723cb42bf480db3c31e881b743810cbfae4c0f609855289350c000dacf9",
+    "tlsh": "T15EA423B4F9219E8F6DD769B91B24C31DE182C172589D4C2313AE95A34F3D632AF2C816",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:Fs+/py5fM2l+M5F7TsJwtY1yvr+bT1psS+6T6NCj76tsdo:Fs6pyCC/Ya2hpi6T6N4m"
+  },
+  "file_metadata": {
+    "names": [
+      "49cf9dbaef457a2cba724ed3fc3bed08951103a363dc819dda896ebb4b89ed23"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 449084,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Prometei",
+    "tags": [
+      "elf",
+      "Prometei",
+      "wraith"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/49cf9dbaef457a2cba724ed3fc3bed08951103a363dc819dda896ebb4b89ed23\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab721ceaf6d4f9f2bfe4c72\/reports\/6b8705da-02ef-4d7a-a82a-de2a75ea8026\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/cf73c5e4-5990-464f-b4a8-6c377db0ceef?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Prometei",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-26 01:37:36",
+        "scanner_count": "36",
+        "scanner_match": "15",
+        "scanner_percent": "41.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "prometei_elf",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260926-b1xzpstwgt\/",
+        "tags": [
+          "family:prometei_elf",
+          "botnet",
+          "discovery",
+          "linux",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Prometei",
+            "score": "10"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies the \/etc\/hosts DNS resolution file",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system subdirectory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the CPU"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the OS"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c2hunter",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-26T01:37:01Z",
+  "last_seen": null
+}
