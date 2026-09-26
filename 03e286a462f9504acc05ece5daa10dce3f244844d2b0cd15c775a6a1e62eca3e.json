@@ -1,0 +1,220 @@
+{
+  "hashes": {
+    "sha256": "03e286a462f9504acc05ece5daa10dce3f244844d2b0cd15c775a6a1e62eca3e",
+    "sha1": "56a0515abebb14119215569ffaa0721cabf2cad5",
+    "md5": "6612eb0b40eef4421a73bd65d95a7d9a",
+    "sha3_384": "891b6a0ca0343ece96fb66987a3d274c6dee1bf8463612e68010ce10c952d9a10087284be594b7668a9cf9dc1adc76c6",
+    "tlsh": "T189183307A8E505ECD595E234C5BA5263FB75B8489B3573D33E00A2B42E3BBD1BA74384",
+    "imphash": "4f2f006e2ecf7172ad368f8289dc96c1",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:O1Zli1CPPCJHyNiaKsyS0gfnVVW44tCGIbEyQvPBAHEkJsJV8GEqW:O1Ks4SNAaokREyQvPBYG8GEqW"
+  },
+  "file_metadata": {
+    "names": [
+      "03e286a462f9504acc05ece5daa10dce3f244844d2b0cd15c775a6a1e62eca3e.bin"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 91850152,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "27.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "20.8% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "18.6% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "8.5% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "8.4% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "Vidar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-09-26 10:07:47",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/14c927ff-41e7-419a-958f-879acb770494",
+          "tags": []
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab79777d5ab936501a98d96\/reports\/a39879eb-14f8-4bd3-bd8c-8043a70075bc\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-09-26T02:15:00Z",
+        "last_seen": "2026-09-26T05:25:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/03e286a462f9504acc05ece5daa10dce3f244844d2b0cd15c775a6a1e62eca3e\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Packed.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-09-26 07:03:09",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vidar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260926-lz8pxszx7k\/",
+        "tags": [
+          "family:vidar",
+          "botnet:058ac4e8efa370004c9463e3b57ec0c6",
+          "defense_evasion",
+          "discovery",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Vidar",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Checks system information in the registry",
+            "score": "5"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/172.236.206.42"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/telegram.me\/j88hor"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/community.fandom.com\/wikia.php?controller=UserProfile\u0026method=getUserData\u0026format=json\u0026userId=64296247"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/steamcommunity.com\/profiles\/76561198633950250"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "anonymous",
+    "anonymous": true,
+    "origin_country": "CH"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-26T09:58:32Z",
+  "last_seen": null
+}
