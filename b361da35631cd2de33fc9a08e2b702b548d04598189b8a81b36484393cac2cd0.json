@@ -1,0 +1,136 @@
+{
+  "hashes": {
+    "sha256": "b361da35631cd2de33fc9a08e2b702b548d04598189b8a81b36484393cac2cd0",
+    "sha1": "5fbb436b599aa46d083d4a4c9d75d175abd9b138",
+    "md5": "bc0ff67254c4c609491cacdae67572a6",
+    "sha3_384": "c77348901adb299cc897c8cdf574b4dd7e15a7aedeebb5fb95740256a977d1d506449d98faf57139e7d139ccc3c09fc4",
+    "tlsh": "T1AB2431A32306E6B9F2CD0BF6AC0B1519E2F8C959F9AE5048B7B17DD727DA9401434EC1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:TLX/8pdvchZynaxrpSWMb6y3x7TMYdiib7Q2U7n98/YuT+rV80tJi:vXeuZj5Ahier"
+  },
+  "file_metadata": {
+    "names": [
+      "Travel_Omega_Record_654.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 222710,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/260925-16z4paxhjh\/behavioral2"
+      },
+      {
+        "context": "dropped_by_sha256",
+        "value": "1d070d9693f34aa230b6ca34e500accaf33b421aafcaf2e290cfd53495fe3403"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "12f23e9a61395f9593f62f68da02c3a7"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "CountLoader",
+      "memory-shield-vg",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "PS_XOR_Reflection_Loader_StatusCode",
+        "author": "Marjoriefort",
+        "description": "Obfuscated PowerShell .NET loader (builder statusCode family): XOR byte decode + reflection + HMAC-32 + scriptblock/IEX exec",
+        "reference": "InTheWild.0438 / fresh powershell 2026-08-15 + tag_powershell"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b361da35631cd2de33fc9a08e2b702b548d04598189b8a81b36484393cac2cd0\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab6f9b8865fe5ad67b6e08a\/reports\/f1c42e92-ed26-4a34-9501-ce5e8e2ac0f7\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-25 22:46:16",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260925-2p2fvsycnd\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-25T22:45:36Z",
+  "last_seen": null
+}
