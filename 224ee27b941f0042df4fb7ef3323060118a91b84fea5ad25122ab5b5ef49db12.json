@@ -45,11 +45,18 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
+      "CoinMiner",
       "exe"
     ],
     "yara_rules": [
+      {
+        "rule_name": "Base64_Encoded_Powershell_Directives",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
       {
         "rule_name": "Base64_Encoded_Powershell_Directives",
         "author": null,
@@ -75,7 +82,25 @@
         "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
         "rule_name": "DebuggerException__ConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__ConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
         "author": null,
         "description": null,
         "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
@@ -129,6 +154,18 @@
         "reference": null
       },
       {
+        "rule_name": "GoBinTest",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "golang",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "golang",
         "author": null,
         "description": null,
@@ -138,6 +175,12 @@
         "rule_name": "Golangmalware",
         "author": "Dhanunjaya",
         "description": "Malware in Golang",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_binary_string",
+        "author": null,
+        "description": "Golang strings present",
         "reference": null
       },
       {
@@ -162,6 +205,12 @@
         "rule_name": "Golang_Find_CSC846_Simple",
         "author": "Ashar Siddiqui",
         "description": "Find Go Signatuers",
+        "reference": null
+      },
+      {
+        "rule_name": "grakate_stealer_nov_2021",
+        "author": null,
+        "description": null,
         "reference": null
       },
       {
@@ -273,6 +322,12 @@
         "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
         "rule_name": "SHA1_Constants",
         "author": "phoul (@phoul)",
         "description": "Look for SHA1 constants",
@@ -307,6 +362,12 @@
         "author": "vietdx.mb",
         "description": null,
         "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "ThreadControl__Context",
@@ -560,9 +621,106 @@
         }
       ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding exclusions to Windows Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a system driver"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          }
+        ]
       }
     }
   },
