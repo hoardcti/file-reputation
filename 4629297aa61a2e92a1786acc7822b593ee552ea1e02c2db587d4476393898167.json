@@ -1,0 +1,159 @@
+{
+  "hashes": {
+    "sha256": "4629297aa61a2e92a1786acc7822b593ee552ea1e02c2db587d4476393898167",
+    "sha1": "f88bfc46b9426e20405bc2e6c207bdad498cf1e4",
+    "md5": "6fff3e0d3caedd2b6a290478da9a355b",
+    "sha3_384": "3cd09b25c3d5215ff87639402d7a21d1c63699264b3478b8dcd9e82383e92996bb5cf45141dc9ee5e4d237b72ab3e1e4",
+    "tlsh": "T186D33A8BF912DB12D5C4157AFB1E038D37931369C1DE7182CF144A3036AA96B8BFB5A1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:O8Hl0SXyqk+7agAegQvCSjcSPQrepMspokuIHtH3pA:1lTB7MuPWuTu4Ha"
+  },
+  "file_metadata": {
+    "names": [
+      "mirai.armb7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 136708,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923804\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_0bce98a2",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Mirai_Botnet_Malware",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects Mirai Botnet Malware",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Mirai_Botnet_Malware_RID2EF6",
+        "author": "Florian Roth",
+        "description": "Detects Mirai Botnet Malware",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4629297aa61a2e92a1786acc7822b593ee552ea1e02c2db587d4476393898167\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab917609460069d29913e81\/reports\/c2dc927f-bc5f-40c2-aedb-93c682a564e0\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/55ff5c6c-221b-496e-a2f8-ff77178498be?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.be",
+        "first_seen": "2026-08-24T17:07:00Z",
+        "last_seen": "2026-08-24T17:24:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/4629297aa61a2e92a1786acc7822b593ee552ea1e02c2db587d4476393898167\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-24 21:37:51",
+        "scanner_count": "36",
+        "scanner_match": "26",
+        "scanner_percent": "72.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/260927-qhw21sce62\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "CZ",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-27T13:16:08Z",
+  "last_seen": null
+}

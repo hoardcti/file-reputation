@@ -1,0 +1,176 @@
+{
+  "hashes": {
+    "sha256": "b09baf2470ed83268357311546aebb1fb0bc64cdc93195c92b95b62019d7778c",
+    "sha1": "3dae519d1a359ef5a7af729734706ade146ca971",
+    "md5": "79502edaa99034a93f3d19fd372c6290",
+    "sha3_384": "2b1307324ee8d78ac385356273b8315dd5993c7a72b14f15cf4c1e8bd0eb0ffa9cc7da0ad237341f26827c61245e7a6b",
+    "tlsh": "T1C8842B55FC80CA92C5D41B79FB6D434C33171B39D2EEB206CE159B3526EB88B0B7A582",
+    "imphash": null,
+    "telfhash": "t1ebe02b254f80551f5b85c062c2dbfd42c38634480bc2e84b9a2435970e47981399c913",
+    "gimphash": null,
+    "ssdeep": "6144:CGlOHh72NgKIuBN1H47CrqFqIGyUzTpeSqTukRKDjfSHIqX0wqnNDmSv:XlOd4gKXr1YurqBGyUzIFTzRgS90w+v"
+  },
+  "file_metadata": {
+    "names": [
+      "bot.armv7l"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 406612,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923764\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": null,
+    "yara_rules": [
+      {
+        "rule_name": "BLOWFISH_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for Blowfish constants",
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b09baf2470ed83268357311546aebb1fb0bc64cdc93195c92b95b62019d7778c\/"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/921c60b1-e5b4-4513-b336-15f798f01862?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.LnxMirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-27 11:48:01",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260927-nyjeraw16p\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "IN",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-27T11:48:08Z",
+  "last_seen": null
+}
