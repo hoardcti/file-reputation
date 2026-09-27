@@ -32,9 +32,9 @@ Each record is written to its own JSON file, named by the file's SHA256 hash. Ti
 
 This module is designed to run on GitHub Actions workers, so there is nothing to install to consume its data. The workflows in [`.github/workflows/`](.github/workflows/) build and run it automatically.
 
-To run it on a fork, add your abuse.ch Auth-Key as a repository secret named `ABUSECH_AUTH_KEY`.
+To run it on a fork, add your abuse.ch Auth-Key as a repository secret named `ABUSECH_API_KEY`.
 
-For local development, build from source (requires Go 1.22 or later):
+For local development, build from source (requires Go 1.26 or later):
 
 ```bash
 git clone https://github.com/hoardcti/file-reputation.git
@@ -98,18 +98,22 @@ python .github/scripts/secret_scan.py --mode tree
 ```
 
 ```bash
-# Run
-go run -tags dev ./cmd/aggregate
+# Run: put your Auth-Key in .env first (a missing .env is fine if ABUSECH_API_KEY is set)
+cp .env.example .env
+go run ./cmd/aggregate -log text
+
+# List the command's flags
+go run ./cmd/aggregate -h
 
 # Build
 go build ./...
 
-# Test
-go test ./...
+# Test, with the race detector and in random order, as the style guide requires
+go test -race -shuffle=on ./...
 
 # Vet and check formatting
 go vet ./...
-test -z "$(gofmt -l .)"
+test -z "$(go run mvdan.cc/gofumpt@latest -l .)"
 ```
 
 Never commit Auth-Keys. Supply them through environment variables only.
