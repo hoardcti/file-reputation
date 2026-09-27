@@ -41,7 +41,7 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "Vidar",
     "tags": [
       "exe",
       "signed",
@@ -76,6 +76,12 @@
         "rule_name": "Detect_Go_GOMAXPROCS",
         "author": "Obscurity Labs LLC",
         "description": "Detects Go binaries by the presence of runtime.GOMAXPROCS in the runtime metadata",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
         "reference": null
       },
       {
@@ -133,6 +139,12 @@
         "reference": null
       },
       {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
         "rule_name": "pe_detect_tls_callbacks",
         "author": null,
         "description": null,
@@ -142,6 +154,18 @@
         "rule_name": "PE_Digital_Certificate",
         "author": "albertzsigovits",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
         "reference": null
       },
       {
@@ -175,6 +199,18 @@
         "reference": null
       },
       {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "ThreadControl__Context",
         "author": null,
         "description": null,
@@ -185,9 +221,34 @@
         "author": "CYFARE",
         "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
         "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "Vidar",
+        "author": "kevoreilly",
+        "description": "Vidar Payload",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "vidar",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-27 14:38:55",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/53e1ce13-5f7e-4a9e-b98c-b7aa38e75971",
+          "tags": [
+            "vidar",
+            "stealer",
+            "telegram",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Vidar",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89316\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/d73c5cfd92e3b353ee2f67e30dce8d29b158b6c5c03acc96a33142db920dcb57\/"
@@ -287,9 +348,14 @@
         }
       ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
