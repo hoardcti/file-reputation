@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "647bf2d9891f65a14673163b7c951116f6451f2d429836177ada126283183ad1",
+    "sha1": "a17e2ac5e4f183a5661726c84f4a477f596583c7",
+    "md5": "47944f276bb17fc8e33678f2b96d7221",
+    "sha3_384": "13befcc891ff22da5149d5b66d694d0eb8fffc5dade30c9696a0210f35fc86156c29251c5275ceb40458a921673da4df",
+    "tlsh": "T168C3D74D6F319F7DFBE9823047B39A659298238B36D1CA45D2ACE6011E202CE245FF75",
+    "imphash": null,
+    "telfhash": "t18a111e5c897413e09b361d892b2efbbae56030df07276d334f11b9aeaa6d9425d01c0c",
+    "gimphash": null,
+    "ssdeep": "3072:OeHii+8qX/eXh3cW5oPmZ6CGh2F6mxpKGk:fN+zPeR3cW5oPmZ6RYdnk"
+  },
+  "file_metadata": {
+    "names": [
+      "runningaway.mips"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 126484,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "1e4e4cdb4f85f5d3473fe0cc805dfe0fc43edb4329993edfd2e554fbefa22968"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923140\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "22b55ac5d2138312e0746a53956a3143"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "Mirai_Botnet_Malware",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects Mirai Botnet Malware",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Mirai_Botnet_Malware_RID2EF6",
+        "author": "Florian Roth",
+        "description": "Detects Mirai Botnet Malware",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/647bf2d9891f65a14673163b7c951116f6451f2d429836177ada126283183ad1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab8d27050d1fe5cdba47e67\/reports\/77d4f024-f143-49df-b9b5-ec763bbc14e7\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0061260d-c2b0-4748-912b-738e3a108e41?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.LnxMirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-27 08:22:44",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260927-j98fsst1hz\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "kabarberita.eu.cc"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-27T08:22:22Z",
+  "last_seen": null
+}
