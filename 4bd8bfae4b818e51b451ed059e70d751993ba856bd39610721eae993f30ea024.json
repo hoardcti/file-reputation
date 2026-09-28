@@ -1,0 +1,193 @@
+{
+  "hashes": {
+    "sha256": "4bd8bfae4b818e51b451ed059e70d751993ba856bd39610721eae993f30ea024",
+    "sha1": "1c1c78ef63f65d1462f07c83331a671eb148f09d",
+    "md5": "96191e63253a6d00ef4bfbe626eabc52",
+    "sha3_384": "bd5ddc3961b2e46ccb067340f6d706c4c6723fe4205a1f0366a24c1c68442c705b090370a0ffc2d29fe969b99be637de",
+    "tlsh": "T1DA056C17B1F330FCD19BC030479BDB636935F46A01216EBB62C4AA352D52EA12729F67",
+    "imphash": null,
+    "telfhash": "t15c7125b097f536f1a2d7d920b362f1fa6d361c3592e935f52622ae84ef01f810c62813",
+    "gimphash": null,
+    "ssdeep": "12288:+Dv1T7KHafYmT2AniMkHjN56G5/0yyuB5yqe:Yv1T2HafYmTFnOR55y"
+  },
+  "file_metadata": {
+    "names": [
+      "DS.x86_64"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 818464,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3924158\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_OHSHIT_payload",
+        "author": "AfterPacket",
+        "description": "MIRAI_OHSHIT ELF payload -- compiled-in C2 set, all architectures",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4bd8bfae4b818e51b451ed059e70d751993ba856bd39610721eae993f30ea024\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ab9fe3a857bd7a1af482cf0\/reports\/93d94447-5898-4212-850a-fea2ca2a6635\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/d878b627-fca7-4733-81b6-0367c531d603?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-28 05:23:26",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260928-gc27eaws4q\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Kills critical processes"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-28T05:39:25Z",
+  "last_seen": null
+}
