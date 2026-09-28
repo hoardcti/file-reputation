@@ -1,0 +1,270 @@
+{
+  "hashes": {
+    "sha256": "e38c53aedf49017c47725e4912fc7560e1c8ece2633c05057b22fd4a8ed28eb3",
+    "sha1": "610921e6f95843045fec4393c088dd1f896a6571",
+    "md5": "c16df0bfc6fda86dbfa8948a566d32c1",
+    "sha3_384": "e8da063778026952a0dc91881dcf15fbef3c8ec1a6bc7db01b6fa34ab2b94ab1cf5ab1203c4974fc0986dea7ff538bb1",
+    "tlsh": "T138729E3DD1487430EA93A67C500F26F1F261D183E4527D5F3926FBAE9BA47CB071A488",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:Xsz8ND9/dxdG5BEQjNxt/ZtNN+n222UhfFN1NKeVQ11NXHEHre8RK:XDVEBRZxllNGZfFN1NF0HOhRK"
+  },
+  "file_metadata": {
+    "names": [
+      "e38c53aedf49017c47725e4912fc7560e1c8ece2633c05057b22fd4a8ed28eb3.bin"
+    ],
+    "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "type": "doc",
+    "size": 17559,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "docx",
+    "trid": [
+      "53.6% (.DOCM) Word Microsoft Office Open XML Format document (with Macro) (52000\/1\/9)",
+      "24.2% (.DOCX) Word Microsoft Office Open XML Format document (23500\/1\/4)",
+      "18.0% (.ZIP) Open Packaging Conventions container (17500\/1\/4)",
+      "4.1% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "doc",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "informational_win_ole_protected",
+        "author": "Jeff White (karttoon@gmail.com) @noottrak",
+        "description": "Identify OLE Project protection within documents.",
+        "reference": null
+      },
+      {
+        "rule_name": "vbaproject_bin",
+        "author": "CD_R0M_",
+        "description": "{76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e} is hex for vbaproject.bin. Macros are often used by threat actors. Work in progress - Ran out of time",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "https:\/\/ceplustest125.netlify.app\/Macro\/CEPlus.docm",
+          "date": "2024-02-21 13:26:48",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/6ed6aef4-6c7a-40ec-a077-f775d3c0800e",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e38c53aedf49017c47725e4912fc7560e1c8ece2633c05057b22fd4a8ed28eb3\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "Word File with Macro",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aba3d49e259bd50a7ea88c0\/reports\/82eafd99-b2d8-40ac-b512-80939b985805\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "docm",
+        "first_seen": "2018-11-29T07:57:00Z",
+        "last_seen": "2026-09-22T10:35:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e38c53aedf49017c47725e4912fc7560e1c8ece2633c05057b22fd4a8ed28eb3\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Document-Office.Trojan.Powload",
+        "status": "MALICIOUS",
+        "first_seen": "2018-06-29 10:41:37",
+        "scanner_count": "36",
+        "scanner_match": "29",
+        "scanner_percent": "80.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260928-l74e6s1dng\/",
+        "tags": [
+          "discovery",
+          "macro"
+        ],
+        "signatures": [
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Launching a process by exploiting the app vulnerability"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Replacing files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-28T10:11:05Z",
+  "last_seen": null
+}
