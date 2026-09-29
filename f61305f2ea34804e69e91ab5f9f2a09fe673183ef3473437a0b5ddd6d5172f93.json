@@ -1,0 +1,298 @@
+{
+  "hashes": {
+    "sha256": "f61305f2ea34804e69e91ab5f9f2a09fe673183ef3473437a0b5ddd6d5172f93",
+    "sha1": "580fa7a86b2a166e85128eab2ddeb5688eea0560",
+    "md5": "cf08611b9d68234025d0ac9631971124",
+    "sha3_384": "f5f5f1b94e495a4211be831f3e63e60c92487f1d1270581544f568a67c935923aa2ea2a15f60d52c7f8aeee11ddfae0c",
+    "tlsh": "T108F733F3498E29A7FE8D8C79B4D3114A1D24CEB85C5124AF77441B91EE9830FF329629",
+    "imphash": "d221b1dc8c3a08622f6512e7876527c8",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:TAkTeTHKZ/ooSZPPJdztOKooS5zlIsE+RcHyUGb4swG:VmHKZ8ZP7z45oS5z++H5U3G",
+    "dhash_icon": "70d8e6e0e0a6c870"
+  },
+  "file_metadata": {
+    "names": [
+      "Telagrenn.exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 75215439,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "40.6% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "16.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "12.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.0% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "5.0% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "DonutLoader",
+    "tags": [
+      "DonutLoader",
+      "exe",
+      "SilverFox",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PE_Digital_Certificate",
+        "author": "albertzsigovits",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-09-29 15:39:13",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/a48508ee-928e-41f9-bfd1-e7e0deb459d7",
+          "tags": []
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abbd996a6537df672e722cb\/reports\/f098900d-6c0c-486e-ab5f-9fc89395548a\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-09-29T11:53:00Z",
+        "last_seen": "2026-09-29T11:58:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f61305f2ea34804e69e91ab5f9f2a09fe673183ef3473437a0b5ddd6d5172f93\/results?tab=lookup",
+        "detections": [
+          "HEUR:Trojan.VBS.SAgent.gen"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-09-29 12:01:49",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "donutloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260929-sxqvnawves\/",
+        "tags": [
+          "family:donutloader",
+          "discovery",
+          "execution",
+          "installer",
+          "loader",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Drops desktop.ini file(s)",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Inno Setup is an open-source installation builder for Windows applications.",
+            "score": "1"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "DonutLoader",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/f61305f2ea34\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "50",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "CNGaoLing",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-29T15:29:25Z",
+  "last_seen": null
+}
