@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "faab81c3d9a11a52b6d1e8e9621e340419303184060bed30cf972e6f30f1bedb",
+    "sha1": "b7b0411528578afa132f1306854db4386f8d1f13",
+    "md5": "df2e32669f6926dade616484b5e192b2",
+    "sha3_384": "e3088ec498cdb199be2120d74755c01a2a9fd6f8fa73f09be3ba46e5fb1bf7e8e77fb912b8a6da4051ccab5c6e048ad3",
+    "tlsh": "T1A7B733032E55AFBED9AB8176A984515A4D10FEE28B0C5E2AD35CBFF440B34076B70E47",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:WNEkj4jot9avrcU6S9dSFfCS4aoeyDyZ:WNJ0jswr9NSFfCS4avvZ"
+  },
+  "file_metadata": {
+    "names": [
+      "ewxsdfsfplorer.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 52563968,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "83.7% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.2% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "3.5% (.WPS) Kingsoft WPS Office document (alt.) (19502\/3\/2)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abb8fc502233aa733e7e544\/reports\/d3e7dad8-e50f-495a-8b62-ac6d41baf094\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-29 00:48:53",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/260929-mah9eagd94\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "NTFS ADS",
+            "score": null
+          },
+          {
+            "signature": "Script User-Agent",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "Logic Consultwing",
+      "issuer_cn": "Logic Consultwing",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-09-28T02:41:56Z",
+      "valid_to": "2027-09-28T03:01:56Z",
+      "serial_number": "6e251273119b3fab419622e5403429ae",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-29T10:15:14Z",
+  "last_seen": null
+}

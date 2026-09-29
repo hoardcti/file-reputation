@@ -1,0 +1,271 @@
+{
+  "hashes": {
+    "sha256": "092664e3e946cedc4712f58d40294362aee1e5330c4d15c9f0d6303ae474bb5f",
+    "sha1": "5edb0658b69651b9d88f94aceb73afc4afde762c",
+    "md5": "982d08d24b2f5793fe9ad55845226b5e",
+    "sha3_384": "fe8b92dcf55ce016f13b16215438798102f57a28f6148ffa57410d084b9b000a36d47541755f0ad5da6941b8a47d6391",
+    "tlsh": "T108430A3593974361CF628134D9B83327DAFDB9C57560512FC33CD918AEA32A2AE1C7A1",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:2/ZQvFQ4NOs6xHRkni1/ANsdbkPt6+/2ITqAp4YL3N8di:OQvFlr6xHRkL+dbYgmZJEi"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 58368,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Amadey"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3924928\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/89634\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SolarisLoader",
+    "tags": [
+      "579cd0",
+      "dropped-by-Amadey",
+      "exe",
+      "SolarisLoader"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Hunt_Obfuscated_Localhost_ROT",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated/rotated 127.0.0.1 strings while excluding raw plaintext",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-29 10:42:00",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/3e37d73e-1e33-40e4-a94b-7da031b904f2",
+          "tags": [
+            "solaris",
+            "loader"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89634\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/092664e3e946cedc4712f58d40294362aee1e5330c4d15c9f0d6303ae474bb5f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abb93afa2246362f2f6e804\/reports\/12101bc3-e7ae-4f4a-a401-9ee2e083bdc4\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c4580256-e9b0-405e-88ce-857093745e40?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.MintPhil",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-29 10:32:16",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "solaris_loader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260929-mk249szt3l\/",
+        "tags": [
+          "family:solaris_loader",
+          "discovery",
+          "loader",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: SolarisLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "solaris_loader",
+            "c2": "193.178.158.57"
+          },
+          {
+            "extraction": "c2",
+            "family": "solaris_loader",
+            "c2": "193.178.158.107"
+          },
+          {
+            "extraction": "c2",
+            "family": "solaris_loader",
+            "c2": "196.251.107.186"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "092664e3e946cedc4712f58d40294362aee1e5330c4d15c9f0d6303ae474bb5f",
+          "md5_hash": "982d08d24b2f5793fe9ad55845226b5e",
+          "sha1_hash": "5edb0658b69651b9d88f94aceb73afc4afde762c",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/34bb2f88-7d0b-49ee-a3b8-2552fa94e72d\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "SolarisLoader",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/092664e3e946\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP POST request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-29T10:31:31Z",
+  "last_seen": null
+}
