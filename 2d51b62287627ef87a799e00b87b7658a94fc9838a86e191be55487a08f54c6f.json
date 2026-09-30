@@ -138,9 +138,21 @@
         "reference": null
       },
       {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
         "rule_name": "PE_Digital_Certificate",
         "author": "albertzsigovits",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
         "reference": null
       },
       {
@@ -165,6 +177,18 @@
         "rule_name": "Suspicious_Golang_Binary",
         "author": "Tim Machac",
         "description": "Triage: Golang-compiled binary with suspicious OS/persistence/network strings (not family-specific)",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
         "reference": null
       },
       {
@@ -195,6 +219,10 @@
           ]
         }
       ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89724\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/2d51b62287627ef87a799e00b87b7658a94fc9838a86e191be55487a08f54c6f\/"
@@ -313,10 +341,44 @@
           "link": "https:\/\/www.unpac.me\/results\/0d0c7873-3b30-468c-97bf-f752cfabb5d3\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/2d51b6228762\/report\/overview.html"
+      },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
       }
     }
   },

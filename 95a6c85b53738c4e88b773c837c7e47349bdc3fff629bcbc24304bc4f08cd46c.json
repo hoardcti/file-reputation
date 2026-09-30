@@ -132,9 +132,21 @@
         "reference": null
       },
       {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
         "rule_name": "PE_Digital_Certificate",
         "author": "albertzsigovits",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
         "reference": null
       },
       {
@@ -162,6 +174,18 @@
         "reference": null
       },
       {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "ThreadControl__Context",
         "author": null,
         "description": null,
@@ -175,6 +199,23 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-29 22:49:00",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/3bfb5bfd-becf-49f5-8e70-623645bc51c9",
+          "tags": [
+            "telegram",
+            "evasion"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89725\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/95a6c85b53738c4e88b773c837c7e47349bdc3fff629bcbc24304bc4f08cd46c\/"
@@ -293,10 +334,44 @@
           "link": "https:\/\/www.unpac.me\/results\/2f3a4c16-cf1f-4f2a-a798-364246a70ca2\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/95a6c85b5373\/report\/overview.html"
+      },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
       }
     }
   },
