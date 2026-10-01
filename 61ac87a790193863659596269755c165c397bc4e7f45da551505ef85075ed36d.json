@@ -1,0 +1,222 @@
+{
+  "hashes": {
+    "sha256": "61ac87a790193863659596269755c165c397bc4e7f45da551505ef85075ed36d",
+    "sha1": "8b83dd6031f1b8dca797a9e23e8a2e4039ebac93",
+    "md5": "77c33bd78efb9858245d8d7731114eda",
+    "sha3_384": "0507267b4c5746094392b1676b5e197ecdcb8a7d7f68bb7254ed8b0d1074e2e4fe3835e6fb023b8b8ec9f8a3b2130278",
+    "tlsh": "T1AF94C60A6E228F7DF67487344BF74A3497AD23D613E2DA80D1ACD1151F2424EA51FBAC",
+    "imphash": null,
+    "telfhash": "t19a915aeb387a17a4aba44d8d45ddee208c931cef2a961c23de51d49ec71bb835e11c1c",
+    "gimphash": null,
+    "ssdeep": "6144:0GbldrY9f04+36tbYLgfRA1maonxPloEpMcquPs5rRLeFh1Hgt9X/lmCVGGX2fJP:R0fHfDW/lAfJP"
+  },
+  "file_metadata": {
+    "names": [
+      "mips"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 445680,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926262\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "deepfield_potassium_mirai_variant",
+        "author": "Nokia Deepfield ERT",
+        "description": "Detects Potassium, a Mirai-derived DDoS bot: static ChaCha20 config-table key/nonce and 19-byte C2 registration header, constant across every build since 2026-03",
+        "reference": "https://github.com/deepfield/public-research/blob/main/potassium/report.md"
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_TELNETCURL_payload",
+        "author": "AfterPacket",
+        "description": "Mirai-lineage ELF payload carrying the leaked-source decoy domain",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "VPNFilter",
+        "author": "Christiaan Beek @ McAfee Advanced Threat Research",
+        "description": "Filter for 2nd stage malware used in VPNfilter attack",
+        "reference": "https://blog.talosintelligence.com/2018/05/VPNFilter.html"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/61ac87a790193863659596269755c165c397bc4e7f45da551505ef85075ed36d\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abe4e258b02338873f333bf\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/ec63686c-3807-448d-9b1f-fc208b78f345?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.be",
+        "first_seen": "2026-09-13T03:08:00Z",
+        "last_seen": "2026-09-29T09:04:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/61ac87a790193863659596269755c165c397bc4e7f45da551505ef85075ed36d\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-13 20:27:55",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261001-pb7phascqa\/",
+        "tags": [
+          "antivm",
+          "credential_access",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads system routing table",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Mounts file systems"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T12:09:40Z",
+  "last_seen": null
+}

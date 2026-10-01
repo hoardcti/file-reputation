@@ -1,0 +1,179 @@
+{
+  "hashes": {
+    "sha256": "ab0deb68698192ede6e4d11ea83bb5d6a230daa27cb06e732945d069907a1a5f",
+    "sha1": "afd1786352f96a285b86511f818290f505ebdaa6",
+    "md5": "31665c745179c98b9de6c874e2b41580",
+    "sha3_384": "6d13fcb620f18508b2807a0d6b7586035a2ce06893600f6673e6558a0a5c0ca06d66794dee70247032f6bd37dbb11dcd",
+    "tlsh": "T162D33B02B30D0947E2673EF43B3B27E1D3DFDA8121E4E644251FAA8991B2D325586DCE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:gLF9lhszLHQDxiQCxFC3erJZHFTEDDwd2vAxS750JbCtABHqUtJYUd:gLjluwDxuCOlZHF4cfxbt9d"
+  },
+  "file_metadata": {
+    "names": [
+      "iran.powerpc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 137940,
+    "format": "ELF",
+    "arch": "PPC",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926213\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "has_telegram_urls",
+        "author": "Aaron DeVera\u003caaron@backchannel.re\u003e",
+        "description": "Detects Telegram URLs",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/ab0deb68698192ede6e4d11ea83bb5d6a230daa27cb06e732945d069907a1a5f\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abe4a3514898c670bc24e9a\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/1889940a-26a4-4aed-ad82-7f6f22f749e0?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.FlyLegitBot",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-01 11:51:33",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "flylegitbot",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261001-n12dcazt5m\/",
+        "tags": [
+          "family:flylegitbot",
+          "botnet",
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T11:52:16Z",
+  "last_seen": null
+}

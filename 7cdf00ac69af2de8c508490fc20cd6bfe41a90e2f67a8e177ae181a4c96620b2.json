@@ -1,0 +1,171 @@
+{
+  "hashes": {
+    "sha256": "7cdf00ac69af2de8c508490fc20cd6bfe41a90e2f67a8e177ae181a4c96620b2",
+    "sha1": "c889bdf37658f2fdf546f0e46f845a506ebf9c46",
+    "md5": "6149485df6f81c07c767cf52d2f05844",
+    "sha3_384": "e0a1d49419ca0ce310c4b494d08085122719ec7bb733c4b5d0797796e68275698bd39cfa7152cdfe04f4906778875879",
+    "tlsh": "T1C48533780462D4611D95F070BA333373563B4EBB6494A5DCFEAF022DC63EAE2DB59089",
+    "imphash": null,
+    "telfhash": "t1dfa0028c05a65770207c941ac4d2501221f600f4d17173300d135628444c6cdc412d02",
+    "gimphash": null,
+    "ssdeep": "49152:zarbM2d4K3CcsNp7MIvENePzwzcPP9Qhg28FyTq8LVHB:ygK3LSj0e7ykkuwB"
+  },
+  "file_metadata": {
+    "names": [
+      "arm"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 1784356,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926222\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926223\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926232\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "9c5a110373caec16fa03e6fc9813d18a7a87c3ca66dab2047e141149e442274c"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "f43788731abdc668173823394bc8bb6d"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7cdf00ac69af2de8c508490fc20cd6bfe41a90e2f67a8e177ae181a4c96620b2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abe4aeb14898c670bc25198\/reports\/6885712f-74a4-4705-878a-37c89ca385b8\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f5938217-d8b9-4341-9a15-1b1a0bc6eaad?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-01 00:07:03",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261001-n4swdazw6k\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "IN",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T11:56:34Z",
+  "last_seen": null
+}

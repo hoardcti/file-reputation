@@ -1,0 +1,152 @@
+{
+  "hashes": {
+    "sha256": "867698b09d1780c28a5f2eb751a932521b3e2cbb79c22ae726da7db378e977f3",
+    "sha1": "fabf98560a374c73a6d17485d8a73d724001a467",
+    "md5": "1e559d44c840e5204d2f49e181718442",
+    "sha3_384": "34a23ff206eb60b4cd028e5574e356dd417e79175ca76d2d4bbc5139a412e9da720b45ddadd1561661c90c6fe03be22c",
+    "tlsh": "T1D0416D181BE50718F3F38B35A8BB6710D97BBC99EE518F8D0080918C1472624E4BAF6B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:8Ayw/BHYVKVWl+/CWxlVytW8AddNXuHY8HXJ4:8y5a0lV+XAdLXuHjJ"
+  },
+  "file_metadata": {
+    "names": [
+      "Сертификат_курса_ИИ.pdf.lnk"
+    ],
+    "mime_type": "application/x-ms-shortcut",
+    "type": "lnk",
+    "size": 2194,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "lnk",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "lnk",
+      "RUS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Long_RelativePath_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies shortcut (LNK) file with a long relative path. Might be used in an attempt to hide the path.",
+        "reference": null
+      },
+      {
+        "rule_name": "Script_in_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies scripting artefacts in shortcut (LNK) files.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_LNK_PowerShell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the reference to powershell inside an lnk file, which is suspicious",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/867698b09d1780c28a5f2eb751a932521b3e2cbb79c22ae726da7db378e977f3\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "LNK File - Malicious",
+        "alertlevel": "0",
+        "urls": [
+          "https:\/\/ai-education-msk.com\/cdn\/xagdvrhg5c27aajvjtejf2pm.js"
+        ]
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abe376c6027993fd5114221\/reports\/f08b9f60-2c70-418a-b0b3-3e3ac11bb166\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Shortcut.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-01 07:52:35",
+        "scanner_count": "37",
+        "scanner_match": "9",
+        "scanner_percent": "24.32"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261001-mmsnlsyzez\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T10:34:33Z",
+  "last_seen": null
+}

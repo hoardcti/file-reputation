@@ -1,0 +1,147 @@
+{
+  "hashes": {
+    "sha256": "0ac60e87e97270103a1b3d6bc8b359c106284decb8e2087d09adb8a768791a81",
+    "sha1": "994088e19bd6fe5481a5469a5e9243c77466b5b5",
+    "md5": "e72cfea2632c610345a973e0e1d6a450",
+    "sha3_384": "87f8b896c6052d966b8198b1ef67725ef92fe8ce0d566081a415c39b06053ef9cee644b7cc8daabce58f6ae9a2e60e95",
+    "tlsh": "T12C21E1DA62E170B3C469EDA2B39880D4E04985C650E77FBEFCAC64B1489941CF1B5BA1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:ZToB+oQToQA+ogToBNIQ+oxNITToyKPB+okKP2ToqDH+oqnTo83+o5QToZHB+oRL:ZToB+oQToQA+ogTov+ooToyKPB+okKPR"
+  },
+  "file_metadata": {
+    "names": [
+      "bins.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1301,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_md5",
+        "value": "da8fee5c5d9286788576b198dc1e2f18"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "d36562c74048192cfed769d51c8bd168549c0e58884f00f6fa3eff326df1ce53"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": null,
+    "yara_rules": [
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0ac60e87e97270103a1b3d6bc8b359c106284decb8e2087d09adb8a768791a81\/"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-Shell.Downloader.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-01 11:40:30",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261001-ntn5fatxcs\/",
+        "tags": [
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies environment variables",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Bash startup script",
+            "score": "5"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "MultiGoDDoS",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/0ac60e87e972\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T11:40:43Z",
+  "last_seen": null
+}
