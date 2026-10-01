@@ -1,0 +1,235 @@
+{
+  "hashes": {
+    "sha256": "7250576a3cb7164bf383d89683267604dd1a5d36e1a35f22b5bef2d9f29402e5",
+    "sha1": "3872008acee3624bf9a290fe384e399958973acd",
+    "md5": "a7ae6bfb61ecc81b5425c311f050a518",
+    "sha3_384": "7ea48ab260c8fccab76e9e098af9e4ebbe1d93f1661f90dcceacb1d31286d95d9177999cfb3b0440e69bf68facb24de6",
+    "tlsh": "T1DD4502186A5BEC03C8B503358AE2F6B043F56E4DE522D25B8FEA2CDB3921BD519D4353",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:cWViPkKzZl+cccZK8pn/TboYll5tFhh3pQ4+6oOF6uraCDB:ckisKzZlfccZxpLboYZtFb3aZMDB"
+  },
+  "file_metadata": {
+    "names": [
+      "(TWN26100200.TWN26100218.TWN26100222.TWN26090662.TWN26100226.TWN26100262.TWN26100313).exe"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 1236480,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/89989\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "exe",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "HUNT_NET_Loader_ImagePixel_To_AssemblyLoad",
+        "author": "Anish Bogati",
+        "description": "Hunting: .NET loader that reads pixel data from an embedded image, loads it as a .NET assembly, and runs it via reflection or late binding. Catches bitmap-steganography loaders.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "remcos",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-01 04:52:03",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/a074a4f5-0270-4b89-b89d-80b7e8d24ff8",
+          "tags": [
+            "netreactor",
+            "remcos",
+            "rat"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89989\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7250576a3cb7164bf383d89683267604dd1a5d36e1a35f22b5bef2d9f29402e5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abde521f0fd192a98240eae\/reports\/d9385c8b-111d-4f52-9b11-817d053d35f3\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a825b5e4-a989-41ef-b766-2e53959b3298?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-01T01:15:00Z",
+        "last_seen": "2026-10-01T01:38:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/7250576a3cb7164bf383d89683267604dd1a5d36e1a35f22b5bef2d9f29402e5\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-01 04:12:20",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261001-fcycsasz2j\/",
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "discovery",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "SmartAssembly .NET packer",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "172.94.15.100:6075"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "7250576a3cb7164bf383d89683267604dd1a5d36e1a35f22b5bef2d9f29402e5",
+          "md5_hash": "a7ae6bfb61ecc81b5425c311f050a518",
+          "sha1_hash": "3872008acee3624bf9a290fe384e399958973acd",
+          "detections": [
+            "SUSP_OBF_NET_Reactor_Indicators_Jan24"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/ef3b4dcf-bcdd-4dfb-a14e-663935c45133\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Remcos",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/7250576a3cb7\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "threatcat_ch",
+    "anonymous": false,
+    "origin_country": "CH",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-01T04:43:23Z",
+  "last_seen": null
+}

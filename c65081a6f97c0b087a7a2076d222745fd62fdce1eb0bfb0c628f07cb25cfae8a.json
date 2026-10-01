@@ -1,0 +1,361 @@
+{
+  "hashes": {
+    "sha256": "c65081a6f97c0b087a7a2076d222745fd62fdce1eb0bfb0c628f07cb25cfae8a",
+    "sha1": "5cd6b1649d35a5cb3af5b447dd7ba41062df41ca",
+    "md5": "6efeedf66010c0abebb763204791dfe7",
+    "sha3_384": "6d73b38ef8482bd06f9feccbac1bf3f4a9ee470efd8c832ae3ad98df8fb6d52a4ff15149d8357e855d7ad23b6a8224ba",
+    "tlsh": "T1CA8633837BDA41B0E1F25E320C96C84E7D5BB97214E0B85A6CB4C92D543AF898CB77D1",
+    "imphash": "20dd26497880c05caed9305b3c8b9109",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:zl22MPgegWT2xwd4hWxzKAu/BGxeyYqNiIKp7x2zRY4jd:Z2VP0S2xwd4hCzKvBGxey3ipL2z645",
+    "dhash_icon": "b298acbab2ca7a72"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/x-dosexec",
+    "type": "exe",
+    "size": 8298669,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "72.8% (.EXE) Inno Setup installer (107240\/4\/30)",
+      "9.6% (.EXE) Win32 Executable Delphi generic (14182\/79\/4)",
+      "4.4% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "4.4% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "3.0% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Gcleaner"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/89935\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "HijackLoader",
+    "tags": [
+      "dropped-by-GCleaner",
+      "exe",
+      "HijackLoader",
+      "P",
+      "UNIQPREM.file"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Borland",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "shellcode",
+        "author": "nex",
+        "description": "Matched shellcode byte patterns",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-09-30 18:43:54",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/e31bd80e-69e8-4b4a-88b7-4bc4c34f7d23",
+          "tags": [
+            "delphi",
+            "inno",
+            "installer",
+            "hijackloader",
+            "loader",
+            "auto-startup",
+            "pecompact"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89935\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c65081a6f97c0b087a7a2076d222745fd62fdce1eb0bfb0c628f07cb25cfae8a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abd575949b50c8651a371e9\/reports\/abc7e086-c2e1-4556-abe6-c5f8775036d7\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "IDAT Loader",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/b305cf98-2da1-43c4-9434-29784a62d368?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-30 18:39:57",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "hijackloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/260930-xaqzcswt8l\/",
+        "tags": [
+          "family:hijackloader",
+          "defense_evasion",
+          "discovery",
+          "installer",
+          "loader",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects HijackLoader (aka IDAT Loader)",
+            "score": "10"
+          },
+          {
+            "signature": "Family: HijackLoader, IDAT loader, Ghostulse,",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Inno Setup is an open-source installation builder for Windows applications.",
+            "score": "1"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "c65081a6f97c0b087a7a2076d222745fd62fdce1eb0bfb0c628f07cb25cfae8a",
+          "md5_hash": "6efeedf66010c0abebb763204791dfe7",
+          "sha1_hash": "5cd6b1649d35a5cb3af5b447dd7ba41062df41ca",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "d6410ca2c1da978fe63298d59dd85a32ccbff422c12bbfaef478fb304e998558",
+          "md5_hash": "733553671b79bc45e758cd85b8c63ca3",
+          "sha1_hash": "38c4087720e1b5d7ba08efb5f816da0bbc16bb03",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "2edbe3ccd2e40af827b176f914dcfdb015f08ca1043b0d04e0d6fc838aa5a940",
+          "md5_hash": "bead1d696b3aea8130ea1eb355e3e2d2",
+          "sha1_hash": "a02b7c00a7b8a4366b8135a8da3fdfd83c6afccd",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "7acc7eeff989c4b0b48c4d5c909039b4e7c1fc0cf5f55d528e61128911fd1332",
+          "md5_hash": "c3177e645b3748136ce1d54ff148e644",
+          "sha1_hash": "b6761fed8cd945b67c3ca394223907add85e3866",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "5bf439f4d238bf16d9d2b3ed2623c663ac03ac1f5f994b56ef966b19e4eeccdc",
+          "md5_hash": "e850fae197fdb5c648245b28f752f868",
+          "sha1_hash": "e18df5569fee7f14a3c11ab3937dfac1e89f9ecd",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "d3432d1edfe2a623cb042ffb93554c40ff61ec92df4299c40f6d4adcb6f7e5ff",
+          "md5_hash": "6d48331f1242d5023259ea692a8c04db",
+          "sha1_hash": "e6b106f7ff17e51e3a75b341627715b98688e7f7",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "388a796580234efc95f3b1c70ad4cb44bfddc7ba0f9203bf4902b9929b136f95",
+          "md5_hash": "e4211d6d009757c078a9fac7ff4f03d4",
+          "sha1_hash": "019cd56ba687d39d12d4b13991c9a42ea6ba03da",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "44b8e6a310564338968158a1ed88c8535dece20acb06c5e22d87953c261dfed0",
+          "md5_hash": "9c8886759e736d3f27674e0fff63d40a",
+          "sha1_hash": "ceff6a7b106c3262d9e8496d2ab319821b100541",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "8f0beb5863d190b7b2cfe7f506f3b721ab6b9e892337a133364f2ba710931b25",
+          "md5_hash": "be3cc5717f5951662adb399d613f20cc",
+          "sha1_hash": "f776bc4344ad59fbd6950d24d3aa6dddb3df215a",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "1d9d43bbac357d5aa3381bab28ebf80c8f9e0156d54a7ea142751b6bf1ca244f",
+          "md5_hash": "e88d361229a5e3629ca4d5ee58315b37",
+          "sha1_hash": "22cba86907e351e9b1178240657c4e3fdfdbe628",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "267801a83a4cb1110e17a259c52db3af3c8bc9e11c29b9f7d85e04a95b8b30e0",
+          "md5_hash": "6a5f85f4d0b0242553b461d6b57cc744",
+          "sha1_hash": "6dd4a4c329a13fae677bf44635c912ec9e80e559",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "a6edb3fb6d21dd461da3767a7995034e208f7d6b08997f6cf7ee7b0ea833a8f0",
+          "md5_hash": "cabb58bb5694f8b8269a73172c85b717",
+          "sha1_hash": "9ed583c56385fed8e5e0757ddb2fdf025f96c807",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "68bee500e0080f21c003126e73b6d07804d23ac98b2376a8b76c26297d467abe",
+          "md5_hash": "d4dae7149d6e4dab65ac554e55868e3b",
+          "sha1_hash": "b3bea0a0a1f0a6f251bcf6a730a97acc933f269a",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        },
+        {
+          "sha256_hash": "32b47e15d95dd190890ce3bf4d35661b0ea4a56dcaf04b505bec5db10f0cecd4",
+          "md5_hash": "65b8544367b87265eedaa1a6e4295ce8",
+          "sha1_hash": "dd28b8a4da7eebd95011dec371e178031f04b204",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/8abbfcbb-a38e-433f-b91e-4ba4ac7aa474\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "SnappyClient,HijackLoader",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/c65081a6f97c\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process by context flags manipulation"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-30T18:39:02Z",
+  "last_seen": "2026-09-30T18:56:33Z"
+}

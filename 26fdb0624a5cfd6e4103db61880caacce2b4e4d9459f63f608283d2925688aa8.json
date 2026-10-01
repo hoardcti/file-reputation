@@ -1,0 +1,207 @@
+{
+  "hashes": {
+    "sha256": "26fdb0624a5cfd6e4103db61880caacce2b4e4d9459f63f608283d2925688aa8",
+    "sha1": "cd5bef05f9c2b057c1212cd5761b3f3c520740fa",
+    "md5": "905e88594dbc44c47737ead834b4b513",
+    "sha3_384": "0408131d6a65162fa41258de8a5344439cce01ce7b1642c80f73b7a6f0c520f3bd7052436c0df8e4b70073a1320ad843",
+    "tlsh": "T103E2A41776049231C5861331896FE7E48B76AC48DF671427369BB39C2F73AD061B7AE0",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:BezOZ48glidD3QO2yCey3M5aoXoLHo1x5Pey3M5sC0x:v47lidVueWMbeWMmCU"
+  },
+  "file_metadata": {
+    "names": [
+      "fixwire.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 32768,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "joe_sandbox",
+        "value": "https:\/\/www.joesandbox.com\/analysis\/1980191"
+      },
+      {
+        "context": "dropping_malware",
+        "value": "EtherRAT"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/89933\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "EtherRAT",
+    "tags": [
+      "etherhiding",
+      "etherrat",
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_in_Word_Doc_RID2FBC",
+        "author": "Florian Roth",
+        "description": "Detects a powershell and bypass keyword in a Word document",
+        "reference": "Internal Research - ME"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/89933\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/26fdb0624a5cfd6e4103db61880caacce2b4e4d9459f63f608283d2925688aa8\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abd4f68eba8082d2b6705e2\/reports\/40d02fc8-6e4a-49d5-af87-20834921b5d1\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "msi",
+        "first_seen": "2026-09-29T02:50:00Z",
+        "last_seen": "2026-09-30T08:54:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/26fdb0624a5cfd6e4103db61880caacce2b4e4d9459f63f608283d2925688aa8\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-29 07:54:25",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/260930-wpcjvasyat\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Hide Artifacts: Hidden Window",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "anonymous",
+    "anonymous": true,
+    "origin_country": "US",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-09-30T18:05:16Z",
+  "last_seen": null
+}
