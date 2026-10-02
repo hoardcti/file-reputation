@@ -1,0 +1,277 @@
+{
+  "hashes": {
+    "sha256": "b0677fde2e59fc99cd48de1223645e791aaf38577d33a4a7cf34a30562a2d00c",
+    "sha1": "36a2ed5859b320041fc42a7314469caff8e5d062",
+    "md5": "e1ae52ee5e3dd46365a2cb386fb08cb9",
+    "sha3_384": "8bd4821c99902a11f5cda144dea82782c7eebcdf0f20e4ad077bfe5f7c2fb4b09e2c6d321625797207911d6fce0678d1",
+    "tlsh": "T1EDA43A66E8419B52D5D12ABEFF6E824933132F38F2DE72119D185F7067CB89A0E3E501",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:w5XbjqggKP7R7wbmVEaRdS2Mr6gmTZV8aHsMtVEguFcF:MjqggGw/BCTMSJruW"
+  },
+  "file_metadata": {
+    "names": [
+      "eclipse.armv6l"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 490964,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3888761\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "enterpriseapps2",
+        "author": "Tim Brown @timb_machine",
+        "description": "Enterprise apps",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b0677fde2e59fc99cd48de1223645e791aaf38577d33a4a7cf34a30562a2d00c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abf4652fcce83038e770a21\/reports\/a500b5eb-e358-4dd7-98b5-25c5ded5df22\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c8bd109b-f8a9-461e-9b37-4f4c55581875?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-02 05:51:38",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261002-gj9j3azcmc\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.30"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Deletes a system binary file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Removes directories from a temporary directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deletes a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes owner for a written file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Locks files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-02T05:50:49Z",
+  "last_seen": null
+}

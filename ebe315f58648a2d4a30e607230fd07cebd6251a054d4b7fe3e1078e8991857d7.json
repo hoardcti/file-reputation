@@ -1,0 +1,237 @@
+{
+  "hashes": {
+    "sha256": "ebe315f58648a2d4a30e607230fd07cebd6251a054d4b7fe3e1078e8991857d7",
+    "sha1": "6ae2018c4cc315347ed23a918783d1371dcc7f5c",
+    "md5": "c980150b7c49ed01fef8cefcfb2ae752",
+    "sha3_384": "98773b919b65a437834b8840f982cf809a101eae1c684f744b14d9dabe8067d44301bdad2a64db23757554fff7978fbf",
+    "tlsh": "T1953723C2F751042AFD9F077296FB4E1C493AEDBD9B60234B69E0730925B3D92096B493",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:6LfK/LS1/Lgntpvw2D3r4qg8RvPNJrHS7i9CPq7E0YIpUx9gZjpWQma9BKyIo9Xb:yIQy+qRvPn2+CP+EUE9vFo9L"
+  },
+  "file_metadata": {
+    "names": [
+      "ebe315f58648a2d4a30e607230fd07cebd6251a054d4b7fe3e1078e8991857d7.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 22504960,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "66.7% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "16.5% (.MSM) Windows Installer Merge Module (113019\/2\/34)",
+      "8.9% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "6.5% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.1% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90225\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemoteManipulator",
+    "tags": [
+      "msi",
+      "RemoteManipulator"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": "RemoteUtilitiesRAT",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90225\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abf2f5607f0af2939eec565\/reports\/1246ebb4-21b0-472d-aee5-7b355498ee00\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "msi",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/ebe315f58648a2d4a30e607230fd07cebd6251a054d4b7fe3e1078e8991857d7\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-12 09:47:40",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "rurat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261002-es6testfma\/",
+        "tags": [
+          "family:rurat",
+          "backdoor",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: RuRAT",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-02T04:12:58Z",
+  "last_seen": null
+}
