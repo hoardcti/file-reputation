@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "c45c3b9d40fb91eba3af49dc3c31dd5664ff0f3a2043d43a751092361060bfad",
+    "sha1": "5af2d1529c39e70ae08200dc4cfaf63216ac457e",
+    "md5": "aa75d546594f014d29ac227893423ea4",
+    "sha3_384": "dbf6cfe26ba5c1fcbe00bdeabe2ad561be326c22783fd28c646eb643fe1f5eb5612298a83a58e43bebda75d6084f7df9",
+    "tlsh": "T14E4523293A9846DB4800E1B772757448B6E812CB18836B5752EDC4E133F89B6E737DE3",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:I0YuMWZ78bsW1XOJ32ZC+SSTuHn2sIIN2M84IEJWX:IWMASXUwLaHnzM"
+  },
+  "file_metadata": {
+    "names": [
+      "secured_stub.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 1240776,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3926377\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VIPKeylogger",
+    "tags": [
+      "ps1",
+      "VIPKeylogger"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c45c3b9d40fb91eba3af49dc3c31dd5664ff0f3a2043d43a751092361060bfad\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6abf6ab0f74b67606958f7f7\/reports\/a4009e35-cb6d-4d1a-9d31-7a3022249f3e\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "2026-10-01T06:29:00Z",
+        "last_seen": "2026-10-01T06:45:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/c45c3b9d40fb91eba3af49dc3c31dd5664ff0f3a2043d43a751092361060bfad\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-02 01:03:17",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vipkeylogger",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261002-kb1tqsyhnd\/",
+        "tags": [
+          "family:vipkeylogger",
+          "collection",
+          "discovery",
+          "execution",
+          "keylogger",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: VIPKeylogger",
+            "score": "10"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          },
+          {
+            "signature": "outlook_win_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vipkeylogger",
+            "c2": "https:\/\/api.telegram.org\/bot8099843793:AAGeYKMLti1IpyT9o6bz7OtgdXF9md25uXA\/sendMessage?chat_id=6337180137"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-02T08:25:31Z",
+  "last_seen": null
+}
