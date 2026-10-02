@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "e38d5ff4bf7c6873e23b5ac2f54e68b3c0913e058e8d1da3c2b19077293102df",
+    "sha1": "76ffb745d11add317d13fdfdd88655f40ef80c01",
+    "md5": "ac42da4ea8a47039297b496028cc13af",
+    "sha3_384": "e37cde2fae3f9412eba56a7a751f16e14ce64f02dbb4b1131fb433d00d3375d017857b56dd5a02166f306d6b0cd68f09",
+    "tlsh": "T115735D8C5D863C4F57E19255F7A97BFF1AE9E3F7F1DB128C28052E08029A64891CD08B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:LmFMvQ79Xll08p6t20jNhSyR6jXyH1fdvdUW92ng5bal1:6xllvpBENhSs6jC1fdVUW9Ug5M"
+  },
+  "file_metadata": {
+    "names": [
+      "agent-windows-amd64-4d34f3bc.bin.delivery.cmd"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "cmd",
+    "size": 77939,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "cmd"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Base64_Encoded_Powershell_Directives",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "obfuscated_BAT",
+        "author": "@warz_s",
+        "description": "Identifies obfuscated BAT files",
+        "reference": "https://github.com/secwarz/YaraRules"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e38d5ff4bf7c6873e23b5ac2f54e68b3c0913e058e8d1da3c2b19077293102df\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac01f1b7b8adce843f7da24\/reports\/b197c5b5-abba-4b34-8fac-c03fef11a272\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-02 02:38:27",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "donutloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261002-z4jhgshf86\/",
+        "tags": [
+          "family:donutloader",
+          "discovery",
+          "execution",
+          "loader",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-02T21:15:54Z",
+  "last_seen": null
+}
