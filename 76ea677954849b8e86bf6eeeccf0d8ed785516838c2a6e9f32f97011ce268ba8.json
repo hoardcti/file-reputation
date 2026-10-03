@@ -1,0 +1,251 @@
+{
+  "hashes": {
+    "sha256": "76ea677954849b8e86bf6eeeccf0d8ed785516838c2a6e9f32f97011ce268ba8",
+    "sha1": "",
+    "md5": "d4788a7926c4d2d3078446eae14cbb3f",
+    "sha3_384": "",
+    "tlsh": null,
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": null
+  },
+  "file_metadata": {
+    "names": [
+      "WindowsSecurityUpdate.bat"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "bat",
+    "size": 64490,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": null,
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90411\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "bat"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-10-03 11:23:01",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/0bcfeb76-f825-4378-8c8a-d095f6f7a1e5",
+          "tags": [
+            "susp-powershell",
+            "arch-exec",
+            "arch-doc"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90411\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac0e4fae81f653ebf3f7d79\/reports\/93a4a3d9-3ba6-4f7e-ac6e-4615431ee5e9\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "unix shell",
+        "first_seen": "2026-10-02T12:11:00Z",
+        "last_seen": "2026-10-02T12:28:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/76ea677954849b8e86bf6eeeccf0d8ed785516838c2a6e9f32f97011ce268ba8\/results?tab=lookup",
+        "detections": []
+      },
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261003-nfmdpaxz8m\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Obfuscated Files or Information: Command Obfuscation",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/www.python.org\/ftp\/python\/3.12.8\/python-3.12.8-embed-amd64.zip"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/bootstrap.pypa.io\/get-pip.py"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Launching a file downloaded from the Internet"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Delayed reading of the file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T11:19:36Z",
+  "last_seen": null
+}

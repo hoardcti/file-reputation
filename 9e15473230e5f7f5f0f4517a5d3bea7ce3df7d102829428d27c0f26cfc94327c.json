@@ -1,0 +1,275 @@
+{
+  "hashes": {
+    "sha256": "9e15473230e5f7f5f0f4517a5d3bea7ce3df7d102829428d27c0f26cfc94327c",
+    "sha1": "9e152675632432f2cea1d87e70de7545fbc92a9b",
+    "md5": "d2af320548078a8b766c477d595f9568",
+    "sha3_384": "24ef10c839153e85a5f8d68fc39e73b5bf68f79ecfa961f9f01139401f104510fb11366137c17e49466d24900a524641",
+    "tlsh": "T143C55D17BCA518F5C4AEA232896256927B35BC490F3023D76F50B6B82F72FD09C7A744",
+    "imphash": null,
+    "telfhash": "t1985278754abd74b5b2a6da10b3a3b4b455371c6566f838f01063ac85ffc5e801ce683b",
+    "gimphash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ssdeep": "24576:RhIqBhhUGlTKstUtYtVlN8dzBb17xLrodCBcrllCHGTEKZt87Pb/u/zB3m9n:RhIYaGlThtUkVn8d/xLruCBcvx4YS"
+  },
+  "file_metadata": {
+    "names": [
+      "p.x86_64"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 2519202,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927482\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectGoMethodSignatures",
+        "author": "Wyatt Tauber",
+        "description": "Detects Go method signatures in unpacked Go binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_Go_GOMAXPROCS",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects Go binaries by the presence of runtime.GOMAXPROCS in the runtime metadata",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "GoBinTest",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "golang",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "golang_binary_string",
+        "author": null,
+        "description": "Golang strings present",
+        "reference": null
+      },
+      {
+        "rule_name": "Golang_Find_CSC846",
+        "author": "Ashar Siddiqui",
+        "description": "Find Go Signatuers",
+        "reference": null
+      },
+      {
+        "rule_name": "Golang_Find_CSC846_Simple",
+        "author": "Ashar Siddiqui",
+        "description": "Find Go Signatuers",
+        "reference": null
+      },
+      {
+        "rule_name": "identity_golang",
+        "author": "Eric Yocam",
+        "description": "find Golang malware",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Sample_Unique_4c099562",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (elf, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Golang",
+        "author": "albertzsigovits",
+        "description": "Application written in Golang programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "502166",
+        "date_added": "2026-10-03 09:46:21",
+        "twitter_handle": "redrabytes",
+        "display_name": null,
+        "comment": "Mirai variant with custom ENROLL pipe-delimited C2 protocol.\n\nProtocol: ENROLL|\u003cIP\u003e|\u003carch\u003e|\u003cIP\u003e|\u003carch\u003e|linux\\n\nC2 response: \"OK enrolled\" — bot passes response directly to /bin/sh.\nC2: 94.154.43.138:48101 (4 enroll attempts observed in sandbox).\nTerminator: __END__ marks end of C2 command block."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9e15473230e5f7f5f0f4517a5d3bea7ce3df7d102829428d27c0f26cfc94327c\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac0cecb77bee5323d8c7e7c\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0f5d192e-7a1d-4972-bf80-233d83b5e6b7?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 09:46:32",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261003-lre3msxtht\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "75",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Kills critical processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the CPU"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the OS"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T09:45:26Z",
+  "last_seen": "2026-10-03T09:45:44Z"
+}
