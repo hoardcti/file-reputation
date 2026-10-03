@@ -16,7 +16,7 @@
       "PolicyMgr.exe"
     ],
     "mime_type": "application/vnd.microsoft.portable-executable",
-    "type": "unknown",
+    "type": "exe",
     "size": 847912,
     "format": "PE",
     "arch": "I386",
@@ -34,7 +34,10 @@
   },
   "intelligence": {
     "signature": null,
-    "tags": null,
+    "tags": [
+      "exe",
+      "signed"
+    ],
     "yara_rules": [
       {
         "rule_name": "PE_Digital_Certificate",
@@ -68,9 +71,27 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "PolicyMgr.exe",
+          "date": "2026-10-02 12:03:16",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/3dfb8b2c-9207-4b50-a913-53904e751b83",
+          "tags": []
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/5b96280469074f69f4805caddae054c1bdab3dd0735e7f64d79f26f745bccee3\/"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Ravartar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-01 20:56:57",
+        "scanner_count": "36",
+        "scanner_match": "21",
+        "scanner_percent": "58.33"
       },
       "Spamhaus_HBL": [
         {
@@ -81,6 +102,16 @@
       "YOROI_YOMI": {
         "detection": "Legit File",
         "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
       }
     }
   },
@@ -89,6 +120,18 @@
     "anonymous": false,
     "origin_country": "US"
   },
+  "code_sign": [
+    {
+      "subject_cn": "Progenies d.o.o",
+      "issuer_cn": "Sectigo Public Code Signing CA EV R36",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-08-20T00:00:00Z",
+      "valid_to": "2027-08-20T23:59:59Z",
+      "serial_number": "7af487b9452c297bfa92808051e5bb69",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
