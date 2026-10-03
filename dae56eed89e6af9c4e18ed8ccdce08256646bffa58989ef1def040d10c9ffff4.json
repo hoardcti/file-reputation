@@ -1,0 +1,94 @@
+{
+  "hashes": {
+    "sha256": "dae56eed89e6af9c4e18ed8ccdce08256646bffa58989ef1def040d10c9ffff4",
+    "sha1": "35511e6cc1533ea72b0d5cc5402e12adfb56e874",
+    "md5": "cab6c307d1cecd475e6be106b007b941",
+    "sha3_384": "120ddfa8d6a66bf3cb1744b3e5cf169658ec2acbf14ce5babeb84fa1ec06be3270840ec566b5f4e0dd1409792f40a367",
+    "tlsh": "T1C4E56229878BE5F6C19D4170225F4BAF7AB185DA52A0830AC7268C6E3CC3FC47F61E55",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:fH1ASbcwZlmY7BfviIZtviZs89hWbxSKfN9MbMNXoxjvsm3/VbJ:fH1Amm83iUcnKSKfkbMNXo5XvVbJ"
+  },
+  "file_metadata": {
+    "names": [
+      "618e2488d0f7b7c25544adb1ae491348080357bb2017124fd4c21a2c79441f38.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 3229508,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "remus",
+      "RemusStealer",
+      "stealer",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PK_PUMP_AND_DUMP",
+        "author": "Will Metcalf @node5",
+        "description": "Walks Zip Central Directory filename entries looking for abused extension then checks for a file that's at least 25M and then check to see how much uncompressed size is vs compressed size",
+        "reference": null
+      },
+      {
+        "rule_name": "weird_zip_high_compression_ratio",
+        "author": "Maxime THIEBAUT (@0xThiebaut)",
+        "description": "Detects single-entry ZIP files with a suspiciously high compression ratio (\u003e100:1) and decompressed size above the 500MB AV limit",
+        "reference": "https://twitter.com/Cryptolaemus1/status/1633099154623803394"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/dae56eed89e6af9c4e18ed8ccdce08256646bffa58989ef1def040d10c9ffff4\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "ZIP File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac1712209d78bb23a20a516\/reports\/caa16199-2bee-4891-85be-1b4f40c6c8d1\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T21:17:28Z",
+  "last_seen": null
+}
