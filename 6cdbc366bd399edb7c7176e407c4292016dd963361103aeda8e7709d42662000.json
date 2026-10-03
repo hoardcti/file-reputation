@@ -1,14 +1,14 @@
 {
   "hashes": {
     "sha256": "6cdbc366bd399edb7c7176e407c4292016dd963361103aeda8e7709d42662000",
-    "sha1": "",
+    "sha1": "2eae8b70d0680089d3cc3a04fd73a8ad0f233c0d",
     "md5": "5a59eb1b74b3cc9b11fbd57511045413",
-    "sha3_384": "",
-    "tlsh": null,
+    "sha3_384": "4710495dd52e3f6e3c9a1366a3663bd89ce018a01ebedf00d510fbd63c7a2540fa8080faf4fa581c93d6bffbe5dcf1e3",
+    "tlsh": "T169B49D03AAB7E4B1D4A142B2215557B94472D9B315B7D98FEFE52C80DE602D0F32C3AB",
     "imphash": null,
-    "telfhash": null,
+    "telfhash": "t18cf18cf22abe1eed33d06901d64b2b12ed15e67748d035b249f3259a3373a419e71c38",
     "gimphash": null,
-    "ssdeep": null
+    "ssdeep": "6144:8cnhM09vyKjAoHr2rtm6Zc65F+IrUcYKo68QgyN6tnOSyTm3O7XGs44pj:8cnSk0po02KSbnOSyTm3ODGsxj"
   },
   "file_metadata": {
     "names": [
@@ -17,11 +17,14 @@
     "mime_type": "application/x-executable",
     "type": "elf",
     "size": 535388,
-    "format": null,
-    "arch": null,
+    "format": "ELF",
+    "arch": "I386",
     "info": null,
     "magika": "elf",
-    "trid": null,
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
     "file_information": [
       {
         "context": "URLhaus",
@@ -38,14 +41,31 @@
       {
         "context": "URLhaus",
         "value": "https:\/\/urlhaus.abuse.ch\/url\/3927620\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923507\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3922284\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923502\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927622\/"
       }
     ],
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "Mirai",
     "tags": [
-      "elf"
+      "elf",
+      "Mirai"
     ],
     "yara_rules": [
       {
@@ -152,6 +172,10 @@
       }
     ],
     "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6cdbc366bd399edb7c7176e407c4292016dd963361103aeda8e7709d42662000\/"
+      },
       "FileScan-IO": {
         "verdict": "MALICIOUS",
         "threatlevel": "1.0",
@@ -171,6 +195,14 @@
         "hitscount": 10,
         "report_link": "https:\/\/opentip.kaspersky.com\/6cdbc366bd399edb7c7176e407c4292016dd963361103aeda8e7709d42662000\/results?tab=lookup",
         "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Multiverze",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 15:05:51",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
       },
       "Spamhaus_HBL": [
         {
@@ -236,9 +268,66 @@
         "malware_config": []
       },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies symbolic links in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Performs a bruteforce attack in the network"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          }
+        ]
       }
     }
   },

@@ -1,0 +1,188 @@
+{
+  "hashes": {
+    "sha256": "e7b4d7ba0a181209c1433df2dc6815a1f258459a460414e049d308c85586e7ce",
+    "sha1": "ba652676221da6b685023ac743f010e6a48068f6",
+    "md5": "5a06361b93104cb74938d5e0bdec29b4",
+    "sha3_384": "d916fa3c880a3dc6b98c8af816cf6b87af7d426b3a0535e4d389da600618456c2bd1389ef3f60e05528dd16090feb078",
+    "tlsh": "T19993E80AEF610FF7E86FCD3705B90B05248C551722A87F7AB934D818F64B64B19E38A4",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:ydjNy+ID1GeMc98WrEgBH3ICWVZyQcjgnkBgIWU:yhNy+dcdH3uZyI4W"
+  },
+  "file_metadata": {
+    "names": [
+      "mpsl"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 97200,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927895\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927905\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_TELNETCURL_payload",
+        "author": "AfterPacket",
+        "description": "Mirai-lineage ELF payload carrying the leaked-source decoy domain",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "Web_Generic_Binary_URL_Download",
+        "author": "Serhii Kocherhan",
+        "description": "Detects files containing HTTP or HTTPS links pointing directly to .bin payload extensions.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e7b4d7ba0a181209c1433df2dc6815a1f258459a460414e049d308c85586e7ce\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac1405061d4fb187837e221\/reports\/78b9de0b-e0c8-4186-906f-161b1877ba3c\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/81bf2fd7-03c4-4215-bc16-e11f9f7cad45?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 18:01:40",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261003-weelfsvzgv\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "chibomaydan.devs.surf"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "94",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T17:49:01Z",
+  "last_seen": null
+}

@@ -1,14 +1,14 @@
 {
   "hashes": {
     "sha256": "d23ef45d019e90dd340fd29b957d5b192de25023e4fc539bddf52b89b61d0ce8",
-    "sha1": "",
+    "sha1": "885e4291000b079d24e78513acea4c0fdf2378ee",
     "md5": "6d02abacd7b2f1cff2d78b0d09769944",
-    "sha3_384": "",
-    "tlsh": null,
+    "sha3_384": "3d61df5cada4b025a8667f480f2fd3c0a65942b61f4e44559638021b847b2868c3d8b4dc13103304cfd9a70636cd3a6a",
+    "tlsh": "T16F362950FACB44F6E9031E3054ABA23F63315D058B24EBD7EA507F2AF977692193620D",
     "imphash": null,
-    "telfhash": null,
-    "gimphash": null,
-    "ssdeep": null
+    "telfhash": "t10ec2ddb7059da4ec67f0450787af7520cfe6e43726d0787129e7a8c0a672e439a36878",
+    "gimphash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ssdeep": "49152:t1xcyNlGMp4IR9temPYYOynr62HPAmIGFr78el9OoADUieWZcGrDTMnAbRV:TxcyjG6YyP9Eel9OoXGTP"
   },
   "file_metadata": {
     "names": [
@@ -17,11 +17,14 @@
     "mime_type": "application/x-executable",
     "type": "elf",
     "size": 5165208,
-    "format": null,
-    "arch": null,
+    "format": "ELF",
+    "arch": "I386",
     "info": null,
     "magika": "elf",
-    "trid": null,
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
     "file_information": [
       {
         "context": "URLhaus",
@@ -35,10 +38,11 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": "GoDDoSAgent",
+    "signature": "Mirai",
     "tags": [
       "elf",
-      "GoDDoSAgent"
+      "GoDDoSAgent",
+      "Mirai"
     ],
     "yara_rules": [
       {
@@ -193,6 +197,10 @@
       }
     ],
     "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d23ef45d019e90dd340fd29b957d5b192de25023e4fc539bddf52b89b61d0ce8\/"
+      },
       "FileScan-IO": {
         "verdict": "MALICIOUS",
         "threatlevel": "1.0",
@@ -204,6 +212,20 @@
         "family_name": null,
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f2b8fe50-a2c1-47a5-affb-2ea43acee7ac?utm_source=MalwareBazaar"
       },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.DarkDDoSer",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-03 17:56:50",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
       "Triage": {
         "malware_family": "goddosagent",
         "score": "10",
@@ -248,6 +270,48 @@
           }
         ],
         "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Deletes a system binary file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the RAM"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the network activity"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          }
+        ]
       }
     }
   },

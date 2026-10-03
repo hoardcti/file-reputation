@@ -1,0 +1,180 @@
+{
+  "hashes": {
+    "sha256": "593eecf64a5016ff97b0ffc5b01919134a9ba00555fa61488ac89746bcb1c548",
+    "sha1": "600986f5726870888b866173da59d8450f4182f7",
+    "md5": "ccd1fc732b17a2fa68659c920991cb82",
+    "sha3_384": "0f1288b0f81fe816a1f046b68de4e795f3c1621575fef3d0c4ff6ea17a773d6d4714769e05bbe5a7dfed228f4e63a0d7",
+    "tlsh": "T1370623137AE52BDBE9365734812213A8AB756D2083A6CF1F1290717CEE763E44F25ED0",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:xbmBow607Gww60jMwKfVCDjMxib8A7aCxUL+s0YgBi74pHsZIP49v6kymyVCbYcC:MU0NCDPQA7Z+LAZQ7msx3ymyt"
+  },
+  "file_metadata": {
+    "names": [
+      "593eecf64a5016ff97b0ffc5b01919134a9ba00555fa61488ac89746bcb1c548.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 3903488,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "84.7% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "15.2% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90498\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "fun",
+      "msi",
+      "stealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90498\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/593eecf64a5016ff97b0ffc5b01919134a9ba00555fa61488ac89746bcb1c548\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac1545dcc43dae00da9404f\/reports\/b244444d-a500-4ea2-b980-17181e030014\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Yogi",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 19:15:59",
+        "scanner_count": "36",
+        "scanner_match": "10",
+        "scanner_percent": "27.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261003-xyf43awaja\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T19:14:54Z",
+  "last_seen": null
+}

@@ -1,14 +1,14 @@
 {
   "hashes": {
     "sha256": "7a304eb2889687d06f110d0356647102fc214ca3b781e8764c26039cc5e9aebc",
-    "sha1": "",
+    "sha1": "464db30e220fb19facde0afc97f8d0698892fd2a",
     "md5": "634f0897272dcd45750cf7a96f895204",
-    "sha3_384": "",
-    "tlsh": null,
+    "sha3_384": "11e9d825a8439d48f8f41c89271ac5f407e9e8ec9a882ae6f1219fc99fb70cf66c25341afa302de245f96d3de85a6deb",
+    "tlsh": "T14C361997B8924A83C4E43676BCBE81C833A31EB99B9752565D04FE3C3BBE1990D34714",
     "imphash": null,
-    "telfhash": null,
-    "gimphash": null,
-    "ssdeep": null
+    "telfhash": "t1a7f0ec2a5a5d5e5c12d9c08cb55d037e89fd36f81510f79c9e3d678f09438d47256813",
+    "gimphash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ssdeep": "49152:7ZtI4oDQNrZiYKgrXzCnEe239EVFalezg:7LI4pNrtSUl0g"
   },
   "file_metadata": {
     "names": [
@@ -17,11 +17,14 @@
     "mime_type": "application/x-executable",
     "type": "elf",
     "size": 5243032,
-    "format": null,
-    "arch": null,
+    "format": "ELF",
+    "arch": "ARM",
     "info": null,
     "magika": "elf",
-    "trid": null,
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
     "file_information": [
       {
         "context": "URLhaus",
@@ -31,10 +34,11 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": "GoDDoSAgent",
+    "signature": "Mirai",
     "tags": [
       "elf",
-      "GoDDoSAgent"
+      "GoDDoSAgent",
+      "Mirai"
     ],
     "yara_rules": [
       {
@@ -195,6 +199,10 @@
       }
     ],
     "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7a304eb2889687d06f110d0356647102fc214ca3b781e8764c26039cc5e9aebc\/"
+      },
       "FileScan-IO": {
         "verdict": "UNKNOWN",
         "threatlevel": "0.0",
@@ -206,6 +214,20 @@
         "family_name": null,
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8f42d9f9-fa6d-4cb7-976e-c0cebfe71d0c?utm_source=MalwareBazaar"
       },
+      "ReversingLabs": {
+        "threat_name": "Linux.Exploit.DDOSAgent",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 17:50:58",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
       "Triage": {
         "malware_family": "goddosagent",
         "score": "10",
@@ -241,6 +263,52 @@
           }
         ],
         "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Deletes a system binary file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Writes files to system directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the network activity"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the RAM"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
       }
     }
   },
