@@ -1,0 +1,94 @@
+{
+  "hashes": {
+    "sha256": "c34ebc389e99c4bfbddf726fc6f357aa625efb8afdf2abceef9454ab4026d687",
+    "sha1": "899a61c8b123be664e3e18cf18c11316fe589396",
+    "md5": "1a586376b3ba1ead4c801ec189c708a1",
+    "sha3_384": "d632913ece228df9d032cd9237094f9ea088abee76d6acf62a245fb44950961530aafe583f4af5572191d1151e586b44",
+    "tlsh": "T16F068229978BE5B6C59D4130225F4BAF7AB181CE06A18306D3269C7E2CC3FD47F61E16",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:Yht/IWHdScQJO/CW7hwph+3/16XDOfkanLUq8QkhyYmyHfnktxMCejTgh:Yh3HwjU65h+FDgq8myHfktxz6TE"
+  },
+  "file_metadata": {
+    "names": [
+      "7c1cc22a11e0d0a49ce86d1e5a2943922555860450d7ad6559ca7bc7c4eec99c.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 3821474,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Remus",
+      "RemusStealer",
+      "Stealer",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PK_PUMP_AND_DUMP",
+        "author": "Will Metcalf @node5",
+        "description": "Walks Zip Central Directory filename entries looking for abused extension then checks for a file that's at least 25M and then check to see how much uncompressed size is vs compressed size",
+        "reference": null
+      },
+      {
+        "rule_name": "weird_zip_high_compression_ratio",
+        "author": "Maxime THIEBAUT (@0xThiebaut)",
+        "description": "Detects single-entry ZIP files with a suspiciously high compression ratio (\u003e100:1) and decompressed size above the 500MB AV limit",
+        "reference": "https://twitter.com/Cryptolaemus1/status/1633099154623803394"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c34ebc389e99c4bfbddf726fc6f357aa625efb8afdf2abceef9454ab4026d687\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "ZIP File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac2b35e22b99e170d1d0351\/reports\/c2e33610-2114-4241-8924-83ccf351b54d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-04T20:12:42Z",
+  "last_seen": null
+}
