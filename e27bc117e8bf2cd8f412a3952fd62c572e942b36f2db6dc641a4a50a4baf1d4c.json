@@ -1,0 +1,218 @@
+{
+  "hashes": {
+    "sha256": "e27bc117e8bf2cd8f412a3952fd62c572e942b36f2db6dc641a4a50a4baf1d4c",
+    "sha1": "e0582bc3efc8724f8c415944946a8585ea563256",
+    "md5": "a27716523b819aa878b89c7ebf55ac5a",
+    "sha3_384": "ceaf09c959c290dbf80089e094be9850d1f1047aafdcb52355b08e01fb8f4eb01425f374cccd20f807a53c479172f0bf",
+    "tlsh": "T14154B60E6E228F7DF278877447F74A31975C22D226F2D684E1ACD3141E2429E945FBAC",
+    "imphash": null,
+    "telfhash": "t17c5106ac097803b4a6656c4d44adff27d5e334ef3d161c239a51e46deb2af439d24c09",
+    "gimphash": null,
+    "ssdeep": "6144:b6eCupTwZA/CNDepKpo4hkuaTYOkWOZZxOFQ1oYUO5cX0:eef+vhZxzcE"
+  },
+  "file_metadata": {
+    "names": [
+      "mips2"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 300416,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3928041\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "deepfield_potassium_mirai_variant",
+        "author": "Nokia Deepfield ERT",
+        "description": "Detects Potassium, a Mirai-derived DDoS bot: static ChaCha20 config-table key/nonce and 19-byte C2 registration header, constant across every build since 2026-03",
+        "reference": "https://github.com/deepfield/public-research/blob/main/potassium/report.md"
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "MIRAI_TELNETCURL_payload",
+        "author": "AfterPacket",
+        "description": "Mirai-lineage ELF payload carrying the leaked-source decoy domain",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e27bc117e8bf2cd8f412a3952fd62c572e942b36f2db6dc641a4a50a4baf1d4c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac1960e3d0e8754f9cb95eb\/reports\/74ef970e-82ff-4ccf-9583-d6e0aa8db25a\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c4a57a29-24ef-44a8-bc1c-021558034d3d?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.be",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e27bc117e8bf2cd8f412a3952fd62c572e942b36f2db6dc641a4a50a4baf1d4c\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-03 23:55:33",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261003-3ynrsszbkb\/",
+        "tags": [
+          "antivm",
+          "credential_access",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Mounts file systems"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-03T23:54:45Z",
+  "last_seen": null
+}

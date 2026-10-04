@@ -1,0 +1,115 @@
+{
+  "hashes": {
+    "sha256": "d5308a8ef81cfa41d03116c745fa932bbeb205393d9688cbcf4dcba73f17966e",
+    "sha1": "3213899cc3ff71eb8c2081dc184480a7ceaaa53b",
+    "md5": "79671373da205e13d231208820a02100",
+    "sha3_384": "a74b749e65cee44fe84169723f7b596bd0bd2669d5acaa62869c045968e05ae10d6f077bb849aef3115f2734d00ea79c",
+    "tlsh": "T18A450101CEA244D6F9CCD7342A2B9A379F6276508C4812DF76D22A889D713E3F56B31D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:GKvGU3IdyXBTtdNkt0bNGfJQ/4By7lXrflMPGVN:dtPtdNvNaJURrflhN"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_d5308a8ef81c.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1215888,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/4458ab2eb26c8c155cf530136e0a7cf1ddee41f26547a56bc093d61a83c0a382\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/e5e80e28370ac3da3cc73000c4f5cf1fb74a8f738defae813bc3ca06232e6456\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/46a085ef0b76c648832a1e3dfe0cf0a06cd1af5d63cc23095e32e9dabf53e635\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3923013\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d5308a8ef81cfa41d03116c745fa932bbeb205393d9688cbcf4dcba73f17966e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac19d043d0e8754f9cba128\/reports\/54f1fdc4-2cb8-4600-92a9-49c33b54622e\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-04 00:25:32",
+        "scanner_count": "36",
+        "scanner_match": "2",
+        "scanner_percent": "5.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "AtomicStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/d5308a8ef81c\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-04T00:25:09Z",
+  "last_seen": null
+}
