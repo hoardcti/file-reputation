@@ -1,0 +1,209 @@
+{
+  "hashes": {
+    "sha256": "6f272c85365a1783eedbf7bc80112db52d13bca5415703df127b869b23bc179f",
+    "sha1": "065cdd56b75a40e7501f58010324c86cf1f9a7b1",
+    "md5": "66ea3e308a7748cc4685b5db0b406ddc",
+    "sha3_384": "67f78f3c4956de4a06d6d313ad850a73cdd47bfcf7fdcaa454a0ac2f072ef0e414943ceff4da13f9a309f44e4de4731d",
+    "tlsh": "T15FE33C02758194FEC4C6C1708BAFD137D676F89D62303E6F7B903F692E26E612B0A651",
+    "imphash": null,
+    "telfhash": "t18c51ef341f9176786297ab4bb30bdf7df8b6051109f6b1d4ef476de1cc2628a0d4a042",
+    "gimphash": null,
+    "ssdeep": "3072:IWczVbzMi3z5v9uRlfL/9Oapvl+DIqJl69/f:DcrVuRlfL9OoNzr9"
+  },
+  "file_metadata": {
+    "names": [
+      "x86_64"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 155008,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3922561\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "deepfield_potassium_mirai_variant",
+        "author": "Nokia Deepfield ERT",
+        "description": "Detects Potassium, a Mirai-derived DDoS bot: static ChaCha20 config-table key/nonce and 19-byte C2 registration header, constant across every build since 2026-03",
+        "reference": "https://github.com/deepfield/public-research/blob/main/potassium/report.md"
+      },
+      {
+        "rule_name": "enterpriseapps2",
+        "author": "Tim Brown @timb_machine",
+        "description": "Enterprise apps",
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_TELNETCURL_payload",
+        "author": "AfterPacket",
+        "description": "Mirai-lineage ELF payload carrying the leaked-source decoy domain",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6f272c85365a1783eedbf7bc80112db52d13bca5415703df127b869b23bc179f\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac1ea8097b6e36d76add7c1\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6c01942a-932a-476a-ac15-1065f742d369?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-04 04:55:47",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261004-gm4g8a1alb\/",
+        "tags": [
+          "antivm",
+          "credential_access",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Mounts file systems"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-04T05:55:22Z",
+  "last_seen": null
+}
