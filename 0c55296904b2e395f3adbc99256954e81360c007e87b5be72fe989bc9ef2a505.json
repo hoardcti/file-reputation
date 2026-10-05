@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "0c55296904b2e395f3adbc99256954e81360c007e87b5be72fe989bc9ef2a505",
+    "sha1": "0b985b8353c2fe8504230c2bff84fc9a987018bd",
+    "md5": "18a90565b3b764c19b7a876d9a7fcf85",
+    "sha3_384": "294c90c528ebede01af1edee4cbe85537cc3280cbe37e4b9ba611097004bcffc48c7e1721935891c10e0d333a8f1c976",
+    "tlsh": "T10B736B0B3B7D1114ACFAA6CCE87CA4EB0626E31507BFF1FF11B2652D959D84989C0792",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:uEAyyHjZnRupEl3wVmh5dK/Kl/jYKlBUKlqdJQ:NWjupqOI5dK/Kl/8KlSKl2Q"
+  },
+  "file_metadata": {
+    "names": [
+      "Комерцијална банка_плаќање.pdf.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 73960,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "txt",
+    "trid": [
+      "66.6% (.TXT) Text - UTF-16 (LE) encoded (2000\/1)",
+      "33.3% (.MP3) MP3 audio (1000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90697\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RemcosRAT",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90697\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0c55296904b2e395f3adbc99256954e81360c007e87b5be72fe989bc9ef2a505\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac36f621c1a3e0f6e93c22e\/reports\/ca02e042-b2bc-48b7-9943-d51b7af01adc\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-10-05T03:54:00Z",
+        "last_seen": "2026-10-05T06:35:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/0c55296904b2e395f3adbc99256954e81360c007e87b5be72fe989bc9ef2a505\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-WScript.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-05 09:36:27",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261005-lmkgkaga84\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-05T09:35:20Z",
+  "last_seen": null
+}

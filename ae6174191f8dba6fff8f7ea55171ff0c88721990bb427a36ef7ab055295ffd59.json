@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "ae6174191f8dba6fff8f7ea55171ff0c88721990bb427a36ef7ab055295ffd59",
+    "sha1": "76b6b307d861e5d285cbf05824d1b4c539985c49",
+    "md5": "5d0aaf44b40b73e6e3261de2c3c58852",
+    "sha3_384": "bcf5a32b162d716e74691465f21e20b04b7ffd18beed34060ef3e6f66c82ce7a05a31b35400dd5bcf13473d3e8b73a08",
+    "tlsh": "T1BE451273F8B225F78FE2C157A119E92FDB75BAE27D8D45844121D78500BAAFE0BA1C04",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:W1CrLhK2F5L54xS/G0Uhco5jxZxGrXwSwnSrjREODNa7Q07Z0/WqpgbN911xN:bbNMxcclZwtrj2OZiB76/Xgt7N"
+  },
+  "file_metadata": {
+    "names": [
+      "COPYENQUIRY OCT-06 2026082294 OFFICE_Doc.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 1227167,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90688\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RemcosRAT",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90688\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/ae6174191f8dba6fff8f7ea55171ff0c88721990bb427a36ef7ab055295ffd59\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac367dee5d8e15c02a8a6be\/reports\/a88bf05f-57a9-457e-912e-cde0637b1dc6\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "text",
+        "first_seen": "2026-10-05T00:42:00Z",
+        "last_seen": "2026-10-05T05:35:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/ae6174191f8dba6fff8f7ea55171ff0c88721990bb427a36ef7ab055295ffd59\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-05 07:18:55",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261005-kzx3raydne\/",
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "collection",
+          "defense_evasion",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "buildagent.duckdns.org:65535"
+          },
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "connection101.duckdns.org:54435"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-05T09:02:44Z",
+  "last_seen": null
+}
