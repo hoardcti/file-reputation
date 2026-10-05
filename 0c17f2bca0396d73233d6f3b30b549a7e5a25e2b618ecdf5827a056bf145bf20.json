@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "0c17f2bca0396d73233d6f3b30b549a7e5a25e2b618ecdf5827a056bf145bf20",
+    "sha1": "4d4c85908b4b41ce1b90c236144814467b8a306e",
+    "md5": "b37c9fb52fbb3fcd3af5aa5de779612a",
+    "sha3_384": "25b14124b44d675134cb90db8f3f028db44b0401b2c52abfbc1d3efd01cfa8bcf7082025f7d2cbab4a0ebf1bc7c20d9e",
+    "tlsh": "T1FF41C2C7115383342DD5AD3FF16649D47A44E4B36EEB1E84568738EA864EF4438F0E52",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:vPOSeaIOS/NCoOSrnOS+jOSRbOSAOScOSfOSqCQN9Ol:vPR4R/jRrnR+jRJRARcRfRqNN9e"
+  },
+  "file_metadata": {
+    "names": [
+      "87sbhas6as.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 2133,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3929395\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Linux_Shellscript_Downloader",
+        "author": "albertzsigovits",
+        "description": "Generic Approach to Shellscript downloaders",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0c17f2bca0396d73233d6f3b30b549a7e5a25e2b618ecdf5827a056bf145bf20\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac3e81daa8f8fc6388ac36b\/reports\/8bad3888-fef0-4656-bde7-c310cfc74dbc\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-05 18:11:20",
+        "scanner_count": "36",
+        "scanner_match": "22",
+        "scanner_percent": "61.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261005-wsfqnsae38\/",
+        "tags": [
+          "family:mirai",
+          "botnet:sora",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai Renesas payload",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (365699) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "107.172.132.240"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-05T18:10:26Z",
+  "last_seen": null
+}

@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "161ac8612a2e09172f2c7d7a4f893600440585bb087fd5b0f270f1c11284bc1f",
+    "sha1": "8f8f3330edb662c9f17ff8b04e590a5024b0a2fa",
+    "md5": "c8efe0ffa46ab31b572360f661e2dcc2",
+    "sha3_384": "c7de9a158bd060daeaa6298234a17a1de2a990d44dd5e706b06ec2ffc2efb9c8e238454ba97a7f3864734e3e4288b5ff",
+    "tlsh": "T1014182CE0182723369A98E1E7DE9CE0631A4D0E6D8DE3D10EDDC7CA9C5CCE68B040B46",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:vp1WpHMHBQpHoOHWhKypjFjF2Mcpjmj/Spj7j2PpjsjlwpKupHZHG9p25:vmLlyTcBSLlkO"
+  },
+  "file_metadata": {
+    "names": [
+      "Hilix.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1923,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3929394\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Linux_Shellscript_Downloader",
+        "author": "albertzsigovits",
+        "description": "Generic Approach to Shellscript downloaders",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/161ac8612a2e09172f2c7d7a4f893600440585bb087fd5b0f270f1c11284bc1f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac3e81e6a8466ddbcd484df\/reports\/cc39cf08-7160-48d2-b0bb-035be6aa4995\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "unix shell",
+        "first_seen": "2026-10-05T12:51:00Z",
+        "last_seen": "2026-10-05T13:41:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/161ac8612a2e09172f2c7d7a4f893600440585bb087fd5b0f270f1c11284bc1f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Morila",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-05 16:59:15",
+        "scanner_count": "36",
+        "scanner_match": "23",
+        "scanner_percent": "63.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261005-wsfqns1xhw\/",
+        "tags": [
+          "family:mirai",
+          "botnet:sora",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (1120701) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "176.65.148.144"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-05T18:10:23Z",
+  "last_seen": null
+}

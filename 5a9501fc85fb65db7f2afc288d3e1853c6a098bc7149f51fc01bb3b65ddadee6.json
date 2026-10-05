@@ -1,0 +1,175 @@
+{
+  "hashes": {
+    "sha256": "5a9501fc85fb65db7f2afc288d3e1853c6a098bc7149f51fc01bb3b65ddadee6",
+    "sha1": "6c6fdff54973ebdb305446650d92d9e55415c45c",
+    "md5": "f5de4827c9c3a85418939a3111dcfe4c",
+    "sha3_384": "f51a3c8a26cb401053824f036114515c8dc41117c1f7fd5aeeac222391f503e34387b13c452427613a64fa7b8f44f5eb",
+    "tlsh": "T146F53397B5815FF1C62EF4709CBA560904392F528B24A8E37754B30837FB6B43A722D6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:zR5ysZz1CF8FhVrv2peNw7boU7E3gfFM33t5M2Fgw:zmsh1aMVrv2cwQH3txFgw"
+  },
+  "file_metadata": {
+    "names": [
+      "quickb.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 3620352,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "unknown",
+    "trid": [
+      "88.4% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "11.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3929377\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/90773\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "NetSupport",
+    "tags": [
+      "NetSupport"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": "NetSupport",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/90773\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5a9501fc85fb65db7f2afc288d3e1853c6a098bc7149f51fc01bb3b65ddadee6\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac3dd902becfd717ed758da\/reports\/7836c480-4232-4e42-93cd-720a6da26a5c\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Hacktool.RemoteAdmin",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-05 17:18:39",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "netsupport",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261005-vytztaac74\/",
+        "tags": [
+          "family:netsupport",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: NetSupport",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-05T17:23:26Z",
+  "last_seen": null
+}
