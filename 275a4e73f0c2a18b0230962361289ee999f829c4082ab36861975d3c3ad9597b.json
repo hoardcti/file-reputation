@@ -1,0 +1,136 @@
+{
+  "hashes": {
+    "sha256": "275a4e73f0c2a18b0230962361289ee999f829c4082ab36861975d3c3ad9597b",
+    "sha1": "ec89aefe9dc15314d2f2710bff897e78e5f51b5c",
+    "md5": "e81f5d4705351e62737c611ef70d594f",
+    "sha3_384": "86d91b69585f6662a9ab74230ca16619acaa7b486e58c0f7563f8649b88e609b50b94c821708cbd13fa5ef74091d0dad",
+    "tlsh": "T11011BD1027B7EAEC4B898D13FAF73710C5A291C119ED1621875B89A0DAB59817A28384",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12:1u+MIInD/nIDR+MSq7XFE98A6Iy7TO6VmrI2DBRCScD2gOidmfTZ8:RmD/I8xEXm8YbrKScDhjdmfl8"
+  },
+  "file_metadata": {
+    "names": [
+      "wrB.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 915,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3944321\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": null,
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/275a4e73f0c2a18b0230962361289ee999f829c4082ab36861975d3c3ad9597b\/"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-07 16:25:50",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261007-tysw3scz4p\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/124.198.132.250:8001\/?n=wrB.txt"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/124.198.132.250:8000\/raw1.ps1"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "IN",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T16:28:00Z",
+  "last_seen": null
+}

@@ -1,0 +1,143 @@
+{
+  "hashes": {
+    "sha256": "cbf74421ba7bb0d04e6dce53a9641e06536dc8e76204c86df324c20064c13b79",
+    "sha1": "4c3d9567f69941b10720cab65391c186f917c501",
+    "md5": "76697a60962ba2869e0de7628d652a7b",
+    "sha3_384": "f6e05a727b5854560d85bff1c7fea9d6cc4d7a9c22e6189ac28ee2ee78a0ef87ab4efef55ec3dea4380c5be7d3a138dc",
+    "tlsh": "T1F2D02B4427E2E9DCC2599C02F05B6B121501A404687911300773522C9D21F12AA081C9",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6:197GMeVEMJsuzV7TJP8LhuLBe598bU2muLTuLdS:1u+M57EYM598A8OBS"
+  },
+  "file_metadata": {
+    "names": [
+      "stub.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 247,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3944320\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": null,
+    "yara_rules": [
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/cbf74421ba7bb0d04e6dce53a9641e06536dc8e76204c86df324c20064c13b79\/"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-07 16:23:29",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261007-tysw3scz4n\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/124.198.132.250:8000\/wrB.ps1"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/124.198.132.250:8001\/?n=wrB.txt"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/124.198.132.250:8000\/raw1.ps1"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "CZ",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T16:27:58Z",
+  "last_seen": null
+}

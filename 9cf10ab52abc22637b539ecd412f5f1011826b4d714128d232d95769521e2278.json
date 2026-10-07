@@ -1,0 +1,250 @@
+{
+  "hashes": {
+    "sha256": "9cf10ab52abc22637b539ecd412f5f1011826b4d714128d232d95769521e2278",
+    "sha1": "e4b372a7d0ce4de9ddd0d8e9ec64a69214b76bc2",
+    "md5": "36df1f9950ef987b8c546f316876013a",
+    "sha3_384": "da914bfe1b8e61721fa3c8d2b11948c1f447a85938caede91955faabf55fefd0cc76aa6e7cde2cd10eb2b407343f3817",
+    "tlsh": "T1C574126AE11A4E40CAE7E9B247E097F2A71C733D364DE331A21DCD09778CE91EE91458",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:PEIAdMUSno7i1QzYn2UyyOURnYqbihmaqgTQ/EllEOrE5nTtA2B8I/zfv704novX:lui1JpXnUHlqlnTtMI/D704n+wmUNr8t"
+  },
+  "file_metadata": {
+    "names": [
+      "file.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 369664,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "64.7% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "25.0% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "4.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "1.8% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3915327\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91003\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "3c8d24fb1fbc1dba8316939f1477e5b1c5bdb933b7abb47809def218c72ea0b8"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "78e7d1423b0bc0ea5df6bf3f4ed93d2b"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "upx",
+      "Vidar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "has_telegram_urls",
+        "author": "Aaron DeVera\u003caaron@backchannel.re\u003e",
+        "description": "Detects Telegram URLs",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-07 17:43:33",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/941fe302-5c55-4beb-b919-22221e902591",
+          "tags": [
+            "telegram",
+            "evasion"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91003\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9cf10ab52abc22637b539ecd412f5f1011826b4d714128d232d95769521e2278\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac683c2798cb74c27d9d903\/reports\/1a51db1d-9b2e-4d1b-93ff-9879554a7b50\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Vidar",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/205c6c8b-d76e-4b92-9771-005b5763f988?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Vidar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-07 16:12:28",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vidar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261007-v8detadv9j\/",
+        "tags": [
+          "family:vidar",
+          "botnet:5259d515f2c8cc65b29ec1b9814990b7",
+          "discovery",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Vidar",
+            "score": "10"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/t.me\/bj00tyr"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/steamcommunity.com\/profiles\/76561198630398488"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "9cf10ab52abc22637b539ecd412f5f1011826b4d714128d232d95769521e2278",
+          "md5_hash": "36df1f9950ef987b8c546f316876013a",
+          "sha1_hash": "e4b372a7d0ce4de9ddd0d8e9ec64a69214b76bc2",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/dda5dabe-bd64-485c-ba22-dadba0c999e5\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/9cf10ab52abc\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T17:38:36Z",
+  "last_seen": null
+}
