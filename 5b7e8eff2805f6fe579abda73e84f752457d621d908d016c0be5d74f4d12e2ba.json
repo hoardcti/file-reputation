@@ -1,0 +1,223 @@
+{
+  "hashes": {
+    "sha256": "5b7e8eff2805f6fe579abda73e84f752457d621d908d016c0be5d74f4d12e2ba",
+    "sha1": "c247c8228a4067f312a8d4321e8cee96e7a34323",
+    "md5": "c369380064a4961993f6199a6449ed2a",
+    "sha3_384": "0e40a8c45f95d011ddc278d579765fefcbccfaee93c34e8dc57b7d5f6ef66f6f7da424174c9386d556b87f384e93346a",
+    "tlsh": "T126853363576B8BF2915E701AAF3F87A56CABF309697FE12CA72D04E4D412C631131D0A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:799zPsh08xjABj23UOdWGH/STk1QIGlXNr/b5p:nzPsPujsUOdWGH/nYZf"
+  },
+  "file_metadata": {
+    "names": [
+      "Income Tax Department.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 1715493,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "ValleyRAT",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_all_IPv6_variants",
+        "author": "Bierchermuesli",
+        "description": "Generic IPv6 catcher",
+        "reference": null
+      },
+      {
+        "rule_name": "Indicator_MiniDumpWriteDump",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects PE files and PowerShell scripts that use MiniDumpWriteDump either through direct imports or string references",
+        "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "skip20_sqllang_hook",
+        "author": "Mathieu Tartare \u003cmathieu.tartare@eset.com\u003e",
+        "description": "YARA rule to detect if a sqllang.dll version is targeted by skip-2.0. Each byte pattern corresponds to a function hooked by skip-2.0. If $1_0 or $1_1 match, it is probably targeted as it corresponds to the hook responsible for bypassing the authentication.",
+        "reference": "https://www.welivesecurity.com/"
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5b7e8eff2805f6fe579abda73e84f752457d621d908d016c0be5d74f4d12e2ba\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac60406684d26459cbf6a2e\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-07 03:59:29",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261007-lkh6qaez4w\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "spyware",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies system certificate store",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "137.220.157.238:449"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "137.220.157.238:443"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.70"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T08:34:00Z",
+  "last_seen": null
+}
