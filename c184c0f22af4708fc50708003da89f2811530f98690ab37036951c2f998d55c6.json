@@ -1,0 +1,123 @@
+{
+  "hashes": {
+    "sha256": "c184c0f22af4708fc50708003da89f2811530f98690ab37036951c2f998d55c6",
+    "sha1": "4b6bfed2d3ff4e21d6688380d9acb9d3a46cfc85",
+    "md5": "396f02bae25dfad6f369d5d24f6e291b",
+    "sha3_384": "129615813d8bf17c29ee7c00982ee21ff2923d9a992a5ef3b806817869bc7a5f0e9094a6ec851240b52b0fef5d4fe2a0",
+    "tlsh": "T1A22431823345F6BCF2CE0BA2AC070525A2F8D815F99F5188BBF17DC7679EA441574E82",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:q4PERnNE4dMLpH0b8Hgqv5YAp+Tslds7sA8fzyhKdooiZL5w009e/O5F:affVIdK/PDk"
+  },
+  "file_metadata": {
+    "names": [
+      "Summary_Raw_v8.3.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 212392,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "CountLoader",
+      "pos-terminal-vg",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "PS_XOR_Reflection_Loader_StatusCode",
+        "author": "Marjoriefort",
+        "description": "Obfuscated PowerShell .NET loader (builder statusCode family): XOR byte decode + reflection + HMAC-32 + scriptblock/IEX exec",
+        "reference": "InTheWild.0438 / fresh powershell 2026-08-15 + tag_powershell"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c184c0f22af4708fc50708003da89f2811530f98690ab37036951c2f998d55c6\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac5bc53ac12024c99a448bc\/reports\/3f629f3e-52f7-4501-845c-76133e757951\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-07 03:28:21",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261007-d1e51aa19v\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T03:28:06Z",
+  "last_seen": null
+}
