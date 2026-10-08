@@ -1,0 +1,289 @@
+{
+  "hashes": {
+    "sha256": "4ad8a7d5968ebe4389cbeb66d84d51d0f90ffa55b21e6e073d574102dfa2fd65",
+    "sha1": "af7b92eaf17e887216637b9c56b36217ae770f79",
+    "md5": "34bc9051e4b096fea877e241511e1448",
+    "sha3_384": "2b69a5d126fed365c46fa510c61784a910c2c6a2cc09234bca4aedd0f81f68a377f6896782c9fcfad447cec84eebede6",
+    "tlsh": "T138F7336D752684F1E43C3B35F6B67032D06D442A1BE948E8DB2D7190B2782C7D09AAFD",
+    "imphash": "b34f154ec913d2d2c435cbd644e91687",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:532/Hwmxhzj5EUjQoaHc2i0Ul80dTOQcelKwQ4Kqx+E:59ohve/oa3UBrcelKjyL",
+    "dhash_icon": "71f0f0f0f0f0f071"
+  },
+  "file_metadata": {
+    "names": [
+      "mudinho.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 74072232,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "50.3% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "10.6% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "10.5% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "8.1% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "7.2% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_NSIS_Nullsoft_Installer",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects NSIS installers by .ndata section + NSIS header string",
+        "reference": null
+      },
+      {
+        "rule_name": "GenesisStealer_Installer_NSIS_MaaS_Template",
+        "author": "n3r",
+        "description": "GenesisStealer NSIS installer (MaaS template). Imphash-based broad detector - also catches ScarfaceStealer / RemusStealer / VoidStealer variants sharing the same installer shell.",
+        "reference": null
+      },
+      {
+        "rule_name": "NSIS",
+        "author": "kevoreilly",
+        "description": "NSIS Integrity Check function",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-07 20:29:31",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/e7774a24-37bc-4e4f-994f-f81594b66d99",
+          "tags": []
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac6aa3314f917c8a92173f9\/reports\/60b55f84-27a9-4bdd-af79-6447a1a39864\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-07 18:41:37",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261007-y589vset2w\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Obfuscated Files or Information: Command Obfuscation",
+            "score": "6"
+          },
+          {
+            "signature": "Uses WMI to collect hardware manufacturer information",
+            "score": "6"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Hide Artifacts: Ignore Process Interrupts",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Queries system WMI classes for hardware identifiers",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Wi-Fi Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry key",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/4ad8a7d5968e\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a suspicious library"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-07T20:22:34Z",
+  "last_seen": null
+}
