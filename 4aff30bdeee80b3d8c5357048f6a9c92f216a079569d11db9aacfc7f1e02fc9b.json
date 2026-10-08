@@ -1,0 +1,123 @@
+{
+  "hashes": {
+    "sha256": "4aff30bdeee80b3d8c5357048f6a9c92f216a079569d11db9aacfc7f1e02fc9b",
+    "sha1": "65b2d4d5e9b82a2bce88c5047c37f209272238fb",
+    "md5": "116cad2bf66115bdd321b04075cdbde1",
+    "sha3_384": "de1f9b93fc091f7adf2b8c2085f960a85902f079e652470ca953670bcdf0249b5879a7164a83bbe28d2e90cf90491881",
+    "tlsh": "T14EF56268978BF5FAC09D4170625F8BAF76B185DA0391930AC7668C6E2C97FC07F61E01",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:1chMmwXXp6rto4U1CEY2TqhEhxRuXtGmupoQa6SvgeLsjxbtEOnOIPg0FKSJ4j81:czwHgZo4U0EY22mxijybWISClaR6"
+  },
+  "file_metadata": {
+    "names": [
+      "89d4bf8726440c1e25623d10bf36c52de91113130b058bc4fcb4c637758c2070.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 3358135,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "7d72264319c996b8c3dabfb3ae01961f7c124471207bae849e85cea32c82c79a"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "3bf180fb81eaded9afa930e69af74b81"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemusStealer",
+    "tags": [
+      "file-pumped",
+      "remus",
+      "RemusStealer",
+      "stealer",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PK_PUMP_AND_DUMP",
+        "author": "Will Metcalf @node5",
+        "description": "Walks Zip Central Directory filename entries looking for abused extension then checks for a file that's at least 25M and then check to see how much uncompressed size is vs compressed size",
+        "reference": null
+      },
+      {
+        "rule_name": "weird_zip_high_compression_ratio",
+        "author": "Maxime THIEBAUT (@0xThiebaut)",
+        "description": "Detects single-entry ZIP files with a suspiciously high compression ratio (\u003e100:1) and decompressed size above the 500MB AV limit",
+        "reference": "https://twitter.com/Cryptolaemus1/status/1633099154623803394"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4aff30bdeee80b3d8c5357048f6a9c92f216a079569d11db9aacfc7f1e02fc9b\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "ZIP File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac6e490cec3968a70d14367\/reports\/21e26138-9760-4365-8cf2-ad827fc728c2\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Resmus",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 00:32:23",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261008-fzdxnabz2m\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T00:31:58Z",
+  "last_seen": null
+}
