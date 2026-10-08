@@ -1,0 +1,224 @@
+{
+  "hashes": {
+    "sha256": "0c71292faf7d0a1238d8528c8475d3c41ade5633b89de01fcb65b17e8255c10d",
+    "sha1": "28c29cb1d8ad12d20ad0307a0e33b86519eb3a56",
+    "md5": "ee831cba37ce503090b6cefd4ab6ed90",
+    "sha3_384": "212531dc424ce3143b662dafe4dedce587805f6b2020f40d85edf060983196d9b234d426afbb7c040d57a031b427d829",
+    "tlsh": "T1A375012077F88439F6F62B31AE3A95609E3ABD241F71C15E8354391D0DB0A909BB6773",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:/ZPlmF0uwTKh56Z5vePu/DVeL1pVjeObnUUGGu/aYmQurhwQUvL:/mh69eWbVypVCQgGu/aYmn1gL"
+  },
+  "file_metadata": {
+    "names": [
+      "ConnectWiseControl.ClientSetup.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 1568768,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91148\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3946154\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ConnectWise",
+    "tags": [
+      "ConnectWise",
+      "msi",
+      "RMM",
+      "ScreenConnect"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "win_evilconwi_w0",
+        "author": "Karsten Hahn @ G DATA CyberDefense",
+        "description": "Settings from app.config that hide the connection of the client. These settings are potentially unwanted",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91148\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0c71292faf7d0a1238d8528c8475d3c41ade5633b89de01fcb65b17e8255c10d\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac7e5eee63668293bac5007\/reports\/bd531f21-e5f1-40b0-b898-7da662f9de6f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Malgent",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 18:50:29",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261008-xg4h2acv8j\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T18:49:33Z",
+  "last_seen": null
+}
