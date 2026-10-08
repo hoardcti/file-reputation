@@ -1,0 +1,184 @@
+{
+  "hashes": {
+    "sha256": "bd63567c2195b3b1ef32d6c757a7e857089127cb5240fb6d8d4c7ed4b8e652dc",
+    "sha1": "b3236413f49730271a6286283792d6a3a41904e2",
+    "md5": "0d5eb56daaa798139f17b6bcae8e3976",
+    "sha3_384": "2eb1bbca428730e359e06ea35c115f226a61bb2b855fe26270e340d2420f3ca38294ec7c2bbc7dfcfdf5a14b948e3448",
+    "tlsh": "T10E4173D6128129BA6EF5DD2272A64404F08051A66DCA3EC9E4EC74B7E4CCDC875C8B7F",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:vpzXDzXepzXmzXPopzXaOzX+pzXhVzXhVZ0hpzXh2zXheHpzXhLzXhpGpzXh8zXC:v1XnXe1XSXQ1XfX+1X/X+h1XgXw1XZXa"
+  },
+  "file_metadata": {
+    "names": [
+      "Pandora.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 2043,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3946076\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "3c10d1335c2d0a02817fc092d91d547e"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "97e2bb45c0088244e666ca43e8e1a1f91dd57872454a27a9c88f1268c34bc081"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Linux_Shellscript_Downloader",
+        "author": "albertzsigovits",
+        "description": "Generic Approach to Shellscript downloaders",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bd63567c2195b3b1ef32d6c757a7e857089127cb5240fb6d8d4c7ed4b8e652dc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac74ca4e747fe5a12410fe2\/reports\/71787cc3-609a-4263-8a63-de0a3367155c\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 07:48:25",
+        "scanner_count": "36",
+        "scanner_match": "22",
+        "scanner_percent": "61.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261008-jnshfsvt2r\/",
+        "tags": [
+          "family:mirai",
+          "botnet:lzrd",
+          "antivm",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (198766) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "176.65.149.45"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.59"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T07:48:24Z",
+  "last_seen": null
+}

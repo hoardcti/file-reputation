@@ -1,0 +1,190 @@
+{
+  "hashes": {
+    "sha256": "b3a239b2b9f03411808ad477ec8b4bd91e5aeac1af2b0aaff99e448a16520eb3",
+    "sha1": "b016e17f801e8f0d7bbb161ecefae045aaca64f2",
+    "md5": "40ed47767c280e5a182dfd0ea6d1cc8f",
+    "sha3_384": "c2e95e6528c9afd66ad9315f9914eed24834b54e76d8858c042ce8b5272a4d5fb72f864e8c79f326b24b971fabb60365",
+    "tlsh": "T192735C8B3B71D2142C222ADE28FD64E687AEA5B5077FF1CE1D63452E8D93CCD4940792",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:eGb3Ru8yjl4xjHjZnlUjsuCwy8YKQnsBXFu1GNncvAUyjFbAY5t2D:eEFyyHjZnRuCJKtNZjJ/SD"
+  },
+  "file_metadata": {
+    "names": [
+      "United Overseas Bank_Payment Advice.pdf.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 74062,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": [
+      "66.6% (.TXT) Text - UTF-16 (LE) encoded (2000\/1)",
+      "33.3% (.MP3) MP3 audio (1000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91082\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RemcosRAT",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91082\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b3a239b2b9f03411808ad477ec8b4bd91e5aeac1af2b0aaff99e448a16520eb3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac765bf9ba04880777669e2\/reports\/d03ce53d-9fe9-456c-b31a-1b19a67a59bd\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-10-07T22:52:00Z",
+        "last_seen": "2026-10-08T06:34:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/b3a239b2b9f03411808ad477ec8b4bd91e5aeac1af2b0aaff99e448a16520eb3\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-WScript.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 05:21:32",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261008-lp4cfsvvfs\/",
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "collection",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "216.9.225.162:9746"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T09:42:47Z",
+  "last_seen": null
+}

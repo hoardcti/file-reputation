@@ -1,0 +1,115 @@
+{
+  "hashes": {
+    "sha256": "c975e382d6cb1003895b5c9ba7465aa1886621b0674ddba837d2a1f45eccfd39",
+    "sha1": "43d646845dc31c6551c3d828503d53e9cec2b5c4",
+    "md5": "b8b354d06bda5ed2196cf151fa37082f",
+    "sha3_384": "f1c6c3fee8cefe125c54a80ce837f7ebc15351751cd3efbadfb8146658580b1d68bad2e2b24eb2dd458a6b6af14aa235",
+    "tlsh": "T104F546D386C21DC7DDD55838AC3B4FB05BA0D89AF902DA438B22A76D9FC77949C1A44C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:lrBSa2Z9DWh/ymv0qI1gZCAG+9giSjcV1HO4fiCbolGWK6TpQlw:lQtZZWh/z0KCAGliSjcV1HDQGWK61j"
+  },
+  "file_metadata": {
+    "names": [
+      "KiddonsModMenu.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 3350842,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemusStealer",
+    "tags": [
+      "file-pumped",
+      "RemusStealer",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PK_PUMP_AND_DUMP",
+        "author": "Will Metcalf @node5",
+        "description": "Walks Zip Central Directory filename entries looking for abused extension then checks for a file that's at least 25M and then check to see how much uncompressed size is vs compressed size",
+        "reference": null
+      },
+      {
+        "rule_name": "weird_zip_high_compression_ratio",
+        "author": "Maxime THIEBAUT (@0xThiebaut)",
+        "description": "Detects single-entry ZIP files with a suspiciously high compression ratio (\u003e100:1) and decompressed size above the 500MB AV limit",
+        "reference": "https://twitter.com/Cryptolaemus1/status/1633099154623803394"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c975e382d6cb1003895b5c9ba7465aa1886621b0674ddba837d2a1f45eccfd39\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "ZIP File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac757a6d85f316d333a2f01\/reports\/b0768dc1-9938-4d29-8f78-8bc968ee5066\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261008-km8nqadz8q\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "burger403",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T08:42:34Z",
+  "last_seen": null
+}

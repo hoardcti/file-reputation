@@ -1,0 +1,203 @@
+{
+  "hashes": {
+    "sha256": "4cde69096b2440d240c4fe0f35eab599242d154e49edd14522b9614a95f2ea84",
+    "sha1": "2674c78a4e34b3a36bb3c98b476586ff2c24a2bf",
+    "md5": "f9004703ceb20209801c1b22668fae55",
+    "sha3_384": "c11477f6625e64f9bc63bba1beaf7dde41db2b15191c628f1b6c88e93e0b905472d8a69fc9ace3bf91d23bf856a679cf",
+    "tlsh": "T11983D60ABB604EFBECABDC3745EA1706209D552A30A96F75B534D918F14F20F2AD3934",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:W1XW3UTVavjqVQywbPxPP/wwb9lT2TiUeL6SZJizKzC:W1XW25VYnUjSGz"
+  },
+  "file_metadata": {
+    "names": [
+      "sora.mpsl"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 88720,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "5d6968bfd3d38c08e9132a2a80b1e63dba2337d6823c24316e8a555720cbdf64"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3946213\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "3a58392c7612b8573fb4aa072e4d3fda"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_ELF_LNX_Mirai_Oct10_2",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects ELF malware Mirai related",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "MAL_ELF_LNX_Mirai_Oct10_2_RID2F3A",
+        "author": "Florian Roth",
+        "description": "Detects ELF malware Mirai related",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4cde69096b2440d240c4fe0f35eab599242d154e49edd14522b9614a95f2ea84\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac78e0ac8c0dd09313b68d5\/reports\/c3b169f3-f7e6-4d38-8e26-a71799e10a26\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/25951467-bcdc-4452-8e40-cc7f423de38b?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 12:34:58",
+        "scanner_count": "36",
+        "scanner_match": "26",
+        "scanner_percent": "72.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261008-psjzrsgw7l\/",
+        "tags": [
+          "family:mirai",
+          "botnet:sora",
+          "botnet",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (49548) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "204.194.50.3"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T12:34:46Z",
+  "last_seen": null
+}

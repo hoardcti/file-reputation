@@ -1,0 +1,226 @@
+{
+  "hashes": {
+    "sha256": "876de483fb47861e27d3e3799f0199b5b79bf4cdf64964e974273def5acf384a",
+    "sha1": "60835bcf538ee515bee207c8ee21170916f25045",
+    "md5": "c7d71ad31771236d20b4b88b12586655",
+    "sha3_384": "952d81b3b0f84130fb3932e76fb84c2216a9d9b98f48750060306880df90856ec7d64b450e41fe835dd5c37296e9bed4",
+    "tlsh": "T13384D0B8E46BF8E31257C22BD3406D5786761AC64766F16503AE2F874E1EFD4CF68880",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:U4swFCi/kl1Cwajbft9wLvDeccG6hG4przoYQYhclWbEbJrjF2uIIYRd4m+0b+k4:dx+1Ct/t9wLLebhI4RzrSlEAq/Rf+W9G"
+  },
+  "file_metadata": {
+    "names": [
+      "Faktura pro forma.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 406387,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91079\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "XWorm",
+    "tags": [
+      "vbs",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91079\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "xworm",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/876de483fb47861e27d3e3799f0199b5b79bf4cdf64964e974273def5acf384a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac765bd239dbaf8937be232\/reports\/afbf2605-aa9b-45f4-a053-92d88c8b6bcc\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-10-08T03:10:00Z",
+        "last_seen": "2026-10-08T06:34:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/876de483fb47861e27d3e3799f0199b5b79bf4cdf64964e974273def5acf384a\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-08 09:39:38",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261008-lp32paeb84\/",
+        "tags": [
+          "family:remcos",
+          "family:xworm",
+          "botnet:new",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "45.136.5.227:23101"
+          },
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "45.136.5.227:10123"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-08T09:42:34Z",
+  "last_seen": null
+}
