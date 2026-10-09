@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "3114b50fbedd1d72a25f326aeab5548daeeae18e01eb13a53e76e96cd202faef",
+    "sha1": "ac8e68a6945df64079bef0c45da3daa4a16203a7",
+    "md5": "bad07153d2c028ff9abcd152caea04a7",
+    "sha3_384": "164057950ba45412ee4994dbaff17404772654ad4d1ca3d908d2082527526991d1d3131fce0b13f1182a6819edac7ad2",
+    "tlsh": "T1714501151406DA67B2D82B185A3B9F9022B5F2C2F93DF7FED24D936222585A0F0F3D61",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:yHN18wMBARf9fo49ewHvU4d8D6Da+ZS+dIUU7nHGPUhj:ythFvfs88Dx+DCUU7HmUhj"
+  },
+  "file_metadata": {
+    "names": [
+      "MD00125 Sp08102026.hta"
+    ],
+    "mime_type": "text/html",
+    "type": "hta",
+    "size": 1257653,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "html",
+    "trid": [
+      "62.5% (.SMI\/SMIL) Synchronized Multimedia Integration Language (5001\/2\/2)",
+      "37.4% (.HTML) HyperText Markup Language (3000\/1\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "hta",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "html_auto_download_b64",
+        "author": "Tdawg",
+        "description": "html auto download",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3114b50fbedd1d72a25f326aeab5548daeeae18e01eb13a53e76e96cd202faef\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "HTA File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac9045375b484cde03312cb\/reports\/a1884b15-f618-4943-b942-ed8ebaa1d604\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-JS.Malware.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 13:01:42",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261009-slbllayvay\/",
+        "tags": [
+          "family:remcos",
+          "botnet:ember 64",
+          "collection",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Hide Artifacts: Hidden Files and Directories",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Views\/modifies file attributes",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "misot-flex.duckdns.org:62927"
+          },
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "misot-flexbk.duckdns.org:54016"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-09T15:05:39Z",
+  "last_seen": null
+}

@@ -1,0 +1,190 @@
+{
+  "hashes": {
+    "sha256": "bdf89a30d6c0eb162d1191cce9f42dccf1f9480e69a918b1dce143cf671bd2c5",
+    "sha1": "d5d4a3551fb5c0b51836cc146fd9b56e9f7fa5b1",
+    "md5": "fb7a8e1dc3d7133517ef7cf16efe7ca9",
+    "sha3_384": "e7e78f16db9ff63958506244e8938c0ca210ec38e885530bc76a4f1a1c79db08840029b1ba5aff7ce599dab5a4ca2ff7",
+    "tlsh": "T13FD0220CE204D0B6C802AB81F250FA83EB0AA01920030800C6B94C2AF99508EB6CC381",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6:SRmwpqCzNSubfdyNSuzVFr6MFIsXuSR3u:VOqwrdiFmMn+Ss"
+  },
+  "file_metadata": {
+    "names": [
+      "payload.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 200,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VenomRAT",
+    "tags": [
+      "Boxter",
+      "ps1",
+      "VenomRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bdf89a30d6c0eb162d1191cce9f42dccf1f9480e69a918b1dce143cf671bd2c5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac8f3a99c31d0605047b579\/reports\/bdd1e4a4-fb53-40bf-8d74-122576a18b02\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Malware.Boxter",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-09 14:01:21",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "asyncrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261009-rbl4xayt6m\/",
+        "tags": [
+          "family:asyncrat",
+          "botnet:default",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Async RAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: AsyncRat",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "asyncrat",
+            "c2": "http:\/\/3.24.186.0:9000\/Client.exe"
+          },
+          {
+            "extraction": "c2",
+            "family": "asyncrat",
+            "c2": "3.24.186.0:4449"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.90"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "joker651181",
+    "anonymous": false,
+    "origin_country": "BM"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-09T14:00:47Z",
+  "last_seen": null
+}

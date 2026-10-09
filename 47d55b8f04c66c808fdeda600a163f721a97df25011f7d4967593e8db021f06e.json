@@ -1,0 +1,179 @@
+{
+  "hashes": {
+    "sha256": "47d55b8f04c66c808fdeda600a163f721a97df25011f7d4967593e8db021f06e",
+    "sha1": "0fd7c3900704aaed07c55954858d47aa83d03d51",
+    "md5": "1745d48bb7b452ce7c6a480f2aefffb1",
+    "sha3_384": "301d93824c103bb02e2e9090c9bfc134ce4cb05da9c5cc74da19d8491b0424cfe296cb292281c617ce23ee8186ffb064",
+    "tlsh": "T1699422720BEC6F3E51B0AB1880E76D45FBA148FD5C441C80735496962FBB75A932EE14",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:ZNtOW/hWZrLQASD5s2lnrBwhmHgNsYgrdG3aR:Z+KWZrLzmHgCnii"
+  },
+  "file_metadata": {
+    "names": [
+      "1477ccde.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 430727,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "LxBaseRAT",
+    "tags": [
+      "LxBaseRAT",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/47d55b8f04c66c808fdeda600a163f721a97df25011f7d4967593e8db021f06e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac9305f782b170a75c5cc4a\/reports\/02036c88-6747-4899-95df-fb4be1bd787c\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-09 14:48:38",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "lxbaserat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261009-wyv3js11cx\/",
+        "tags": [
+          "family:lxbaserat",
+          "botnet:group1",
+          "campaign:8f10233064534da8962a351ba262a74b",
+          "collection",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: LxBaseRAT",
+            "score": "10"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "lxbaserat",
+            "c2": "opancycles421.gleeze.com:4521"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-09T18:19:23Z",
+  "last_seen": null
+}
