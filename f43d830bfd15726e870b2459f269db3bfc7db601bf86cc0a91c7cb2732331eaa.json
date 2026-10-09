@@ -1,0 +1,140 @@
+{
+  "hashes": {
+    "sha256": "f43d830bfd15726e870b2459f269db3bfc7db601bf86cc0a91c7cb2732331eaa",
+    "sha1": "3b4d5b1ea6f2aa814595d9a474db920e1e03e0cf",
+    "md5": "6c532fcb82b518d62504010bcce9bc5b",
+    "sha3_384": "38267276bd33ef865f612892bced344a9e7fa801717fb4c13aa8acb7f4f5b7b24705c6d371285d16d0054853ecca9321",
+    "tlsh": "T1A8360210AF9D4035F413EB37A042F0A5B4BBEE69521BF4673A79054D582DE818B3FD8A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:rTKYYRKwj4IFrULTQlWgHEqGqmOSBjua2SKrd1EJGPM0TKXf8kI:roRV4IOXKlV0jua25EJkbTxV"
+  },
+  "file_metadata": {
+    "names": [
+      "dupe-donutsmp-26.2-35.jar"
+    ],
+    "mime_type": "application/zip",
+    "type": "jar",
+    "size": 5111185,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "77.1% (.JAR) Java Archive (13500\/1\/2)",
+      "22.8% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_malware",
+        "value": "funrat"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91268\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "be28f507fbaa4ae0b17b55d9ee9d9df63862a8530bf4cf49802d6bda53d35e40"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "bcf69c8fb9071da52268679eda8ab90e"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "funrat",
+      "jar",
+      "java",
+      "rat"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_JAVA_JAR_Skidfuscator_Random_Runtime_Path_Oct26",
+        "author": "rc4",
+        "description": "Detects JAR files containing a class at a randomized 16+16 lowercase letter path as used for the runtime class of Skidfuscator 2.0.x community builds (heuristic, lower confidence)",
+        "reference": "https://github.com/skidfuscatordev/skidfuscator-java-obfuscator"
+      }
+    ],
+    "comments": [
+      {
+        "id": "506338",
+        "date_added": "2026-10-09 21:57:40",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static analysis: fabric.mod.json registers core.Fun as an additional client initializer. It reads the Minecraft username, profile UUID and access token, then passes them to core.Coffe. Coffe downloads http://5kiwqdzvhip5yjx5u6ms2hsv3yozpslxocjhyf4cyimrg33fcb7devid.onion/api/hlam/files/4000, loads the response as a JAR in memory, and passes the session values to the payload class core.core. TorBridge reuses localhost:9050 or launches a local tor.exe. The payload URL was recovered from XOR-obfuscated strings."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "dupe-donutsmp-26.2-35.jar",
+          "date": "2026-10-09 20:54:45",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d71791d6-b6d9-435a-b369-2d686f789941",
+          "tags": [
+            "arch-doc"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91268\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f43d830bfd15726e870b2459f269db3bfc7db601bf86cc0a91c7cb2732331eaa\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac95b87ee79758441acd388\/reports\/06407ae3-7db9-4d67-a07d-c37b92ef9686\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261009-z85lhsws8k\/",
+        "tags": [],
+        "signatures": [
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-09T21:23:33Z",
+  "last_seen": null
+}

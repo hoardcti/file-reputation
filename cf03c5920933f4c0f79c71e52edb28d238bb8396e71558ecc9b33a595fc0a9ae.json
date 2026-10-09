@@ -32,14 +32,19 @@
       {
         "context": "dropped_by_malware",
         "value": "Gcleaner"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91255\/"
       }
     ],
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
       "A",
+      "CoinMiner",
       "dropped-by-GCleaner",
       "exe",
       "MIX1.file"
@@ -71,20 +76,40 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-09 19:17:34",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/a4f4d419-92a3-484b-8303-80a018972022",
+          "tags": [
+            "winring0-sys",
+            "vuln-driver",
+            "miner",
+            "upx",
+            "xmrig"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91255\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/cf03c5920933f4c0f79c71e52edb28d238bb8396e71558ecc9b33a595fc0a9ae\/"
       },
       "FileScan-IO": {
-        "verdict": null,
-        "threatlevel": null,
-        "confidence": null,
-        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac93ab00b72c1323436b845\/reports\/\/overview"
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac93ab00b72c1323436b845\/reports\/7f683019-4e5e-4992-841e-b3d0a00312ee\/overview"
       },
       "Intezer": {
-        "verdict": null,
-        "family_name": null,
-        "analysis_url": "?utm_source=MalwareBazaar"
+        "verdict": "malicious",
+        "family_name": "XMRig Miner",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a7039f8c-53c0-4084-890c-e4d0e7b508c2?utm_source=MalwareBazaar"
       },
       "ReversingLabs": {
         "threat_name": null,
@@ -101,11 +126,87 @@
         }
       ],
       "Triage": {
-        "malware_family": null,
-        "score": null,
+        "malware_family": "xmrig",
+        "score": "10",
         "link": "https:\/\/tria.ge\/reports\/261009-xq1hqsds8x\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "family:xmrig",
+          "defense_evasion",
+          "execution",
+          "miner",
+          "persistence",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Creates new service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Stops running service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Power Settings",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "UnpacMe": [
@@ -118,7 +219,74 @@
           ],
           "link": "https:\/\/www.unpac.me\/results\/de8bcd80-1f1c-4e85-8c8a-1a40b947394b\/"
         }
-      ]
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "XMRig",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/cf03c5920933\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the system32 subdirectories"
+          }
+        ]
+      }
     }
   },
   "submission": {
