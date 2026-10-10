@@ -1,0 +1,117 @@
+{
+  "hashes": {
+    "sha256": "c54847abf0244aa9dbf6e84e6f38cafae01086a8f2f2c74a8c4ad12bdfd6c54f",
+    "sha1": "0af41e69779e2af9c69e6e7a5582916c34ca3d8b",
+    "md5": "9c2841fa2ff63e21db10ee36b12531a3",
+    "sha3_384": "fb5a1bcf03ed6d236019ebdd16275a69375eea324bd2eaac9957b7fba62d562b561a45e26031fedf55454111a9057c13",
+    "tlsh": "T1DB5502118F3680A6F1CCDB303B2A8DBF5E606170854F16DB27926A958D353E3E1A735B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:0N5LuR8zJ6hJQ5pz01sSXxIn746adSpob1YhbgpJ7KhQYJNCfxGi6T:0PLuR8QhL1hCaSGKhHhDOq"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_c54847abf024.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1396672,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/99410c62ffbaf607a62c2badf53d84ae450cb187f3b211fb8b89dd640c687a4e\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/199694033b66e4b868e19e1b17c10e7e402ffb58bf3c989e91ff45e6d65c7956\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/cc85c7eff50e4df105b28b300fae9603ad3d1653408c6bdc5a2665a16c379103\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3922953\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c54847abf0244aa9dbf6e84e6f38cafae01086a8f2f2c74a8c4ad12bdfd6c54f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ac9897bc7b121d141e9b30f\/reports\/f11a2b29-b6ce-4774-984b-c3d415ebb1fc\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-10 00:40:24",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "AtomicStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/c54847abf024\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-10T00:39:47Z",
+  "last_seen": null
+}

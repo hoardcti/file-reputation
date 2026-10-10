@@ -50,13 +50,45 @@
     ],
     "yara_rules": [
       {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
         "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
         "author": "CYFARE",
         "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
         "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-09 23:35:39",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/e559994e-124a-486b-9655-90708c83b4ea",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91274\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/f7bdefdccc2e200bbb52f6e05b00afbcd5bfa1ab536876950824031043373de0\/"
@@ -73,12 +105,12 @@
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/ea5ff297-7370-48fb-b1cb-1563ca4a4ebf?utm_source=MalwareBazaar"
       },
       "ReversingLabs": {
-        "threat_name": null,
-        "status": "UNKNOWN",
-        "first_seen": null,
-        "scanner_count": null,
-        "scanner_match": null,
-        "scanner_percent": null
+        "threat_name": "Win64.Malware.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-09 23:34:22",
+        "scanner_count": "36",
+        "scanner_match": "14",
+        "scanner_percent": "38.89"
       },
       "Spamhaus_HBL": [
         {
@@ -88,10 +120,29 @@
       ],
       "Triage": {
         "malware_family": null,
-        "score": null,
+        "score": "7",
         "link": "https:\/\/tria.ge\/reports\/261009-3khnmafz8v\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "defense_evasion"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: RenamesItself",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "UnpacMe": [
@@ -102,7 +153,37 @@
           "detections": [],
           "link": "https:\/\/www.unpac.me\/results\/4b1127e0-9796-4143-ba57-48e9f8749d64\/"
         }
-      ]
+      ],
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "81",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
     }
   },
   "submission": {
