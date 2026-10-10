@@ -1,0 +1,227 @@
+{
+  "hashes": {
+    "sha256": "29834c1a0bb5ebbbfe20bee53fb3694df010af8a02aa2cb7f39e08eff1c6896c",
+    "sha1": "9f6b8d1c27c79523b36ab53341d3ef59eb4cebde",
+    "md5": "5ffe1ddc2f6bb2b6c83424a2d1f2f2ff",
+    "sha3_384": "fbe86c5c935d01535a4462f3e9632b0377351745cd611e06c7ed64c87a66a353602c7f346040421b3bcfa767e51d755b",
+    "tlsh": "T17EC7335DB8720E9BD46D54310A9A574AEB377CA13F408A177FB0E10E5C7E6E036B4A83",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:6xshT2+Ts0WjZv0lK1wwoH64OsBboawQ:2shFTsn9slLV64Bo"
+  },
+  "file_metadata": {
+    "names": [
+      "29834c1a0bb5ebbbfe20bee53fb3694df010af8a02aa2cb7f39e08eff1c6896c"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 53374976,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aca93ee80f73dc2bc8e01c8\/reports\/b98e80ab-3e10-4477-a323-70223f1e59e4\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261010-ybxnza1y7k\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Internet Connection Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry key",
+            "score": null
+          },
+          {
+            "signature": "Runs ping.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SquiblydooBlog",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "Pelican Finland Holding Oy",
+      "issuer_cn": "Certum Code Signing 2021 CA",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-08-25T14:54:25Z",
+      "valid_to": "2027-08-25T14:54:24Z",
+      "serial_number": "1575aa28624e4ee4704303dd356d8ed1",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-10T19:36:21Z",
+  "last_seen": null
+}
