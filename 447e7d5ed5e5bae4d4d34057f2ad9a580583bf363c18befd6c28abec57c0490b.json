@@ -257,6 +257,13 @@
         "twitter_handle": null,
         "display_name": null,
         "comment": "SeroRAT client, .NET NativeAOT (assembly SeroStub, posing as RuntimeBroker). C2 216.86.70.40:2727, raw TLS 1.2 without SNI; server certificate CN=SeroServer, O=Sero, OU=Loader, SHA-256 4ED31A72025B5272092C5C99F247FFF6E99FE5120E707031AEAE5292A16C5063, which the client pins. Config strings are XORed with an SFC64 keystream (32-byte key, state = four LE uint64); host list decrypts to 127.0.0.1 and 216.86.70.40, port is an immediate. 3-second heartbeat, 4-byte length prefix per message. Embeds Astra64.sys (4a8b6b462c4271af4a32cf8705fa64913bfcdaefb6cf02d1e722c611d428cb16) for BYOVD and an App-Bound Encryption helper DLL (d0f2273f828b10391adcf877ff0775924e4b63435ec240b1047d89a1fa95a229). AMSI/ETW API names XORed with 0xF3+i."
+      },
+      {
+        "id": "506906",
+        "date_added": "2026-10-11 18:43:24",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Behaviour observed in an isolated lab (Windows 10 Pro, no real internet). Elevated start: adds Defender exclusions via powershell Add-MpPreference -ExclusionPath; drops %TEMP%\\ast\u003c8 hex\u003e.sys (Astra64.sys) and loads it as kernel service AstraDrv, deleting the service about a second later; copies itself to %APPDATA%\\Windows\\windows.exe and to %LOCALAPPDATA%\\Microsoft\\WindowsServices\\svchost.dat (byte-identical copies); a copy then runs as SYSTEM with winlogon.exe as parent; persistence = scheduled task 'Windows' (schtasks /Create /XML ... /TN \"Windows\", runs windows.exe --vx89ab-task as SYSTEM) plus Run value 'Windows' in HKCU and HKLM; retries 216.86.70.40:2727 after about 20, 30, 50, 90 s. Started unelevated with UAC on: runs schtasks /Run /TN \\Microsoft\\Windows\\DiskCleanup\\SilentCleanup /I (UAC bypass attempt), writes %TEMP%\\vx89ab_elev_Windows.txt, and did not contact the C2 in 240 s. Build marker string: vx89ab."
       }
     ],
     "vendor_intel": {
