@@ -1,0 +1,204 @@
+{
+  "hashes": {
+    "sha256": "f1692afdc0662c3448563ba69eb6052b27d0981d48d3400c1d5bfaa5a339e0b1",
+    "sha1": "fc662f8f742681bb0606e0f3a988b1cfb1b612f3",
+    "md5": "cb69d574039e35b0fc6dbaf611212acc",
+    "sha3_384": "207567df7176213d253d3ff973f57358c0b391b121d670837b25f575e37732fa8826a4b42748ea80a1c1d175a5398a44",
+    "tlsh": "T1DC93AA2A4DEA207BE173E570A5E116F2BA1EA55E35C50D0E05C3C35D8D62E02BEE7D0E",
+    "imphash": "ba23a556ac1d6444f7f76feafd6c8867",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:50w981IshKQLroA4/wQozzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzv:CEGI0oAlVunMxVS3c"
+  },
+  "file_metadata": {
+    "names": [
+      "2026-10-10_cb69d574039e35b0fc6dbaf611212acc_elex_wannacry"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 93076,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "39.7% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "21.0% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "8.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "8.3% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "6.4% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91390\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Stormser",
+    "tags": [
+      "exe",
+      "Stormser"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Imphash_Mar23_2",
+        "author": "Arnim Rupp (https://github.com/ruppde)",
+        "description": "Detects imphash often found in malware samples (Zero hits with with search for 'imphash:x p:0' on Virustotal)",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-11 02:16:18",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/468258e8-1549-4584-a8d9-38c84db59c6f",
+          "tags": [
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91390\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f1692afdc0662c3448563ba69eb6052b27d0981d48d3400c1d5bfaa5a339e0b1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acaf0fa8d9124d9a16f24c8\/reports\/0569db24-a6cd-496b-aeb9-48655de6c1c4\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "ServStart",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5bea51b8-50cd-4bb3-b388-e2fd6ea2cd1f?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-10-08T16:42:00Z",
+        "last_seen": "2026-10-08T17:04:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f1692afdc0662c3448563ba69eb6052b27d0981d48d3400c1d5bfaa5a339e0b1\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Network.StormAttack",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-08 20:44:50",
+        "scanner_count": "38",
+        "scanner_match": "35",
+        "scanner_percent": "92.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "stormser",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261011-cn4gdswx6l\/",
+        "tags": [
+          "family:stormser",
+          "discovery",
+          "execution",
+          "persistence",
+          "worm"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects Stormser aka Storm DDoS and StormAttack",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Stormser, StormDDoS, StormAttack, Stormer",
+            "score": "10"
+          },
+          {
+            "signature": "Boot or Logon Autostart Execution: Active Setup",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "f1692afdc0662c3448563ba69eb6052b27d0981d48d3400c1d5bfaa5a339e0b1",
+          "md5_hash": "cb69d574039e35b0fc6dbaf611212acc",
+          "sha1_hash": "fc662f8f742681bb0606e0f3a988b1cfb1b612f3",
+          "detections": [
+            "SUSP_Imphash_Mar23_2"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/ade7aec9-dc7b-4e41-a482-a54d9cf00fae\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "NyxIndius",
+    "anonymous": false,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-11T02:13:59Z",
+  "last_seen": null
+}
