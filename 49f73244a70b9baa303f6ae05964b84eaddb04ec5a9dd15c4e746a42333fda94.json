@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "49f73244a70b9baa303f6ae05964b84eaddb04ec5a9dd15c4e746a42333fda94",
+    "sha1": "2ece9de97ff79b63a9cd5d4c2b7066581c97a9a2",
+    "md5": "db6d198a4661336954d0927dae5ee05f",
+    "sha3_384": "4c01e01eacd8684be04c89055894758cb1b06ebd4be8cf19fb0a4b2af5040befc9e9f6da268b60b27ca21cc52f22099a",
+    "tlsh": "T1A6C33A59FD819B11D5C622BBFA1E028A331357ACE3EF72129D205F2537CA96B0E77901",
+    "imphash": null,
+    "telfhash": "t181011e32eb090a1c97e1c008479de034bbb272d827162894cfd9cb8b0806ec1768c834",
+    "gimphash": null,
+    "ssdeep": "3072:LkUhW6FtxBaE6pcFRaebXQdcXmAULBc0lmPBO:LzhWutxBaORaebXQd+mzBzlkB"
+  },
+  "file_metadata": {
+    "names": [
+      "arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 124752,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3905425\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_8299c877",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_c19ca8e5",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Gafgyt_28a2fe0c",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/49f73244a70b9baa303f6ae05964b84eaddb04ec5a9dd15c4e746a42333fda94\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acb898ec6c256cc36c7546b\/reports\/19f8bb08-81d0-4104-b6fe-79a8a30b8029\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5c7f6848-aff3-455b-a2c6-505bcce38c9e?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261011-qbmj1aab97\/",
+        "tags": [
+          "family:mirai",
+          "botnet:owari",
+          "botnet",
+          "defense_evasion"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "94.154.43.37"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-11T13:04:51Z",
+  "last_seen": null
+}

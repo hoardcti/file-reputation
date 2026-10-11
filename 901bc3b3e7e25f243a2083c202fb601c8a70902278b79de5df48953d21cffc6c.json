@@ -1,0 +1,214 @@
+{
+  "hashes": {
+    "sha256": "901bc3b3e7e25f243a2083c202fb601c8a70902278b79de5df48953d21cffc6c",
+    "sha1": "057ae414adf37da28eb051319c06209d5a63f3fe",
+    "md5": "a0980256e549098926e8e5396faa2cad",
+    "sha3_384": "063496d0cbb7c5bca01a9738ec91d4797b70c8194b59d517bda4cece72a9e0e6602ff895c436eb73b7f26768698bd96f",
+    "tlsh": "T1B7242956F8819F11D5C016BAFE2E528D33231B78E2DE32169E246F60778B87F0E3A515",
+    "imphash": null,
+    "telfhash": "t17bb0127301d03ee8e0b61806c4ed77a32424c27f4b68084b25c02c7e07e3a965003d87",
+    "gimphash": null,
+    "ssdeep": "6144:RufSHmWM2SWXXTE4angbmE797G6GF+mQ:RufSHZM2pX44anf+tG6GFnQ"
+  },
+  "file_metadata": {
+    "names": [
+      "dissarm6"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 219936,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927810\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202503_elf_Mirai",
+        "author": "abuse.ch",
+        "description": "Detects Mirai 'TSource' ELF files",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_irc_catcher",
+        "author": "@_lubiedo",
+        "description": "Find new ELF IRC samples",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/901bc3b3e7e25f243a2083c202fb601c8a70902278b79de5df48953d21cffc6c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acb4555a5d63a001d4f66e3\/reports\/bad4d0ee-3308-45ca-b500-285a1ad637dc\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/fb6f4b88-745a-4701-a217-023178e2f1ff?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-11 05:37:12",
+        "scanner_count": "36",
+        "scanner_match": "14",
+        "scanner_percent": "38.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261011-j43y5aysfv\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies symbolic links in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Attempts to kill processes by name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-11T08:13:54Z",
+  "last_seen": null
+}
