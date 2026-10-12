@@ -1,0 +1,196 @@
+{
+  "hashes": {
+    "sha256": "1af15fdefb4fbc3a7ccb106ddfdde5b4e3403fb8dcf7523916fb5c465fce1a0b",
+    "sha1": "0349768d522e6b90b90631f21754bbeffa6c1a4b",
+    "md5": "c593e252b8f83159844e94190570163c",
+    "sha3_384": "2dbcdfe5763d06305ab3d384c924075be1a2ea8a52dffd5c2f703488a4b59632ab6c93493b2c84dfefb532b69e9cfb52",
+    "tlsh": "T10B243956F8819F11D5C016BAFE1E528D33231B78E2EE32169E246F30778B87B0E7A515",
+    "imphash": null,
+    "telfhash": "t111c08c204b92a8a2b0a4080191ce23110ba8d13b1e0eb4199ae132068da0ad8e021432",
+    "gimphash": null,
+    "ssdeep": "3072:+AbZTXHPfaC2SCjwlQXyWAXkCT6bMaZ4/MKQMB68B3GG2hVGm5UXo:NbZ7H3tHv0aXkCeYa2/M5M/B3GG0GmP"
+  },
+  "file_metadata": {
+    "names": [
+      "dissarm6"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 215840,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927810\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202503_elf_Mirai",
+        "author": "abuse.ch",
+        "description": "Detects Mirai 'TSource' ELF files",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_irc_catcher",
+        "author": "@_lubiedo",
+        "description": "Find new ELF IRC samples",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1af15fdefb4fbc3a7ccb106ddfdde5b4e3403fb8dcf7523916fb5c465fce1a0b\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6accda58b4df30d39beb0ad1\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6431ccf7-db36-4f93-ae98-406a210aca2d?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-12 13:02:27",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261012-p9wd5ada75\/",
+        "tags": [
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "none",
+        "maliciousness": null,
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T13:01:39Z",
+  "last_seen": null
+}

@@ -1,0 +1,171 @@
+{
+  "hashes": {
+    "sha256": "804d89587248db0c2bdbaed8c259b90c11757c96366715e020ecffbb64289db3",
+    "sha1": "e0459c1f8a250faa50db87878a0ff7781d8bcf36",
+    "md5": "d9ffa8a83223459d498c7975507ddfc5",
+    "sha3_384": "7e2ed5eec8f56cf3f3ff9bf1f867c02c2b6cd7155a440b4d4bd5200ca32327faa938c4ec72a6f5a0913e6e5aa92d5e50",
+    "tlsh": "T199F3C50E6E198F7CF79987345BB79E32925833872AE1C582E16CD7105E6024F641FFA8",
+    "imphash": null,
+    "telfhash": "t1f92193584a7412e067325c8c5a9dff7bd67130ef2b161c378e11a8aabb6d8419e20c0c",
+    "gimphash": null,
+    "ssdeep": "3072:MOATXjpCgqDJHDexBJKfjPV4kuMu8hJBQX/uw9EfszRpSP/Q4vkTTzTT4BFZDiwK:MOATXjpCgqDJHDexBJKfjPV4kuMu8hJU"
+  },
+  "file_metadata": {
+    "names": [
+      "mips"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 171724,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3949003\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Gafgyt_28a2fe0c",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/804d89587248db0c2bdbaed8c259b90c11757c96366715e020ecffbb64289db3\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6accad977c6d96af999340f5\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/cfea09e7-6dfd-4d34-86a8-b391f964fa4c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-12 09:51:29",
+        "scanner_count": "36",
+        "scanner_match": "21",
+        "scanner_percent": "58.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261012-lvl1csbc87\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "176.65.139.76"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "none",
+        "maliciousness": null,
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T09:50:25Z",
+  "last_seen": null
+}

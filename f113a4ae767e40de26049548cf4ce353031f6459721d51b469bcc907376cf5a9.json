@@ -1,0 +1,236 @@
+{
+  "hashes": {
+    "sha256": "f113a4ae767e40de26049548cf4ce353031f6459721d51b469bcc907376cf5a9",
+    "sha1": "c2b3c9967111b96e60ae9c8f8deb25fd4008b56e",
+    "md5": "d73b1df1cba8724a0f2d343c60010751",
+    "sha3_384": "2635269d84165e26e80c564e06764a9b2ec68addc094cd2f3fb49527fc9f258823b3cf3571667d487b7747970e7b7d95",
+    "tlsh": "T12D735A45F783F1F0E94A06B0106BE77D4A359F624124DE2EEB94BD76AD32B02A51B21C",
+    "imphash": null,
+    "telfhash": "t18141f3f99efa0ce8f3e45841c24e4be22668e13b191031a485b1fd9123f3e119076c35",
+    "gimphash": null,
+    "ssdeep": "1536:3/gayosmZSmRQgP8wfiXUM31MY8oR95ag2W+F2Yrc:GosmUmRNER++Rs0A"
+  },
+  "file_metadata": {
+    "names": [
+      "iran.i486"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 78640,
+    "format": "ELF",
+    "arch": "I386",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3947484\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "has_telegram_urls",
+        "author": "Aaron DeVera\u003caaron@backchannel.re\u003e",
+        "description": "Detects Telegram URLs",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_3a56423b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f113a4ae767e40de26049548cf4ce353031f6459721d51b469bcc907376cf5a9\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acd2915819c85f083389c50\/reports\/46d88ada-5998-4f8d-8d71-a5547bb0cf3a\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/7f2b5335-ee3f-4aee-81e2-5f79e13f1a4b?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.FlyLegitBot",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-12 17:08:40",
+        "scanner_count": "36",
+        "scanner_match": "12",
+        "scanner_percent": "33.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "flylegitbot",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261012-xevhcav15p\/",
+        "tags": [
+          "family:flylegitbot",
+          "botnet",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects FlyLegitBot",
+            "score": "10"
+          },
+          {
+            "signature": "Family: FlyLegitBot",
+            "score": "10"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes access rights for a written file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Manages services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T18:37:26Z",
+  "last_seen": null
+}

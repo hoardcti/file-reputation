@@ -1,0 +1,191 @@
+{
+  "hashes": {
+    "sha256": "a229408ff1689bab03645c3f723fdd8dcc8d8dfe64f6f57eb1e8f7aa4f13561e",
+    "sha1": "2e886e6b47128edac7b601f4a220f01db7c57ec8",
+    "md5": "b054f3cb2af9983c5cd3fa34ca2c5c04",
+    "sha3_384": "5be1d76586842f00d5d5f481e2cac00aa07bddf139a9ca9033481cbd83c44d14e1918902355b8ae77010d74ba369d51b",
+    "tlsh": "T1BA654B13F75D1DE4E095E2B891A38712D7F0BC494322A3C752EBA6592F673C1BA3B250",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:oJSwM+560MrE03u1mHWV/I3z+bQEKZm+jWodEEV7XeempcGGoZVe:4NM+560p1F/IiQEKZm+jWodEENX2"
+  },
+  "file_metadata": {
+    "names": [
+      "mystuff_docs.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 1441792,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "47.7% (.ISO\/UDF) UDF disc image (2114500\/1\/6)",
+      "46.2% (.NULL) null bytes (2048000\/1)",
+      "5.7% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.1% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.0% (.ISO) ISO 9660 CD image (2545\/36\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mimikatz",
+    "tags": [
+      "iso",
+      "Mimikatz"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "Suspicious_Process",
+        "author": "Security Research Team",
+        "description": "Suspicious process creation",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a229408ff1689bab03645c3f723fdd8dcc8d8dfe64f6f57eb1e8f7aa4f13561e\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6accdf44a2cdca03e5f7b71a\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mimikatz",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261012-tlwgfax1ax\/",
+        "tags": [
+          "family:mimikatz",
+          "defense_evasion",
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mimikatz",
+            "score": "10"
+          },
+          {
+            "signature": "mimikatz is an open source tool to dump credentials on Windows",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Hide Artifacts: Ignore Process Interrupts",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T13:23:13Z",
+  "last_seen": null
+}

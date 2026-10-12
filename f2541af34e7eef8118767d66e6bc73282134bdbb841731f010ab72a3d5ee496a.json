@@ -1,0 +1,188 @@
+{
+  "hashes": {
+    "sha256": "f2541af34e7eef8118767d66e6bc73282134bdbb841731f010ab72a3d5ee496a",
+    "sha1": "ddde6399ccfb7fde3427eae449fda1280a19a1c9",
+    "md5": "2e8b3bcce4d49618ddc1e441ff858a14",
+    "sha3_384": "4dd67589c576aa0c0031be753b9eb1ecf24dfe516cab6292475566e900883987e0a58b9bf839a87bfba8cd2075ae9816",
+    "tlsh": "T188140849F9419F11D5D235FAFA9F415833136BB8D3FA3102DE246F6023CA99A0F7A612",
+    "imphash": null,
+    "telfhash": "t101900265251981507ca5656992845564009261c23558f420af11c25d4c4759230d7413",
+    "gimphash": null,
+    "ssdeep": "6144:RC7AxPXyB8QKtCV9azNay33eu4GmP/eukWEK72GV:RC7Ify5KCvazNZ3eu4hP3kWEK"
+  },
+  "file_metadata": {
+    "names": [
+      "adb.arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 199340,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3929220\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202503_elf_Mirai",
+        "author": "abuse.ch",
+        "description": "Detects Mirai 'TSource' ELF files",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_irc_catcher",
+        "author": "@_lubiedo",
+        "description": "Find new ELF IRC samples",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f2541af34e7eef8118767d66e6bc73282134bdbb841731f010ab72a3d5ee496a\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6accc10570f0c88b2ecf47f6\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/42443331-198c-4ff5-adbd-ea299b5d30fd?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261012-nb2b2scd77\/",
+        "tags": [
+          "antivm",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to shm directory",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "none",
+        "maliciousness": null,
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T11:13:35Z",
+  "last_seen": null
+}

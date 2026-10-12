@@ -1,0 +1,188 @@
+{
+  "hashes": {
+    "sha256": "1b0cb2d4e1ffc97846aa6d5eb409b1c6dcc57630e84fe1276358cf49760d52e6",
+    "sha1": "2db3ccbef032458f666c60c2bd695cab7b5cc365",
+    "md5": "2360ea732df0c4cfdd0622eedab61350",
+    "sha3_384": "bde73f8176894fdb0cf8cdf38b6e6ef94b0a222495c95e1d4cd71d4b7656f39a5da39a4986ec0d9a929d6f7f4bbd3300",
+    "tlsh": "T1FA141849FD81AF11D5D536BAFA5E414933671BBCE3FA7102AE245F2023CA91B0F7A502",
+    "imphash": null,
+    "telfhash": "t101900265251981507ca5656992845564009261c23558f420af11c25d4c4759230d7413",
+    "gimphash": null,
+    "ssdeep": "3072:/RCFEqAaolFRZYkid+W8QKxquW7V9azNREy33euRsTGmwid/Kt0PkWEqXhpV:pC7AxPXyB8QKtCV9azNay33eu4GmP/ei"
+  },
+  "file_metadata": {
+    "names": [
+      "dissarm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 194328,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3927811\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202503_elf_Mirai",
+        "author": "abuse.ch",
+        "description": "Detects Mirai 'TSource' ELF files",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_irc_catcher",
+        "author": "@_lubiedo",
+        "description": "Find new ELF IRC samples",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1b0cb2d4e1ffc97846aa6d5eb409b1c6dcc57630e84fe1276358cf49760d52e6\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6accc54390111cfa6f3b09fc\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5350dcea-6273-41e7-a929-74b9571b74bf?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-12 11:32:24",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261012-nrah9shz51\/",
+        "tags": [
+          "antivm",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to shm directory",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "none",
+        "maliciousness": null,
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T11:31:48Z",
+  "last_seen": null
+}
