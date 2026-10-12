@@ -1,0 +1,122 @@
+{
+  "hashes": {
+    "sha256": "1d90627d5213dc9fef971a7c945e1aa4c9c84a5bf14a69cf0f14775908843b10",
+    "sha1": "fcc2dd849cc1b3f9a040466366952f505e007d4a",
+    "md5": "78a300dc97a5141428c7473ad9b08697",
+    "sha3_384": "6af480c66c935274215565d7f86e48c3ac13cf74a0a87475ea64c059a2106f96301daf9b4ec8841d887df00005a2eb1e",
+    "tlsh": "T1BE550201CF2280E7F98CC6342B2F4A675E21A730444926EB57925FA89D357E3F19B35B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:Run00F1HH8CFMFJZx0uaoIuA8WtokrvDP50A7YdJFx04aOga08Qp4Dc:GHH8Cq07T750Aa0fN4c"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_1d90627d5213.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1314144,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/e2605e9e08fa9f7b1cc23497fec745f290a97a212cc7056c87459544325ac048\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/c54847abf0244aa9dbf6e84e6f38cafae01086a8f2f2c74a8c4ad12bdfd6c54f\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/99410c62ffbaf607a62c2badf53d84ae450cb187f3b211fb8b89dd640c687a4e\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3922953\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1d90627d5213dc9fef971a7c945e1aa4c9c84a5bf14a69cf0f14775908843b10\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acc2ec943f5510c48ea0353\/reports\/98c4fd95-348e-4840-a70c-88b3c036dca7\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-12 00:50:23",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "AtomicStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/1d90627d5213\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T00:49:20Z",
+  "last_seen": null
+}

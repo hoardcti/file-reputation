@@ -1,0 +1,201 @@
+{
+  "hashes": {
+    "sha256": "aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f",
+    "sha1": "5a556579199de49158703ce3ed89a4f016cf4001",
+    "md5": "20d3db1254f5f77a928fe4c6bff3ba1f",
+    "sha3_384": "6a844fde57a96c9841c300626fd9a632125e9d314dc9c317f22b9c4e716fd49840e2f304f0e1e01ba726ca1aa1e080b2",
+    "tlsh": "T111842A14F6956CE4C9AFC339465A1233E07C790483749EFB5BD51AA21A50AF4EA3C3EC",
+    "imphash": "8b32fab1961f99324b08e080e7ac7761",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:iK+DnS1qruj/DtI7dGk/0PQEkXMQSJDIW640nRo8S6phiFAPpvnu:ibS1ydGkAkXlQDIp9Gon"
+  },
+  "file_metadata": {
+    "names": [
+      "data.dat.decrypted.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 373248,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "1e29472ea92b8218232d63d0c72859e94e531d9b6d804555c97b26b076af4d23"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91480\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "71fce1f2250a8ec70e2f2bf975585925"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "decrypted",
+      "dll",
+      "exe",
+      "FakeCaptcha",
+      "sideloading"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "comments": [
+      {
+        "id": "506961",
+        "date_added": "2026-10-12 00:48:59",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Assessed as TELEPUZ (newer build than Elastic Security Labs' report of 2026-07-16): same Polygon contract 0xf55Bea1FdCf1c3ABb39ab92567C09aC1BFf6753E and selector 0xc3f909d4, WebSocket C2 over SChannel with a 16-hex session ID, Telegram/Steam/Polygon fallbacks, AppInfo debug-object UAC bypass strings. Elastic's rule Windows_Trojan_Telepuz_9e2c9a0b does not match this build. Observed by running the decrypted payload aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f in an isolated lab (server not contacted): WebSocket upgrade GET https://bee.beachcafemb.com/analytics/check?lang=\u003c16 hex session id\u003e, no User-Agent, retried with back-off; after about 55 s fallbacks every 11.5 s: https://t.me/molerkorstarstot, https://steamcommunity.com/profiles/76561199770856090 and eth_call {to 0xf55Bea1FdCf1c3ABb39ab92567C09aC1BFf6753E, data 0xc3f909d4} via polygon.gateway.tenderly.co, api.zan.top/polygon-mainnet, rpc-mainnet.matic.quiknode.pro, polygon.publicnode.com, polygon-bor.publicnode.com, polygon.drpc.org. Delivered by ClickFix via wall.casajuanchos.com (ThreatFox 1961112, 1961113) as an Everything.exe + WindowsCodecs.dll side-loading set."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-12 00:33:39",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/9a1bed6f-3fc1-4cb3-a1bc-6fae5024c67c",
+          "tags": [
+            "websocket"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91480\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acc292e43f5510c48e9f3de\/reports\/9672cfbc-e4c7-4d2c-b969-e5e0112c5365\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8ae64cdb-e986-45d3-9ddd-646400a1e2a7?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-12 00:26:25",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261012-arbjnscf83\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Internet Connection Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Runs ping.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f",
+          "md5_hash": "20d3db1254f5f77a928fe4c6bff3ba1f",
+          "sha1_hash": "5a556579199de49158703ce3ed89a4f016cf4001",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/aff183e4-8fd4-479f-afa8-2ca55bc6f35b\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Telepuz",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/aa4f09a1be06\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "\u0421reating synchronization primitives"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Daydream",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T00:25:47Z",
+  "last_seen": null
+}

@@ -1,0 +1,159 @@
+{
+  "hashes": {
+    "sha256": "1e29472ea92b8218232d63d0c72859e94e531d9b6d804555c97b26b076af4d23",
+    "sha1": "44b3ff224aa75e2542fb08450f883153101e6799",
+    "md5": "71fce1f2250a8ec70e2f2bf975585925",
+    "sha3_384": "4d681e6efeea9d0f8b78ff78518ecadf9bec5fb4b9e4bdbb801aea3bd6af9470011d4e5c6b010018cc959d7f0ac2d451",
+    "tlsh": "T142D20AAB7F0A9219C92CD63ED2751FD2F3B4315093328E7D337598191F23693EA1960A",
+    "imphash": "8a1a735c6dcfa0e3888c244ee7f2a4eb",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:si7B6yt8OyuNwEv14Z06P79LWPoAlHmgx:Wv6d4JT9LWPoUm"
+  },
+  "file_metadata": {
+    "names": [
+      "WindowsCodecs.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 28672,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91481\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "20d3db1254f5f77a928fe4c6bff3ba1f"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "dll",
+      "exe",
+      "FakeCaptcha",
+      "loader",
+      "sideloading"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "506962",
+        "date_added": "2026-10-12 00:49:02",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Loader for TELEPUZ: the payload it decrypts from data.dat is aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f. Assessed as TELEPUZ (newer build than Elastic Security Labs' report of 2026-07-16): same Polygon contract 0xf55Bea1FdCf1c3ABb39ab92567C09aC1BFf6753E and selector 0xc3f909d4, WebSocket C2 over SChannel with a 16-hex session ID, Telegram/Steam/Polygon fallbacks, AppInfo debug-object UAC bypass strings. Elastic's rule Windows_Trojan_Telepuz_9e2c9a0b does not match this build. C2 bee.beachcafemb.com; dead drops t.me/molerkorstarstot and steamcommunity.com/profiles/76561199770856090."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-10-12 00:33:37",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8ca7fde3-2059-46dd-834c-7843e066baad",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91481\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1e29472ea92b8218232d63d0c72859e94e531d9b6d804555c97b26b076af4d23\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acc29289e23a37cc0ba86eb\/reports\/2aa3f697-e1ed-4830-9085-ea6d357271e8\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/361ea8a6-d7ba-4d3f-a004-2010ebe41cf0?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-12 00:26:36",
+        "scanner_count": "36",
+        "scanner_match": "10",
+        "scanner_percent": "27.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261012-arbjnsyycs\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "1e29472ea92b8218232d63d0c72859e94e531d9b6d804555c97b26b076af4d23",
+          "md5_hash": "71fce1f2250a8ec70e2f2bf975585925",
+          "sha1_hash": "44b3ff224aa75e2542fb08450f883153101e6799",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/b0783cf2-cab1-4b95-9fc1-eda4fccc9ab4\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Daydream",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-12T00:25:55Z",
+  "last_seen": null
+}
