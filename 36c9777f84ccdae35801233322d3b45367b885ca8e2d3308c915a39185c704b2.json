@@ -1,0 +1,171 @@
+{
+  "hashes": {
+    "sha256": "36c9777f84ccdae35801233322d3b45367b885ca8e2d3308c915a39185c704b2",
+    "sha1": "16fbc1c548862006060d1f46791a7c5ef173a9ac",
+    "md5": "6a9b2b453d5b00e42761cc24342257bc",
+    "sha3_384": "f3bab0fd693b3a69c60bbf97939dfdf5b7a0cd2d2b2cc43a9f6e5fe30d7c504972afc712b2db648f0b259155b2bd165d",
+    "tlsh": "T1D7C312008C9245DBE17D00B8B3CF1680D57867DE95A8FD55B3BAC642DC02CDB7966ACA",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:XA/RmHJ+YOurt6uNRgC98sHagDZHi6xqXtIbMRQud6JoSQQ7zDXbWgY26akxNaVI:X2RmHJVOurxNRgCXHFDZHHgkIVVgzLRA"
+  },
+  "file_metadata": {
+    "names": [
+      "mips"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 124068,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3947282\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "0d2d8e5461cbc96242a426657172f4f17aebdf53b9a0f72974777f8d4bd9e0c4"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "a6f7b376abf8258962c832f809372b3d"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3947495\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "elf_arm_mips_ko_so",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/36c9777f84ccdae35801233322d3b45367b885ca8e2d3308c915a39185c704b2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acd7f911134e22faf0ec965\/reports\/8e4fd37a-1474-4c60-a4e2-2ad0908dfd4a\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0753d13d-4a01-4838-8253-f70e8bffbaf0?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "5",
+        "link": "https:\/\/tria.ge\/reports\/261013-a5avasv1fs\/",
+        "tags": [
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the CPU"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-13T00:46:34Z",
+  "last_seen": null
+}
