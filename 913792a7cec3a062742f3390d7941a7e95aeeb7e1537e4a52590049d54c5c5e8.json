@@ -1,0 +1,267 @@
+{
+  "hashes": {
+    "sha256": "913792a7cec3a062742f3390d7941a7e95aeeb7e1537e4a52590049d54c5c5e8",
+    "sha1": "c457dc476070d547650e2716698cf93ae9ef73bd",
+    "md5": "9a4770e18dead66536b148d05f80a8c2",
+    "sha3_384": "193f14d99b5b673e1aa97b00b139f1f38bd6366885c1e2e249e7ee76ff2dfe70b302e51ffc0141d374eb541b1d2b952f",
+    "tlsh": "T1A2A512E06E73818DD21FBAB8854A35410C2EA087C7DAE8E3695AE42F71FF598437C147",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:mNjvbrrTKfm4N+2b42HVfx7cQgJmriR0zKiXJhuGgxeCX:AjPrYm4Nj4237cruKcJhYxeCX"
+  },
+  "file_metadata": {
+    "names": [
+      "913792a7cec3a062742f3390d7941a7e95aeeb7e1537e4a52590049d54c5c5e8.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2262528,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "70.4% (.EXE) Generic CIL Executable (.NET, Mono, etc.) (73123\/4\/13)",
+      "6.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "6.2% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.8% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "4.3% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/91683\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "14a0b7d57f22378472a4e1d20fc50d38db5dab72d46007b472d466049181ab0b"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "cfa97a626dbb0beddf491034ec42f658"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SalatStealer",
+    "tags": [
+      "exe",
+      "salat",
+      "salatstealer",
+      "stealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_XWorm_ForgeAuto_6b06c990_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects XWorm (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "comments": [
+      {
+        "id": "507651",
+        "date_added": "2026-10-13 15:21:08",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Note on the SalatStealer tag: this file is the .NET launcher HiddenAutoLauncher and contains no Salat Stealer code. It copies itself to %APPDATA%\\SystemData\\svchost.exe, sets the Run value SystemAutoLauncher, waits 60 minutes and runs its resource svchost.svchost.exe (14a0b7d57f22378472a4e1d20fc50d38db5dab72d46007b472d466049181ab0b), a loader that replaces steam.exe with a fake Steam client (1d52f76213582b58cd3d0161dee345f42184b05a359607e4719f96c511e7fd3c) loading https://8909451279.f1shh.at/. It does travel with Salat Stealer: the SilentExecuter .NET binders 0a4048ebe7a683ffef1cae2902477b713980fe4142ee703be02c7544ebbf66b4, 43bd6a55a0829f571e68891b27b8267d4d1cba419d5ee2da3b153374ab4b105a and fe8174a3605239522f774af91f04b4a9f62cbbff4f72e0756a932e97d9ac3131 each drop this file as conhost.exe next to a UPX-packed Salat build as svchost.exe. Static analysis only."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "https:\/\/drive.google.com\/file\/d\/1IU8PqNPNAWMREJz_tCctagC47ta1Szfg\/view",
+          "date": "2026-08-06 10:28:43",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/2cc9c78b-7692-4846-9645-e630978fe26c",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/91683\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/913792a7cec3a062742f3390d7941a7e95aeeb7e1537e4a52590049d54c5c5e8\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ace07462b89c59f76550651\/reports\/e4177f6e-5f7e-4147-8ab8-321396403e6c\/overview"
+      },
+      "Intezer": {
+        "verdict": null,
+        "family_name": null,
+        "analysis_url": "?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-07-27T17:12:00Z",
+        "last_seen": "2026-10-12T16:21:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/913792a7cec3a062742f3390d7941a7e95aeeb7e1537e4a52590049d54c5c5e8\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.Trojan.Wacatac",
+        "status": "MALICIOUS",
+        "first_seen": "2026-07-27 20:24:49",
+        "scanner_count": "36",
+        "scanner_match": "25",
+        "scanner_percent": "69.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261013-mgl9msbw6v\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "913792a7cec3a062742f3390d7941a7e95aeeb7e1537e4a52590049d54c5c5e8",
+          "md5_hash": "9a4770e18dead66536b148d05f80a8c2",
+          "sha1_hash": "c457dc476070d547650e2716698cf93ae9ef73bd",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/dee9b98a-4911-4053-9670-e67824060c5e\/"
+        },
+        {
+          "sha256_hash": "578dc892800cb51c2ca872b33cb2bd3e6277aa7fe18e49f8d0fa5b926303ef6a",
+          "md5_hash": "d43b0d0a1e848fdda41ea4ff3a39ff7f",
+          "sha1_hash": "3e685f52f83c796390eed11b3fe05e6d9604229a",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/dee9b98a-4911-4053-9670-e67824060c5e\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-13T10:25:26Z",
+  "last_seen": null
+}
