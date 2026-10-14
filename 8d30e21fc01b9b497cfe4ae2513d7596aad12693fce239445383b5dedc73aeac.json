@@ -1,0 +1,132 @@
+{
+  "hashes": {
+    "sha256": "8d30e21fc01b9b497cfe4ae2513d7596aad12693fce239445383b5dedc73aeac",
+    "sha1": "07f91ecb2aa5ea505974286e536da8d11ad2b683",
+    "md5": "1d4014909c1f685aeb2cfc79b3041b81",
+    "sha3_384": "c02ca557cf227ab0e926ff68153be600cdced37e42099a42f4d429c55234aa74bc8aaa10a62c0fb8f10f85e2f06741cf",
+    "tlsh": "T14CE312A2E4390C02B7BB7669C951B6CC89F93F47A69365F4FC1D60432BD21190CEBD92",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:/CuVPLf4fyv3R2g96GTXpMG2Gz+9MWi8QWOm3xnQxFwtF:auVzaw1lXpbFz+mguIxQxM"
+  },
+  "file_metadata": {
+    "names": [
+      "123.pdf.hta"
+    ],
+    "mime_type": "image/vnd.microsoft.icon",
+    "type": "hta",
+    "size": 148960,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "html",
+    "trid": [
+      "50.0% (.ICO) Windows Icon (4004\/5)",
+      "49.9% (.ICO) Windows Icon (even big) (4003\/4)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "hta"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "IDATDropper",
+        "author": "NDA0E",
+        "description": "Detects files containing embedded JavaScript; the JS executes a PowerShell command which either downloads IDATLoader in an archive, or an executable (not IDATLoader) which is loaded into memory. The modified PE will only run if it's executed as an HTML Application (.hta).",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_RemcosRAT_ForgeAuto_4785f0c3",
+        "author": "Marjoriefort",
+        "description": "Detects RemcosRAT (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8d30e21fc01b9b497cfe4ae2513d7596aad12693fce239445383b5dedc73aeac\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "HTA File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acfa2430ddf906851a90c3c\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-08-31 02:52:56",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261014-s3wm4axtgv\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Indicator Removal: File Deletion",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "TomU",
+    "anonymous": false,
+    "origin_country": "CH",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T15:11:49Z",
+  "last_seen": null
+}

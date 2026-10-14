@@ -26,8 +26,9 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "XWorm",
     "tags": [
+      "XWorm",
       "zip"
     ],
     "yara_rules": [
@@ -67,6 +68,12 @@
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/c5023bf8af0b048f65be84be4127a2e20078876921ebad067bdf09f98cb85d97\/"
       },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "JS File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
       "FileScan-IO": {
         "verdict": "MALICIOUS",
         "threatlevel": "1.0",
@@ -83,19 +90,88 @@
         "detections": []
       },
       "ReversingLabs": {
-        "threat_name": "Win32.Trojan.Znyonm",
+        "threat_name": "Script-JS.Trojan.Heuristic",
         "status": "MALICIOUS",
         "first_seen": "2026-09-01 14:14:00",
-        "scanner_count": "24",
-        "scanner_match": "15",
-        "scanner_percent": "62.50"
+        "scanner_count": "35",
+        "scanner_match": "14",
+        "scanner_percent": "40.00"
       },
       "Spamhaus_HBL": [
         {
           "detection": "suspicious",
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
-      ]
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261014-s325waew4q\/",
+        "tags": [
+          "family:xworm",
+          "execution",
+          "persistence",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "43.228.157.124:7080"
+          }
+        ]
+      }
     }
   },
   "submission": {
