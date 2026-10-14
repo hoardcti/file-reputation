@@ -1,0 +1,234 @@
+{
+  "hashes": {
+    "sha256": "5ab77d640643354800ac7a4a31eb407bcc2b56d70d0e9c4853bba07b1d58cb4d",
+    "sha1": "bc6269ed3376d0f0680dbb4351436c71209a8b51",
+    "md5": "d009daaa77ac3ae4a6812e8f1fcd63bb",
+    "sha3_384": "7067f5285d50120f73c648fdef198ebffffd3ddeaeeca7d5a1f9d18430dc10da4b4a52c6a091c76fe8bf4779d59ae741",
+    "tlsh": "T177717F0112ED410AF3B7AB7597BF12E04437B9279F30AA2D211C560A4BE1E48A873B77",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:8mleMlQiTSIZmjtfBjqgnjvZl7zqgylkSA1pmvIl+ngx:8ufFrRg1tqgCA14vy"
+  },
+  "file_metadata": {
+    "names": [
+      "抖音 .lnk"
+    ],
+    "mime_type": "application/x-ms-shortcut",
+    "type": "lnk",
+    "size": 3542,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "lnk",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "8b1f6ca7e80d2bc8b78ff4515c45d91bf76c786445c189908e4f2cd212d5caf3"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "fd141a01d46f7c9c7145fdce54e89ff5"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "lnk",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_Remcos_RAT",
+        "author": "daniyyell",
+        "description": "Detects Remcos RAT payloads and commands",
+        "reference": null
+      },
+      {
+        "rule_name": "LNK_sospechosos",
+        "author": "Germán Fernández",
+        "description": "Detecta archivos .lnk sospechosos",
+        "reference": null
+      },
+      {
+        "rule_name": "PS_in_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies PowerShell artefacts in shortcut (LNK) files.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_LNK_PowerShell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the reference to powershell inside an lnk file, which is suspicious",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5ab77d640643354800ac7a4a31eb407bcc2b56d70d0e9c4853bba07b1d58cb4d\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "LNK File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acf4921369a1a443b100635\/reports\/bbb4b0e9-2612-4734-bd25-cff901606e87\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "lnk",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/5ab77d640643354800ac7a4a31eb407bcc2b56d70d0e9c4853bba07b1d58cb4d\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Shortcut.Trojan.Pantera",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-12 11:18:47",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261014-labnwsy17k\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Looks for VMWare services registry key.",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "134.122.130.202:8080"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "134.122.130.202:8888"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T09:18:46Z",
+  "last_seen": null
+}
