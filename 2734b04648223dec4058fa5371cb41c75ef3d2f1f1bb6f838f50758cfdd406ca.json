@@ -1,0 +1,116 @@
+{
+  "hashes": {
+    "sha256": "2734b04648223dec4058fa5371cb41c75ef3d2f1f1bb6f838f50758cfdd406ca",
+    "sha1": "4de539df238a26a44044f352645b4de87ee1aff9",
+    "md5": "f21466f916a0498f9e29ae8dedacd263",
+    "sha3_384": "7228845c6e92461b9d864bd8628c3061d76b0e260e2b885a5ef2b42ad3df403f5ac14c819f28c6c6d6a6ac4bf8118502",
+    "tlsh": "T160450210CE6B6C6BF88CD73A2E3A0B33AEA165A0864597CF52121F485D373D3F5AB115",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:UTqRy0/BxMvkW2C/pEobXjddaY6q5qxiCnPRMl8aSwxHYGtpzk:UeYQeEgddaY6LqyEY6k"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_2734b0464822.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1182960,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/www.virustotal.com\/gui\/file\/2734b04648223dec4058fa5371cb41c75ef3d2f1f1bb6f838f50758cfdd406ca"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/hybrid-analysis.com\/sample\/2734b04648223dec4058fa5371cb41c75ef3d2f1f1bb6f838f50758cfdd406ca"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3947856\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2734b04648223dec4058fa5371cb41c75ef3d2f1f1bb6f838f50758cfdd406ca\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acf849b9214b4749ee6a127\/reports\/2203c210-226d-42b8-a704-71dd5ea95590\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "macho fat",
+        "first_seen": "2026-10-14T10:28:00Z",
+        "last_seen": "2026-10-14T10:36:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/2734b04648223dec4058fa5371cb41c75ef3d2f1f1bb6f838f50758cfdd406ca\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T13:32:22Z",
+  "last_seen": null
+}

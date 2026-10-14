@@ -1,0 +1,135 @@
+{
+  "hashes": {
+    "sha256": "17496070c03f4aa884cbeb690079e58ec9af79157115f465aa7a721aaeb17111",
+    "sha1": "afd70609bdab298deeba890a6c91ad761376b2da",
+    "md5": "d31f8ce8fd3b5ac49eb26fa98a7381ec",
+    "sha3_384": "fcf615bb2d5be498c638321bcf344e50f9e8b108216300214484e5d788843345ae341b8f1034b79897c34a35fd2d157e",
+    "tlsh": "T188A1E8BAF8B508053DEF556D839AD94449F82B437883B6F1B81DA2126F311094DF3EE6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:+LQd7wbYI4ZRD5k/krdrmjnnr0Rr0jMv7dmKq1RnIP0rZBG0Y2:w66YI4GwpOra9WGC"
+  },
+  "file_metadata": {
+    "names": [
+      "123.pdf_(cleaned).hta"
+    ],
+    "mime_type": "text/html",
+    "type": "hta",
+    "size": 5002,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "html",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "hta"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "IDATDropper",
+        "author": "NDA0E",
+        "description": "Detects files containing embedded JavaScript; the JS executes a PowerShell command which either downloads IDATLoader in an archive, or an executable (not IDATLoader) which is loaded into memory. The modified PE will only run if it's executed as an HTML Application (.hta).",
+        "reference": null
+      },
+      {
+        "rule_name": "MalScript_Tricks",
+        "author": "@bartblaze",
+        "description": "Identifies tricks often seen in malicious scripts such as moving the window off-screen or resizing it to zero.",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_RemcosRAT_ForgeAuto_4785f0c3",
+        "author": "Marjoriefort",
+        "description": "Detects RemcosRAT (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/17496070c03f4aa884cbeb690079e58ec9af79157115f465aa7a721aaeb17111\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "HTA File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acf9bd23467caad9948b0ca\/reports\/9fbe1da5-383c-4ce6-b5ba-6c1164293c12\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261014-slctnaey2t\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Indicator Removal: File Deletion",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "TomU",
+    "anonymous": false,
+    "origin_country": "CH",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T15:12:08Z",
+  "last_seen": null
+}

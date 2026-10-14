@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "39d76b97f4b74e65a8285a3b273926dff27af56a42408e5f4d98c202a6f35514",
+    "sha1": "0f35a276385576e86f1a662224703ec85e9191bb",
+    "md5": "5818f8ce7fa50d19d406c0e40a90d5e2",
+    "sha3_384": "16f320b99299bbd47c3df71f06eafd74d131b70fcb4c73746a0e05960aad1370ed7a848d991beed4e9601a979592e6ba",
+    "tlsh": "T1E7368D7BB74809A5D0A3A1B898976242E7B17D174321E6CB0396671F1F273EB1F3B214",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:qwVENtYpvraKft82TsL0HDr0rJrztvsULdrALVvtY8f2OOWgtWp1qVXiAG:qyHpvraPdztnZr"
+  },
+  "file_metadata": {
+    "names": [
+      "Taxdocuments1.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 4947968,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.5% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.2% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.0% (.BIN\/MACBIN) MacBinary 1 (1033\/5)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "iso",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/39d76b97f4b74e65a8285a3b273926dff27af56a42408e5f4d98c202a6f35514\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acf64f699e466b8e3c5ad4f\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-14 10:04:12",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261014-nnf7ms1t3m\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "204.194.49.108:21107"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T11:17:27Z",
+  "last_seen": null
+}
