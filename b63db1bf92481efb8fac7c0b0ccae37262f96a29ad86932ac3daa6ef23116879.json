@@ -1,0 +1,150 @@
+{
+  "hashes": {
+    "sha256": "b63db1bf92481efb8fac7c0b0ccae37262f96a29ad86932ac3daa6ef23116879",
+    "sha1": "e0a70dde31146e4e1a5ca4548ed55f088099140d",
+    "md5": "4004bf353329e00eebfd59aa2c9d7693",
+    "sha3_384": "b0740c6b542e89eb392ea0333053fc7c20dbea50925b98fd55cc983b7ed981436848b0743a1f97e9c523850a8102bc82",
+    "tlsh": "T10072467721F04F33AAD014C8B2771B654FB29A1B456720B8F4FE2A255F59A0374EBB21",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:cCuG6p4hvZ5m5FG4j4HKNphvF88ifHDaKYfgZYY:Cp4hvZ5m5FGGoKNphvF88ifjaKRGY"
+  },
+  "file_metadata": {
+    "names": [
+      "b63db1bf92481efb8fac7c0b0ccae37262f96a29ad86932ac3daa6ef23116879.sh"
+    ],
+    "mime_type": "text/plain",
+    "type": "sh",
+    "size": 16357,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xml",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3783282\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "1080c288c309a0009290d1fa8b8d2aeb"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "8ddd9b0a5b42f7d6fd1a9a3d6157ba0a6476c06030d75dc5988d4cb127c74709"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Hunt_DVR_Exploit_CommandInjection",
+        "author": "Serhii Kocherhan",
+        "description": "Detects common shell command injection signatures and payloads associated with DVR/NVR exploitation",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_3aae92fe",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Sample_Unique_1a75fef9",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "1a75fef91a93f610bd25b0587def046962456499845d188d0207976dd732492f.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b63db1bf92481efb8fac7c0b0ccae37262f96a29ad86932ac3daa6ef23116879\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6acee31da41b8657c5d41d50\/reports\/72474ef8-4092-4935-84f1-7f1d95420007\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-BAT.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-14 02:10:35",
+        "scanner_count": "38",
+        "scanner_match": "5",
+        "scanner_percent": "13.16"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261014-chcrgset7y\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-14T02:03:40Z",
+  "last_seen": null
+}
