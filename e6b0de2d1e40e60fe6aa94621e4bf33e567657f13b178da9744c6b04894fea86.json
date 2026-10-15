@@ -1,0 +1,97 @@
+{
+  "hashes": {
+    "sha256": "e6b0de2d1e40e60fe6aa94621e4bf33e567657f13b178da9744c6b04894fea86",
+    "sha1": "c56d9a0d7ed058705a61fb1846eba16899ed8fc3",
+    "md5": "94e48ae46a579ed80b71fd4b313c583d",
+    "sha3_384": "00cf6fa4a0dc7dfd1860d84a7c9ee88c5a3097eae5d955b0b665ba46f7e461af17bbb2850b87780e7d5d76b7637cf02d",
+    "tlsh": "T11031E98C803DF72740EFC20347E8674DA8AAA9E039FEF5969346D1078780B858897251",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:OZto1DCwaE8bqUuV54kelz0aFN5hZdnIPbNWdQI32/GHh2tgxUF2isIT:31XPOqUunnG0y331I4K82/jyxUF2u"
+  },
+  "file_metadata": {
+    "names": [
+      "stage1_e6b0de2d1e40.zsh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "zsh",
+    "size": 1450,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/hybrid-analysis.com\/sample\/e6b0de2d1e40e60fe6aa94621e4bf33e567657f13b178da9744c6b04894fea86"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MacSync",
+    "tags": [
+      "ClickFix",
+      "macOS",
+      "MacSync",
+      "stealer",
+      "zsh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "MAC_Dropper_Shell_Base64Gzip_Heredoc",
+        "author": "Marjoriefort",
+        "description": "Dropper shell (zsh/bash) macOS : payload base64+gzip en heredoc PAYLOAD_\u003caleatoire\u003e, syntaxe BSD base64 -D, decompression inline puis eval/echo/printf",
+        "reference": "Grand Scan InTheWild.0440 / 11 misses .sh a structure identique"
+      },
+      {
+        "rule_name": "Seedhook_Stage1_Zsh_B64Gzip_Eval",
+        "author": null,
+        "description": "Seedhook/MacSync ClickFix stage-1 zsh: gzip+base64 heredoc with randomised PAYLOAD_m delimiter decoded into a $d\u003cdigits\u003e variable and eval'd",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e6b0de2d1e40e60fe6aa94621e4bf33e567657f13b178da9744c6b04894fea86\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad11deb0a39f46884900c5a\/reports\/7bafe6db-7a73-4b36-afcc-1fb36646f0f2\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.MacSyncStealer",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-15 18:40:37",
+        "scanner_count": "36",
+        "scanner_match": "16",
+        "scanner_percent": "44.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-15T18:28:08Z",
+  "last_seen": null
+}
