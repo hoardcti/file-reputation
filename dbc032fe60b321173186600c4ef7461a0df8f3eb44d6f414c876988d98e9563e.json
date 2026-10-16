@@ -1,0 +1,106 @@
+{
+  "hashes": {
+    "sha256": "dbc032fe60b321173186600c4ef7461a0df8f3eb44d6f414c876988d98e9563e",
+    "sha1": "fb4a71d24cf3590d2503e6e4dba5b53f2aefe3fc",
+    "md5": "ebcf303ec8a2815f607a56fdd7441549",
+    "sha3_384": "39aab6ec1b536175c10345f7fd1cdfcff2d637a68fe89d3ec807727204534cf35869bd14dbf2d125ba761ae543b2f999",
+    "tlsh": "T1DF6107B4D19C0CBAE9F146DF3DB0FECAA2EA30429AE63241B0A57BD401EC555B0A7502",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:2BgjY6EPMDun4uIYQnZ2sRftHlsizturU11n49izD/GhzNl6xa/xx:2a+PYuErnIsJtHyiMc1Ciu56xa/xx"
+  },
+  "file_metadata": {
+    "names": [
+      "stage1_dbc032fe60b3.zsh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "zsh",
+    "size": 3196,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/hybrid-analysis.com\/sample\/dbc032fe60b321173186600c4ef7461a0df8f3eb44d6f414c876988d98e9563e"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "macOS",
+      "zsh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Stage1_Zsh_ConstKey_AesCtr",
+        "author": null,
+        "description": "Foxveil ClickFix stage-1 zsh dropper: hex blobs -\u003e md5(constant _kb) -\u003e openssl AES-128-CTR IV 0 -\u003e gunzip -\u003e zsh, behind a decoy maintenance script",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Dropper_Unknown_Zsh_AES_SplitCmd",
+        "author": "Marjoriefort",
+        "description": "Dropper zsh : commandes eclatees en variables (md5/xxd/openssl/gunzip) + payload AES-128-CTR decode puis execute via /bin/zsh",
+        "reference": "Veille glissante 2026-09-18_08 / cc922fb8"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/dbc032fe60b321173186600c4ef7461a0df8f3eb44d6f414c876988d98e9563e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad27c11c49973c23696b08d\/reports\/35adc5cd-7081-4afd-9f44-956538d5406f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "AtomicStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/dbc032fe60b3\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Amos",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-16T16:26:21Z",
+  "last_seen": null
+}

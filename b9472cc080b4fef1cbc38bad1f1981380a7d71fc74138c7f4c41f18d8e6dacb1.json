@@ -1,0 +1,197 @@
+{
+  "hashes": {
+    "sha256": "b9472cc080b4fef1cbc38bad1f1981380a7d71fc74138c7f4c41f18d8e6dacb1",
+    "sha1": "54c8c3cee276be6e2e9f67706cb17dfe2b358dc2",
+    "md5": "936ce70de06e9dc65f2a8a900c352d0f",
+    "sha3_384": "ed5a56a8a2718b238cbb13f5a0ef21190385f82014946c101e4403422d37a9e23ddd3010daba86bcaf71022378048488",
+    "tlsh": "T167A612A7FDD9D42CDFA78C7B84E68182601A10B8E85BE16F03A01D85DA21D5B0752FFD",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:w8hCDQhDBrlKfZfz6291ufytpNA8l0XfKdk06TWzFqiv5fDGACO/Gw4tAvFji:w8hCDQBKhb62SfytpNA1za/fsO/tIAvM"
+  },
+  "file_metadata": {
+    "names": [
+      "screen9059163822525044318.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 10248239,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "77.1% (.JAR) Java Archive (13500\/1\/2)",
+      "22.8% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92309\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "jar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_JAVA_JAR_Skidfuscator_Random_Runtime_Path_Oct26",
+        "author": "rc4",
+        "description": "Detects JAR files containing a class at a randomized 16+16 lowercase letter path as used for the runtime class of Skidfuscator 2.0.x community builds (heuristic, lower confidence)",
+        "reference": "https://github.com/skidfuscatordev/skidfuscator-java-obfuscator"
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "c97e05d2e14b4c8eab77.jar",
+          "date": "2026-10-16 21:30:18",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d74ed59f-d44d-4291-b5b8-e3ccbb0f7af5",
+          "tags": [
+            "tor",
+            "evasion",
+            "websocket",
+            "ip-check",
+            "funrat"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92309\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b9472cc080b4fef1cbc38bad1f1981380a7d71fc74138c7f4c41f18d8e6dacb1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad29d7e3185bfbf06f9153b\/reports\/8d734a1c-d4a2-4204-9f98-b0c384941289\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-15 23:22:28",
+        "scanner_count": "38",
+        "scanner_match": "1",
+        "scanner_percent": "2.63"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261016-1wsxmaes4v\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry key",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-16T21:55:38Z",
+  "last_seen": null
+}
