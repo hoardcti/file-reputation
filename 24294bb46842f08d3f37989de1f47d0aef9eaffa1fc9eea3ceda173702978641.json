@@ -1,0 +1,251 @@
+{
+  "hashes": {
+    "sha256": "24294bb46842f08d3f37989de1f47d0aef9eaffa1fc9eea3ceda173702978641",
+    "sha1": "ffdcb2925886a173a18719b94ee36f77b9accecc",
+    "md5": "e010233e7620194b340eff53c1d2438d",
+    "sha3_384": "60fa2cf986320edcc5f0b33e8e67d13a39fb91cac3a9e2ba7cb3c5533f3725cc15cf878e0e952d0c709f6227e811ebfb",
+    "tlsh": "T1C456289C66517B1DAA1DBC7C744B631C4EFB258EC016AE82F98A037318713E16DABD0C",
+    "imphash": "61fa20e04a6d92b332b9552404fa2577",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:JtQgRwPgNEXozEkfdySRn4sl8kbJ/UgpqVnIpEmiCbQTppE:rLD0QEkYI7vMgIlIpE9",
+    "dhash_icon": "b0f1b068646c61b0"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 5972480,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Gcleaner"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92251\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "NetSupport",
+    "tags": [
+      "D",
+      "dropped-by-GCleaner",
+      "EU0.file",
+      "exe",
+      "NetSupport"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "Hunt_Obfuscated_Localhost_ROT",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated/rotated 127.0.0.1 strings while excluding raw plaintext",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_MSDOS_Stub_Message",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed MSDOS stub message",
+        "reference": "https://yara.readthedocs.io/en/latest/writingrules.html#xor-strings"
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92251\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/24294bb46842f08d3f37989de1f47d0aef9eaffa1fc9eea3ceda173702978641\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad1f4cc28ea61057bf6e8dd\/reports\/93d0a08a-1534-4978-ae33-fe2b3c1f0c2a\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": "NetSupport Ltd",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8429f8f0-1c82-4705-ac16-745c18357e03?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Backdoor.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-16 08:15:51",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "netsupport",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261016-lyjdmsgh92\/",
+        "tags": [
+          "family:netsupport",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: NetSupport",
+            "score": "10"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "24294bb46842f08d3f37989de1f47d0aef9eaffa1fc9eea3ceda173702978641",
+          "md5_hash": "e010233e7620194b340eff53c1d2438d",
+          "sha1_hash": "ffdcb2925886a173a18719b94ee36f77b9accecc",
+          "detections": [
+            "SUSP_XORed_MSDOS_Stub_Message"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/74f6951f-74ab-4271-9ad1-b0b894f0dfed\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-16T09:55:46Z",
+  "last_seen": null
+}

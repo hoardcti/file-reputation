@@ -1,0 +1,167 @@
+{
+  "hashes": {
+    "sha256": "16f47436f7f7218d31bd902de7b58f4003a9c962946edaf52b7f3364e88944ba",
+    "sha1": "1b72d509098c6851886d4aced3c25542fa1f7899",
+    "md5": "6ff3f55c98245387218f302d6d58192f",
+    "sha3_384": "84d0056ec84419ff7a687559e8b8a0bfc66bdbe079d4e0ec1a3a3ef295d1275484bf5fd915727e73fd1d8f2133fb721c",
+    "tlsh": "T13F252364938937DF0732C2F0BA276884B3DC3387109A545733ACC76137E696689F6E66",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:GY3ZUBmcRo34KwBQh7dBYpBLhVccVONJ8L2lUvJB1G:pJUBG3t3yhVxCS3k"
+  },
+  "file_metadata": {
+    "names": [
+      "16f47436f7f7218d31bd902de7b58f4003a9c962946edaf52b7f3364e88944ba.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 1046132,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3950862\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VIPKeylogger",
+    "tags": [
+      "ps1",
+      "VIPKeylogger"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/16f47436f7f7218d31bd902de7b58f4003a9c962946edaf52b7f3364e88944ba\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad1d919833161f9905f6b31\/reports\/799ac389-476b-4b6a-934d-2927d2c20cf8\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-PowerShell.Backdoor.FormBook",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-16 07:58:37",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vipkeylogger",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261016-jtylnabw4v\/",
+        "tags": [
+          "family:vipkeylogger",
+          "collection",
+          "discovery",
+          "execution",
+          "keylogger",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: VIPKeylogger",
+            "score": "10"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          },
+          {
+            "signature": "outlook_win_path",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-16T07:21:02Z",
+  "last_seen": null
+}

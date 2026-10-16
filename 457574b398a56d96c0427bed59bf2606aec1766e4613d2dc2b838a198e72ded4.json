@@ -1,0 +1,307 @@
+{
+  "hashes": {
+    "sha256": "457574b398a56d96c0427bed59bf2606aec1766e4613d2dc2b838a198e72ded4",
+    "sha1": "1f80a31ad0c53b20f6eb33eeb396a6d312c9e6ee",
+    "md5": "98c46caadff3427934ee4aa57083e5e1",
+    "sha3_384": "c6b364cde301e7df8323168b2284cbebf08c8d39ef234f009645212c9f8a9fee47d5d13425f89ec90dccc59bb7733826",
+    "tlsh": "T16676D00676F801BDC4B7C175C6678A5FE3B278450A31DB9F03911A4A6F737A19E2E322",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:fGO7L2n0i7nc86N+S4tTKbdo6ClG9UeRPuH/yuK0OF0wIRzl:+O73PNf46e+DUvRz"
+  },
+  "file_metadata": {
+    "names": [
+      "LYTA_15-10-202633624.83268CF10340E851EC7.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 7733248,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "47.7% (.ISO\/UDF) UDF disc image (2114500\/1\/6)",
+      "46.2% (.NULL) null bytes (2048000\/1)",
+      "5.7% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.1% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.0% (.ISO) ISO 9660 CD image (2545\/36\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "iso",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "GenericGh0st",
+        "author": "Still",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ISO_exec",
+        "author": "@bartblaze",
+        "description": "Identifies execution artefacts in ISO files, seen in malware such as Bumblebee.",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/457574b398a56d96c0427bed59bf2606aec1766e4613d2dc2b838a198e72ded4\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad1c805e0f7bb768e7a98a3\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Yogi",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-15 13:34:10",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261016-h16p6sty6l\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "ransomware",
+          "rat",
+          "spyware",
+          "stealer",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "DCAgent remote management tool",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies file permissions",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies trusted root certificate store through registry",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Gathers system information",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Modifies system certificate store",
+            "score": null
+          },
+          {
+            "signature": "Runs net.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "jksdjkjs.cc:6699"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "jksdjkjs.cc:6685"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.70"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-16T06:44:58Z",
+  "last_seen": null
+}
