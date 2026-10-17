@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "eab6414636c0f13c46ea0dfa7172f113d8523e308b35f7b8cf61b958ff92abda",
+    "sha1": "7b1346e8a592edd103dad76cd0ade89397eeb506",
+    "md5": "093c165281557209fe18981d4b2274e7",
+    "sha3_384": "74b2f4048bd763dfc43b249c1635d34dc121e95ebaaf6c2112176da7f885df254e6175452a0d3de5367902ff5d5c5784",
+    "tlsh": "T12014F825B8926B10D0E373BAEBBE41443367ABB8C7B97003C5345F6167F65AE0E72425",
+    "imphash": null,
+    "telfhash": "t197b01233fe2b44d4f99042fd817b670d40f1d0031309409605006b8e8842d416263137",
+    "gimphash": null,
+    "ssdeep": "3072:wCiC3Pgcaxej4zjvXkOeZp988tlaCv655q9+gpXxjLGJmR18V4VUW:8CNaxnoOeb6GlaCv45q9+g5VGcR18V4d"
+  },
+  "file_metadata": {
+    "names": [
+      "adb.arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 195036,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3929220\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_irc_catcher",
+        "author": "@_lubiedo",
+        "description": "Find new ELF IRC samples",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/eab6414636c0f13c46ea0dfa7172f113d8523e308b35f7b8cf61b958ff92abda\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad3da63047a94e99063737b\/reports\/65c0a719-10f3-45e6-b271-49f0c112a87e\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8d3cfc0c-d954-4551-a286-91c42d0fdb72?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.le",
+        "first_seen": "2026-10-17T16:00:00Z",
+        "last_seen": "2026-10-17T17:07:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/eab6414636c0f13c46ea0dfa7172f113d8523e308b35f7b8cf61b958ff92abda\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "4",
+        "link": "https:\/\/tria.ge\/reports\/261017-y8371swt9p\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "88",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the network activity"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Locks files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-17T20:28:04Z",
+  "last_seen": null
+}

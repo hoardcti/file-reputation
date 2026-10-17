@@ -1,0 +1,180 @@
+{
+  "hashes": {
+    "sha256": "54cfa65b226d657609b946b2542f2156ca0aae871d637df8d78a2c54b3bf5d78",
+    "sha1": "8f2e714143032f92feb05a167063809509bf472f",
+    "md5": "92b605ab29658cf23d2c4ebccda41734",
+    "sha3_384": "36b8f37cd6e5b259d18b32ab6e3f1d791d46cc5ab1af81488fa3bf678a13b9b7bda92a3cd023843b60785b6f5030cac7",
+    "tlsh": "T1C074232CED32779413AF01FE09237E92DD6CBE249C023ED00A911F56E6956FE356364A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:LLZxJk5a/H3cbIFpX9ahVLqtivT2xdyPFn9mwKLVy0aBJqzSqBPJC9ycI:LL9kgMypNaXmwT2xdC2Lo9qX6hI"
+  },
+  "file_metadata": {
+    "names": [
+      "cegg_arm"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 365872,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3950998\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "elf"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/54cfa65b226d657609b946b2542f2156ca0aae871d637df8d78a2c54b3bf5d78\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad3d17bd7b86894e0b091fb\/reports\/fe55d1a4-61f2-4a3e-b935-2b4c4e57fcef\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/d3d60cd7-2586-4b77-bd89-62775b4365cb?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-17 19:50:26",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261017-ykd8zsby6r\/",
+        "tags": [
+          "credential_access",
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (108644) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "OS Credential Dumping",
+            "score": "7"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Performs a bruteforce attack in the network"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Accesses SSH"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-17T19:49:16Z",
+  "last_seen": null
+}
