@@ -1,0 +1,162 @@
+{
+  "hashes": {
+    "sha256": "b6a4d67eda82d11dc154b03c941cc742cf0bc9e903529dd6389fcf319d0ac15e",
+    "sha1": "a6d269d80209338816a4e1d06184b60a1e116ed6",
+    "md5": "9b45e415280c3e34e3fc95826c89d3b1",
+    "sha3_384": "0e01abc08317e4b8fda6a91849b77b2547f8f6a5a7efc21aac38113095933235ca8318edd7e5bf77390481aa18ae816f",
+    "tlsh": "T12F872347B6A64D7BD0D24D70445B47DAA86478144283883B6EC6CB103E62DBE9F1EBF3",
+    "imphash": null,
+    "telfhash": "t1f6b00121eb906524a6b1da0a6a533e48b46a31e5b0756164299f6101b61c64526d3004",
+    "gimphash": null,
+    "ssdeep": "786432:q2WeW6dZx+MaVyANhz4Q2vBMYe8vo8TbQgKgOBjOQIVGfj/:581MaVJNS1dTPHnKz1Ic"
+  },
+  "file_metadata": {
+    "names": [
+      "system"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 37624879,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951252\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ldpreload",
+        "author": "xorseed",
+        "description": null,
+        "reference": "https://stuff.rop.io/"
+      },
+      {
+        "rule_name": "Linux_Trojan_Ladvix_db41f9d2",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_OHSHIT_payload",
+        "author": "AfterPacket",
+        "description": "MIRAI_OHSHIT ELF payload -- compiled-in C2 set, all architectures",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad34065703ada9fb573fec2\/reports\/0480c001-562b-477d-9f6b-0b8fa1e1967e\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261017-lffvsscy8r\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Creates or modifies files in \/cron to set up autorun"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-17T09:27:17Z",
+  "last_seen": null
+}
