@@ -1,0 +1,246 @@
+{
+  "hashes": {
+    "sha256": "f2f42545b885b94fac40e9f11e15337be7902f3096adff6235b55f3f4e8eb776",
+    "sha1": "d585ae67847a89d20521312401c9827394a96773",
+    "md5": "9f8912977a34b0729f7dcd9df375b361",
+    "sha3_384": "c5968c19ce7269fd8ba745e671bc16bc5a78acf95ebf9a0507b5a8b4bfd798da84cf465164aec8d42c7f0ab771f75b6e",
+    "tlsh": "T1F5C733B714CA0CFEEB2C6DBA12E93727D9AA1E89C47884C6D3F58EA547131106C547F8",
+    "imphash": "1f23f452093b5c1ff091a2f9fb4fa3e9",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:4/dT9Qosdl2TKGw/EOluttgdZaFx91ZPPRbjCCTy+:4/59rw/rMOQFBZPPRb2I",
+    "dhash_icon": "00000080a090486e"
+  },
+  "file_metadata": {
+    "names": [
+      "LumerynGame_Setup.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 55156360,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "27.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "20.8% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "18.6% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "8.5% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "8.4% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "electron",
+      "exe",
+      "infostealer",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_NSIS_Nullsoft_Installer",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects NSIS installers by .ndata section + NSIS header string",
+        "reference": null
+      },
+      {
+        "rule_name": "NSIS",
+        "author": "kevoreilly",
+        "description": "NSIS Integrity Check function",
+        "reference": null
+      },
+      {
+        "rule_name": "PE_Digital_Certificate",
+        "author": "albertzsigovits",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-17 13:54:26",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/31b54cc5-38be-4643-bc18-e2215a4b8cd5",
+          "tags": [
+            "evasion",
+            "discord",
+            "auto-startup",
+            "stealer"
+          ]
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad37d65d1ac717f51eb9994\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-12 22:28:54",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261017-q55mnsgx7v\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Looks for VMWare services registry key.",
+            "score": "8"
+          },
+          {
+            "signature": "Manipulates Digital Signatures",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Identifies Wine through registry keys",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Network Service Discovery",
+            "score": "6"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Hide Artifacts: Ignore Process Interrupts",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Alex_sev",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "LumerynGame",
+      "issuer_cn": "LumerynGame Root CA",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-10-12T17:37:31Z",
+      "valid_to": "2031-10-12T17:47:31Z",
+      "serial_number": "5f97c982654a0dac40d59e73cd42956e",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-17T13:51:03Z",
+  "last_seen": null
+}
