@@ -1,0 +1,102 @@
+{
+  "hashes": {
+    "sha256": "510c4b3b85201eada32ff69b46e605f384ba5ff4bbcfb5399e42b31a7de37f63",
+    "sha1": "2157de0bf24a567e736fd16509e9181475f4be91",
+    "md5": "6b1c14b42faeb67e418a22d5241b528c",
+    "sha3_384": "1c70384e1a98a42f3c5f501643955f86198d8b38123bc0582bbe14c7178b2a454753baea6b2c6f88729532e55627ac48",
+    "tlsh": "T1C8A5E1508E1FA1DBE44610739C9A4F99817020A0CD49DEED5341F3AEDE35B937B226BB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:yBZSEyJw+7zCQAbwX9jOJFy8IbfpidcKcDFMK3qeevNEk59d0b2nrLizcyq7Ti:P5H8I1Kc8AqeevNEk7dTfCcy"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_510c4b3b8520.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2217440,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/322a9bdadc796f2b2a7459b949ff367ed3258e9a8eefb1af161b557418ce845d\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/cefb465886bc813ac91e9ad5b1835eefe9828f251b58eb0da012ee4022ff6d98\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/510c4b3b85201eada32ff69b46e605f384ba5ff4bbcfb5399e42b31a7de37f63\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad41711d8806229e9d7df55\/reports\/cce3d2ad-56b8-4f28-a4e2-bd82ef4ef42b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-18 00:47:22",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-18T00:46:45Z",
+  "last_seen": null
+}
