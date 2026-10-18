@@ -1,0 +1,290 @@
+{
+  "hashes": {
+    "sha256": "5ee107394c5d3742bdb57c7173b106e3ffecadb699111618b7fb2b5ccb1dab44",
+    "sha1": "4573ae171f612a8784360fd4e59df7c16f091d4e",
+    "md5": "285fbe9b9d70884db15927c6c750900b",
+    "sha3_384": "943c1f1d7ed58f59b002c43d26aa3e6f06dab69c9a26aa4865c789d3e274e11363f7c375d02d779575af7a48eae8fa34",
+    "tlsh": "T1B7E4AD0872D281F0F415D9B663C6833AD5B078F1E5E9FB8E97D1DA312CB2D326265623",
+    "imphash": "bd51a645a9c68bd03b2e51586e5cbdcb",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:y0I6PWUJ0qfdulLQMebH998N/XMzaSzE6DDjbMe3:XfPW7qF8LQM+99mvMQWDjD3"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 714752,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "38.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "15.6% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "15.4% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.2% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.2% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Gcleaner"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92459\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "GolstaStealer",
+    "tags": [
+      "A",
+      "dropped-by-GCleaner",
+      "exe",
+      "GolstaStealer",
+      "MIX1.file"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "meth_stackstrings",
+        "author": "Willi Ballenthin",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_MSDOS_Stub_Message",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed MSDOS stub message",
+        "reference": "https://yara.readthedocs.io/en/latest/writingrules.html#xor-strings"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-18 02:35:49",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/75cea51f-a6cb-4870-8087-b3995bbb5da7",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92459\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5ee107394c5d3742bdb57c7173b106e3ffecadb699111618b7fb2b5ccb1dab44\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad42efa0b244df90441d30a\/reports\/e9381c78-fdcd-41c8-86dc-70e59b3d93f6\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/3cd144ae-5ff6-41b9-98c0-b950777903cd?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261018-cym76aszht\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Reads WinSCP keys stored on the system",
+            "score": "7"
+          },
+          {
+            "signature": "Reads data files stored by FTP clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Checks system information in the registry",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtCreateThreadExHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "5ee107394c5d3742bdb57c7173b106e3ffecadb699111618b7fb2b5ccb1dab44",
+          "md5_hash": "285fbe9b9d70884db15927c6c750900b",
+          "sha1_hash": "4573ae171f612a8784360fd4e59df7c16f091d4e",
+          "detections": [
+            "SUSP_XORed_MSDOS_Stub_Message"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/b8a4d7f9-9717-4fd5-8259-ec33871164a1\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/5ee107394c5d\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the default Windows debugger (dwwin.exe)"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-18T02:28:53Z",
+  "last_seen": "2026-10-18T10:48:12Z"
+}
