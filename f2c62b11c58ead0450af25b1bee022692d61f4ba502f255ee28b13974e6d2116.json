@@ -38,11 +38,24 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "Ramsay",
     "tags": [
-      "exe"
+      "exe",
+      "Ramsay"
     ],
     "yara_rules": [
+      {
+        "rule_name": "APT_DustSquad_PE_Nov19_1",
+        "author": "Arkbird_SOLG",
+        "description": "Detection Rule for APT DustSquad campaign Nov19",
+        "reference": "https://twitter.com/Rmy_Reserve/status/1197448735422238721"
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
       {
         "rule_name": "DebuggerCheck__API",
         "author": null,
@@ -50,9 +63,39 @@
         "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
         "rule_name": "Detect_PowerShell_Obfuscation",
         "author": "daniyyell",
         "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_tiny_vbs",
+        "author": "daniyyell",
+        "description": "Detects tiny VBS delivery technique",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
         "reference": null
       },
       {
@@ -62,9 +105,69 @@
         "reference": null
       },
       {
+        "rule_name": "HKTL_Meterpreter_inMemory",
+        "author": "netbiosX, Florian Roth",
+        "description": "Detects Meterpreter in-memory",
+        "reference": "https://www.reddit.com/r/purpleteamsec/comments/hjux11/meterpreter_memory_indicators_detection_tooling/"
+      },
+      {
+        "rule_name": "ICMLuaUtil_UACMe_M41",
+        "author": "Marius 'f0wL' Genheimer \u003chello@dissectingmalwa.re\u003e",
+        "description": "A Yara rule for UACMe Method 41 -\u003e ICMLuaUtil Elevated COM interface",
+        "reference": "https://github.com/hfiref0x/UACME"
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM",
+        "author": "ditekSHen",
+        "description": "Detects Windows exceutables bypassing UAC using CMSTP COM interfaces. MITRE (T1218.003)",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_ReflectiveLoader",
+        "author": "ditekSHen",
+        "description": "Detects Reflective DLL injection artifacts",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "meth_stackstrings",
+        "author": "Willi Ballenthin",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "NET",
         "author": "malware-lu",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ReflectiveLoader",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a unspecified hack tool, crack or malware using a reflective loader - no hard match - further investigation recommended",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
         "reference": null
       },
       {
@@ -80,9 +183,39 @@
         "reference": null
       },
       {
+        "rule_name": "UPX290LZMAMarkusOberhumerLaszloMolnarJohnReiser",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser",
         "author": "malware-lu",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upx_3",
+        "author": "Kevin Falcoz",
+        "description": "UPX 3.X",
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
         "reference": null
       },
       {
@@ -92,9 +225,51 @@
         "reference": null
       },
       {
+        "rule_name": "WIN_Malware_Ceber_ForgeAuto_8b9c7147_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Ceber (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Cerber_ForgeAuto_b3e1e9d9",
+        "author": "Marjoriefort",
+        "description": "Detects Cerber (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_PythonStealer_ForgeAuto_b24cb5bd",
+        "author": "Marjoriefort",
+        "description": "Detects PythonStealer (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_SalatStealer_ForgeAuto_542e717b",
+        "author": "Marjoriefort",
+        "description": "Detects SalatStealer (pe, etat binaire)",
+        "reference": null
+      },
+      {
         "rule_name": "WIN_Malware_Unknown_ForgeAuto_180e12ce_Extrait",
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_43faefd2",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
         "reference": null
       },
       {
@@ -108,9 +283,43 @@
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat extrait)",
         "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_ce8c5b46",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_f1079127",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "win_ramsay_auto",
+        "author": "Felix Bilstein - yara-signator at cocacoding dot com",
+        "description": "Detects win.ramsay.",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-19 07:25:30",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/7546f373-25c6-4ac7-89da-a78f3cc400ec",
+          "tags": [
+            "neur",
+            "loader",
+            "smb",
+            "upx",
+            "uac"
+          ]
+        }
+      ],
       "CAPE": {
         "detection": null,
         "link": "https:\/\/www.capesandbox.com\/analysis\/92587\/"
@@ -281,6 +490,11 @@
           "link": "https:\/\/www.unpac.me\/results\/01629123-1af4-4135-91a6-434548e383fc\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Ramsay",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/f2c62b11c58e\/report\/overview.html"
+      },
       "vxCube": {
         "verdict": "malware2",
         "maliciousness": "100",

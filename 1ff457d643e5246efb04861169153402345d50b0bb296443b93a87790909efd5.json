@@ -1,0 +1,225 @@
+{
+  "hashes": {
+    "sha256": "1ff457d643e5246efb04861169153402345d50b0bb296443b93a87790909efd5",
+    "sha1": "0646fcc230b03a654d782be23ea900d7708cb656",
+    "md5": "a02d318206dae1dcffb16d06377f4b2c",
+    "sha3_384": "c1ad77652dc9cd285160fad9209e2aa86aa586943fd4303ea09350d7dd92aa288c7e28863c29b5cd0b1a570de75a98f4",
+    "tlsh": "T16B51750C73574AE08703CA509D5B7BD2A1A9885E19F83E08F7DCED8AEFC9C1D8365915",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:Q3JEKI+clH7ow/11XW22CoxBe1U9YjNU5UozfOE5JFo1ai/x6XktZS:F+clLR2aUyjNU52E3Fo1aicj"
+  },
+  "file_metadata": {
+    "names": [
+      "sample"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 3049,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951656\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Certutil_Decode_OR_Download",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Certutil Decode",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad5ca9dbb558c10b3a0c112\/reports\/abb09d0b-734f-4701-8726-a95a86cf549f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Dropper.Cheetah",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-18 12:56:13",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261019-jlsensgx4z\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies Windows Firewall",
+            "score": "8"
+          },
+          {
+            "signature": "Creates new service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies file permissions",
+            "score": "7"
+          },
+          {
+            "signature": "Stops running service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Connections Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Gathers network information",
+            "score": null
+          },
+          {
+            "signature": "Gathers system information",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/1ff457d643e5\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "z3r0s6",
+    "anonymous": false,
+    "origin_country": "EG",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-19T03:15:40Z",
+  "last_seen": null
+}
