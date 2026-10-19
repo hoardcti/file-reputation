@@ -32,9 +32,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "ValleyRAT",
     "tags": [
-      "iso"
+      "iso",
+      "ValleyRAT"
     ],
     "yara_rules": [
       {
@@ -81,6 +82,54 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261019-sjkfqacw9t\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "45.203.220.49:3311"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "45.203.220.49:80"
+          }
+        ]
+      },
       "VMRay": {
         "verdict": "malicious",
         "malware_family": "ValleyRAT",

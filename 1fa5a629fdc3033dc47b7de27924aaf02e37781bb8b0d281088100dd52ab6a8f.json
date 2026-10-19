@@ -1,0 +1,295 @@
+{
+  "hashes": {
+    "sha256": "1fa5a629fdc3033dc47b7de27924aaf02e37781bb8b0d281088100dd52ab6a8f",
+    "sha1": "0c4d96b7d9fa3188586a24b573de0cd73b8c3830",
+    "md5": "d0b37eaa763585c828d30b5d7ef2eb2d",
+    "sha3_384": "10c874f3c6bfc9314000e8789b907bdcf939efb9fa7a2a701846b8e63f3e510456977803caeef69f8254d0a772141bf1",
+    "tlsh": "T12C24E07FAB460D69DF1EB178C5196065E5EA3C08DE40E9FF1F6A18B40E71A782136F08",
+    "imphash": "9d20eaf0ff2a68091e4e2396e0fa6cf0",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:Ui06IPsYl5enn5zvtJz/13crzLo8nG7bYf4XiyjE:U6IPHeBH/1ePoUuYQXpY"
+  },
+  "file_metadata": {
+    "names": [
+      "winhttp.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 224256,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "45.5% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "18.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "18.0% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "18.0% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92885\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "exe",
+      "malspam",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-19 15:01:43",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/0e73078b-acf7-4473-bb37-da8bec2ea3ec",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": "WinosStager",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92885\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1fa5a629fdc3033dc47b7de27924aaf02e37781bb8b0d281088100dd52ab6a8f\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad62e689ca8a7f6aa42e020\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/698c8475-919e-4aef-bc7c-df04dea85038?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "dll x64",
+        "first_seen": "2026-10-18T22:59:00Z",
+        "last_seen": "2026-10-19T04:42:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/1fa5a629fdc3033dc47b7de27924aaf02e37781bb8b0d281088100dd52ab6a8f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Genericfca",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-19 01:46:17",
+        "scanner_count": "36",
+        "scanner_match": "18",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261019-r8agdacv3t\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Direct Volume Access: Opens a physical disk for reading",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "202.146.222.95:443"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "1fa5a629fdc3033dc47b7de27924aaf02e37781bb8b0d281088100dd52ab6a8f",
+          "md5_hash": "d0b37eaa763585c828d30b5d7ef2eb2d",
+          "sha1_hash": "0c4d96b7d9fa3188586a24b573de0cd73b8c3830",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/20f19789-b5d5-4612-b5d1-d8136aefef27\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "ValleyRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/1fa5a629fdc3\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "qemped",
+    "anonymous": false,
+    "origin_country": "ID",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-19T14:50:54Z",
+  "last_seen": null
+}

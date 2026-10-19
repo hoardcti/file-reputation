@@ -1,0 +1,259 @@
+{
+  "hashes": {
+    "sha256": "5c97104e2e1c354d2001fa5ce026fe899e91ee88a73516a7f659f6a7f068180d",
+    "sha1": "92517795ef5a0ad60240fa611bbe4253efe0b590",
+    "md5": "463194455983f25b4266b4a794cc0584",
+    "sha3_384": "88ea33691ef24169898e13cbcdbc6952e6e0c93c70549e3654b328458d2657338b080b66362fce58154eac292016a8d3",
+    "tlsh": "T14A761221754E8C76C5AA363071769E7DDA7CBC305BA08BDB938339EE09315C052FDA92",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:IkMMwpD74pOTxPjLHLgk92Rdxmk69pa5SUOsFekLS57JkmPMETphToy0seQvsm:xlc4pkbLHLhObmXe/kdkmPDTs"
+  },
+  "file_metadata": {
+    "names": [
+      "wafaction1.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 7139328,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3952364\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92897\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "PDF-link-phishing",
+      "RMM_Action1",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92897\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5c97104e2e1c354d2001fa5ce026fe899e91ee88a73516a7f659f6a7f068180d\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad63a19021efe71cf48d44f\/reports\/39eb1d99-380c-4e20-aef2-a20db308104a\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-19 14:19:58",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261019-s4wpgsbs4p\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/update.microsoft.com"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/us-cdn.action1.com\/builtin\/00000000-0000-0000-0000-000000000000_0000000000000_builtin\/file.dat"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/eu-cdn.action1.com\/builtin\/00000000-0000-0000-0000-000000000000_0000000000000_builtin\/file.dat"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/au-cdn.action1.com\/builtin\/00000000-0000-0000-0000-000000000000_0000000000000_builtin\/file.dat"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/ifconfig.me\/ip"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "TomU",
+    "anonymous": false,
+    "origin_country": "CH",
+    "delivery_method": "email_attachment"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "Action1 Corporation",
+      "issuer_cn": "Sectigo Public Code Signing CA EV R36",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2023-12-25T00:00:00Z",
+      "valid_to": "2026-12-24T23:59:59Z",
+      "serial_number": "457fea83e90867be278de429f0ccf4c1",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-19T15:40:28Z",
+  "last_seen": null
+}
