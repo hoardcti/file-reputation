@@ -1,0 +1,232 @@
+{
+  "hashes": {
+    "sha256": "93652ea61fc5891cecb692aa103746d6a154248516d512cca3098bd05f7ce94c",
+    "sha1": "ec5d3f0905b0765af9285cf051d3d77ef133a44e",
+    "md5": "07a98a576fd9cf790707a39dcc7663b5",
+    "sha3_384": "87511af870f65a19d37a112e2c151b450fb5af38018b97ed821a9f6ed59f85e19e5197063238a3c7200acc5c06bb48d9",
+    "tlsh": "T11453D956A405A075C2B3B37ADE866548FE2B407F6221157072DCC2996FB066DC3B8F8F",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:+rHl9fGNjF/gEOxvG2KKmJc8hBy4xI8wa8uXy0/TT0COHM:+rjfGNjF/gDJG2kc8hHx0a8uF8COs"
+  },
+  "file_metadata": {
+    "names": [
+      "93652ea61fc5891cecb692aa103746d6a154248516d512cca3098bd05f7ce94c.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 66053,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "dsc",
+        "author": "Aaron DeVera",
+        "description": "Discord domains",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_Process",
+        "author": "Security Research Team",
+        "description": "Suspicious process creation",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Scheduled_Tasks_Create_From_Susp_Dir",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects a PowerShell Script that creates a Scheduled Task that runs from an suspicious directory",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/93652ea61fc5891cecb692aa103746d6a154248516d512cca3098bd05f7ce94c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad5b4c516453a97fa2d8fd7\/reports\/3062d7d0-7d51-481f-8bf0-22f0fff154c3\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-19 06:12:23",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261019-gyde6sft9s\/",
+        "tags": [
+          "defense_evasion",
+          "evasion",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Windows Defender TamperProtection settings",
+            "score": "10"
+          },
+          {
+            "signature": "Modifies Windows Defender notification settings",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Server Software Component: Terminal Services DLL",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Stops running service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry key",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/23.145.248.106:4992"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/23.145.248.106:3000"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-19T06:11:36Z",
+  "last_seen": null
+}
