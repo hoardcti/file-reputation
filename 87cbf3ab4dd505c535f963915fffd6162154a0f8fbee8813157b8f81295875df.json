@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "87cbf3ab4dd505c535f963915fffd6162154a0f8fbee8813157b8f81295875df",
+    "sha1": "5f68a9e3d7b2e89dd4e6e2f7a1510cfe30a52d58",
+    "md5": "edcda7351f0ae9f2436a89ab5935b82e",
+    "sha3_384": "2fda87752459e4c904613e4c104f02eb2b1d5267c87c6c772c76b8f37e5331e274135e266a51f49cf9c951c8ac897988",
+    "tlsh": "T1960183A3476A0DA3489F1160802E386CCBCC435109F4F03A263188E0FEC635499FA398",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12:P2im6KmzOTNu8kN0f8FjRA0ZebaBB+/+KBPSZEjUokvIW8g7LgyaIS1fC2YGMA+h:PNOTkN0UFjR5Ze2j+/+K1SGIomIvg7Ll"
+  },
+  "file_metadata": {
+    "names": [
+      "87cbf3ab4dd505c5.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 675,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": [
+      "50.0% (.INI) Generic INI configuration (1000\/1)",
+      "50.0% (.JSON) JSON array (generic) (1000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951425\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951422\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951424\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951423\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MopsStealer",
+    "tags": [
+      "MopsStealer",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Base64_Encoded_Powershell_Directives",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/87cbf3ab4dd505c535f963915fffd6162154a0f8fbee8813157b8f81295875df\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad7746721689bd5b3c56558\/reports\/c405e4af-41ad-4e96-8dc9-ae039e925363\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "2026-10-09T17:23:00Z",
+        "last_seen": "2026-10-19T17:59:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/87cbf3ab4dd505c535f963915fffd6162154a0f8fbee8813157b8f81295875df\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-10 13:44:36",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261020-rb8b5s1y5n\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/gitrm.sbs\/apix.ps1"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T14:01:30Z",
+  "last_seen": null
+}

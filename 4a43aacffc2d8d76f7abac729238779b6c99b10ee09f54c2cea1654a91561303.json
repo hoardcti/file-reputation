@@ -1,0 +1,255 @@
+{
+  "hashes": {
+    "sha256": "4a43aacffc2d8d76f7abac729238779b6c99b10ee09f54c2cea1654a91561303",
+    "sha1": "1586d0c7da48856c960924715d734e3635b38e2c",
+    "md5": "445c1abbe9291bcb2bb1a954791d5648",
+    "sha3_384": "1b3fd82f32cfc7a960067b9d852161c341b8300d2476b3879592cf2cc32c33a41fc65340d71eedb4133736684dfdc487",
+    "tlsh": "T16F13D035DE007815C1A3CA3D71FE19D9F52C0686A23179062795D3DEEBE458B0F16E4B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:LhGshLXTRJb9ORjH4p4NxllNCiJv9PPB/5eP69eFFo:8sdTzA9YMBMid9nB/kCWi"
+  },
+  "file_metadata": {
+    "names": [
+      "rm.docx"
+    ],
+    "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "type": "doc",
+    "size": 41947,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "docx",
+    "trid": [
+      "53.6% (.DOCM) Word Microsoft Office Open XML Format document (with Macro) (52000\/1\/9)",
+      "24.2% (.DOCX) Word Microsoft Office Open XML Format document (23500\/1\/4)",
+      "18.0% (.ZIP) Open Packaging Conventions container (17500\/1\/4)",
+      "4.1% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": {
+      "oleid": {
+        "ole_format": null,
+        "file_format": "Unknown file type",
+        "container_format": "Unknown Container",
+        "has_summaryinfo_stream": null,
+        "application_name": null,
+        "author": null,
+        "encrypted": true,
+        "word": null,
+        "vba_macros": true,
+        "xlm_macros": true,
+        "excel": null,
+        "powerpoint": null,
+        "visio": null,
+        "objectpool": null,
+        "flash_objects": null,
+        "external_relationships": 0,
+        "maldoc_score": 0
+      }
+    }
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "APT28",
+      "doc",
+      "Dropper",
+      "Hookedge"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "informational_win_ole_protected",
+        "author": "Jeff White (karttoon@gmail.com) @noottrak",
+        "description": "Identify OLE Project protection within documents.",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_4f67e0b3_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_57b77e4a_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_e38c53ae_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_VBA_FileSystem_Access",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious VBA that writes to disk and is activated on document open",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "SUSP_VBA_FileSystem_Access_RID30A9",
+        "author": "Florian Roth",
+        "description": "Detects suspicious VBA that writes to disk and is activated on document open",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "vbaproject_bin",
+        "author": "CD_R0M_",
+        "description": "{76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e} is hex for vbaproject.bin. Macros are often used by threat actors. Work in progress - Ran out of time",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "doc",
+          "date": "2026-10-20 14:42:52",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ce4b218a-a759-422f-9bde-af8485ae57ad",
+          "tags": [
+            "macros",
+            "macros-on-open"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4a43aacffc2d8d76f7abac729238779b6c99b10ee09f54c2cea1654a91561303\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "Word File with Macro",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad7768d21689bd5b3c56e3f\/reports\/19b8ace3-753d-483a-a75d-720c8fde57d0\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "docm",
+        "first_seen": "2026-07-29T05:54:00Z",
+        "last_seen": "2026-08-01T07:11:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/4a43aacffc2d8d76f7abac729238779b6c99b10ee09f54c2cea1654a91561303\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Document-Word.Trojan.Trab28",
+        "status": "MALICIOUS",
+        "first_seen": "2026-07-31 08:56:52",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261020-rhfwga1z5n\/",
+        "tags": [
+          "execution",
+          "macro",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T14:11:19Z",
+  "last_seen": null
+}
