@@ -1,0 +1,160 @@
+{
+  "hashes": {
+    "sha256": "adefbec6608c664c793d37e0a41a36ab19af1a5ba9e81e89e76252b49cfeb361",
+    "sha1": "f6cfb0244f1a2b6d65bc0d5b8cf1f3a4e212bfd0",
+    "md5": "8f1f7b5845ab1df607ae00cc00160c72",
+    "sha3_384": "485726131679adc9f10eec5c93a8b3091f4936a39e90f5ed229560bc452748c85cb98a3d0381e35629e6491273052922",
+    "tlsh": "T1A842C629378F996806C3106DF9EFE5959915663749A82810F2DE83D0FFCB034D23BB99",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:JgxCA3/vdI1oMgyyClfrKd5BbXUal/HpFTQh/1/iydxxuiQVXXdJBxXj8t0WVrV6:m8iv6HlDKVHfFdxXj8t9yd"
+  },
+  "file_metadata": {
+    "names": [
+      "Phantom_stage2_inject__adefbec6.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 12143,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "INC Ransomware",
+      "ps1",
+      "STRU",
+      "The Gentlemen Ransomware"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_AMSI_Bypass",
+        "author": "ditekSHen",
+        "description": "Detects AMSI bypass pattern",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/adefbec6608c664c793d37e0a41a36ab19af1a5ba9e81e89e76252b49cfeb361\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad75b24127a956da0c85052\/reports\/1c52a39f-4dc6-43c0-8119-a64ec2528b42\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Sonbokli",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-20 11:02:48",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261020-pwzjmadv9q\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SOCRadarSTRU",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T12:13:31Z",
+  "last_seen": null
+}

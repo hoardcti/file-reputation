@@ -1,0 +1,148 @@
+{
+  "hashes": {
+    "sha256": "40d03f68520be536eaf020b60ac9d3937b0abfba833f2926f7f005f14860d376",
+    "sha1": "09d1cdbb3b6e0a66cbdae77bdb30a07b3fad6a2a",
+    "md5": "9f52c8e7a05d8f3a8cb03deeb2ded7ae",
+    "sha3_384": "15c3ea725227ce8b4fed7db07cfb858d4ca3d62ef0d192f2b9be8c1d52f737f95982639a18bc7d8abbe5a63ab415df03",
+    "tlsh": "T15D051907F9A210BDD9B9C834874EB033FA71B80D41217A1B7BD9DA213E65B319B1E791",
+    "imphash": null,
+    "telfhash": "t12131c74e183c0ae9a4a62d11dd242ac2c187c67eb5259b05ff25ded15aef808f226d4f",
+    "gimphash": null,
+    "ssdeep": "24576:Gqy4/fatd8Dk/Hj7POo6NSoiBjLeeSXPTH/I5UFdy82eI:Gqy4/Ctd8Dk/Hj7P16NSdjLeeSfTH/In"
+  },
+  "file_metadata": {
+    "names": [
+      "INC_kit2_x86_64-unknown-linux-esxi__40d03f68"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 870920,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "elf",
+      "INC Ransomware",
+      "STRU",
+      "The Gentlemen Ransomware"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "INC_Ransom_Linux_ESXi_Encryptor",
+        "author": "Peter Gabaldon",
+        "description": "Detects the INC Ransom Linux/VMware ESXi encryptor (Rust; X25519 + AES-128-CTR / Salsa20)",
+        "reference": null
+      },
+      {
+        "rule_name": "ldpreload",
+        "author": "xorseed",
+        "description": null,
+        "reference": "https://stuff.rop.io/"
+      },
+      {
+        "rule_name": "LIN_Sample_Unique_77c0c768",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "77c0c768861ba1896fa9c54ca6310c4797ecf0b0c2f14338f390694b542aa211.elf"
+      },
+      {
+        "rule_name": "ProgramLanguage_Rust",
+        "author": "albertzsigovits",
+        "description": "Application written in Rust programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/40d03f68520be536eaf020b60ac9d3937b0abfba833f2926f7f005f14860d376\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad75cfa18d8734298f8da1a\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f1c8b2f1-842f-4ce4-8d58-bb22f3f74285?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Ransomware.Raninc",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-20 12:22:27",
+        "scanner_count": "36",
+        "scanner_match": "15",
+        "scanner_percent": "41.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "inc_ransom",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261020-pw76rszx9r\/",
+        "tags": [
+          "family:inc_ransom",
+          "discovery",
+          "linux",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SOCRadarSTRU",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T12:21:21Z",
+  "last_seen": null
+}
