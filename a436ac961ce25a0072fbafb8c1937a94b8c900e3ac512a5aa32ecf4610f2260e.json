@@ -1,0 +1,117 @@
+{
+  "hashes": {
+    "sha256": "a436ac961ce25a0072fbafb8c1937a94b8c900e3ac512a5aa32ecf4610f2260e",
+    "sha1": "4a4fdc131cb1e3c9bbe3401fe6d16c31647fe050",
+    "md5": "79bee24265d649117acbc9fa54b90211",
+    "sha3_384": "5207a0601f2c6fbae9ddf76f6f74a842a3fca86c9d0b7c4731bc6000518b32bf159e3aeb05e5491832b01936c64588d4",
+    "tlsh": "T1AAE42AE2790EB82AE64FA57ECE44CEF1389AB9944010C0D93577612CDD49FE2953E372",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:8eBVhHVgLE6tYRIbMLdwHUVOJvUiVnxKvqJtq:8U7Hn6t9MLyovqJtq"
+  },
+  "file_metadata": {
+    "names": [
+      "child_a159973e.dylib"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 668480,
+    "format": "MACHO",
+    "arch": "ARM64",
+    "info": null,
+    "magika": "macho",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "twitter",
+        "value": "https:\/\/x.com\/vxunderground\/status\/2112234562805739834"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/iverify.com\/blog\/darksword-ios-exploit-kit-explained"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "0xf00dbeef",
+      "analystic",
+      "Coruna",
+      "DarkSword",
+      "GHOSTBLADE",
+      "iOS",
+      "macho",
+      "P7"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ldpreload",
+        "author": "xorseed",
+        "description": null,
+        "reference": "https://stuff.rop.io/"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a436ac961ce25a0072fbafb8c1937a94b8c900e3ac512a5aa32ecf4610f2260e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad68746af4fa6b2fe22f1be\/reports\/e89d51d1-80bc-40ae-a965-f0dc69830da4\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-19 21:10:31",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Darkfibr",
+    "anonymous": false,
+    "origin_country": "RO",
+    "delivery_method": "web_drive-by"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-19T21:09:58Z",
+  "last_seen": null
+}
