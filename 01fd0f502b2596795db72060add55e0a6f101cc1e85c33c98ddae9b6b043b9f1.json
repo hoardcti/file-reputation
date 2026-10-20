@@ -1,0 +1,175 @@
+{
+  "hashes": {
+    "sha256": "01fd0f502b2596795db72060add55e0a6f101cc1e85c33c98ddae9b6b043b9f1",
+    "sha1": "b654bd12114cb7164953a60f8f25898b709662bc",
+    "md5": "e20f76e4d36dec4ba0fdd55c8a892a39",
+    "sha3_384": "76e11bc0da32ee3264940f345711d2a15201a63ed736044d465c10f3debb606baabd079b10fcf89d2793362a2da16213",
+    "tlsh": "T1C4B55C636A50600642B5A8FABEBD5E37795F340D101AD98EFFD30B86E51E6F44802E1F",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:rfxK1PcpukylEL3CJEdBPHjzWO1UauftimpvpYe0DZp52lHF6Y5mJYAppfSKMxAK:rQSdDSidBLZUamiuX0Df52lMUllFj"
+  },
+  "file_metadata": {
+    "names": [
+      "e20f76e4d36dec4ba0fdd55c8a892a39.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 2271232,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "unknown",
+    "trid": [
+      "88.4% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "11.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/93017\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_PS1_FromBase64String_Content_Indicator_RID3714",
+        "author": "Florian Roth",
+        "description": "Detects suspicious base64 encoded PowerShell expressions",
+        "reference": "https://gist.github.com/Neo23x0/6af876ee72b51676c82a2db8d2cd3639"
+      },
+      {
+        "rule_name": "SUSP_PS1_JAB_Pattern_Jun22_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious UTF16 and Base64 encoded PowerShell code that starts with a $ sign and a single char variable",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93017\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/01fd0f502b2596795db72060add55e0a6f101cc1e85c33c98ddae9b6b043b9f1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad722d5b2d920010607aba4\/reports\/b5590028-044b-4c7d-b219-5f8a2546c95b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-20 06:14:24",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261020-j43y5axvcz\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T08:13:23Z",
+  "last_seen": null
+}
