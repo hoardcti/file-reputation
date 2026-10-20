@@ -1,0 +1,169 @@
+{
+  "hashes": {
+    "sha256": "e5e44b52a0f49822871439bd790ae6a662d2e462fd1924efb2429c09e13ac79d",
+    "sha1": "04853efe4732190c558c3040fc8e55df5ea29a5c",
+    "md5": "e84bcb3a32a6dbd9c200a04ddd98e95c",
+    "sha3_384": "ab054d0a7084a98eb8ea92c66afe4aa03182e5558db94a9a69d62cbc034a48a56976f898061bb6ef802082c298c22105",
+    "tlsh": "T1DE65234D3A678F63C0A915780563CF3843BA5D847B1A8AC37B94B7183DB77A54AD322C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:csuDXXva104BMeRocDP1NhhQEJBDYkaTz4Mcctdrbf6zncNynD6BRMhUT:cVX//i5oojQc0HUmdruzcNynD6q4"
+  },
+  "file_metadata": {
+    "names": [
+      "e5e44b52a0f49822871439bd790ae6a662d2e462fd1924efb2429c09e13ac79d.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 1427456,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "53.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "39.2% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "7.0% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3952204\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/92981\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PurpleFox_Dropper",
+        "author": "@bartblaze",
+        "description": "Identifies PurpleFox aka DirtyMoe botnet, dropper CAB or MSI package.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/92981\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e5e44b52a0f49822871439bd790ae6a662d2e462fd1924efb2429c09e13ac79d\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad6c98bcda787c53152ed51\/reports\/ac9050bb-da6f-42d2-b2a4-cd0613dd5ed8\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "2021-06-24T13:52:00Z",
+        "last_seen": "2026-10-19T04:17:00Z",
+        "hitscount": 10000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e5e44b52a0f49822871439bd790ae6a662d2e462fd1924efb2429c09e13ac79d\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Fuporflex",
+        "status": "MALICIOUS",
+        "first_seen": "2021-06-24 17:36:37",
+        "scanner_count": "36",
+        "scanner_match": "27",
+        "scanner_percent": "75.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "purplefox",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261020-ca4j8ssz4k\/",
+        "tags": [
+          "family:purplefox",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "rootkit",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T01:52:56Z",
+  "last_seen": null
+}

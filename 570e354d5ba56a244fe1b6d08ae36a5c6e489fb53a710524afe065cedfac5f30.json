@@ -1,0 +1,172 @@
+{
+  "hashes": {
+    "sha256": "570e354d5ba56a244fe1b6d08ae36a5c6e489fb53a710524afe065cedfac5f30",
+    "sha1": "c6127231737cb89eed97f47c4019e0d38db1c3d7",
+    "md5": "edf8fc2c9371c31a3e9abeba9884c214",
+    "sha3_384": "800d37cd85056dfc2a8fce3442ed2725ab189e3cb564c3b5a38b2b30bdd209d32cb91ea749893a06c4fd00928c39246f",
+    "tlsh": "T16051CA53871302A1E5F1534AD9C2B7619D26806EC51D2438B1DC621B0AD05F00FBBF87",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:dah+PsR1RzDaPNRpE4LDB9cSPM8D53mB5mGb7bMbvo3EvMbv1DqLwgjH5Lr:r0N0Nf/d9NPnHGfgs0vMbFEd"
+  },
+  "file_metadata": {
+    "names": [
+      "570e354d.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 2456,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3921081\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "etherhiding",
+      "freight-lure",
+      "miner",
+      "powershell",
+      "telegram"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TelegramAPIMalware_PowerShell_EXE",
+        "author": "@polygonben",
+        "description": "Hunting for pwsh malware using Telegram for C2",
+        "reference": null
+      },
+      {
+        "rule_name": "telegram_bot_api",
+        "author": "rectifyq",
+        "description": "Detects file containing Telegram Bot API",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "511258",
+        "date_added": "2026-10-20 02:45:10",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "PowerShell downloader/loader served from the campaign C2 amc-us.mprevive.com (/cdn/hello.txt); Telegram Bot API beacon; dormant miner payload line commented out; sibling toolkit component of the freight-themed Node.js RAT campaign; static analysis only."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/570e354d5ba56a244fe1b6d08ae36a5c6e489fb53a710524afe065cedfac5f30\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad6d5c2031ebce8d8b88159\/reports\/95087761-5c97-4eb2-ad86-b02fe3f269e9\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "ps1",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/570e354d5ba56a244fe1b6d08ae36a5c6e489fb53a710524afe065cedfac5f30\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-09-23 20:09:44",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261020-da6v2atv3j\/",
+        "tags": [
+          "defense_evasion",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Kills process with taskkill",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Darkfibr",
+    "anonymous": false,
+    "origin_country": "RO",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T02:41:21Z",
+  "last_seen": null
+}

@@ -1,0 +1,130 @@
+{
+  "hashes": {
+    "sha256": "9165aca66a9d89b749236dc2f49186c042cfff76acaba9696fc9b1b0e798fab9",
+    "sha1": "a6a44cb3a32fce98bda658ad22510899e9f59205",
+    "md5": "4b4d4981cced060972729091f7de789e",
+    "sha3_384": "b11884f34f7466621d23980e078ff05527e9d112e18ba541aae4ba23a19b83772f03b67a359f9efe65d34214d8c7a8c8",
+    "tlsh": "T1C4A2C6D6A9D091F424A360185E8EC252F23A603771F9FD50BCCDD7A98F9693C227836D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:92rTXs66vi4kP+zzkr+mqsSc1e6y6HyAmwW/vP2vP2Kn0:WXn4kP+zzkr+mqspIZp8p0"
+  },
+  "file_metadata": {
+    "names": [
+      "vnc_bootstrap.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 21289,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "etherhiding",
+      "freight-lure",
+      "nodejs",
+      "rat",
+      "vnc"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_PowerShell_Base64_Decode",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects PowerShell code to decode Base64 data. This can yield many FP",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "511257",
+        "date_added": "2026-10-20 02:45:01",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Node.js remote-access trojan delivered by a freight-themed VBS lure; installs Node v20.11.0 and runs main.js hidden; C2 discovery via smart-contract dead drop, DNS TXT and relay peers; recovered from the operator's public repository; static analysis only. Extracted VNC component of the same agent (PowerShell bootstrap / C# worker), compiled at runtime in memory."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9165aca66a9d89b749236dc2f49186c042cfff76acaba9696fc9b1b0e798fab9\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad6d5c5c34b7123d03cf0b6\/reports\/c062d850-0654-4aed-bd1f-3352b8a9e949\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-20 02:42:21",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261020-c6qy1stzhs\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Darkfibr",
+    "anonymous": false,
+    "origin_country": "RO"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T02:41:19Z",
+  "last_seen": null
+}
