@@ -1,0 +1,236 @@
+{
+  "hashes": {
+    "sha256": "0adc7e0b37f9e590f57e07c31c4fdf992f87549d4e9da82c4e7463a059f19c2a",
+    "sha1": "8bb3622cfe84de799da8299056449d759c258258",
+    "md5": "a2f3160f07f8437c99b66b0d565bf6f0",
+    "sha3_384": "db81c42f80b9f728802878ea5fc21de4471e6a4d658d814f8fd8de8ed4128f98b53f767760f8b4a46371d75d6496b0f9",
+    "tlsh": "T154243A45AA408F13C4D727B9FB8F424633339B54D7EB73069928AFB43B8679A4F62501",
+    "imphash": null,
+    "telfhash": "t1e8311045d878c62e69e25bfddeec5bf2191ac71753402e22cf3dc5cc5826002e926cea",
+    "gimphash": null,
+    "ssdeep": "6144:Jkbpoyf5wtEs/RUa6vJ47a/ic4RLnYS9+5O7z2X0M/RZAIVvfYP:JMpow5A76h47aKc4RLnN84eXJ/zvvfYP"
+  },
+  "file_metadata": {
+    "names": [
+      "arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 229012,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3953087\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0adc7e0b37f9e590f57e07c31c4fdf992f87549d4e9da82c4e7463a059f19c2a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad7e167c1e6a6022c687b29\/reports\/ce301f99-beb4-439d-a502-764967150ab0\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2a34607d-c7ed-422e-9fb8-664e066f61b4?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261020-1nby5sxw6q\/",
+        "tags": [
+          "antivm",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Traces processes"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the OS"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the CPU"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Collects information on the network activity"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T21:46:44Z",
+  "last_seen": null
+}

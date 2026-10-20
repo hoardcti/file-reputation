@@ -29,9 +29,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "RemcosRAT",
     "tags": [
-      "js"
+      "js",
+      "RemcosRAT"
     ],
     "yara_rules": [
       {
@@ -61,7 +62,7 @@
     ],
     "vendor_intel": {
       "CERT-PL_MWDB": {
-        "detection": null,
+        "detection": "remcos",
         "link": "https:\/\/mwdb.cert.pl\/sample\/ffe615cf5607d1fc36d694ab6419d7babc9c0b164ef8848bea077da734b98d92\/"
       },
       "FileScan-IO": {
@@ -69,6 +70,15 @@
         "threatlevel": "0.75",
         "confidence": "1.0",
         "report_link": "https:\/\/www.filescan.io\/uploads\/6ad7acaddfd6d7ee3f7f5534\/reports\/c539f1ab-51c1-41a4-b31e-23d141cc96a8\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "js",
+        "first_seen": "2026-10-20T06:10:00Z",
+        "last_seen": "2026-10-20T14:56:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/ffe615cf5607d1fc36d694ab6419d7babc9c0b164ef8848bea077da734b98d92\/results?tab=lookup",
+        "detections": []
       },
       "ReversingLabs": {
         "threat_name": null,
@@ -85,12 +95,61 @@
         }
       ],
       "Triage": {
-        "malware_family": null,
-        "score": null,
+        "malware_family": "remcos",
+        "score": "10",
         "link": "https:\/\/tria.ge\/reports\/261020-wpf72avt2j\/",
-        "tags": [],
-        "signatures": [],
-        "malware_config": []
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "discovery",
+          "execution",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "102.220.160.103:2404"
+          }
+        ]
       }
     }
   },

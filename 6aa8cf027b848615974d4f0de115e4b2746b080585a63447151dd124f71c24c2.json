@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "6aa8cf027b848615974d4f0de115e4b2746b080585a63447151dd124f71c24c2",
+    "sha1": "d949619cdc3eb6f92da18a58ccb5f6e358cd468d",
+    "md5": "b44738d1d4c3d85bae9515b9eed77119",
+    "sha3_384": "99df7aa3e447b472722e2e23e60070b4dddce55fe405eb0dd40dc00b767702e9337b0f6bd4f9298cfbfee09b3a9b48d8",
+    "tlsh": "T1D2F33B01B71D0947E2632EF03B3B27E1D3EFDA9121E4EB44290FAA499175D32558ADCE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:mLAEaLgVzih6U7bdXfPd5xDcJ+c14gt7uKql2vtuKzYEIvgVP+zqRCUUFpvAgNY6:mLA4zmHdXN5xgb5amVQqumg8tUl"
+  },
+  "file_metadata": {
+    "names": [
+      "powerpc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 162796,
+    "format": "ELF",
+    "arch": "PPC",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3944411\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6aa8cf027b848615974d4f0de115e4b2746b080585a63447151dd124f71c24c2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad7ca2eddd4a4b1bdd588f3\/reports\/a9ffbe08-c94e-4069-b199-95802ffc63a3\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5a71379d-d99f-49c6-b960-05b0dd845619?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/261020-yzn2qsev71\/",
+        "tags": [
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Creates or modifies files in \/init.d to set up autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sets a written file as executable"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Kills processes"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-20T20:07:46Z",
+  "last_seen": null
+}
