@@ -42,9 +42,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
       "c1399bfb1be0a51415613edd6f0068c5",
+      "CoinMiner",
       "dropped-by-Vidar",
       "exe",
       "signed"
@@ -124,6 +125,25 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 11:04:28",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/3e33dea4-0e91-4df8-afc7-31e6919733c6",
+          "tags": [
+            "auto-reg",
+            "miner",
+            "stealer",
+            "xmrig"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93501\/"
+      },
       "FileScan-IO": {
         "verdict": "SUSPICIOUS",
         "threatlevel": "0.5",
@@ -146,10 +166,29 @@
       ],
       "Triage": {
         "malware_family": null,
-        "score": null,
+        "score": "7",
         "link": "https:\/\/tria.ge\/reports\/261021-mp52qaev4n\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "vxCube": {

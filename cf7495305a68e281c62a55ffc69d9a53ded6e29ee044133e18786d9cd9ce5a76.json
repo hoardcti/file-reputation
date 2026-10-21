@@ -42,9 +42,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
       "c1399bfb1be0a51415613edd6f0068c5",
+      "CoinMiner",
       "dropped-by-Vidar",
       "exe",
       "signed"
@@ -124,6 +125,25 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 10:39:40",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/fe457a09-bbe2-48f3-83fd-373ebe41dc76",
+          "tags": [
+            "auto-reg",
+            "miner",
+            "stealer",
+            "xmrig"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "CoinMiner02",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93498\/"
+      },
       "FileScan-IO": {
         "verdict": "SUSPICIOUS",
         "threatlevel": "0.5",
@@ -145,11 +165,53 @@
         }
       ],
       "Triage": {
-        "malware_family": null,
-        "score": null,
+        "malware_family": "xmrig",
+        "score": "10",
         "link": "https:\/\/tria.ge\/reports\/261021-mpvkzssw2j\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "family:xmrig",
+          "discovery",
+          "miner",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "vxCube": {

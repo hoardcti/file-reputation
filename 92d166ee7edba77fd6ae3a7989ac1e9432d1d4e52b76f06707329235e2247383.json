@@ -33,6 +33,10 @@
       {
         "context": "dropped_by_malware",
         "value": "Vidar"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/93503\/"
       }
     ],
     "ole_information": []
@@ -66,6 +70,22 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 11:04:36",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/b2ba1bb1-5384-4890-aaa2-d26c98c497ad",
+          "tags": [
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93503\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/92d166ee7edba77fd6ae3a7989ac1e9432d1d4e52b76f06707329235e2247383\/"
@@ -97,10 +117,34 @@
       ],
       "Triage": {
         "malware_family": null,
-        "score": null,
+        "score": "7",
         "link": "https:\/\/tria.ge\/reports\/261021-mqdnvs1sez\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "defense_evasion",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "UnpacMe": [
@@ -113,9 +157,38 @@
         }
       ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
       }
     }
   },

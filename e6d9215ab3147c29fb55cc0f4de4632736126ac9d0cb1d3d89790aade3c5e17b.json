@@ -1,0 +1,233 @@
+{
+  "hashes": {
+    "sha256": "e6d9215ab3147c29fb55cc0f4de4632736126ac9d0cb1d3d89790aade3c5e17b",
+    "sha1": "720770dcdfe7ea4c328d4d08f9729f1d2a3a58b5",
+    "md5": "e935c364705bc5ba5e4311f18c32edd5",
+    "sha3_384": "12acf4d90e4e29b2b96e8195d69416e7a660345bf37ed3f72e6f6eaa5ca770494ff9076745ba7ac95496436c93c72959",
+    "tlsh": "T17AD73331B1326899D62F63BFA4A49FC944307DE1731BEA6B73787FB585B0A4210B1943",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:w+Wua8akPpAfHP0Xgt+WWt86GGb7vb6KZhzX8OAVqEPxvHE6t9:za8aopAfP7tpWWObDe2VMTfPxPEY"
+  },
+  "file_metadata": {
+    "names": [
+      "sapanapp-lu.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 63219200,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "msi",
+      "SilverFox",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_MSI_LATAM_Banker_From_LatAm",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad8c48fe693c709d98d4607\/reports\/\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "2026-10-21T10:19:00Z",
+        "last_seen": "2026-10-21T10:33:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e6d9215ab3147c29fb55cc0f4de4632736126ac9d0cb1d3d89790aade3c5e17b\/results?tab=lookup",
+        "detections": [
+          "HEUR:Trojan.Win64.Silverfox.gen",
+          "Trojan.Win32.Autorun.sb",
+          "Trojan.OLE2.Agent.sb",
+          "Trojan.Multi.Agent.au",
+          "Trojan.Win32.Shellcode.sb",
+          "Trojan.Win32.Agent.sb",
+          "not-a-virus:VHO:AdWare.Win32.Convagent.gen",
+          "not-a-virus:HEUR:AdWare.Win64.Burden.gen",
+          "not-a-virus:HEUR:AdWare.Win32.Burden.gen"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Donut",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-21 10:20:36",
+        "scanner_count": "36",
+        "scanner_match": "16",
+        "scanner_percent": "44.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "donutloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261021-q8k3faswcv\/",
+        "tags": [
+          "family:donutloader",
+          "discovery",
+          "execution",
+          "installer",
+          "loader",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "NSIS installer",
+            "score": "1"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "CNGaoLing",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-21T13:55:44Z",
+  "last_seen": null
+}

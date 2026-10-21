@@ -69,6 +69,22 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 11:01:46",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/0725a8da-c452-469e-ad7a-033f408bd5b3",
+          "tags": [
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93499\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/6235d6b6a8722501806d1795a576942ac63c6f26608e166280769d0aeca4f20e\/"
@@ -100,10 +116,34 @@
       ],
       "Triage": {
         "malware_family": null,
-        "score": null,
+        "score": "7",
         "link": "https:\/\/tria.ge\/reports\/261021-mpx14s1sex\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "defense_evasion",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "UnpacMe": [
