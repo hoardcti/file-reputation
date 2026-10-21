@@ -38,7 +38,7 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "GCleaner",
     "tags": [
       "dropped-by-OffLoader",
       "exe",
@@ -58,6 +58,42 @@
         "reference": null
       },
       {
+        "rule_name": "Check_OutputDebugStringA_iat",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "cobalt_strike_tmp01925d3f",
+        "author": "The DFIR Report",
+        "description": "files - file ~tmp01925d3f.exe",
+        "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "pe_detect_tls_callbacks",
         "author": null,
         "description": null,
@@ -73,6 +109,12 @@
         "rule_name": "shellcode",
         "author": "nex",
         "description": "Matched shellcode byte patterns",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_Process",
+        "author": "Security Research Team",
+        "description": "Suspicious process creation",
         "reference": null
       },
       {
@@ -130,6 +172,18 @@
         "reference": null
       },
       {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_74566f98",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_79234c04",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
         "rule_name": "WIN_Malware_Unknown_ForgeAuto_99cdfd72_Extrait",
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat extrait)",
@@ -149,6 +203,27 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-20 22:02:12",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/33a40a11-39e2-4f28-9834-bcd96921551c",
+          "tags": [
+            "gcleaner",
+            "loader",
+            "pdfwkrnl-sys",
+            "vuln-driver",
+            "stealc",
+            "stealer"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93176\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/a5381cc35924ed0a4f434c019ed1a7d1299207424dde0be7bb73421a2e0936d3\/"
@@ -283,10 +358,64 @@
           "link": "https:\/\/www.unpac.me\/results\/f4f8e396-c64f-41e2-a960-8a8d1361107b\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "GCleaner,Stealc.v2,Stealc",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/a5381cc35924\/report\/overview.html"
+      },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
       }
     }
   },
