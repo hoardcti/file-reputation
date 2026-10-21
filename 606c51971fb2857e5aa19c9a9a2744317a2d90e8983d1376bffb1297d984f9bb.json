@@ -1,0 +1,193 @@
+{
+  "hashes": {
+    "sha256": "606c51971fb2857e5aa19c9a9a2744317a2d90e8983d1376bffb1297d984f9bb",
+    "sha1": "0d812788d5857eddebab89fd9da719406577a7bf",
+    "md5": "0f0ca6378f37c68a1f2f25f570527816",
+    "sha3_384": "20a2e2571c4e0aa786f896d1d2191536e46ae457a8d35bf11be2a87e33e910db76539fa566110cb6893f41bc63f167b0",
+    "tlsh": "T18271B54160541AF2D98CA37FC487B895FD4FB248A2C84B0F0798981B2FB107BB1D9613",
+    "imphash": "e82dd51b077167be63c004bed23d0c1e",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:6IZUBQYxZul2EywS6DciWjk7QLzgzIzQz4zAzo157D9N9XM/geu3ahr0/x:2BQMZ7EywS6Dhs++D9vXeg"
+  },
+  "file_metadata": {
+    "names": [
+      "606c51971fb2857e5aa19c9a9a2744317a2d90e8983d1376bffb1297d984f9bb.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 3584,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/93262\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VShell",
+    "tags": [
+      "exe",
+      "VShell"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "malware_VeletrixLoader",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "Veletrix Loader",
+        "reference": null
+      },
+      {
+        "rule_name": "VShell_Windows_Stager_HashedAPI",
+        "author": "Daydream",
+        "description": "VShell Windows stager (x86/x64, tcp and ws variants): resolves APIs by ROR-13 hash, checks %TEMP%\\log_de.log, downloads a stage and XOR 0x99 decodes it in memory",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-21 01:16:42",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c588f29b-4a99-41fa-8c8f-10b244c2a577",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93262\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/606c51971fb2857e5aa19c9a9a2744317a2d90e8983d1376bffb1297d984f9bb\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad80f1bcf90651e4415da7c\/reports\/e2531b0b-2d1a-443b-a5ca-217805c8b85c\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Ransomhub",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c79cbc0e-a0b2-4055-8483-664784a7c0df?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-09-26T06:37:00Z",
+        "last_seen": "2026-09-29T13:12:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/606c51971fb2857e5aa19c9a9a2744317a2d90e8983d1376bffb1297d984f9bb\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Mikey",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-26 11:38:32",
+        "scanner_count": "38",
+        "scanner_match": "30",
+        "scanner_percent": "78.95"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vshell",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261021-bdymqayz4q\/",
+        "tags": [
+          "family:vshell",
+          "backdoor",
+          "discovery",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects VSHELL Backdoor",
+            "score": "10"
+          },
+          {
+            "signature": "Family: VShell",
+            "score": "10"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vshell",
+            "c2": "106.54.240.229:8484"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "606c51971fb2857e5aa19c9a9a2744317a2d90e8983d1376bffb1297d984f9bb",
+          "md5_hash": "0f0ca6378f37c68a1f2f25f570527816",
+          "sha1_hash": "0d812788d5857eddebab89fd9da719406577a7bf",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/a3653cde-922e-4e8b-a353-157a0bea7769\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "VShell",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/606c51971fb2\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-21T01:01:58Z",
+  "last_seen": null
+}
