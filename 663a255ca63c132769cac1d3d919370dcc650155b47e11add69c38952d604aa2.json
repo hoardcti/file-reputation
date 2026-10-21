@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "663a255ca63c132769cac1d3d919370dcc650155b47e11add69c38952d604aa2",
+    "sha1": "ba4f512f7d74dc860d678c072643ab2342f43611",
+    "md5": "0da905b7fea27681d7b1f56d6491dce7",
+    "sha3_384": "8e8dc5bf04bb1418b64d3d05f13a6242531587ff1b296a86b1bd5f3717b2ba02cb07be901bd118fe5418b8f49eecd4f8",
+    "tlsh": "T13F91A6C6F757D6B2EC1C07F500A379A4C4682E14927C9B474FE16F0C3C111AA3D2DA12",
+    "imphash": "e82dd51b077167be63c004bed23d0c1e",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:6I7lwe70t08ShJdSR1Ig9TPe1YpV1ZsSZIXxhxhwcRaK:Pl1C09rq1Ig9T2Enwp"
+  },
+  "file_metadata": {
+    "names": [
+      "663a255ca63c132769cac1d3d919370dcc650155b47e11add69c38952d604aa2.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 4608,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "21.4% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "21.2% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "14.6% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "6.6% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/93377\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VShell",
+    "tags": [
+      "exe",
+      "VShell"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "VShell_Windows_Stager_HashedAPI",
+        "author": "Daydream",
+        "description": "VShell Windows stager (x86/x64, tcp and ws variants): resolves APIs by ROR-13 hash, checks %TEMP%\\log_de.log, downloads a stage and XOR 0x99 decodes it in memory",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 05:40:21",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/fd7b9fac-7583-42fd-b89c-b9ee1590340f",
+          "tags": [
+            "payload",
+            "snowlight",
+            "dropper",
+            "websocket",
+            "vshell",
+            "rat",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93377\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/663a255ca63c132769cac1d3d919370dcc650155b47e11add69c38952d604aa2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad84f90dc7b8e2136ee53ff\/reports\/2c10cd7d-37fe-4e72-b5ef-3cf892eef397\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Knight",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6b6751c7-a0bf-4772-8b73-1d99b47becbf?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-09-26T17:19:00Z",
+        "last_seen": "2026-10-03T08:58:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/663a255ca63c132769cac1d3d919370dcc650155b47e11add69c38952d604aa2\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Mikey",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-26 22:15:17",
+        "scanner_count": "36",
+        "scanner_match": "29",
+        "scanner_percent": "80.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vshell",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261021-gbb9lazz6n\/",
+        "tags": [
+          "family:vshell",
+          "backdoor",
+          "discovery",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects VSHELL Backdoor",
+            "score": "10"
+          },
+          {
+            "signature": "Family: VShell",
+            "score": "10"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "663a255ca63c132769cac1d3d919370dcc650155b47e11add69c38952d604aa2",
+          "md5_hash": "0da905b7fea27681d7b1f56d6491dce7",
+          "sha1_hash": "ba4f512f7d74dc860d678c072643ab2342f43611",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/943518f2-0874-44d8-8c81-8b8df430eca8\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-21T05:37:00Z",
+  "last_seen": null
+}
