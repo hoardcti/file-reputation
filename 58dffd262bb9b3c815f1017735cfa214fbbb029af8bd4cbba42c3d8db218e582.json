@@ -1,0 +1,137 @@
+{
+  "hashes": {
+    "sha256": "58dffd262bb9b3c815f1017735cfa214fbbb029af8bd4cbba42c3d8db218e582",
+    "sha1": "9c4266b80025e52fffc66ae37fa65f07ed440b54",
+    "md5": "9234bea364e01ce9a1364fca142ac415",
+    "sha3_384": "f644be82e6306cc79d00a96df0034cdb8c6988bff098a521851a622a651436941e735035f69c7afab57faf933e6981e5",
+    "tlsh": "T129C3D061858BC1E7E52E427DE527258BC5303D0893709DBF93B06E2E7D96D406BBA20F",
+    "imphash": "555aba33e471c8bf2b9fc3922635a660",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:z/KExfFaWsbiQ2k9Hc3/nl6LAHkzI1UfgEA6IIyRZ:DKExfVs2/k96kAD",
+    "dhash_icon": "30b2b2f069f0d48a"
+  },
+  "file_metadata": {
+    "names": [
+      "vlc-3.0.23-win64_crypted.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 128000,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/93886\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "comments": [
+      {
+        "id": "512965",
+        "date_added": "2026-10-22 04:11:43",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Trimmed sample: these are the first 128,000 bytes (the complete PE image) of a 1,023,025,653-byte original, sha256 53c889d81914869958a2662518706e4f4dc47a22f380599c2967ea4b5d39288d. About 1 GB of random padding (overlay entropy ~7.98) was removed. The padding is there to get past AV and sandbox size limits.\n\nDelivery: fake TV torrent “VisionQuest S01E05 Firewall 1080p WEB H264-EZTV 7z” on LimeTorrents, 2026-10-21. The “.7z” is really a ZIP (sha256 ad4ab37a14f0e80e8d2d2109d3a980718ddb58583da530ec5311252a5c9514bb) containing vlc-3.0.23-win64_crypted.exe. A sibling lure, “VisionQuest S01E03 Reboot 1080p WEB H264-EZTV”, was seen on 2026-10-19.\n\nBehavior (Win11, isolated sandbox with fake internet): within ~40 s of launch it fetched two dead drops:\n\nhttps://www.youtube.com/channel/UC18vFC1xgebddr_7NsvgBYA (@bubblegymes, “bubblegym”). The description holds “Config: [[OA0dDQ0HFBQHJyIHEkkQCAlJLS0JTgwAAB8S]]”, which is base64 + repeating XOR with key “ZhxchsdfhSGdfgsgdfAJsakdaks”, decoding to beenetprotect.com/lgz/gdata\nhttps://gist.githubusercontent.com/jasonterra69/48d9e264c05843f0cdc302143b4400c8/raw (now 404)\nThe dead-drop requests send YouTube consent cookies and a garbled binary User-Agent. It then POSTs “guid=” to https://beenetprotect.com/lgz/gdata, followed by a GET, with UA “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36”.\n\nC2: beenetprotect.com, A record 109.120.179.122 (AS210644 AEZA GROUP, FR), registered 2026-09-14 via Cloudflare (DNS only, not proxied), Let’s Encrypt wildcard cert issued 2026-09-14. No next stage was observed, because the sandbox had no live C2."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-10-22 04:14:29",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/0fc8da0e-37bc-424f-9904-5f50a0adccbd",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93886\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/58dffd262bb9b3c815f1017735cfa214fbbb029af8bd4cbba42c3d8db218e582\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad98a8f9591f0c0388be7fb\/reports\/cf2cadf1-1c6f-4c12-892c-673db503ab55\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/292545d2-ef0a-479a-b8c0-71ae3369ff1d?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-22 04:01:25",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261022-eldjasx1aw\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "58dffd262bb9b3c815f1017735cfa214fbbb029af8bd4cbba42c3d8db218e582",
+          "md5_hash": "9234bea364e01ce9a1364fca142ac415",
+          "sha1_hash": "9c4266b80025e52fffc66ae37fa65f07ed440b54",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/fa9188cb-160a-4725-bb22-5a408853fdc4\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Thekalebmiller",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-22T04:00:44Z",
+  "last_seen": null
+}
