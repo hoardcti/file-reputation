@@ -46,7 +46,8 @@
     "tags": [
       "d852ede598d72f2b3a4050576466ec62",
       "dropped-by-Vidar",
-      "exe"
+      "exe",
+      "signed"
     ],
     "yara_rules": [
       {
@@ -99,6 +100,10 @@
       }
     ],
     "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93767\/"
+      },
       "FileScan-IO": {
         "verdict": "NO_THREAT",
         "threatlevel": "0.25",
@@ -106,12 +111,12 @@
         "report_link": "https:\/\/www.filescan.io\/uploads\/6ad940934a990f6b9b14758a\/reports\/5ef7b469-c6e0-4f95-ae83-036e0b21bfb9\/overview"
       },
       "ReversingLabs": {
-        "threat_name": null,
-        "status": "UNKNOWN",
-        "first_seen": null,
-        "scanner_count": null,
-        "scanner_match": null,
-        "scanner_percent": null
+        "threat_name": "Win64.Trojan.Barys",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-21 22:45:36",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
       },
       "Spamhaus_HBL": [
         {
@@ -135,6 +140,32 @@
           }
         ],
         "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "50",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
@@ -144,6 +175,18 @@
     "origin_country": "US",
     "delivery_method": "web_download"
   },
+  "code_sign": [
+    {
+      "subject_cn": "Google LLC",
+      "issuer_cn": "Google Trust Services: Windows CA GTS R4 G1",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-10-20T22:35:55Z",
+      "valid_to": "2046-10-21T22:35:55Z",
+      "serial_number": "468f628b7c0c925ba050c25b5b81aa06",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],

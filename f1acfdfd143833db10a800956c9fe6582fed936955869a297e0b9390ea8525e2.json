@@ -46,7 +46,8 @@
     "tags": [
       "d852ede598d72f2b3a4050576466ec62",
       "dropped-by-Vidar",
-      "exe"
+      "exe",
+      "signed"
     ],
     "yara_rules": [
       {
@@ -66,9 +67,43 @@
         "author": "albertzsigovits",
         "description": null,
         "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Clipper_Unknown_ClipboardHijack",
+        "author": "Marjoriefort",
+        "description": "DLL clipper (detournement presse-papiers crypto) : API clipboard completes + DLL compacte",
+        "reference": "misses_archive 569 / cluster 282 DLL x 15360 o"
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-21 22:57:40",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/705eecb9-4dae-479c-b0d1-34a88adc2e70",
+          "tags": [
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/93766\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/f1acfdfd143833db10a800956c9fe6582fed936955869a297e0b9390ea8525e2\/"
@@ -85,12 +120,12 @@
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4cd28fd8-2e24-4453-9d2e-24e898d87486?utm_source=MalwareBazaar"
       },
       "ReversingLabs": {
-        "threat_name": null,
-        "status": "UNKNOWN",
-        "first_seen": null,
-        "scanner_count": null,
-        "scanner_match": null,
-        "scanner_percent": null
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-21 22:45:32",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
       },
       "Spamhaus_HBL": [
         {
@@ -140,9 +175,42 @@
         }
       ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
@@ -152,9 +220,21 @@
     "origin_country": "US",
     "delivery_method": "web_download"
   },
+  "code_sign": [
+    {
+      "subject_cn": "Chrome Setup",
+      "issuer_cn": "Chrome Setup",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-09-10T17:36:48Z",
+      "valid_to": "2031-09-10T17:46:48Z",
+      "serial_number": "32a5ff6163193f8247621eced752e490",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-10-21T22:44:17Z",
-  "last_seen": "2026-10-21T22:48:52Z"
+  "last_seen": "2026-10-21T22:57:04Z"
 }

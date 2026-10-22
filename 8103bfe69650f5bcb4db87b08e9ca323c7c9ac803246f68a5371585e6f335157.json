@@ -1,0 +1,113 @@
+{
+  "hashes": {
+    "sha256": "8103bfe69650f5bcb4db87b08e9ca323c7c9ac803246f68a5371585e6f335157",
+    "sha1": "b3b2ed622fcc0d3ac7900a3bbc345cd6b780a7b6",
+    "md5": "31780924a6356fd5fac1ba3bd498330a",
+    "sha3_384": "158c2ad82948cd73b3ec65fbcc53ca3d90c4c8a8b73e958ddca937837ed21d7c5e12fc40d911c51f136cbd2835bb11ba",
+    "tlsh": "T1FFB5D0809E9E9147D48951B39CDA8F5944B431C1CE88CDE96302A3CADD3A3D3B7671EB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:/8/vb8BZkRTjuyc/ev/eVE/BuJdfARjTcY0X:C8Bh/D"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_8103bfe69650.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2364672,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/2ff0a9594923b8896910fd338b4a899649bb89bca20ace4d00b9fada9da93441\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/1ebbe1479d2be9b5ddae584a2d987e5f6f4ce14c1f002bb8bd1fb7e13046969e\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/97a7cb9173bcef716a999ff6968805d416c02ccfa29a5f4f6fcc31e9a9878fba\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "meth_stackstrings",
+        "author": "Willi Ballenthin",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8103bfe69650f5bcb4db87b08e9ca323c7c9ac803246f68a5371585e6f335157\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ad9534077ab1c698acfc467\/reports\/457e993e-91e2-42f2-8f7d-2a83c0f99d44\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-22 00:05:26",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-22T00:04:47Z",
+  "last_seen": null
+}
