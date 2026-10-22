@@ -67,6 +67,24 @@
         "author": "albertzsigovits",
         "description": null,
         "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Clipper_Unknown_ClipboardHijack",
+        "author": "Marjoriefort",
+        "description": "DLL clipper (detournement presse-papiers crypto) : API clipboard completes + DLL compacte",
+        "reference": "misses_archive 569 / cluster 282 DLL x 15360 o"
       }
     ],
     "vendor_intel": {
@@ -155,7 +173,45 @@
           "detections": [],
           "link": "https:\/\/www.unpac.me\/results\/b9e377f0-51eb-479e-b10a-981c3c0a4123\/"
         }
-      ]
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.89"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
     }
   },
   "submission": {

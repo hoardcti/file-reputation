@@ -1,0 +1,114 @@
+{
+  "hashes": {
+    "sha256": "e7552799c3c15c3e3fdf93c3cc2dc04beec2c396cf6dd0d5c960c42778dac1ff",
+    "sha1": "ee0c4a9766338152a1a96a2c06376817cba4d915",
+    "md5": "0fb5130380004263adeff8c311bf6f65",
+    "sha3_384": "10cd18c681a2222b21828ba72d0f3777604bbf12b6eab681b52a17bdc8ed6360f502eaa80c15751ff8ce4cb047d5899b",
+    "tlsh": "T128A5D119978BE5B7C19C5170615F8BAF7AB185DE06A1830AC3668C6E2CD3FC47F61E02",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:GKDH+e3v+21sDWudupORl0eeRy4GuIW7zX8gI8Rk+UFrYxupg:TDey+Uuks/0vylW7zX8gI8+FrYxue"
+  },
+  "file_metadata": {
+    "names": [
+      "64bfdb2fa7d5c333a7678a32a3e480195d8c4273515e710a86b73cad2c288a80.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 2198896,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemusStealer",
+    "tags": [
+      "file-pumped",
+      "go-based",
+      "RemusStealer",
+      "stealer",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PK_PUMP_AND_DUMP",
+        "author": "Will Metcalf @node5",
+        "description": "Walks Zip Central Directory filename entries looking for abused extension then checks for a file that's at least 25M and then check to see how much uncompressed size is vs compressed size",
+        "reference": null
+      },
+      {
+        "rule_name": "weird_zip_high_compression_ratio",
+        "author": "Maxime THIEBAUT (@0xThiebaut)",
+        "description": "Detects single-entry ZIP files with a suspiciously high compression ratio (\u003e100:1) and decompressed size above the 500MB AV limit",
+        "reference": "https://twitter.com/Cryptolaemus1/status/1633099154623803394"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e7552799c3c15c3e3fdf93c3cc2dc04beec2c396cf6dd0d5c960c42778dac1ff\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "ZIP File - Malicious",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ada2a2e8a89020cd157497b\/reports\/d9dd9da4-ccd1-4d2f-8c59-8b028a672345\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Binary.Malware.Pumpar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-22 15:22:23",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261022-s5ga7avy2m\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-22T15:21:54Z",
+  "last_seen": null
+}
