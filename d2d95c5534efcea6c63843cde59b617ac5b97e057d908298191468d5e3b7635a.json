@@ -1,0 +1,183 @@
+{
+  "hashes": {
+    "sha256": "d2d95c5534efcea6c63843cde59b617ac5b97e057d908298191468d5e3b7635a",
+    "sha1": "e33ceb404db0d3d3d7dcdb1768a4d3012dc2cb04",
+    "md5": "e385d8cb024874172c45d47abda42efb",
+    "sha3_384": "e3b469f8363b7522864701d17b229f2fd9dd7cf0e4917c8b79fe8cd7f56750eed51bfd0e012d1433c20057ff98023fd2",
+    "tlsh": "T171C7338288326E5BC62C453997B24300DBBA3D71BB02866637F0B11D5D7F7D13A79AC6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "786432:+ME+O3I9nQNXqhZBOAiG4p1Tz117Jow3eBAuFqh0uSO7s5WptW8HMGuhhypT9n:2eTqAiGm1P117JReB9vO7smQaMGXpTR"
+  },
+  "file_metadata": {
+    "names": [
+      "AzureCobalt57-77b11081.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 53151849,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "JP_Lure_Content_Hunt",
+        "author": "sumeshi",
+        "description": "Hunts for files containing Japanese kana text or common Japanese lure terminology",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adbc3ae92253681a6a6fef9\/reports\/483bcd15-246e-45b9-bec8-720c891f2718\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-20 20:20:20",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261023-y9nhysfy8r\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-23T20:28:25Z",
+  "last_seen": null
+}
