@@ -1,0 +1,257 @@
+{
+  "hashes": {
+    "sha256": "19cd1fe4e501fbdf6e52a7249a7bd375ea3039feed596f56691fb7f353acc23f",
+    "sha1": "7b257bb2c2605c3e06408c1459a14379bdcd11b5",
+    "md5": "956fa40ab722294b7c34de1706400c38",
+    "sha3_384": "cc61303fdc2a0adcfcd2e7979f59b8498756665643863193bd3776a9f8462b172449c0d2d4f8811f038915796dd35306",
+    "tlsh": "T192563392509198F170823D14566D3CC16F957A232E16F2738D83CE99997BECFD2A3B0B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:YlkWv+gLDBVkZG9Fb/v3hDJ330Qf312nCTWJl7wuwHyfigxPwugTD1w2vVcWBxWX:YDvrLDLkabH3BSPTyWrPw53yW6Q1qJdv"
+  },
+  "file_metadata": {
+    "names": [
+      "sysinit.bin.sample"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 6069820,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "bashrc",
+      "cryptojacking",
+      "CVE-2026-110447",
+      "dropper",
+      "elf",
+      "go",
+      "UPX",
+      "xmrig"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "BLOWFISH_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for Blowfish constants",
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/19cd1fe4e501fbdf6e52a7249a7bd375ea3039feed596f56691fb7f353acc23f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adb922effd3fd3d07f72c90\/reports\/77b13424-f8aa-43f6-b9a7-1bc5d6190654\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/92cab94b-6e94-4528-953c-e0e60032b5d1?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "elf.64.le",
+        "first_seen": "2026-10-22T05:07:00Z",
+        "last_seen": "2026-10-22T09:36:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/19cd1fe4e501fbdf6e52a7249a7bd375ea3039feed596f56691fb7f353acc23f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-22 08:20:59",
+        "scanner_count": "38",
+        "scanner_match": "2",
+        "scanner_percent": "5.26"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xmrig",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261023-vg1q2ay1cy\/",
+        "tags": [
+          "family:xmrig",
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Checks hardware identifiers (DMI)",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads hardware information",
+            "score": "6"
+          },
+          {
+            "signature": "Removes the immutable protection flag from a file",
+            "score": "6"
+          },
+          {
+            "signature": "Security Software Discovery",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "4"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "38",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creates directories"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ukkz",
+    "anonymous": false,
+    "origin_country": "JP",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-23T16:31:51Z",
+  "last_seen": null
+}

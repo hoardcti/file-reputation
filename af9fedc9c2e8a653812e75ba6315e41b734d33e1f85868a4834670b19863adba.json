@@ -1,0 +1,99 @@
+{
+  "hashes": {
+    "sha256": "af9fedc9c2e8a653812e75ba6315e41b734d33e1f85868a4834670b19863adba",
+    "sha1": "0b4f0f61b673c1debf6076ceef0f93305a3676e9",
+    "md5": "8ee98f534925216f397c84d08ef739c0",
+    "sha3_384": "19d94cf96362ebc797491f444bb3c347ca66c6d0ea2f399c6f5ca71560ae52eca5d2e18a961da145d05b76537a38449a",
+    "tlsh": "T101850254DA364262D08220F29C193FC050646FE31E1CA7E96669F7567D3DAC3B2A33E7",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:lJ5U7/W9D3sZg2FOiVak3R1XH24MTxK8UVtzPMan18B1C5J9eFs8/3FlvQeM3viQ:b9v2/MtUDLzn18B1wsSBoG"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_af9fedc9c2e8.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1823376,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/b5a208e6460390f077ae0e817c84e5951185fe626037d3e91745ca03acb19e84\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/af9fedc9c2e8a653812e75ba6315e41b734d33e1f85868a4834670b19863adba\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adb7e4a83e414038bef4a21\/reports\/d1822213-4304-492b-9483-8dca29cf1d23\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-23T15:32:22Z",
+  "last_seen": null
+}

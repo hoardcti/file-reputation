@@ -1,0 +1,193 @@
+{
+  "hashes": {
+    "sha256": "4933174f1140b15dc7789e0dc207830465d450c586e48ab6a931131eb2a6c1bf",
+    "sha1": "cf06b1b8a914e845c6622a8fd1b0337b1e251de8",
+    "md5": "52ddc1f5b26ae8e6868fc30f24f1d359",
+    "sha3_384": "c03facfa7d5bf009ecd1b64bef8e7c47eb44e3fe9c0f18b1ce7e16aad4bceeb898a97fca26ca24528b9942f6d14e3a1d",
+    "tlsh": "T14565233261C6B0C7C52E607EA412A6C7E7F1387425D25A6FC7F0AD7F394DA10912AB4E",
+    "imphash": "555aba33e471c8bf2b9fc3922635a660",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:/y8UdXKvqh/TXPv5vn8mgLx00I2su34JddQo1mEK66J:/yrXKyh/TX35vn8S0I2s5n1g",
+    "dhash_icon": "30b2b2f069f0d48a"
+  },
+  "file_metadata": {
+    "names": [
+      "lure-compact-4933174f1140.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1438492,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/94276\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "beenetprotect",
+      "exe",
+      "fake-torrent",
+      "LimeTorrents",
+      "loader"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FakeTorrent_Loader_HashedAPI_Win64",
+        "author": "PeterFellow",
+        "description": "Stage-1 x64 loader from fake TV-episode torrents (LimeTorrents etc., Oct 2026; same campaign as Thereallo's South Park S29E03 analysis, C2 beenetprotect.com). Decoy USER32/GDI32/ole32 imports with no kernel32, a \\SystemRoot\\System32\\ native path, and repeated FNV-1a prime multiplications (the article documents FNV-1a for the footer; its role in API resolution is unverified). Per that analysis the overlay carries a ChaCha20-encrypted stealer and a 64-byte footer, behind roughly 0.9-1 GB of padding.",
+        "reference": "https://bazaar.abuse.ch/sample/8ce1805f5b1ca8c4ecd4d1731caf37de33c52e686200331f4a0ea4e6b31ff606/"
+      },
+      {
+        "rule_name": "meth_stackstrings",
+        "author": "Willi Ballenthin",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "513820",
+        "date_added": "2026-10-23 17:15:38",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Compact full-chain lure: original loader f64c72efbc83a0854d3ad4138cc2b94d88ea628becf6e950f7c1854cac1358f4 with ~911 MB of junk padding removed (loader image 124,928 B + ChaCha20 payload 1,313,280 B + 220 B pad + 64 B footer). Static decryption of this file yields the identical stage 2 8dde632a363c563929045e50d400ba03331b250b74ca04474259478eea389667. Delivered via LimeTorrents as 'VisionQuest S01E05 Firewall 1080p WEB H264-FLUX 7z' and 'South Park S29E04 1080p WEB H264-CAKES 7z' (same 875 MB archive, sha256 eb9d7b0b9c474428f82a100d330d1fc01f6902ed6c90d20e707ad5769e48f751), containing 'Abbott Elementary S06E04 Halloween Party 1080p WEB H264-FLUX.exe' (912,764,314 B, sha256 f64c72efbc83a0854d3ad4138cc2b94d88ea628becf6e950f7c1854cac1358f4). Format per https://thereallo.dev/blog/someone-on-torrent-sites-kept-fucking-with-my-sonarr-setup"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-10-23 17:23:53",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8a021b47-1a04-4b37-b8ed-4c5930e6e848",
+          "tags": [
+            "evasion"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/94276\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4933174f1140b15dc7789e0dc207830465d450c586e48ab6a931131eb2a6c1bf\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adb965ed8845f0625acfeb4\/reports\/0e134838-4352-4b5b-8421-d81d70c90c77\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/705fc89a-7a34-4a40-9687-9dc9c6cb88f4?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-23 17:16:24",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261023-vs8wsafs6q\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "4933174f1140b15dc7789e0dc207830465d450c586e48ab6a931131eb2a6c1bf",
+          "md5_hash": "52ddc1f5b26ae8e6868fc30f24f1d359",
+          "sha1_hash": "cf06b1b8a914e845c6622a8fd1b0337b1e251de8",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/00111381-f0f4-448b-a4d7-973d39362c6e\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "PeterFellow",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-23T17:15:27Z",
+  "last_seen": null
+}
