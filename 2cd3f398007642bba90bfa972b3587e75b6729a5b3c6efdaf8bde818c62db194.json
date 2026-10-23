@@ -1,0 +1,167 @@
+{
+  "hashes": {
+    "sha256": "2cd3f398007642bba90bfa972b3587e75b6729a5b3c6efdaf8bde818c62db194",
+    "sha1": "0b3b249bb8b0c35943cdc776e20f25bd3743fa20",
+    "md5": "2d8527e9ec16a153f10c4f8e32ef4866",
+    "sha3_384": "25dd1a9c414969a789a0a12728fc55af0193c73482cc3b599d1331fe506cece6915e783582ee2eec037bdcab9dde670f",
+    "tlsh": "T1066533F012A760C3E55C11BDBB77416ACC61B51DBBB1ABBA83A0EE3DB980551379D20C",
+    "imphash": "555aba33e471c8bf2b9fc3922635a660",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:DpVcREkJpSvpMwaCHHISvEJpHHQHLP+TWJDuBvDpp04WY1N0JC/M5YZQ8+Y2:bcNpipMwauHgPe+TqD2F+4WE0JC/MeFY",
+    "dhash_icon": "30b2b2f069f0d48a"
+  },
+  "file_metadata": {
+    "names": [
+      "lure_compact_fullchain.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1442752,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/94213\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "beenetprotect",
+      "exe",
+      "fake-torrent",
+      "LimeTorrents",
+      "loader"
+    ],
+    "comments": [
+      {
+        "id": "513502",
+        "date_added": "2026-10-23 04:10:44",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Full-chain lure with ONLY the ~1.02 GB junk region removed: loader (= 58dffd262bb9b3c815f1017735cfa214fbbb029af8bd4cbba42c3d8db218e582) + ChaCha20 payload + 896-byte pad + 64-byte footer. The loader locates the payload relative to end-of-file, so this should run like the 1 GB original (inference; my static re-decryption of this file yields the identical stage 2 9933977b38adbe73cc852ffca785c4111b7922de7e515801ec8411e9e25708ce). Untested in a sandbox. Fake TV-episode torrent campaign (LimeTorrents; 'MobLand S02E06 A Different Corner 1080p WEB H264-CAKES.7z', also seen as Tulsa King S04E02 and VisionQuest S01E05). Outer ZIP-named-.7z sha256 ad4ab37a14f0e80e8d2d2109d3a980718ddb58583da530ec5311252a5c9514bb holds vlc-3.0.23-win64_crypted.exe (1,023,025,653 bytes, sha256 53c889d81914869958a2662518706e4f4dc47a22f380599c2967ea4b5d39288d). Same campaign as Thereallo's South Park S29E03 analysis (thereallo.dev). Footer layout from that write-up confirmed on this build: fnv1a32(.data[0:32]) = footer[0x3C] = 0xec378ff9, flags 3, payload 1,313,792 bytes, padding 896; layout [loader 128000][~1.02 GB junk][ChaCha20 payload][896 pad][64 B footer]; key = footer[0:32] XOR mask, counter 0. "
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-10-23 04:13:53",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/61b6ae6d-c0ed-4d43-8d99-c9bacc03f63e",
+          "tags": [
+            "evasion"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/94213\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2cd3f398007642bba90bfa972b3587e75b6729a5b3c6efdaf8bde818c62db194\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adade64f747c3e1d1a8872f\/reports\/a8bb3386-f4e6-4a36-a419-6ce0173dacfb\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a8c74342-5ea3-4759-b295-dac4b37eb746?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-23 04:11:19",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261023-er2hbahw21\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "2cd3f398007642bba90bfa972b3587e75b6729a5b3c6efdaf8bde818c62db194",
+          "md5_hash": "2d8527e9ec16a153f10c4f8e32ef4866",
+          "sha1_hash": "0b3b249bb8b0c35943cdc776e20f25bd3743fa20",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/970e28c3-1113-4180-9e0d-45551aa53fbc\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "6",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "PeterFellow",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-23T04:10:38Z",
+  "last_seen": null
+}

@@ -49,6 +49,20 @@
         "twitter_handle": null,
         "display_name": null,
         "comment": "Trimmed sample: these are the first 128,000 bytes (the complete PE image) of a 1,023,025,653-byte original, sha256 53c889d81914869958a2662518706e4f4dc47a22f380599c2967ea4b5d39288d. About 1 GB of random padding (overlay entropy ~7.98) was removed. The padding is there to get past AV and sandbox size limits.\n\nDelivery: fake TV torrent “VisionQuest S01E05 Firewall 1080p WEB H264-EZTV 7z” on LimeTorrents, 2026-10-21. The “.7z” is really a ZIP (sha256 ad4ab37a14f0e80e8d2d2109d3a980718ddb58583da530ec5311252a5c9514bb) containing vlc-3.0.23-win64_crypted.exe. A sibling lure, “VisionQuest S01E03 Reboot 1080p WEB H264-EZTV”, was seen on 2026-10-19.\n\nBehavior (Win11, isolated sandbox with fake internet): within ~40 s of launch it fetched two dead drops:\n\nhttps://www.youtube.com/channel/UC18vFC1xgebddr_7NsvgBYA (@bubblegymes, “bubblegym”). The description holds “Config: [[OA0dDQ0HFBQHJyIHEkkQCAlJLS0JTgwAAB8S]]”, which is base64 + repeating XOR with key “ZhxchsdfhSGdfgsgdfAJsakdaks”, decoding to beenetprotect.com/lgz/gdata\nhttps://gist.githubusercontent.com/jasonterra69/48d9e264c05843f0cdc302143b4400c8/raw (now 404)\nThe dead-drop requests send YouTube consent cookies and a garbled binary User-Agent. It then POSTs “guid=” to https://beenetprotect.com/lgz/gdata, followed by a GET, with UA “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36”.\n\nC2: beenetprotect.com, A record 109.120.179.122 (AS210644 AEZA GROUP, FR), registered 2026-09-14 via Cloudflare (DNS only, not proxied), Let’s Encrypt wildcard cert issued 2026-09-14. No next stage was observed, because the sandbox had no live C2."
+      },
+      {
+        "id": "513487",
+        "date_added": "2026-10-23 03:40:57",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Still being distributed as of 2026-10-22 via LimeTorrents fake TV-episode torrents. Re-caught 2026-10-23 as Tulsa King S04E02 Blind Rooster 1080p WEB H264-FLUX.7z and MobLand S02E06 A Different Corner 1080p WEB H264-CAKES.7z (also VisionQuest S01E05 on 2026-10-21). The .7z is really a ZIP, 993,259,160 bytes, sha256 ad4ab37a14f0e80e8d2d2109d3a980718ddb58583da530ec5311252a5c9514bb, containing vlc-3.0.23-win64_crypted.exe (1,023,025,653 bytes, padded, sha256 53c889d81914869958a2662518706e4f4dc47a22f380599c2967ea4b5d39288d). This sample is that exe trimmed to its PE image. About 15 same-size torrents were posted on LimeTorrents on 2026-10-22 (names like H264 MeGusta 7z, H264 CAKES 7z). C2 https://beenetprotect.com/lgz/gdata (ThreatFox). YARA: FakeTorrent_Loader_HashedAPI_Win64."
+      },
+      {
+        "id": "513493",
+        "date_added": "2026-10-23 03:59:33",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "CORRECTION: this upload is the stage-1 loader only. I trimmed the file to the end of its PE image, assuming the overlay was junk padding. Per Thereallo's analysis of the same campaign (thereallo.dev, South Park S29E03 lure, Oct 2026), the overlay also carries a ChaCha20-encrypted second stage, and the file ends in a 64-byte footer (key^mask, nonce, sizes ^ fnv1a(mask)) that the loader reads from its own file. Both were cut off here, so this sample cannot reach stage 2 on its own, which likely explains the clean sandbox verdicts. Stage 2 is the stealer that uses the YouTube channel UC18vFC1xgebddr_7NsvgBYA and gist jasonterra69 dead drops (XOR key ZhxchsdfhSGdfgsgdfAJsakdaksdk2364236AH; my earlier comments/ThreatFox entry quoted only its first 27 chars) and C2 beenetprotect.com/lgz/gdata. The full original was not kept. Version info (Freeware Developers / prepares application data) matches the article's loader."
       }
     ],
     "vendor_intel": {
@@ -80,6 +94,15 @@
         "verdict": "suspicious",
         "family_name": null,
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/292545d2-ef0a-479a-b8c0-71ae3369ff1d?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "exe x64",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/58dffd262bb9b3c815f1017735cfa214fbbb029af8bd4cbba42c3d8db218e582\/results?tab=lookup",
+        "detections": []
       },
       "ReversingLabs": {
         "threat_name": "Win64.Trojan.AdvML",
