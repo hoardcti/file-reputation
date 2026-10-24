@@ -1,0 +1,257 @@
+{
+  "hashes": {
+    "sha256": "04fb2dd8642878ada1b52131a297187664a36d18d1efdf41597f3d189fc6a508",
+    "sha1": "1333b57986cd5cbd9df9a0dd91b2740550389580",
+    "md5": "bbca9321b2dc05c0054be7cb60255874",
+    "sha3_384": "3d3ff83a1b7b5e7ac50770654988075098b7e0d3f6c7b717e61bc3f4192ba5bf0f623254daeb73cb902e1d9c73e0683b",
+    "tlsh": "T1A8B6232063EDD469F6F71A74FD3C81B8687A7C608966D05F13183A4D2A72DC19AB2373",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:iXtv0AfJZCXtv0A4Xtv0APXtv0A3Xtv0A:8t9Zct6tjtzt"
+  },
+  "file_metadata": {
+    "names": [
+      "04fb2dd8642878ada1b52131a297187664a36d18d1efdf41597f3d189fc6a508.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 10915840,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3981040\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/94321\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ConnectWise",
+    "tags": [
+      "ConnectWise",
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_RMM_ConnectWise_ScreenConnect",
+        "author": "ditekSHen",
+        "description": "Detects ConnectWise Control (formerly ScreenConnect). Review RMM Inventory",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/04fb2dd8642878ada1b52131a297187664a36d18d1efdf41597f3d189fc6a508\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adc5e0f631e8e81f4a4b008\/reports\/10e2ee31-1cf4-4632-885b-52de043d19c5\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "msi",
+        "first_seen": "2026-10-07T05:29:00Z",
+        "last_seen": "2026-10-23T19:32:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/04fb2dd8642878ada1b52131a297187664a36d18d1efdf41597f3d189fc6a508\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.PUA.ConnectWise",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-02 04:19:16",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261024-jasajaxx9q\/",
+        "tags": [
+          "backdoor",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "rat",
+          "revoked_codesign"
+        ],
+        "signatures": [
+          {
+            "signature": "Sets service image path in registry",
+            "score": "8"
+          },
+          {
+            "signature": "Signed with revoked ConnectWise certificate",
+            "score": "8"
+          },
+          {
+            "signature": "ConnectWise ScreenConnect remote access tool",
+            "score": "7"
+          },
+          {
+            "signature": "Event Triggered Execution: Component Object Model Hijacking",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "ScreenConnect Client",
+      "issuer_cn": "ScreenConnect Client Root",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2023-04-01T00:00:00Z",
+      "valid_to": "2038-01-01T00:00:00Z",
+      "serial_number": "00",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-24T07:27:39Z",
+  "last_seen": null
+}

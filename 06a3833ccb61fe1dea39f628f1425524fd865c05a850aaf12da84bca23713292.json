@@ -1,0 +1,92 @@
+{
+  "hashes": {
+    "sha256": "06a3833ccb61fe1dea39f628f1425524fd865c05a850aaf12da84bca23713292",
+    "sha1": "ab769992a5b2e0ebd7f521a2857455468cf37b74",
+    "md5": "2239d5e355985eaed6c6ef7066d5e342",
+    "sha3_384": "f62cf7a9a65245b56e5f9666f97bee6e9746567033aca7859fad000bc73dd4d159a3d19785ad58bf330293ec1f051543",
+    "tlsh": "T1ED95E1414FAA9147C95E11739C8A8F18847430A0CE49CDEA6342A3D6DE3A7D3779B1FB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:r/a+0PGvV6MPV9UFaeOtW+m2dEvptQu+P8A9SKDBekNjx0cs/jS2EC9/8eqiBGx9:ry+0ckwagfmiT"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_06a3833ccb61.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1906512,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3968966\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/06a3833ccb61fe1dea39f628f1425524fd865c05a850aaf12da84bca23713292\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adc414304ef5db552dd4242\/reports\/a8329c3b-6b7d-482f-806a-363f45d9381b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-24T05:24:16Z",
+  "last_seen": null
+}
