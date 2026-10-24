@@ -1,0 +1,465 @@
+{
+  "hashes": {
+    "sha256": "7b37e5fe1acef63557026bbfebfc64cfd2ce6a62ea58911db9c20de8f799d2d4",
+    "sha1": "7b32c0d813a104c42a48fd56612738a364e3ed3d",
+    "md5": "6ae7ca51332b6d0794f59d0c7e0ec3ac",
+    "sha3_384": "ebfe5b3ee4c89a43d64b38cdb4c1c8df9434f050a9375201b96303bcabb617ad737835a23c5ef2d6d35f571b870e4fd5",
+    "tlsh": "T10D75F012B7F9860BE5BF5BB8A87716540737B9039E3AC74E498C909C1EE33418E517A3",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:GpL3MUa57xS2eWBRwRR16zhHIPbcNK0KKm77yviUSQaZaOwI55l2S62r9lsmELvW:GpXa5b7wR2EgKKm77LrwCB6A2L"
+  },
+  "file_metadata": {
+    "names": [
+      "VapeV4.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1625088,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "60.7% (.EXE) Generic CIL Executable (.NET, Mono, etc.) (73123\/4\/13)",
+      "13.7% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "5.4% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "5.4% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.1% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/63f84741-52a7-4e78-9611-ddbe3902968c"
+      },
+      {
+        "context": "dropping_malware",
+        "value": "pulsar"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/94340\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "QuasarRAT",
+    "tags": [
+      "exe",
+      "pulsar",
+      "QuasarRAT",
+      "rat"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Check_Dlls",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Costura_Protobuf",
+        "author": "@bartblaze",
+        "description": "Identifies Costura and Protobuf in .NET assemblies, respectively for storing resources and (de)serialization. Seen together might indicate a suspect binary.",
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerHiding__Thread",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "DotNet_RGB_Embedded_AssemblyLoader_Hunt",
+        "author": "ShadowOpCode",
+        "description": "Hunt .NET bitmap RGB extraction combined with embedded resources and assembly loading",
+        "reference": null
+      },
+      {
+        "rule_name": "hunting_generic_win_rat",
+        "author": "Ajin Deepak, AD2001",
+        "description": "Hunting RATS based on common patterns",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_EXE_Packed_Fody",
+        "author": "ditekSHen",
+        "description": "Detects executables manipulated with Fody",
+        "reference": null
+      },
+      {
+        "rule_name": "Indicator_MiniDumpWriteDump",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects PE files and PowerShell scripts that use MiniDumpWriteDump either through direct imports or string references",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_SandboxHookingDLL",
+        "author": "ditekSHen",
+        "description": "Detects binaries and memory artifacts referencing sandbox DLLs typically observed in sandbox evasion",
+        "reference": null
+      },
+      {
+        "rule_name": "Malware_PE_NET_KoiLoader",
+        "author": "Serhii Kocherhan",
+        "description": "Detects Koi Loader .NET executables packed with Confuser featuring specific mutex, assembly metadata, and unmanaged DLL imports",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_BackNet_Nov18_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects BackNet samples",
+        "reference": "https://github.com/valsov/BackNet"
+      },
+      {
+        "rule_name": "MAL_BackNet_Nov18_1_RID2D6D",
+        "author": "Florian Roth",
+        "description": "Detects BackNet samples",
+        "reference": "https://github.com/valsov/BackNet"
+      },
+      {
+        "rule_name": "MAL_QuasarRAT_May19_1",
+        "author": null,
+        "description": "Detects QuasarRAT malware",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_QuasarRAT_May19_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects QuasarRAT malware",
+        "reference": "https://blog.ensilo.com/uncovering-new-activity-by-apt10"
+      },
+      {
+        "rule_name": "MAL_QuasarRAT_May19_1_RID2E1E",
+        "author": "Florian Roth",
+        "description": "Detects QuasarRAT malware",
+        "reference": "https://blog.ensilo.com/uncovering-new-activity-by-apt10"
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Pulsar_RAT",
+        "author": "@bartblaze",
+        "description": "Identifies Pulsar RAT, based on Quasar RAT.",
+        "reference": "https://malpedia.caad.fkie.fraunhofer.de/details/win.pulsar_rat"
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_SalatStealer_ForgeAuto_542e717b",
+        "author": "Marjoriefort",
+        "description": "Detects SalatStealer (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_ce8c5b46",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_XWorm_ForgeAuto_6b06c990_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects XWorm (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "VapeV4.exe",
+          "date": "2026-10-24 10:39:22",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/63f84741-52a7-4e78-9611-ddbe3902968c",
+          "tags": [
+            "pulsar",
+            "rat"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/94340\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7b37e5fe1acef63557026bbfebfc64cfd2ce6a62ea58911db9c20de8f799d2d4\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adc8b4a1ce2b4a34ea963b7\/reports\/6cb1b983-3bd7-4856-b26e-73386a353175\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Quasar RAT",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/e2ca4f87-33ca-4eaf-838e-3478d7c43967?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Hacktool.Aikaantivm",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-24 10:41:42",
+        "scanner_count": "36",
+        "scanner_match": "29",
+        "scanner_percent": "80.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "quasar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261024-mq7lyayv8l\/",
+        "tags": [
+          "family:quasar",
+          "botnet:office04",
+          "discovery",
+          "execution",
+          "persistence",
+          "spyware",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Quasar RAT",
+            "score": "10"
+          },
+          {
+            "signature": "Quasar payload",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "quasar",
+            "c2": "hexwallahiwwwwPP-43334.portmap.host:43334"
+          },
+          {
+            "extraction": "c2",
+            "family": "quasar",
+            "c2": "OklaaOmaa-35159.portmap.host:35159"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "7b37e5fe1acef63557026bbfebfc64cfd2ce6a62ea58911db9c20de8f799d2d4",
+          "md5_hash": "6ae7ca51332b6d0794f59d0c7e0ec3ac",
+          "sha1_hash": "7b32c0d813a104c42a48fd56612738a364e3ed3d",
+          "detections": [
+            "QuasarRAT",
+            "cn_utf8_windows_terminal",
+            "INDICATOR_EXE_Packed_Fody",
+            "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+            "INDICATOR_SUSPICIOUS_EXE_SandboxHookingDLL",
+            "MAL_BackNet_Nov18_1",
+            "MAL_QuasarRAT_May19_1",
+            "malware_windows_xrat_quasarrat"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/89d54c7b-da6b-4665-a52a-336a83b0caa4\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Setting a keyboard event handler"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-24T10:40:47Z",
+  "last_seen": null
+}

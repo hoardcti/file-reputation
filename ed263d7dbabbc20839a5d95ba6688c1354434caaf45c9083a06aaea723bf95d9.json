@@ -1,0 +1,177 @@
+{
+  "hashes": {
+    "sha256": "ed263d7dbabbc20839a5d95ba6688c1354434caaf45c9083a06aaea723bf95d9",
+    "sha1": "2fe013334825c010dc54d5df008f1f377c07445d",
+    "md5": "906aa49539cc6a374fb89ca86afdb635",
+    "sha3_384": "37041faaa98ed4a737989789e7c5dd7d56ef544499f88f287aaae248636ec00eed4dbd711f39ddde591cb4fe7c271aff",
+    "tlsh": "T11EB423503E3F2BDB4C646384C4FB0E5D2E98CC462588AA42716CE0537B6F5A68D93D3B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:hhLF/cG0CnB3/spOqsdQdceRe9p1E08AqS:zLF/Iaw/5e9sG"
+  },
+  "file_metadata": {
+    "names": [
+      "ed263d7dbabbc20839a5d95ba6688c1354434caaf45c9083a06aaea723bf95d9.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 498181,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3892418\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "TonRAT",
+    "tags": [
+      "ps1",
+      "TonRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/ed263d7dbabbc20839a5d95ba6688c1354434caaf45c9083a06aaea723bf95d9\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adc70d90d6c2a652d4cd010\/reports\/cf863879-c9b6-45ed-ab8f-6be6ee9c821a\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "2026-10-24T05:25:00Z",
+        "last_seen": "2026-10-24T05:44:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/ed263d7dbabbc20839a5d95ba6688c1354434caaf45c9083a06aaea723bf95d9\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261024-kqm67ax13m\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Queries registry keys for unique system GUIDs",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/nodejs.org\/dist\/v26.4.0\/node-v26.4.0-win-x64.zip"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-24T08:48:17Z",
+  "last_seen": null
+}
