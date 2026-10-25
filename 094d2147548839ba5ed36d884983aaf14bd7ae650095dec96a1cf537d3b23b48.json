@@ -35,6 +35,7 @@
       "elf",
       "golang",
       "honeypot",
+      "partial",
       "XMRig"
     ],
     "yara_rules": [
@@ -187,6 +188,15 @@
         "author": "nex",
         "description": "Possibly employs anti-virtualization techniques",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "514952",
+        "date_added": "2026-10-25 00:08:19",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Capture completeness correction from static review, 2026-10-24. This record contains 5,505,024 bytes, while its ELF header declares a section table ending at file offset 30,304,472, beyond EOF. It is a truncated capture, not a complete ELF image. SHA-256 8b19f9f4ebe05047321d306bc3e5485b38fadd28b9dc5a78a522f2c80db7d17c is an exact byte-for-byte match for this file's first 425,984 bytes, verified by hashing the slice. This establishes a shared captured prefix; it does not prove the missing bytes or the complete original file hash. The archive label go-miner-xmrig-nbminer should not be treated as independently verified behavior for this incomplete image. The separately reviewed older xinetd sample b9e643a8e78d2ce745fbe73eb505c8a0cc49842803077809b2267817979d10b0 differs in bytes and is not claimed to be the complete original of this fragment. Retain as provenance/telemetry; avoid counting these two prefixes as independent complete variants. No execution."
       }
     ],
     "vendor_intel": {

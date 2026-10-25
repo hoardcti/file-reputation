@@ -32,6 +32,7 @@
     "signature": null,
     "tags": [
       "ADB",
+      "capture-artifact",
       "CoinMiner",
       "elf",
       "honeypot",
@@ -67,6 +68,15 @@
         "author": "Tim Brown @timb_machine",
         "description": "Hunts for UNIX red flags",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "514954",
+        "date_added": "2026-10-25 00:08:23",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Capture-artifact correction from static review, 2026-10-24. This 239,396-byte ADBHoney raw capture contains the extra 8-byte sequence 44 41 54 41 00 00 01 00 (ASCII DATA followed by a little-endian 65,536 length) at decimal offset 131,072 (0x20000). Removing exactly those 8 bytes in memory yields a byte-for-byte match for the pre-existing 239,388-byte ELF SHA-256 76ae6d577ba96b1c3a1de8b21c32a9faf6040f7e78d98269e0469d896c29dc64. This explains the shifted/corrupted section table in the raw capture and is consistent with retained ADB sync framing; the insertion cause was not observed directly. No repaired executable was written or run. The canonical ELF contains com.ufo.miner/com.example.test.MainActivity, /data/local/tmp/trinity, DEADBODYDEADBODY and ADB TCP/5555 install/push/start/cleanup command templates. Preserve this raw hash for capture provenance and use the canonical hash for payload deduplication. Do not count this framed copy as a newly distinct malware payload."
       }
     ],
     "vendor_intel": {
