@@ -1,0 +1,354 @@
+{
+  "hashes": {
+    "sha256": "0661676bd008f89ff77f3f59feba369208b20a3e48a845dd211699c07c346d2f",
+    "sha1": "b1356285f350beb680eabea8778976040390f336",
+    "md5": "37ffa3c3d3d6409ae7ae1d1daa639025",
+    "sha3_384": "b54978fd9d101fec8016ff191beb5889edfb0eaa4d6eaeae077e8d3b3c5e360e704c284b448a1b00733ab374bbc81c7e",
+    "tlsh": "T1D934AD53B2529DC2D50C83F86E9787E62F21AF15DA56AFCB2150BF4EFB702834C16225",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:6xEtjPOtioVjDGUU1qfDlavx+W2QnALrQsHBGilkW8a+TJJp/vC7zoVmzV4ZeTYV:QkskWOlCAImZYMt"
+  },
+  "file_metadata": {
+    "names": [
+      "Pago.Transferencia.xls"
+    ],
+    "mime_type": "application/vnd.ms-excel",
+    "type": "xls",
+    "size": 251904,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xls",
+    "trid": [
+      "34.9% (.XLS) Microsoft Excel sheet (32500\/1\/3)",
+      "30.1% (.XLS) Microsoft Excel sheet (alternate) (28000\/1\/3)",
+      "26.3% (.XLS) Microsoft Excel sheet (alternate) (24500\/1\/2)",
+      "8.6% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/94430\/"
+      }
+    ],
+    "ole_information": {
+      "oleid": {
+        "ole_format": null,
+        "file_format": "MS Excel 97-2003",
+        "container_format": "OLE",
+        "has_summaryinfo_stream": null,
+        "application_name": "Microsoft Excel",
+        "author": "Adom",
+        "encrypted": true,
+        "word": null,
+        "vba_macros": true,
+        "xlm_macros": true,
+        "excel": null,
+        "powerpoint": null,
+        "visio": null,
+        "objectpool": null,
+        "flash_objects": null,
+        "external_relationships": 0,
+        "maldoc_score": 30
+      },
+      "olevba": [
+        {
+          "type": "AutoExec",
+          "keyword": "Workbook_Open",
+          "description": "Runs when the Excel Workbook is opened"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Open",
+          "description": "May open a file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Write",
+          "description": "May write to a file (if combined with Open)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "adodb.stream",
+          "description": "May create a text file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "SaveToFile",
+          "description": "May create a text file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Shell",
+          "description": "May run an executable file or a systemcommand"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "WScript.Shell",
+          "description": "May run an executable file or a systemcommand"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "CreateObject",
+          "description": "May create an OLE object"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Shell.Application",
+          "description": "May run an application (if combined withCreateObject)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "microsoft.xmlhttp",
+          "description": "May download files from the Internet"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Chr",
+          "description": "May attempt to obfuscate specific strings(use option --deobf to deobfuscate)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Xor",
+          "description": "May attempt to obfuscate specific strings(use option --deobf to deobfuscate)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Hex Strings",
+          "description": "Hex-encoded strings were detected, may beused to obfuscate strings (option --decode tosee all)code and P-code are different, this may havebeen used to hide malicious code"
+        }
+      ]
+    }
+  },
+  "intelligence": {
+    "signature": "AveMariaRAT",
+    "tags": [
+      "AveMariaRAT",
+      "xls"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "informational_win_ole_protected",
+        "author": "Jeff White (karttoon@gmail.com) @noottrak",
+        "description": "Identify OLE Project protection within documents.",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_57b77e4a_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_e38c53ae_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_PythonStealer_ForgeAuto_b24cb5bd",
+        "author": "Marjoriefort",
+        "description": "Detects PythonStealer (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_5001c94c",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "xls",
+          "date": "2026-10-25 10:56:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/a23b1c61-5eec-4cab-a723-2079510fc06d",
+          "tags": [
+            "macros",
+            "macros-on-open",
+            "loader",
+            "auto-reg",
+            "warzone",
+            "confuser"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/94430\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0661676bd008f89ff77f3f59feba369208b20a3e48a845dd211699c07c346d2f\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "Legacy Excel File with Macro",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adddf27f7ac7cdbe3a87447\/reports\/19ce9cdd-2872-4af4-9f8b-c05a5c1dca3f\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "xls",
+        "first_seen": "2026-10-25T06:31:00Z",
+        "last_seen": "2026-10-25T07:25:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/0661676bd008f89ff77f3f59feba369208b20a3e48a845dd211699c07c346d2f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Document-Office.Trojan.Sonbokli",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-25 10:51:26",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261025-m8q2xavy3l\/",
+        "tags": [
+          "macro",
+          "macro_on_action"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "50",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source by exploiting the app vulnerability"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T10:50:58Z",
+  "last_seen": null
+}
