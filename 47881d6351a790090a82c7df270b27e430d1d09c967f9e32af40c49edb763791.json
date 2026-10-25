@@ -26,12 +26,22 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
+      "CoinMiner",
       "dota3",
       "gz",
       "honeypot",
       "outlaw"
+    ],
+    "comments": [
+      {
+        "id": "515075",
+        "date_added": "2026-10-25 05:29:24",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static archive and payload decoding, 2026-10-25 UTC. SHA-256 verified; 4,468,167-byte gzip/tar community sample. The archive has 24 entries (20 regular files and four directories). No member path was extracted to the host filesystem. Member .rsync/b/run (SHA-256 9c1a0d7983d58ada34d17bf1413946cee98fbf1ce67ea2f60d8b237e1f9f3cb9) contains three base64-encoded Perl IRC bots: ea38705428b80ac1970ce163e9b288f648da9d5766d74117374a61799f07581c (27,803 bytes), bc111a15b6036a8a9e78a466b27abbb0a20d24cae4ed5948f3b947e43632de79 (27,806 bytes), and c0af7d5ebcdc0f03886c4286fcb2c0409c4a30f706529f9b3d1aeb2f4274a146 (27,806 bytes). Their server literals are 0xB32B8B53, 179.43.139.83 and 185.196.8.171; the hexadecimal literal is the same IPv4 address as the second bot, so these represent two unique endpoints, 179.43.139.83:443 and 185.196.8.171:443. Decoded line 224 passes the configured server and port to conectar; line 204 creates IO::Socket::INET with Proto tcp and subsequent code emits IRC USER/NICK messages. Port 443 here is plain IRC over TCP, not evidence of TLS. Decoded scripts include shell-command and network-attack handlers. Other package scripts launch kswapd00, replace cron entries, interfere with competing processes and modify SSH authorized_keys; key material is omitted. Miner and scanner components are contextual package members, not automatically separate malware submissions. The first endpoint already exists in ThreatFox as PerlBot/ShellBot IOC 1815637 and was not resubmitted. Archive first_seen is 2026-10-25 03:51:08 UTC; this supports a recent sample observation, not a verified current bot session. No script, Perl payload, ELF, scanner or C2 connection was executed."
+      }
     ],
     "vendor_intel": {
       "CERT-PL_MWDB": {
@@ -67,6 +77,86 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": "xmrig_linux",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-gr5wvayvcz\/",
+        "tags": [
+          "family:xmrig",
+          "family:xmrig_linux",
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "linux",
+          "miner",
+          "persistence",
+          "rootkit",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads a kernel module",
+            "score": "7"
+          },
+          {
+            "signature": "Checks hardware identifiers (DMI)",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads hardware information",
+            "score": "6"
+          },
+          {
+            "signature": "Removes the immutable protection flag from a file",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
       "YOROI_YOMI": {
         "detection": "Legit File",
         "score": "0.05"

@@ -25,7 +25,20 @@
       "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
       "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
     ],
-    "file_information": null,
+    "file_information": [
+      {
+        "context": "dropping_md5",
+        "value": "0ea315ca152bece348c0ead68f766dc3"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "1c16b8d89542e11371cae61830489b86aab13ad82a872ee7c892cf2333078a6d"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4004126\/"
+      }
+    ],
     "ole_information": []
   },
   "intelligence": {
@@ -55,6 +68,15 @@
         "author": "evilcel3ri",
         "description": "Detects a suspicious behaviour in an bash installation script",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515135",
+        "date_added": "2026-10-25 08:46:58",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static loader and delivery verification, 2026-10-25 UTC. SHA-256 verified; 4,938-byte Bash downloader with eleven architecture-labelled blocks. It attempts downloads through wget/curl and BusyBox alternatives, permission changes and execution. The x86_64 block contains an initial URL with an empty port; that malformed literal is not evidence of a separate server. A subsequent correctly formed HTTP delivery URL uses 176.65.139.51:6674 and path /donkeypussy/deathstarx86_64. A bounded read-only GET at 08:44:52 UTC returned HTTP 200, 54,352 bytes and SHA-256 44aaf7dc43cf054f82c676257ad7941fdddeb115b687804164ec673e9f098ad4. Despite its x86_64 filename, the returned file is ELF32, little-endian Intel 80386. Its XOR-0x26 encoded NUL-terminated domain at file offset 47692 decodes to devs.homelabnode.qzz.io, correlating with earlier architecture samples. This establishes one payload relationship; the other named targets were not downloaded or independently family-verified in this review. The script and payload were never executed; no C2 connection was made. URLhaus submission returned already_queued, which is not proof of acceptance, publication or reporter credit."
       }
     ],
     "vendor_intel": {

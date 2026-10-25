@@ -151,6 +151,15 @@
         "reference": null
       }
     ],
+    "comments": [
+      {
+        "id": "515146",
+        "date_added": "2026-10-25 09:21:45",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static embedded-image findings, 2026-10-25 UTC. Verified SHA-256 and 2,242,048-byte original PE. Bounded static decoding finds two embedded PE structures: XOR 0x85 at file offset 1,578,562, with declared raw sections ending 25,600 bytes into that decoded region; and XOR 0xC4 at offset 1,397,115, with declared raw sections ending at 160,256 bytes. Both candidates have consistent DOS e_lfanew/PE signatures, bounded section tables and all declared raw section extents available inside the original file. Hashes of those exact section-bounded decoded regions are 37b3428b9cc767bca5fa36d7e2825fc43e6c4bdfa14b43e3c60dd0e66fd01e5a and 6d12639d9b06023d7ed5c180a0ed87b4b334d22bc56ff381b0e0dac82339b31f, respectively. These are analysis-region hashes, not assertions of complete standalone files: overlays, additional wrapping, runtime loading behavior and component roles remain unresolved. No reconstructed component was uploaded or executed. Initial inspection did not recover a supported network configuration; no family or live C2 claim is made solely from the outer filename, signatures or XOR constants."
+      }
+    ],
     "vendor_intel": {
       "ANY.RUN": [
         {

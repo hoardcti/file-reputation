@@ -29,8 +29,9 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
+      "CoinMiner",
       "elf",
       "wraith"
     ],
@@ -88,6 +89,22 @@
         "author": "RandomMalware",
         "description": null,
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515076",
+        "date_added": "2026-10-25 05:29:25",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Structural review and submission hold, 2026-10-25 UTC. SHA-256 verified; the file is exactly 3,145,728 bytes. Its ELF64 section table starts at 3,372,256 and ends at 3,373,344, beyond captured EOF. Both PT_LOAD segments also require absent bytes: first segment ends at 3,325,013; second begins at 3,326,464 and ends at 3,372,080. This is not merely a stripped section table: executable/loadable content is missing. Strings contain XMRig-related markers and public IP-discovery services, but those do not independently prove malware-family attribution or malicious infrastructure. No full exact-prefix parent was found in the reviewed local archive. Preserve this hash as incomplete capture evidence and hold it from automatic re-upload; do not silently reconstruct it or count it as a verified working Wraith variant. No repaired executable, execution, unpacker emulation or endpoint contact."
+      },
+      {
+        "id": "515128",
+        "date_added": "2026-10-25 08:30:11",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Follow-up to the earlier structural review: a complete original is now present in a subsequent local Cowrie archive. Full SHA-256 a151d3f4f2422531f30a843ffb35479596c86722bb103bdf8591105687f9b125 is 3,373,344 bytes; its first 3,145,728 bytes reproduce this record SHA-256 and match every byte of the preserved partial file. This resolves the earlier missing-full-parent limitation. The same full file also reproduces the first-2,129,920-byte record 5efc93a8488495931f5b0eda5413a23077808fdcc676903055901be64ff22024. The original section-table and load-segment truncation findings for this hash remain valid; locating the complete parent does not make this partial file executable or a separate working variant. The complete parent was already indexed as CoinMiner in September; retain its historical dates. No repaired executable or new file upload, execution or endpoint contact."
       }
     ],
     "vendor_intel": {

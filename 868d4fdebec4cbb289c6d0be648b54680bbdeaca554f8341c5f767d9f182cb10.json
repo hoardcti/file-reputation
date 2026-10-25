@@ -1,0 +1,163 @@
+{
+  "hashes": {
+    "sha256": "868d4fdebec4cbb289c6d0be648b54680bbdeaca554f8341c5f767d9f182cb10",
+    "sha1": "0b7e49971f17207605ec271f3cb389a038c8ef25",
+    "md5": "88d6c6c4b178bbdd986866e3d797aa57",
+    "sha3_384": "90beff12013c5c2616fd69ee4077eadbab19e7f6a09be5f36520c6a5d78bea36de487a9e1b908da75039070a5a4ff26e",
+    "tlsh": "T17B72587721F04F339AD014C4B2771B654FB29A1B45A720B8F4FE2A355F59A03B4EBA21",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:cCuG6p4hvZ5m5FG4j4HKNphvF88ifHDaKYfgZYy2:Cp4hvZ5m5FGGoKNphvF88ifjaKRGy2"
+  },
+  "file_metadata": {
+    "names": [
+      "868d4fdebec4cbb289c6d0be648b54680bbdeaca554f8341c5f767d9f182cb10.sh"
+    ],
+    "mime_type": "text/plain",
+    "type": "sh",
+    "size": 17337,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xml",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3783282\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "1080c288c309a0009290d1fa8b8d2aeb"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "8ddd9b0a5b42f7d6fd1a9a3d6157ba0a6476c06030d75dc5988d4cb127c74709"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Hunt_DVR_Exploit_CommandInjection",
+        "author": "Serhii Kocherhan",
+        "description": "Detects common shell command injection signatures and payloads associated with DVR/NVR exploitation",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_3aae92fe",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Sample_Unique_1a75fef9",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "1a75fef91a93f610bd25b0587def046962456499845d188d0207976dd732492f.sh"
+      }
+    ],
+    "comments": [
+      {
+        "id": "515134",
+        "date_added": "2026-10-25 08:46:57",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static format correction, 2026-10-25 UTC. Verified SHA-256 and size 17,337 bytes. Despite the upstream sh type, this is a 378-line XML Account configuration containing command-substitution injection in Password fields, including downloader/chmod/execution chains and percent-encoded command variants. It is not a standalone Bash program. Preserve its exploit/configuration-artifact role rather than assuming that running it with sh reproduces infection. Literal downloader addresses are leads, not proof of active delivery. Three previously unlisted leads checked during this review failed to provide a payload (connection failure or timeout); other extracted addresses already have historical URLhaus entries. Percent-encoded shell arguments are not part of a verified download URL. No XML or shell content was executed, no device was attacked, and no credentials or raw configuration are published. File-upload review hold retained for the format/context distinction."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/868d4fdebec4cbb289c6d0be648b54680bbdeaca554f8341c5f767d9f182cb10\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6addb1e65ab8b10f0d24d6be\/reports\/6a8ef431-d786-4723-9ffd-f4f95e1951ff\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261025-jghdxage79\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T07:37:51Z",
+  "last_seen": null
+}

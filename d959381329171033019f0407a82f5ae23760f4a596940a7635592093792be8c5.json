@@ -25,7 +25,12 @@
       "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
       "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
     ],
-    "file_information": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3994340\/"
+      }
+    ],
     "ole_information": []
   },
   "intelligence": {
@@ -67,6 +72,15 @@
         "author": "Tim Brown @timb_machine",
         "description": "Hunts for UNIX red flags",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515086",
+        "date_added": "2026-10-25 06:29:12",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static configuration and layout check, 2026-10-25 UTC. Verified SHA-256 of complete 60,880-byte ARM ELF. The byte sequence at file offset 0xd884 XOR 0x26 recovers devs.homelabnode.qzz.io. This matches the domain decoded earlier from SPARC d332dc8d033bf9687075a977ec3120bee7fcc4586592cc986fd432bb5525f7bc and related ARM/SH builds; the domain is now published in ThreatFox under Dense as IOC 1984265, so it was not resubmitted. This file has a complete section table ending exactly at EOF and no allocated-section/PT_LOAD offset mismatch. Do not inherit the four-byte layout anomaly of the previously reviewed 1f7152... ARM sibling. TCP port was not independently recovered for this build in this bounded review; a sibling port is not asserted as direct evidence from this hash. Watchdog paths and Mirai-lineage attack code are static capability evidence only. No execution, reconstruction or C2 connection."
       }
     ],
     "vendor_intel": {

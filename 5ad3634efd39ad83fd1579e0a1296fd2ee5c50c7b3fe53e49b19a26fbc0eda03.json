@@ -1,0 +1,281 @@
+{
+  "hashes": {
+    "sha256": "5ad3634efd39ad83fd1579e0a1296fd2ee5c50c7b3fe53e49b19a26fbc0eda03",
+    "sha1": "46c559d4c6995d1698f3bc20b563e9385b85acf3",
+    "md5": "556323fb264b891d8a3c8b471ded7517",
+    "sha3_384": "3fa50f66fc927aaa8d1091e666c116089d6387dc838ec1e1f55ccb372a77dff126df64e1f9f2bb46310b8d9ffdffb999",
+    "tlsh": "T1A05633E7201568F268873E584918B8C0AD0239135E56F5736C86DEDA9DB7CCFC2A374B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:Jn6oBhlS3MpkbQyFSQdRk+ExQj9YOKLuntqi7NmGnKqVEE/QhVnozkW2kwS2bwBd:Jn6Gl9pk1U2k+ExQ2sAyqU5RwXHvDAmw"
+  },
+  "file_metadata": {
+    "names": [
+      "footerd.png"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 6089696,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3969203\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "757a32fe5659605c8a1c2843737a2e5efbf18a6724771175e7b184ae008d38ea"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "1ea1b1c68173ed5841805ab722c486ae"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "elf",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "BLOWFISH_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for Blowfish constants",
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "GoBinTest",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "golang_binary_string",
+        "author": null,
+        "description": "Golang strings present",
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Golang",
+        "author": "albertzsigovits",
+        "description": "Application written in Golang programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515079",
+        "date_added": "2026-10-25 05:58:45",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static packing and embedded-resource reconciliation, 2026-10-25 UTC. The two community footerd.png records are ELF files, despite the reported PNG filename. Isolated UPX decompression of packed SHA-256 5ad3634efd39ad83fd1579e0a1296fd2ee5c50c7b3fe53e49b19a26fbc0eda03 (6,089,696 bytes) reproduces unpacked SHA-256 757a32fe5659605c8a1c2843737a2e5efbf18a6724771175e7b184ae008d38ea (9,262,528 bytes) exactly. These are two representations of the same outer payload, not evidence of independent code variants. No sample or packer stub was executed; the trusted UPX decompressor wrote only non-executable temporary files inside a network-isolated inspection sandbox. The unpacked outer file is a Go ELF with obscured names and nonstandard Go metadata magic; partial name recovery alone is not a full deobfuscation. At file offset 0x3d62e0 it contains a 3,460,400-byte UPX-packed ELF resource, SHA-256 e15d2363b9e4552250f230c62188cb299ff2570c9ba9589fbc3e190df84768ba. Its address/length descriptor is at file offset 0x76f4a8. Independently decompressing that resource gives SHA-256 4230d003e25b12be26130c9d941ef0b809dc7da2a25ecbf8d15a0c369730ebd0 (8,745,240 bytes), containing XMRig 6.25.0 version/usage markers. This establishes embedded miner identity, not the outer launch path, mining account, authorization of use or a specific malware family. XMRig and its built-in example pool are dual-use/shared resources, not automatically malicious IOCs. The outer configuration and launch path remain unresolved, so both representations are held from automatic file uploads. URLhaus already associates the packed hash with delivery record 3969203; no duplicate URL submission was made. No network endpoint, miner, outer binary or child resource was executed."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5ad3634efd39ad83fd1579e0a1296fd2ee5c50c7b3fe53e49b19a26fbc0eda03\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add95c513607cf52b131c0c\/reports\/df8980a8-dfd3-4360-8115-af34b18e7703\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0db679cf-2894-48be-ad3c-493075d468ba?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xmrig",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-gbt5eaytfw\/",
+        "tags": [
+          "family:xmrig",
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Checks hardware identifiers (DMI)",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads hardware information",
+            "score": "6"
+          },
+          {
+            "signature": "Removes the immutable protection flag from a file",
+            "score": "6"
+          },
+          {
+            "signature": "Security Software Discovery",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "4"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.95"
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "38",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changes the time when the file was created, accessed, or modified"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creates directories"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T05:37:45Z",
+  "last_seen": null
+}
