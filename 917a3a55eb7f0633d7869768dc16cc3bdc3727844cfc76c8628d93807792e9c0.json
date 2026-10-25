@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    "sha256": "917a3a55eb7f0633d7869768dc16cc3bdc3727844cfc76c8628d93807792e9c0",
+    "sha1": "cab1c3818f7ba233c193796f846e554ab73fe824",
+    "md5": "d66f34d27c29e72bcb93467f9fea2806",
+    "sha3_384": "a92b184411b312cebbb94e3557dfe61a98c9a76976ebda16401bced15c020cd9f13c8bf21bd4a273f4d51abbed7b5d0a",
+    "tlsh": "T188D47E707E021EFF5BB860C248C6C11C563872B4D9682DF56ACB4CA3291D77A27B79B1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:4mrx1y1BmWalWGZsy4hrRH+sT8vgFPZcxTdOefi8CTelL9a63ZoOlhI84yd+DooU:XxLGRhrBgvgF6xDSqt9doOl34o9l"
+  },
+  "file_metadata": {
+    "names": [
+      "917a3a55eb7f0633.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 633661,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_PWSH_B64Encoded_Concatenated_FileEXEC",
+        "author": "ditekSHen",
+        "description": "Detects PowerShell scripts containing patterns of base64 encoded files, concatenation and execution",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "SUSP_Scheduled_Tasks_Create_From_Susp_Dir",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects a PowerShell Script that creates a Scheduled Task that runs from an suspicious directory",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/917a3a55eb7f0633d7869768dc16cc3bdc3727844cfc76c8628d93807792e9c0\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add520c6716e5375024c39c\/reports\/688f05e4-21d1-46a2-80f1-b6366f56a74d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-25 00:49:21",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261025-a6gdgads6z\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T00:48:40Z",
+  "last_seen": null
+}

@@ -1,0 +1,124 @@
+{
+  "hashes": {
+    "sha256": "d332dc8d033bf9687075a977ec3120bee7fcc4586592cc986fd432bb5525f7bc",
+    "sha1": "8c7e27d9b5dffe64356031f664f28defdb4433dd",
+    "md5": "ce52d196138087d618e8745f9e87dab5",
+    "sha3_384": "b293392346ae8e663507fca736ea61f0d7091558d967d0b4f2c3b2b2939dd9d38ee8d0850b717b1736d16492dc2de5c7",
+    "tlsh": "T1D8635B22AA761D27C4E4A97A31F34324B2F2475E25F8CA1D7D710E4EEF65B4022472F9",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:m7PJ6CDtSrG/pX/zZeDd2f3/uU75Ntb7J:mJ8WPV24uUVH7J"
+  },
+  "file_metadata": {
+    "names": [
+      "d332dc8d033bf9687075a977ec3120bee7fcc4586592cc986fd432bb5525f7bc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 66880,
+    "format": "ELF",
+    "arch": "SPARC",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "cowrie",
+      "elf",
+      "honeypot",
+      "Mirai",
+      "sparc"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515041",
+        "date_added": "2026-10-25 02:58:25",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static analysis of a fresh MalwareBazaar SPARC sample, 2026-10-24 America/New_York (upstream first_seen 2026-10-25 02:24:29 UTC). SHA-256 verified; community download, not a new local honeypot capture. Ciphertext at file offset 0xe7a8 XOR 0x26 decodes to devs.homelabnode.qzz.io plus NUL. The same encrypted domain occurs in related SH sample ee4a9b4b2661ebb022274343293643073f13baf29622e889a484fd295f3b6196 at offset 0xc3d4 and ARM sample 1f715216367cfdb4e397d42e9fa665d783c182eaf2abc4f57310b04dd07ea846 at offset 0x109b8. Cross-architecture static inspection links the decrypted host table to the bot connection path. In this SPARC build, code at 0x15d70 uses sethi 0x1b and or 0xdf to form 0x6cdf, stores it in sockaddr port at 0x15d7c, then branches to the socket connection path at 0x15b58, passing sockaddr length 16 to 0x1aff0. This independently confirms compiled TCP port 27871. Google and Cloudflare DoH both resolved the domain to 176.65.139.51 during review. Treat the derived endpoint as time-specific DNS configuration; no C2 TCP session was attempted. Code/markers are consistent with Mirai-lineage behavior; exact upstream family attribution is not proven. No execution or emulation."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d332dc8d033bf9687075a977ec3120bee7fcc4586592cc986fd432bb5525f7bc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add6891444fa5ac8ba50339\/reports\/bd176665-3450-46e2-bcfe-f3f434b29da5\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4065d451-a267-4d4f-88d4-7ba744e82dd4?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-cwgycsdw4x\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "spydisec",
+    "anonymous": false,
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T02:24:29Z",
+  "last_seen": null
+}

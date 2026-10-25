@@ -1,0 +1,165 @@
+{
+  "hashes": {
+    "sha256": "f7862077e802e8cdb0117b2c9c2e43ceeed7dcde5b3e6dd7935cae71afd44d5a",
+    "sha1": "6e2b08a1a07562a271f4ea24aaab53c4f1d1fc6f",
+    "md5": "d586717424fe6b263e787eb3f0cf2ed9",
+    "sha3_384": "700e1eae4584747fc0628922440121273500af6806db5e33b9eec8c1838aa0836bc2da95318f3ff28afae843e77719e7",
+    "tlsh": "T122125047A2D1CE7FC8E813384467122472BBD47ADFA29713050C65B66E923DC1E6DF8A",
+    "imphash": null,
+    "telfhash": "t159b02b025470414c8ff221380c24cc831202c1a3c9415f608d40f740ca3f08d804cf4d",
+    "gimphash": null,
+    "ssdeep": "96:GjOTpJ4WHbHf5AlTTej6TNJ9VTNddfs2oYJYoBSf7meaamBFBp8hBdZvZ4:G6z4WTcTTfTpV3dfs2So8f2Tr8h3"
+  },
+  "file_metadata": {
+    "names": [
+      "f7862077e802e8cdb0117b2c9c2e43ceeed7dcde5b3e6dd7935cae71afd44d5a.elf"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 9848,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_3fa2df51",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "malware_SNOWLIGHT_ELF",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "SNOWLIGHT",
+        "reference": "https://sect.iij.ad.jp/blog/2025/11/unc5174-windows-snowlight-in-2025/"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515055",
+        "date_added": "2026-10-25 03:57:38",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static code analysis, 2026-10-24 America/New_York. Verified SHA-256; fresh community sample, not a new local honeypot capture. This 9,848-byte x86-64 ELF is an HTTP downloader with a memory-backed execution path. main at 0x4009a0 checks /tmp/log_de.log, resolves the literal 122.51.134.200 at 0x4009ec, and constructs sockaddr with port word 0x941f at 0x4009e5: little-endian bytes 1f 94 mean TCP 8084. connect is called at 0x400a5a. Request formatting at 0x400aa4 produces GET /?a=l64\u0026h=122.51.134.200\u0026t=ws_\u0026p=8084 with matching Host header. The code consumes HTTP headers, invokes syscall 319 (memfd_create) at 0x400b3f, XORs each response-body byte with 0x99 at 0x400b74 and writes the result to the memory file. fexecve at 0x400bf4 uses argv[0] [kworker/0:2]; CWD is set from realpath(argv[0]). This is a compiled download/decode/execute capability, not an observed successful retrieval. No second stage was fetched or executed, and no connection to the embedded server was made. The upstream Mirai label is not independently established for the unavailable second stage."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f7862077e802e8cdb0117b2c9c2e43ceeed7dcde5b3e6dd7935cae71afd44d5a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add774fc495017027956c0e\/reports\/73673ee7-5e40-4bce-9667-66951e27d141\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c6c71ac9-9185-467e-a28b-c272b4aa21ef?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.64.le",
+        "first_seen": "2026-08-28T15:25:00Z",
+        "last_seen": "2026-09-03T17:12:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f7862077e802e8cdb0117b2c9c2e43ceeed7dcde5b3e6dd7935cae71afd44d5a\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Vshell",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-29 00:37:57",
+        "scanner_count": "36",
+        "scanner_match": "24",
+        "scanner_percent": "66.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "snowlight",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-d1ffrsgc66\/",
+        "tags": [
+          "family:snowlight",
+          "actor:unc5174",
+          "apt",
+          "linux",
+          "loader"
+        ],
+        "signatures": [],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "snowlight",
+            "c2": "122.51.134.200"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T03:27:46Z",
+  "last_seen": null
+}

@@ -1,0 +1,121 @@
+{
+  "hashes": {
+    "sha256": "0bdc6590285d46cafdea0cf8f136beeacc120aee708285d2c656a7f615514990",
+    "sha1": "a8e94b5890d0bd825c1dc2c07e218f965a247473",
+    "md5": "a730c8ab36c70abe2d7d71003cc7b8a7",
+    "sha3_384": "353b71385f9e6818ae95376ed7b0afa3ff8dbad9dc37cc74627162cc8d31ae131d682ae37b6a26d66903e99ee5f76ebd",
+    "tlsh": "T12E219AB2F5F169B53B30C898A24691203BDA2BC29B8CD8E2897C5AA13637544E0A0B10",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:w1NL+e/2w2Br+SrNvNSL5lOKMt0TGz5lOKMt0TGP:wTaL6SuOKu0TGGKu0TGP"
+  },
+  "file_metadata": {
+    "names": [
+      "rev.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1173,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "50.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "28.5% (.PL) Perl script (4000\/1\/1)",
+      "21.4% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3878283\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_shellpop_Bash",
+        "author": "Tobias Michalski",
+        "description": "Detects susupicious bash command",
+        "reference": "https://github.com/0x00-0x00/ShellPop"
+      }
+    ],
+    "comments": [
+      {
+        "id": "515070",
+        "date_added": "2026-10-25 04:57:41",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static scope review, 2026-10-25 UTC. SHA-256 verified; complete 1,173-byte Bash script, 27 lines, six command-availability branches and six closing fi statements. An isolated bash -n parse-only check succeeds; no script command was executed. All branches select the same reverse-shell callback, 68.183.68.82:5656, using available shell/network tools and redirected standard streams. The sample references revshells.com, a dual-use generation tool; that site is not itself a malware IOC. URLhaus payload lookup already associates this exact hash with delivery record https://urlhaus.abuse.ch/url/3878283/ (service-reported status online during review). No delivery or callback connection was attempted and no duplicate URL submission was made. The code proves a reverse-shell capability; attribution, authorization of use, and an actual compromised-host session are not established by this script alone. Retained under a review hold rather than assigned an unsupported malware-family label."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0bdc6590285d46cafdea0cf8f136beeacc120aee708285d2c656a7f615514990\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add8836a74cc6029cb388c5\/reports\/a3d8e339-4b0e-4f5a-baa4-31d20a3a8b9d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-BAT.Trojan.ReverseShell",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-25 04:40:24",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261025-fapmvsfw9j\/",
+        "tags": [
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.06"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T04:39:43Z",
+  "last_seen": null
+}

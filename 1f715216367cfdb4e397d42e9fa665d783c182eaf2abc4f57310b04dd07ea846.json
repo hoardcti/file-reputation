@@ -1,0 +1,143 @@
+{
+  "hashes": {
+    "sha256": "1f715216367cfdb4e397d42e9fa665d783c182eaf2abc4f57310b04dd07ea846",
+    "sha1": "e3d07d2b7711b2cd90a7b858a399b7d25db93680",
+    "md5": "3f3b50ea98c724a49e54c9ecfaed85bf",
+    "sha3_384": "a98e80b498e95f8d21142aaa78c675c71f09591ce2049ac3d5c2d051d55be7fbbece00fc6e6be6ae1e4d33994a117ae1",
+    "tlsh": "T13F73F756B8818B12D5D502BAFE1E118E33131B7CE3DEB3129D206B24778B96F0E77916",
+    "imphash": null,
+    "telfhash": "t13501f4498dcc6bccc7f04b09c35db52235c275e5a773006e4d7f2c5e02128c23431825",
+    "gimphash": null,
+    "ssdeep": "1536:5NnpuPjDPshNucOlmMgV2calyac6I9ibFxfVqTn+353Y3:QPjzsHuplm94cabFtVqTn+3tc"
+  },
+  "file_metadata": {
+    "names": [
+      "1f715216367cfdb4e397d42e9fa665d783c182eaf2abc4f57310b04dd07ea846"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 75056,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "arm",
+      "cowrie",
+      "elf",
+      "honeypot",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_c19ca8e5",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_d2dca9e7",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515042",
+        "date_added": "2026-10-25 02:58:27",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static analysis and structural caveat for this fresh community ARM ELF, 2026-10-24 America/New_York. SHA-256 verified; sample never executed. At file offset 0x109b8 the XOR-0x26 string decrypts to devs.homelabnode.qzz.io. Declared section layout contains table_key 0x08f39449, whose four bytes XOR to 0x26; table unlock routine 0xec4c applies those key bytes. Main unlocks entries 0-3, resolves the host table and stores a selected address into sockaddr. At 0xe1cc-0xe1d8, mvn 0x2080 followed by subtract 0x13 yields halfword 0xdf6c: ARM little-endian memory 6c df gives network-order port 27871. Related SPARC sample d332dc8d033bf9687075a977ec3120bee7fcc4586592cc986fd432bb5525f7bc independently constructs port 0x6cdf and has the identical encrypted domain. Important limitation: this ARM file has a four-byte discrepancy between writable-section file offsets and their PT_LOAD-derived offsets. Configuration above is decoded from declared section layout; runtime viability is unverified. Preserve this anomaly rather than silently repairing/reuploading it or treating it as a distinct working bot variant. No repaired executable was written, no execution and no C2 TCP contact."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1f715216367cfdb4e397d42e9fa665d783c182eaf2abc4f57310b04dd07ea846\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add6854946f66b4fffcf8a5\/reports\/a8447923-9c5b-47d7-8008-f3ce7f98d7a1\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6bb701a8-6373-453d-89a0-7df8e5a71c1c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-cvv4lafs4j\/",
+        "tags": [
+          "family:mirai",
+          "botnet"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "spydisec",
+    "anonymous": false,
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T02:24:18Z",
+  "last_seen": null
+}

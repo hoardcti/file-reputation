@@ -1,0 +1,107 @@
+{
+  "hashes": {
+    "sha256": "3fd5cc721a1bc604d1300c9063eea7e63a3c9bef34fd1aae438b539980621017",
+    "sha1": "a7335daa6ffeda8606294889f2cdf1286831f9b6",
+    "md5": "5e7aad5f8722ed7ca7589f535c5d3738",
+    "sha3_384": "8c7f124370725c1b0aa35e522bf012c6e5085f16a58d4eeee05e727b1cbcc3e1070f04015f9ada8dde1dddf8f6533d3e",
+    "tlsh": "T16B41C2BD3AE261B04A57A06D523FCB04743270237C45D155BACC89989F70FB9955AECC",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:b4Y5IdUozuUaCDa3IBJcbj6TeRAk56FbUtw:cY5IdKCD9BJc69Ue"
+  },
+  "file_metadata": {
+    "names": [
+      "3fd5cc721a1bc604.js"
+    ],
+    "mime_type": "application/javascript",
+    "type": "js",
+    "size": 1887,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "js"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_0507f067_Script",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat script)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515056",
+        "date_added": "2026-10-25 03:57:39",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static scope clarification, 2026-10-24 America/New_York. SHA-256 verified; 1,887-byte JavaScript. The first IIFE requests bscSl.ajaxUrl with action/nonce values supplied externally and injects payload.data.script. A separate appended IIFE beginning at file offset 0x3f7 fetches https://mlroweb.com/lom2/api.js; returned text must be at least 4,096 characters before it is executed through a Blob script URL, with indirect eval as a fallback. Fetch rejects HTML responses and falls back to credentialed XMLHttpRequest on failure. The supplied file does not contain that remote response, so this inspection establishes remote-script-loader behavior but does not establish the contents or maliciousness of the absent second stage. Keep the external URL as a research lead, not a confirmed malware-delivery claim from this sample alone. No JavaScript execution or endpoint retrieval was performed."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3fd5cc721a1bc604d1300c9063eea7e63a3c9bef34fd1aae438b539980621017\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add6a6af00e2e21899dabea\/reports\/6088ebd4-c913-4e82-8067-483e652396c7\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261025-c1zc7sdw6z\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T02:32:25Z",
+  "last_seen": null
+}

@@ -1,0 +1,190 @@
+{
+  "hashes": {
+    "sha256": "766aa9a5da63292222ae34b9037d8cd606db3cdedf3167389d40b3dfaf231367",
+    "sha1": "3d385327d9e6523870c44c79fc5cf184483bea68",
+    "md5": "0f4746b57cad85deafb51db330fe14ff",
+    "sha3_384": "ef27023ea4873bca70b54ed93590ecf780fb9e65a97808ac14fdca9bcab1a96cc67e30ca671daab5cea5f6ea413c6180",
+    "tlsh": "T1BB83F715BB904FBBEC6FCD370AA9170134CC591A22A97B3A7934C91CF64F54B06E3968",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:eGCdmM8Sk3OMm9BHLH7Y+qvCeWNa+aZ79NaHE+Z:eGCdmMj9PNa+ainZ"
+  },
+  "file_metadata": {
+    "names": [
+      "766aa9a5da63292222ae34b9037d8cd606db3cdedf3167389d40b3dfaf231367"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 84808,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "cowrie",
+      "elf",
+      "honeypot",
+      "mips",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/766aa9a5da63292222ae34b9037d8cd606db3cdedf3167389d40b3dfaf231367\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6add68574fa5527973ef6d24\/reports\/29e9d150-ea34-4ef4-8543-a3021912733d\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0f8d1ecf-be1e-4968-860a-bc1484049bed?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261025-cvvstsdw3v\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Mounts file systems"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Receives data from a server"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "spydisec",
+    "anonymous": false,
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-25T02:23:50Z",
+  "last_seen": null
+}

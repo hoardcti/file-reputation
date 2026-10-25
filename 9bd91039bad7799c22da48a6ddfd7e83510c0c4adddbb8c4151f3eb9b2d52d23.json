@@ -70,6 +70,15 @@
         "reference": null
       }
     ],
+    "comments": [
+      {
+        "id": "515021",
+        "date_added": "2026-10-25 01:51:21",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static research on a copy downloaded from MalwareBazaar, 2026-10-24; this is community-feed research, not a new honeypot capture. SHA-256 verified. Reconstructed the custom configuration cipher from 0x228d0 and 0x23c40, including its five key-scheduling passes and stateful byte transform. Config entry 2 decrypts to manzzkontolaktolakan.my.id; entry 36 independently yields the standard Base64 alphabet. The resolver path at 0x1f5d0 queries DNS TXT, Base64-decodes the selected record, converts the first uint32 from network order and XORs 0xcafebabe. Google and Cloudflare DoH independently returned S4fJlQ==, giving bytes 4b87c995 and C2 IP 129.121.115.43. The connect path 0x1f6c0 sets port 8001 (0x1f41) and reaches the TCP connect wrapper at 0x1f765. This is time-specific DNS configuration, not proof of a successful bot session. Another decrypted entry is stun.l.google.com, a shared service that must not be marked malicious from this usage alone. ThreatFox submissions for the discovery domain and derived IP:port both returned duplicated, despite earlier exact searches returning no_result. No malware execution, emulation, or C2 TCP contact; only static byte transformations and ordinary DNS queries."
+      }
+    ],
     "vendor_intel": {
       "CERT-PL_MWDB": {
         "detection": null,
