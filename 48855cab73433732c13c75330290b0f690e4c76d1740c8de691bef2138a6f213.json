@@ -1,0 +1,207 @@
+{
+  "hashes": {
+    "sha256": "48855cab73433732c13c75330290b0f690e4c76d1740c8de691bef2138a6f213",
+    "sha1": "7c674c7c8fe892847b0f616af6560453f3f6851a",
+    "md5": "b98a6d046dc70849eb6dffd1708a1ea7",
+    "sha3_384": "28c3ff18253513a862ddfc7ca0f1e138115e911da70426828afae0f15bebff319a2e80ee89ea9265556c028d25b59399",
+    "tlsh": "T13323F1C2EA6799F3E19B1334601BDD27D23EF1594408336F6452CA293D9A343393978E",
+    "imphash": "8ce5f2b787e18371a2be53157f6adf2b",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:H2tYPUri0zgxd93fDka01x3Rdee3Wweooe076PdrsB/ggHpfWm0DNa/ISh9EAP:LPU3gD9H0r3igev77nBrkNA2A"
+  },
+  "file_metadata": {
+    "names": [
+      "b98a6d046dc70849eb6dffd1708a1ea7.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 46592,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95083\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "XWorm",
+    "tags": [
+      "exe",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_XORed_MSDOS_Stub_Message",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed MSDOS stub message",
+        "reference": "https://yara.readthedocs.io/en/latest/writingrules.html#xor-strings"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": "XWorm",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95083\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/48855cab73433732c13c75330290b0f690e4c76d1740c8de691bef2138a6f213\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf216824011212ed75f2a1\/reports\/84de7d5e-7d84-4eec-8a69-2635b6a920cd\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "XWorm",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/ee1b00b4-f38d-4c53-8156-a32777929201?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-05-01T02:47:00Z",
+        "last_seen": "2026-07-30T22:31:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/48855cab73433732c13c75330290b0f690e4c76d1740c8de691bef2138a6f213\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-05-02 00:30:00",
+        "scanner_count": "36",
+        "scanner_match": "15",
+        "scanner_percent": "41.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261026-lrqt5sc17z\/",
+        "tags": [
+          "family:xworm",
+          "defense_evasion",
+          "discovery",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "shroom010.duckdns.org:1602"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "48855cab73433732c13c75330290b0f690e4c76d1740c8de691bef2138a6f213",
+          "md5_hash": "b98a6d046dc70849eb6dffd1708a1ea7",
+          "sha1_hash": "7c674c7c8fe892847b0f616af6560453f3f6851a",
+          "detections": [
+            "SUSP_XORed_MSDOS_Stub_Message"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/66583b14-c97a-4b85-954b-630825968071\/"
+        },
+        {
+          "sha256_hash": "abc9f905695295697e59861eb7e845f5c8ad5241cfa9135e827142540748f450",
+          "md5_hash": "e708c5b76cb1190ae83fedd65e87d5c6",
+          "sha1_hash": "b6c865dc7fbd9604830e9750a2e270eb5d824ab9",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/66583b14-c97a-4b85-954b-630825968071\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a TCP request to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T09:45:32Z",
+  "last_seen": "2026-10-26T10:18:21Z"
+}

@@ -1,0 +1,262 @@
+{
+  "hashes": {
+    "sha256": "039f9d8c2121b55e8321c4490678f11322ffedf063c28a97a40ba8c543ddc6a7",
+    "sha1": "7f38d460a63f0007ec025baa743c717733516c8b",
+    "md5": "0031aedd5634269d4864d0cd0b49129e",
+    "sha3_384": "761cb730b28cef2e869d7077941c8e3b1e5740ed212bdbe1aaac0676c30ea47b65bf26a83b7b482d2cd17a56ed9bc8af",
+    "tlsh": "T1FEA339243AFA501AF173EFBA4AE47596DA6FB7733B03546D105103864723A81EEC253D",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:pj9mvz57G30JCptcWR/VGhc2hPE61rjdXx/gNkwKmWA8kSdVs1oIHNI6ypqU:pj9S1idGhGorRBKkOWANuVLIy6CqU"
+  },
+  "file_metadata": {
+    "names": [
+      "0031aedd5634269d4864d0cd0b49129e.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 100352,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95082\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "XWorm",
+    "tags": [
+      "exe",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": "XWorm",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95082\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/039f9d8c2121b55e8321c4490678f11322ffedf063c28a97a40ba8c543ddc6a7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf2166c9a9c5cb3e8329e5\/reports\/c9c83699-543b-40d5-96cc-74d29a164e0b\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "XWorm",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a7760d49-7f51-4b4b-85c9-e6942130368f?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-04-30T03:43:00Z",
+        "last_seen": "2026-04-30T04:03:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/039f9d8c2121b55e8321c4490678f11322ffedf063c28a97a40ba8c543ddc6a7\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Backdoor.XWormRAT",
+        "status": "MALICIOUS",
+        "first_seen": "2026-05-03 00:03:41",
+        "scanner_count": "36",
+        "scanner_match": "21",
+        "scanner_percent": "58.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261026-lrqt5set2j\/",
+        "tags": [
+          "family:xworm",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "shroom010.duckdns.org:1602"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "039f9d8c2121b55e8321c4490678f11322ffedf063c28a97a40ba8c543ddc6a7",
+          "md5_hash": "0031aedd5634269d4864d0cd0b49129e",
+          "sha1_hash": "7f38d460a63f0007ec025baa743c717733516c8b",
+          "detections": [
+            "SUSP_NET_Large_Static_Array_In_Small_File_Jan24"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/5f476cd5-0aa3-4c52-bad0-76c8418c5a73\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a TCP request to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T09:45:29Z",
+  "last_seen": "2026-10-26T10:18:23Z"
+}

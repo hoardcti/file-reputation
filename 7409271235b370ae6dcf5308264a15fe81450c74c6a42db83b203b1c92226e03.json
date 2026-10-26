@@ -1,0 +1,191 @@
+{
+  "hashes": {
+    "sha256": "7409271235b370ae6dcf5308264a15fe81450c74c6a42db83b203b1c92226e03",
+    "sha1": "798b4ed2fa999aa24e0e9e9317cb43c7b4610320",
+    "md5": "b684515c07748ff8cee3e05fe628a842",
+    "sha3_384": "ff44e2435a52f2790dcbfc092a78d698c583fccffd3c448cfd64e3c719338308273545872a947421cc0eb55dce5b06ef",
+    "tlsh": "T19DE412844F186696C7D6FBA94E12AB1F474816C2EB19B9F57CCF01153B7A20AFEC16C0",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:OTudVdDrNxMgHl9ZqYw0gR0NbPdT+N7tDrcgjql9cnxaxDyZokU3sBwY:gudldl2Y20NJT+NBciqlan4xDyZbU8yY"
+  },
+  "file_metadata": {
+    "names": [
+      "approved.PI.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 709537,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95040\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RAT",
+      "RemcosRAT",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_tiny_vbs",
+        "author": "daniyyell",
+        "description": "Detects tiny VBS delivery technique",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95040\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7409271235b370ae6dcf5308264a15fe81450c74c6a42db83b203b1c92226e03\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf0557fbc48d52c2379db1\/reports\/7683302c-fcb7-4f51-81d7-98018a8ce306\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-10-26T03:47:00Z",
+        "last_seen": "2026-10-26T04:50:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/7409271235b370ae6dcf5308264a15fe81450c74c6a42db83b203b1c92226e03\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-26 07:46:29",
+        "scanner_count": "36",
+        "scanner_match": "2",
+        "scanner_percent": "5.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261026-jlqabacx2s\/",
+        "tags": [
+          "family:remcos",
+          "botnet:aedesegypti",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Indicator Removal: File Deletion",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "23.132.164.115:2595"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T07:45:26Z",
+  "last_seen": null
+}

@@ -1,0 +1,101 @@
+{
+  "hashes": {
+    "sha256": "cc30e4d19f6c7975ba027b58b79bb58794c0baa7007350e4db5e15408b566f0c",
+    "sha1": "b215b82ce75b6f4a7d0f3d24177439719d48e5b0",
+    "md5": "08c71f7441b9fc4370b35b0bfee99af8",
+    "sha3_384": "1a12fd70cecf8cd3c98425e3e0c5c80b72458d8d204437d6d5a9ee58401df20ca547b9b948760f5aaeb1c3b5412d55a3",
+    "tlsh": "T1849501242BB50116E44627F39F2C6F1541A0B6A25FB8BEF5A734C3096D3A6D3B663313",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:bOHLOKXbqZaM7+uJ3cuFPtf3/X//A3sO5E:SHru9ccVf3vD"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_cc30e4d19f6c.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2020832,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3968966\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/cc30e4d19f6c7975ba027b58b79bb58794c0baa7007350e4db5e15408b566f0c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf2a4f3664e6bbdc147365\/reports\/ecfcef82-88a5-44ac-9493-6829b977098b\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "macho fat",
+        "first_seen": "2026-10-25T14:17:00Z",
+        "last_seen": "2026-10-25T14:29:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/cc30e4d19f6c7975ba027b58b79bb58794c0baa7007350e4db5e15408b566f0c\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-26 03:08:59",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T10:23:45Z",
+  "last_seen": null
+}

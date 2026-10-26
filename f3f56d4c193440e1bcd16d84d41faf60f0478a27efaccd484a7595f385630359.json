@@ -1,0 +1,174 @@
+{
+  "hashes": {
+    "sha256": "f3f56d4c193440e1bcd16d84d41faf60f0478a27efaccd484a7595f385630359",
+    "sha1": "188bfc1630ad44e40b53eca580d735da599e6312",
+    "md5": "7a0c7925a2a7d17b423edb59159c3f81",
+    "sha3_384": "9510fb74412a73ae408cdf4515f05cb8602865e55fddf0bf4d3188755c38514e3d185ca34d5c4ae40d48f4c0aed13784",
+    "tlsh": "T1FE2423B2D35F99BFCB6A16F79D79050193BB301A14028AD30B50C20772B7F7B84AA759",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:3EDj3VZ1sMZ9h1uz3vf2gyEZLpMK9PZu736DOSS+:EbVZ1xXuzff2gDZLz9PZu7KDO"
+  },
+  "file_metadata": {
+    "names": [
+      "Statement of Account.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 217088,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "64.7% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "25.0% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "4.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "1.8% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95019\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "Statement of Account.exe",
+          "date": "2026-10-25 03:59:59",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c2f1b51c-47bb-4e43-9ec3-d3149ff14b8f",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95019\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f3f56d4c193440e1bcd16d84d41faf60f0478a27efaccd484a7595f385630359\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adef9ca7c5766b50433dd4d\/reports\/e164a944-c78f-4d05-a608-8d0ef7c99bca\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/645ce887-ce32-4e74-9240-189e02bb43b1?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-24T18:57:00Z",
+        "last_seen": "2026-10-26T03:57:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f3f56d4c193440e1bcd16d84d41faf60f0478a27efaccd484a7595f385630359\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-24 22:07:58",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "5",
+        "link": "https:\/\/tria.ge\/reports\/261026-hq291aaf25\/",
+        "tags": [
+          "defense_evasion",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "f3f56d4c193440e1bcd16d84d41faf60f0478a27efaccd484a7595f385630359",
+          "md5_hash": "7a0c7925a2a7d17b423edb59159c3f81",
+          "sha1_hash": "188bfc1630ad44e40b53eca580d735da599e6312",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/4ec625f1-8627-4eae-8d3b-6f7b2d28ea5d\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.64"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "lowmal3",
+    "anonymous": false,
+    "origin_country": "DE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T06:56:50Z",
+  "last_seen": "2026-10-26T07:23:49Z"
+}

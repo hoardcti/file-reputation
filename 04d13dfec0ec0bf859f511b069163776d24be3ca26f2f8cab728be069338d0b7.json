@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    "sha256": "04d13dfec0ec0bf859f511b069163776d24be3ca26f2f8cab728be069338d0b7",
+    "sha1": "aa8d14190da6940c3a04e2f14a418adc51a8644b",
+    "md5": "7ce7698489504024d3cb3b285e7e5926",
+    "sha3_384": "b4c6c8a70d7182e612c55967411a0b48bbe220d778fd8dda801771cfab7fd2a365e215aeb05f3f8f82b0bbfa04eed62a",
+    "tlsh": "T1F3E41384BB50980FC6BDE620556F2F0C9AF41B63185EDB9F85BCB1850AB3B55096BC3C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:jw3TCUJwH3FJr8NPaFvUZns6PNG78c8hss5eI7Wpw0JBZwC7Kx4JIuW:jx0EFJgNiFvOy7tqLsAWygA2W"
+  },
+  "file_metadata": {
+    "names": [
+      "order_docs.js"
+    ],
+    "mime_type": "text/plain",
+    "type": "js",
+    "size": 680196,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "js",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/04d13dfec0ec0bf859f511b069163776d24be3ca26f2f8cab728be069338d0b7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf0367d82c0c615cfae3be\/reports\/529e8dac-c4fb-4416-a9c3-b2f01cdcc629\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "js",
+        "first_seen": "2026-10-26T02:26:00Z",
+        "last_seen": "2026-10-26T04:18:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/04d13dfec0ec0bf859f511b069163776d24be3ca26f2f8cab728be069338d0b7\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-26 05:26:53",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261026-jgj8havyev\/",
+        "tags": [
+          "family:remcos",
+          "botnet:aedesegypti",
+          "discovery",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "23.132.164.115:2595"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T07:37:44Z",
+  "last_seen": null
+}

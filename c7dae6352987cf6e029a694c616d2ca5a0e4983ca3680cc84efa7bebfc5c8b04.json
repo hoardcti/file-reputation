@@ -1,0 +1,250 @@
+{
+  "hashes": {
+    "sha256": "c7dae6352987cf6e029a694c616d2ca5a0e4983ca3680cc84efa7bebfc5c8b04",
+    "sha1": "d5a515824991a781eb4c4ad64ad22bac30d3b445",
+    "md5": "aad3f1f7e637ef40681938477dc83843",
+    "sha3_384": "34940769ed1bba1cb489f9c81662587648d02c7985f726fa9267d1b6ef1fc2481d655006a681183c5176bac32d54b83a",
+    "tlsh": "T14835EE78C38A8ADFC865FDAF84038BEF4DC408F75C7D06D24AE056B1B56584A1152EEB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:PA8BeR6l+AiS1qQ9GnpSwB6e51KB0om05oOljbuYwWq:PA646lFiS1qQ9Gpj6yKV0O11e"
+  },
+  "file_metadata": {
+    "names": [
+      "Quotation.docx"
+    ],
+    "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "type": "docx",
+    "size": 1086826,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "docx",
+    "trid": [
+      "52.2% (.DOCX) Word Microsoft Office Open XML Format document (23500\/1\/4)",
+      "38.8% (.ZIP) Open Packaging Conventions container (17500\/1\/4)",
+      "8.8% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": {
+      "oleid": {
+        "ole_format": null,
+        "file_format": "MS Word 2007+",
+        "container_format": "OpenXML",
+        "has_summaryinfo_stream": null,
+        "application_name": null,
+        "author": null,
+        "encrypted": true,
+        "word": null,
+        "vba_macros": true,
+        "xlm_macros": true,
+        "excel": null,
+        "powerpoint": null,
+        "visio": null,
+        "objectpool": null,
+        "flash_objects": null,
+        "external_relationships": 0,
+        "maldoc_score": 0
+      }
+    }
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "docx",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Embedded_RTF_File",
+        "author": "Nicholas Dhaeyer - @DhaeyerWolf",
+        "description": "Related to CVE-2023-36884. Hunts for any zip-like archive (eg. office documents) that have an embedded .rtf file, based on the '.rtf' extension of the file.",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_4f67e0b3_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_INDICATOR_RTF_MalVer_Objects",
+        "author": "ditekSHen",
+        "description": "Detects RTF documents with non-standard version and embedding one of the object mostly observed in exploit (e.g. CVE-2017-11882) documents.",
+        "reference": "https://github.com/ditekshen/detection"
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c7dae6352987cf6e029a694c616d2ca5a0e4983ca3680cc84efa7bebfc5c8b04\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "RTF File",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf0199d82c0c615cfadbca\/reports\/bb8531b9-3545-480b-80e9-48a07bbae80b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/261026-jb3gwsvycx\/",
+        "tags": [],
+        "signatures": [
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "NTFS ADS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Running batch commands by exploiting the app vulnerability"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process by asynchronous procedure call"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing the Zone.Identifier stream"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the default Windows debugger (dwwin.exe)"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T07:29:46Z",
+  "last_seen": null
+}

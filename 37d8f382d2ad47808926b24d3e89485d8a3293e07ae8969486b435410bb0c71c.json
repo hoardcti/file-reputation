@@ -1,0 +1,145 @@
+{
+  "hashes": {
+    "sha256": "37d8f382d2ad47808926b24d3e89485d8a3293e07ae8969486b435410bb0c71c",
+    "sha1": "dd16728a3edd65970e6d49a623679f5b440624dc",
+    "md5": "1e0a432f2447c397a14cc86416216d6c",
+    "sha3_384": "494150c5424caf3e488f512fc55700a5d00dac2f8c931bf7a2857a25bb29884f0cf9e013630b1f9ee77902f58332b7b6",
+    "tlsh": "T1FC28331BBAF040AAC486DA34827B52527534BC4C973633E76F65BAB92E317D59E30F04",
+    "imphash": "d42595b695fc008ef2c56aabd8efd68e",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:/SEZUeVbrLBwo5xK3l5WHCz/d0NYVA1NeLgU6hf6c2KiMpi9fdLQ9lnzO:/liojK3l6CzVt2DQl8EHEiDLChO"
+  },
+  "file_metadata": {
+    "names": [
+      "1e0a432f2447c397a14cc86416216d6c.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 100863880,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "Vidar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_NoneWindowsUA",
+        "author": "ditekSHen",
+        "description": "Detects Windows executables referencing non-Windows User-Agents",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf00227a77bf33c53cbc6a\/reports\/7c3b834a-c067-4e3e-97da-7f8db60ca05a\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-23T19:54:00Z",
+        "last_seen": "2026-10-23T23:05:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/37d8f382d2ad47808926b24d3e89485d8a3293e07ae8969486b435410bb0c71c\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-23 20:06:19",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "5",
+        "link": "https:\/\/tria.ge\/reports\/261026-h8h9vavybw\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T07:23:32Z",
+  "last_seen": null
+}
