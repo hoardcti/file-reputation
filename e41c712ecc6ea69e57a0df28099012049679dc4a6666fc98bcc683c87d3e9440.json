@@ -1,0 +1,122 @@
+{
+  "hashes": {
+    "sha256": "e41c712ecc6ea69e57a0df28099012049679dc4a6666fc98bcc683c87d3e9440",
+    "sha1": "600d431cae73fb85b20c28539e29d2c005359eeb",
+    "md5": "eba698094d6798aa31e76c7590331a29",
+    "sha3_384": "0fd87fc01499d0393f0f885c570aab0d2daeae2b0f9259fd1e3080e35ca3dfe8ea2e847c2636f919b43b9bf5d74ea543",
+    "tlsh": "T1187512313FFB4569CB7B273AA07DC673FD34C2CCC4061A4B46AA132A1DD2C694AD6694",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:e5qPWNiO5WOQvj8fsBNxKN6dT5wt1RuDvjPhVLxiD5w2q71ANka+r:e5y+O3BNxKtfuDrpVLxA5w281"
+  },
+  "file_metadata": {
+    "names": [
+      "glazedclient.info__glazed-26.2-n-17.2.jar.quarantined"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 1616719,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "57.8% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "32.5% (.JAR) Java Archive (13500\/1\/2)",
+      "9.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95113\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "jar",
+      "SilentNet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "515573",
+        "date_added": "2026-10-26 14:24:17",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "SilentNet loader. File type: Minecraft Fabric mod (.jar). Source: https://glazedclient.info/ (a fake Minecraft client download site). The jar reads a Polygon contract (0x9c0a507300fd902787bb193d80fca5ce6e1bff9a) to get its C2 host. Campaign UUID (buyer ID): ae3a7e8a. Verdict: static analysis with bbmmd. The sample was not executed."
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95113\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e41c712ecc6ea69e57a0df28099012049679dc4a6666fc98bcc683c87d3e9440\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf6f0d4b63a956a6f67e09\/reports\/5e20be31-c81d-4eee-b480-27ce258d46fc\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261026-sprrzsex9w\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "GhostTypes",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T14:24:12Z",
+  "last_seen": null
+}

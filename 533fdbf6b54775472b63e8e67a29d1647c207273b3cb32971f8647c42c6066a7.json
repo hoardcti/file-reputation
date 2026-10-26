@@ -1,0 +1,107 @@
+{
+  "hashes": {
+    "sha256": "533fdbf6b54775472b63e8e67a29d1647c207273b3cb32971f8647c42c6066a7",
+    "sha1": "3399643e64d74b741a566eb07acfd2bc8206542a",
+    "md5": "43ec31b6610058cde652cb29c83dc6a1",
+    "sha3_384": "7bde18dc6a97f3e76af962859fa9a55e62d19fb021129781c0eafb19ac7f8514dec5360830da5b43978d1ad6e1c2e57b",
+    "tlsh": "T1A675F150EF1A5266D4896073DC100F7941A0A69C6B44B5F7AE3487B3BC36693FAF3362",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:dXRUhu/pVArA2ZvByCPtAoixdxBeDNSj8GiEV8dTiUlZkoWT:pu/moyPeJSQGE6oM"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_533fdbf6b547.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1643856,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3968966\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/533fdbf6b54775472b63e8e67a29d1647c207273b3cb32971f8647c42c6066a7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adf4674d831bd1cf6075014\/reports\/bdc6c2e1-d57c-47df-a294-e6d1af28cb05\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "macho fat",
+        "first_seen": "2026-10-25T22:45:00Z",
+        "last_seen": "2026-10-25T23:03:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/533fdbf6b54775472b63e8e67a29d1647c207273b3cb32971f8647c42c6066a7\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T12:24:15Z",
+  "last_seen": null
+}
