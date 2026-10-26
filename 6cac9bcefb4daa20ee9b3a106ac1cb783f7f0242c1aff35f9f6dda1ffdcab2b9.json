@@ -1,0 +1,210 @@
+{
+  "hashes": {
+    "sha256": "6cac9bcefb4daa20ee9b3a106ac1cb783f7f0242c1aff35f9f6dda1ffdcab2b9",
+    "sha1": "d2da87903ecdcbf70efa2204ae0b89a283ad392c",
+    "md5": "6492aadaea6e2d5592d8351c6016a87a",
+    "sha3_384": "ab1180b611c967a5f2ecd6df867f1a1b076528985eaa5549919ecf46d3060ce8b8093e25d7a12e83cde27b248c83ff55",
+    "tlsh": "T1FFF733467786059FF5E8913AF2E9C65BEBC230EF4761C0FB42500683574B6E1EA36B24",
+    "imphash": "dcaf48c1f10b0efa0a4472200f3850ed",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:TwSEqXGMK4XR3bLSCU/+6yPlWWuzbWm6YiItK4QBzRvdZJJK+6pJdfQ3m:TrEqgYRPSC++6y9WFzbWIk4QlrzJKzJv",
+    "dhash_icon": "d4aa32bbabbbb2cc"
+  },
+  "file_metadata": {
+    "names": [
+      "Document.pdf.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 74916990,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "36.2% (.EXE) DOS Borland compiled Executable (generic) (10000\/1\/2)",
+      "23.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "18.2% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "7.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "7.2% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "dependsonpythonailib",
+        "author": "Tim Brown",
+        "description": "Hunts for dependencies on Python AI libraries",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PyInstaller",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects PyInstaller compiled executables across platforms",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "PyInstaller",
+        "author": "@bartblaze",
+        "description": "Identifies executable converted using PyInstaller. This rule by itself does NOT necessarily mean the detected file is malicious.",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adfc9ff34260cd501b56052\/reports\/9d51c9e3-d38c-466d-a39a-6161f6d86f39\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-26 17:52:35",
+        "scanner_count": "38",
+        "scanner_match": "3",
+        "scanner_percent": "7.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261026-1mb8hshw4m\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "pyinstaller"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "38",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T21:45:17Z",
+  "last_seen": null
+}
