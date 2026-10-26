@@ -1,0 +1,103 @@
+{
+  "hashes": {
+    "sha256": "8acb67a9fde2880a2a57ad4c4825c74d5976553d501197917484708920990c41",
+    "sha1": "563c63004745e109e672a6e97abb0022d9b52577",
+    "md5": "dc8a17582a978f04089d1ef01267cf59",
+    "sha3_384": "8f05848b38f8b7d3c3d7292ad8da9a290e5e1f754f7e7646c9bc1c6b413b1162e3d29dd969c3d407d92bcc9ced343f8d",
+    "tlsh": "T1C6513DF4724404F6E9FD4DDBFFEAF9EB5B84714A09E622A6F191B39514BE1B0402600B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:SCO8ar13J6kkwjQnybdXB2TqDBiBoywJ5dt79JA9+S7qlpXlgsPnZn4gxPxE:S78AskeybdXB+qD4Bha9EJ7YRPZRxPxE"
+  },
+  "file_metadata": {
+    "names": [
+      "stage1_8acb67a9fde2.zsh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "zsh",
+    "size": 2948,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "dropper",
+      "Foxveil",
+      "macOS",
+      "zsh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Stage1_Zsh_ConstKey_AesCtr",
+        "author": null,
+        "description": "Foxveil ClickFix stage-1 zsh dropper: hex blobs -\u003e md5(constant _kb) -\u003e openssl AES-128-CTR IV 0 -\u003e gunzip -\u003e zsh, behind a decoy maintenance script",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Stage1_Zsh_ConstKey_AesCtr_B",
+        "author": null,
+        "description": "Foxveil ClickFix stage-1 zsh dropper, 2026-10-21 generator: any blob-array name and a _kb expression starting on a plain variable; hex blobs -\u003e md5(constant _kb) -\u003e openssl AES-128-CTR IV 0 -\u003e gunzip, run via eval",
+        "reference": null
+      },
+      {
+        "rule_name": "MAC_Dropper_Shell_CacheMaintenance_AES_CTR",
+        "author": "Marjoriefort",
+        "description": "macOS fake cache-maintenance dropper - payload AES-128-CTR via openssl, noms de commandes fragmentes",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8acb67a9fde2880a2a57ad4c4825c74d5976553d501197917484708920990c41\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adead4925ec2bf946161f6a\/reports\/b1313fcb-66ea-4532-a540-ebad38676ecd\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Dropper.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-26 01:30:48",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T01:29:40Z",
+  "last_seen": null
+}
