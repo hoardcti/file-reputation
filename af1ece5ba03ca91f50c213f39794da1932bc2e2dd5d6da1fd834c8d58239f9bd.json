@@ -1,0 +1,297 @@
+{
+  "hashes": {
+    "sha256": "af1ece5ba03ca91f50c213f39794da1932bc2e2dd5d6da1fd834c8d58239f9bd",
+    "sha1": "a5b22446ceb1c812350c6b2825ea5c22edc0a03c",
+    "md5": "1615daeda38dcb16d602acf388471160",
+    "sha3_384": "3a5ca89e7eb05ac708010b1bef26370c62ba51dd5102724d5a56e4d48c065c4271f0460a77d46464a623389dfeb00f73",
+    "tlsh": "T10E357C83E7A385D8C116C9B5534BF137F9627C8E4B157197ABC41E633A67BA4E22CB00",
+    "imphash": "73f461c771aef77ec43d53a0c54f0c8d",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:Hbs/m0E54jwaFXGc8lEBBBHGBKq2IZwDUvfqItNqdg:HbOVE5ifGPRZwovf3fd"
+  },
+  "file_metadata": {
+    "names": [
+      "CitronClient.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1139712,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_malware",
+        "value": "SilentNet"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95524\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4036348\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "exe",
+      "python",
+      "silentnet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_Nuitka_Stage",
+        "author": "GhostTypes",
+        "description": "SilentNet exe/bin channel, two lanes: (A) Zig AppHost downloader - std.http client with custom UA template plus registry/env/process import combo and Zig .CRT/.tls section pair; (B) Nuitka-Commercial DataHiding pyd stage - DLL whose RT_RCDATA#3 blob declares a size ending exactly 24 bytes before the resource end (the MD5-digest trailer of the commercial blob framing; stock Nuitka has no trailer, onefile builds have no RCDATA)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "CitronClient.exe",
+          "date": "2026-10-24 15:53:52",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/1eb893a3-edc6-4411-a1e0-6787c24d26b6",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "python",
+            "arch-exec",
+            "arch-doc",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95524\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/af1ece5ba03ca91f50c213f39794da1932bc2e2dd5d6da1fd834c8d58239f9bd\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae0d467f68b4cc6cfa9632f\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8b9b494d-98ee-40bb-88ad-acf48713c7c8?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-21T16:04:00Z",
+        "last_seen": "2026-10-26T02:42:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/af1ece5ba03ca91f50c213f39794da1932bc2e2dd5d6da1fd834c8d58239f9bd\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Convagent",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-21 23:05:58",
+        "scanner_count": "36",
+        "scanner_match": "27",
+        "scanner_percent": "75.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xmrig",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261027-t7r15svyft\/",
+        "tags": [
+          "family:xmrig",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies Windows Firewall",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Kills process with taskkill",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "af1ece5ba03ca91f50c213f39794da1932bc2e2dd5d6da1fd834c8d58239f9bd",
+          "md5_hash": "1615daeda38dcb16d602acf388471160",
+          "sha1_hash": "a5b22446ceb1c812350c6b2825ea5c22edc0a03c",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/b5af656a-68fe-41fc-9146-0e0cebe44d2c\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.42"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-27T16:41:21Z",
+  "last_seen": null
+}
