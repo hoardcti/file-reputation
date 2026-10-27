@@ -40,6 +40,10 @@
       {
         "context": "dropping_md5",
         "value": "afd639b1952dbf5e282aa527d090da1b"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4028856\/"
       }
     ],
     "ole_information": []
@@ -396,6 +400,26 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-27 02:10:46",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/160e442e-e5bd-4608-9eab-5f0238faa44d",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "upx",
+            "susp-powershell",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Salat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95232\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/098fa16bf3a0893a4755464f059c09d5a3f8f3142de109afe338028502b6dfc7\/"
@@ -520,23 +544,61 @@
         ],
         "malware_config": []
       },
-      "UnpacMe": [],
+      "UnpacMe": [
+        {
+          "sha256_hash": "098fa16bf3a0893a4755464f059c09d5a3f8f3142de109afe338028502b6dfc7",
+          "md5_hash": "c352934909f5047170f142fa9d5ab56d",
+          "sha1_hash": "bd754bbb555ec7b083bfd23fc1e080f5a630aff8",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/cc13d688-0369-4711-bea9-5e53719de686\/"
+        },
+        {
+          "sha256_hash": "b0bae5c0bfde6988b69f9c91e278f923e7c9f42e6d5fd7940383f142d5136599",
+          "md5_hash": "ed371b8fe32ab36da9078902871a3d98",
+          "sha1_hash": "d45b120630899493411fcb9e4affa2b2a440a37c",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/cc13d688-0369-4711-bea9-5e53719de686\/"
+        }
+      ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
       }
     }
   },
   "submission": {
     "reporter": "Tuxxin",
     "anonymous": false,
-    "origin_country": "US",
+    "origin_country": "FR",
     "delivery_method": "web_download"
   },
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-10-27T00:54:48Z",
-  "last_seen": null
+  "last_seen": "2026-10-27T01:21:11Z"
 }

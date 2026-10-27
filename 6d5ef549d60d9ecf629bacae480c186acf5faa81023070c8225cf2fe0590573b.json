@@ -37,9 +37,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "SalatStealer",
     "tags": [
-      "exe"
+      "exe",
+      "SalatStealer"
     ],
     "yara_rules": [
       {
@@ -230,6 +231,29 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-27 02:14:25",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d8c01c25-4eed-483f-871d-612345b66aa4",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "susp-powershell",
+            "golang",
+            "ms-smartcard",
+            "github",
+            "auto-reg",
+            "loader"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95227\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/6d5ef549d60d9ecf629bacae480c186acf5faa81023070c8225cf2fe0590573b\/"
@@ -258,9 +282,9 @@
         "threat_name": "Win64.Trojan.SalatStealer",
         "status": "MALICIOUS",
         "first_seen": "2026-08-13 17:26:57",
-        "scanner_count": "38",
-        "scanner_match": "24",
-        "scanner_percent": "63.16"
+        "scanner_count": "36",
+        "scanner_match": "22",
+        "scanner_percent": "61.11"
       },
       "Spamhaus_HBL": [
         {
@@ -370,10 +394,56 @@
           "link": "https:\/\/www.unpac.me\/results\/4f75e641-a910-4a6d-9c38-5fb65eb73e97\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "SalatStealer",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/6d5ef549d60d\/report\/overview.html"
+      },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          }
+        ]
       }
     }
   },

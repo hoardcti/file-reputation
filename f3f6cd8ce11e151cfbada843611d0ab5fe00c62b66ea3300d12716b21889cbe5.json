@@ -400,6 +400,26 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-27 02:17:16",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/da878a08-0fdc-438e-bff4-77d59db622e6",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "upx",
+            "susp-powershell",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Salat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95228\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/f3f6cd8ce11e151cfbada843611d0ab5fe00c62b66ea3300d12716b21889cbe5\/"
@@ -425,12 +445,12 @@
         "detections": []
       },
       "ReversingLabs": {
-        "threat_name": "Win32.Trojan.Draftor",
+        "threat_name": "Win32.Trojan.SalatStealer",
         "status": "MALICIOUS",
         "first_seen": "2026-10-26 11:02:00",
-        "scanner_count": "24",
-        "scanner_match": "17",
-        "scanner_percent": "70.83"
+        "scanner_count": "36",
+        "scanner_match": "31",
+        "scanner_percent": "86.11"
       },
       "Spamhaus_HBL": [
         {
@@ -524,23 +544,113 @@
         ],
         "malware_config": []
       },
-      "UnpacMe": [],
+      "UnpacMe": [
+        {
+          "sha256_hash": "f3f6cd8ce11e151cfbada843611d0ab5fe00c62b66ea3300d12716b21889cbe5",
+          "md5_hash": "5be5055cdb5bc08ab6bea0d6dce1adca",
+          "sha1_hash": "891542083fc0b6cea4cd5893a9fac37bb3148f76",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/67b54aed-efef-4778-acd2-492b344f94d0\/"
+        },
+        {
+          "sha256_hash": "a5331aac833bc5a527c6548f3b58f335d262deee0b8cdeca6c5d11d5fcea747d",
+          "md5_hash": "74759e1fd688358aa31beb8b2f4631dd",
+          "sha1_hash": "e132410f0dbcf32a4913052e1d494e1d898bf3c9",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/67b54aed-efef-4778-acd2-492b344f94d0\/"
+        }
+      ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the User Account Control"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a system driver"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Modifying a system file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          }
+        ]
       }
     }
   },
   "submission": {
     "reporter": "Tuxxin",
     "anonymous": false,
-    "origin_country": "US",
+    "origin_country": "FR",
     "delivery_method": "web_download"
   },
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-10-27T00:53:19Z",
-  "last_seen": null
+  "last_seen": "2026-10-27T01:20:49Z"
 }

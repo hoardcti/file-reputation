@@ -49,9 +49,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "SalatStealer",
     "tags": [
       "exe",
+      "SalatStealer",
       "upx-dec"
     ],
     "yara_rules": [
@@ -381,6 +382,25 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-27 02:08:58",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/95b0e89b-903f-4cfe-9ed1-0f72239931c6",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "susp-powershell",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Salat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95231\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/3e94d6716548cf00794241a1ff26580cadb554d33eec4a8046d171df1bdf4cae\/"
@@ -496,11 +516,36 @@
         ],
         "malware_config": []
       },
-      "UnpacMe": [],
+      "UnpacMe": [
+        {
+          "sha256_hash": "3e94d6716548cf00794241a1ff26580cadb554d33eec4a8046d171df1bdf4cae",
+          "md5_hash": "058657f3822093ce541125e92328ef08",
+          "sha1_hash": "10ad9a3f655fe5881b9b2aff010ee485e343a5af",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/f7d3ec17-c863-438b-8584-8134abf10e69\/"
+        }
+      ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          }
+        ]
       }
     }
   },
