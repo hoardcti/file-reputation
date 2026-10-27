@@ -1,0 +1,198 @@
+{
+  "hashes": {
+    "sha256": "7242b14132c9169798dc74d7ecc44ab24940006ca631e45138d6d0b57f5187a3",
+    "sha1": "14e7610ca550cab6e5e4ae3b331084e3b744fdd3",
+    "md5": "dd536fe61993ef3f96c680fe6fc56a46",
+    "sha3_384": "caa1263f3ac0ea0e1a2ac68cd8912090bf978b65cea5e29898c19d6ce6982b8a10320bd988224c316a33f38c470300a9",
+    "tlsh": "T1B9936CC8D243E8F7E91605742067F33B6632D9B80168FDE3F748A776A815761B04AB8D",
+    "imphash": null,
+    "telfhash": "t1aa31f7f945a708d4b7e0ae02f30d53b03d4dab7b699077e349b36431225688216bbc3a",
+    "gimphash": null,
+    "ssdeep": "1536:FMRlC8IjJNtpjIVXEp+UkVNyVzhzYqDNxo58eSRwXQRin:FKgHTtpsBEp+BoVNzHDvK8xw1"
+  },
+  "file_metadata": {
+    "names": [
+      "7242b14132c9169798dc74d7ecc44ab24940006ca631e45138d6d0b57f5187a3.bin"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 89368,
+    "format": "ELF",
+    "arch": "I386",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "ddos",
+      "elf",
+      "jkl",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_8aa7b5d3",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_cc93863b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Mirai_fa3ad9d0",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7242b14132c9169798dc74d7ecc44ab24940006ca631e45138d6d0b57f5187a3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6adfdd2b7c31241887597010\/reports\/849196e6-3a35-49c8-a15a-66f3cef22452\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4ad7d7de-7c27-4688-b2db-bb8da24c4482?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-26 23:07:28",
+        "scanner_count": "36",
+        "scanner_match": "21",
+        "scanner_percent": "58.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261026-235ensg19v\/",
+        "tags": [
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (86379) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Performs a bruteforce attack in the network"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Substitutes an application name"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Runs as daemon"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sends data to a server"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Opens a port"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "tipo_deincognito",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-26T23:06:25Z",
+  "last_seen": null
+}
