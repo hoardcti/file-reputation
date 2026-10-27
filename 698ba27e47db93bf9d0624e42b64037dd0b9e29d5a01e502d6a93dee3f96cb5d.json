@@ -1,0 +1,173 @@
+{
+  "hashes": {
+    "sha256": "698ba27e47db93bf9d0624e42b64037dd0b9e29d5a01e502d6a93dee3f96cb5d",
+    "sha1": "8d04816062e88d0446b9f2fee7f4e90453d6e3d3",
+    "md5": "425a1389f41b65ad040f5e818ecc3fba",
+    "sha3_384": "fb6c89acf88e0fd66ff26e3a6f5459a681c7757120be6a56b23b15cca8aa9e3cd3c5ec850381d5deca3e1410b06c6dac",
+    "tlsh": "T151D733B7D04E433AF92BF93581F82A1E91413C52770394BAF1527AA397B73D79A38046",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:cmUCCbSahYDLwDI5NZXQH/ddjZm/4uROPyTnNAK6KsddzC+WRLd7r:axWa+BZa1JF7KTNNnsddzC+WRLdP"
+  },
+  "file_metadata": {
+    "names": [
+      "AdvancedIPScanner.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 60321792,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae1232f70bca7b36c62083a\/reports\/a97d3709-1d57-4374-bd92-45719f650738\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-10-27 16:00:04",
+        "scanner_count": "38",
+        "scanner_match": "1",
+        "scanner_percent": "2.63"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261027-174hhag14j\/",
+        "tags": [
+          "discovery",
+          "installer",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Inno Setup is an open-source installation builder for Windows applications.",
+            "score": "1"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SquiblydooBlog",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-27T22:18:07Z",
+  "last_seen": null
+}
