@@ -1,0 +1,178 @@
+{
+  "hashes": {
+    "sha256": "a508da685f8053d0d3804d48a3f68bfae256f34497f736e3f17ad9da068296c3",
+    "sha1": "43bc4cc015e84f3112510c9c9b6d0aaeb93a85f0",
+    "md5": "837b6aa454d24db2646c43fc72b3f751",
+    "sha3_384": "3d44c3fc13b0a4702ed85ae6b715c1cd1e52d1e4043ef011514fcdb3520a430d9eb0367eb17d04439c26b9251efab6f7",
+    "tlsh": "T14AD3D94E6E258F7CFBDA827887F75A209204379527F2C585D19CEE001E7038EB45BBA5",
+    "imphash": null,
+    "telfhash": "t1e021d719893812f8d7661d9d57edff32e071b1eb29162d3b8e10ed9b8d2d985ae00c1c",
+    "gimphash": null,
+    "ssdeep": "1536:27s+qbBZJhipAYSGuLUXtLgJIRYx20wN2wkwF4m/vtICCSgV3FM4XlAzNazo0vcG:2A3bZIpAnGx9UUuU/vOzFM4XCA7"
+  },
+  "file_metadata": {
+    "names": [
+      "MMaaRRiiOisecTanee.mips"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 133512,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4041903\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4041913\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4041920\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CVE_2017_17215",
+        "author": "NDA0E",
+        "description": "Detects exploitation attempt of CVE-2017-17215",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Exploit_CVE_2017_17215_8b78a857",
+        "author": "Elastic Security",
+        "description": "Exploit code used in the ZeroBot malware",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_da28eb8b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a508da685f8053d0d3804d48a3f68bfae256f34497f736e3f17ad9da068296c3\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae249d21786f6070df30b6e\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/73e052b8-4711-42a2-9252-6e3263b2fb2c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-28 19:11:44",
+        "scanner_count": "36",
+        "scanner_match": "24",
+        "scanner_percent": "66.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261028-xw995ahc43\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "credential_access",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (61371) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "AT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T19:12:34Z",
+  "last_seen": null
+}

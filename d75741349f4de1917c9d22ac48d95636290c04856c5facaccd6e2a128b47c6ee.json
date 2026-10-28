@@ -1,0 +1,184 @@
+{
+  "hashes": {
+    "sha256": "d75741349f4de1917c9d22ac48d95636290c04856c5facaccd6e2a128b47c6ee",
+    "sha1": "b50dd8ce9088eb316dd971feae1c8e22c7d19dbe",
+    "md5": "cb62486103a47f0da94bf9fcf1c77230",
+    "sha3_384": "9cdc5fc911b91dfc0dc00992edbb20c8c75f47b65e66c2bde4b4a953b5e57e25cfd6b5c147884d721e88234885b4f6c8",
+    "tlsh": "T1F7210EDF50A1A95395ECDE00F4B3C549A005B5C630FA2E1EEECD38A1D8D9940B328B56",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:sPBcC6DIqNLNbnyK5pLLL3WlS7o7tnSj/jTtjssxmcdOE3RdaV18NI7GhZKj:sPSCkIqNLNLyK5pHbVUhnSj/jpssxm+y"
+  },
+  "file_metadata": {
+    "names": [
+      "cat.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1336,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3901892\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "9ca73edf9f52ebb21b5a1cfae98861f3"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "85101584bc0d4334ba8f970cae4ef1d2d4fddd324b2e99a32dc5714f1cd73b69"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d75741349f4de1917c9d22ac48d95636290c04856c5facaccd6e2a128b47c6ee\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae20d861af1877060362963\/reports\/d54e9042-3161-4b50-8b53-df298895040d\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-Shell.Downloader.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-28 14:58:22",
+        "scanner_count": "36",
+        "scanner_match": "10",
+        "scanner_percent": "27.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261028-sb92eacz7x\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "linux",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai Motorola payload",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai Renesas payload",
+            "score": "10"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "idknotherefucku.followz.st"
+          },
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "45.131.64.158"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.34"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T14:57:56Z",
+  "last_seen": null
+}

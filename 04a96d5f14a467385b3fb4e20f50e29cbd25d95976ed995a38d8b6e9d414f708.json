@@ -1,0 +1,179 @@
+{
+  "hashes": {
+    "sha256": "04a96d5f14a467385b3fb4e20f50e29cbd25d95976ed995a38d8b6e9d414f708",
+    "sha1": "bea05f24420f050728127aefaa14be86b0eb1d54",
+    "md5": "68d5cb4f86ae69e1f98b9e45d9d0d01d",
+    "sha3_384": "d4a8c4f675b0485305af8e0140fedf92a1964e743a32a12220e3699029807f0119ed238c70dc1803a9a3696261183d50",
+    "tlsh": "T1E163026A980DD565F5104871E8BD05DFA2DB12BE029DB0874C7143AFF4EA703DBB29C6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:KuBo22ymnogVLxLK2I8jA5gZDSLFi7dDL2PXVEdD3wLxWC:+22A2HQgUEdDL2dC3wdWC"
+  },
+  "file_metadata": {
+    "names": [
+      "adbpersist.arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 70088,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3909431\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "805055a9e8a9b6b1477f47f64801de3a6b35f5606e2f97b48c021a10ed6f434d"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "ae14842e61636f4b25b713c66efef5d9"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/04a96d5f14a467385b3fb4e20f50e29cbd25d95976ed995a38d8b6e9d414f708\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae228fa0caede25a0aa1100\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a692f849-25e8-464e-84ae-fd96b4a6dd46?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261028-ve97past6r\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "credential_access",
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "34tgh4gv34u.cocovoip.xyz"
+          },
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "45.133.74.96"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T16:54:57Z",
+  "last_seen": "2026-10-28T17:26:42Z"
+}
