@@ -1,0 +1,117 @@
+{
+  "hashes": {
+    "sha256": "d6ce062f26b771b19a085a727ca13d5c568037cee3039a1bbf8c261e8c44e363",
+    "sha1": "c1bf4fe737b322a85b8b810e3ff8d08ae420a863",
+    "md5": "4421fd98101f2d2e18c0344ccf3a5c76",
+    "sha3_384": "78d894b438a73e0c89607cfa33a05427c41c2537a7bf17e830331428e419c36331ffd38005091fe21c27fc109b2c4565",
+    "tlsh": "T1CD9502414F6A6046D14A01739C8A8F29857870A1CE88DBEE6341739ACE3E7D3B7635F7",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:2L5spQAIVhUT1Fs0nE8kgF+yqdOVeYcC8UxAprrv2kiIWDK18QF+9Lsp3LGffBd1:2P1eyvXyh"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_d6ce062f26b7.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1971424,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/653f648ab161ebe5d298d0820d7856bfe227b2a6538f13e9513c098e8b612702\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/9c7713ce0a1fa2ef4b43651ef3a984b1656a6ee8dc3a94c4682e5e5e86428373\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/f09773a220d16e25ff8626af5ae925829bf180bcceb84431f72778bfe84a0475\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3951353\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d6ce062f26b771b19a085a727ca13d5c568037cee3039a1bbf8c261e8c44e363\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae147047d8fc3cd6566cbf3\/reports\/b499b0e0-a9ff-4ef4-9154-4fe25f37e7a8\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-28 00:51:18",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T00:50:44Z",
+  "last_seen": null
+}

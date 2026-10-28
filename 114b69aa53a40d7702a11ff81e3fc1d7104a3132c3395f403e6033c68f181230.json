@@ -1,0 +1,118 @@
+{
+  "hashes": {
+    "sha256": "114b69aa53a40d7702a11ff81e3fc1d7104a3132c3395f403e6033c68f181230",
+    "sha1": "051586cc07dd1c343e915903658936bf7b5d7c5c",
+    "md5": "1ed3bc42eb525a2f5bf305b7352385cc",
+    "sha3_384": "c8df7d241b949e016786c7ed763eacb1c0b3755d012a228cbdee82e47ab1db725fd60ed013b0f9e51c392bf0a7693aed",
+    "tlsh": "T1CF95F1705A2E525ED8AD24B2DC200F5E51A0B3C06A58EAF592F6B3077F796937373213",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:eCR35cWjMy9EPZ9UAqwZTPG/sI5WM4zoSzptmQ6xTQNdODmiYD68pPK/DROB0Ipv:18bE57itxvODmo4KKpvCtno"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_114b69aa53a4.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2020704,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/46c09f852a7f05361b8758d10aba4426d4eacab74ed6e0ea5fdef20812934133\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/45ef0cea3b608f167c3e3101a0f78a4290ccf4ca1164c355bf4d56ac4bf44c0b\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/540d24a82a36a3e60497ee29fa51e3cc9963ecc50a9fa77fb245670d34879e09\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/114b69aa53a40d7702a11ff81e3fc1d7104a3132c3395f403e6033c68f181230\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae147f87afff34079f2ae4d\/reports\/bafdc7ec-d608-46a3-b048-33f6b990513a\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T00:54:53Z",
+  "last_seen": null
+}

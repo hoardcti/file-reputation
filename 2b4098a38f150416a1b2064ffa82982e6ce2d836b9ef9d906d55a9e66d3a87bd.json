@@ -1,0 +1,232 @@
+{
+  "hashes": {
+    "sha256": "2b4098a38f150416a1b2064ffa82982e6ce2d836b9ef9d906d55a9e66d3a87bd",
+    "sha1": "b43f9abe12df091885a1dc53a4c52706ea785853",
+    "md5": "6e6faf90ad6127b0f968f97329a70706",
+    "sha3_384": "f10401b33407a0e75c86d14dd315de85eb5120390c4f01d55453888a41ccbfc8c57a63beb3fb1be9b05b31a055ae7810",
+    "tlsh": "T12C833910F6D08236F0F640FBD2FB16BA5D2CEEB4630654D753D1A8AF6B249C0A93156B",
+    "imphash": "2b1576a7a1f4aa6570bb1a33aca4c56e",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:nGYo3lPQFmav82YLO+bdxGWEBedhlcvASRzh4pG66AXyVS2:fo1XOQLOWxBieCv94pG66AX3"
+  },
+  "file_metadata": {
+    "names": [
+      "file"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 82944,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "36.5% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "14.5% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "14.4% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "11.1% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "9.9% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_malware",
+        "value": "Phorpiex"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95554\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "dropped-by-phorpiex",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "shellcode",
+        "author": "nex",
+        "description": "Matched shellcode byte patterns",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Clipper_Unknown_ClipboardHijack",
+        "author": "Marjoriefort",
+        "description": "DLL clipper (detournement presse-papiers crypto) : API clipboard completes + DLL compacte",
+        "reference": "misses_archive 569 / cluster 282 DLL x 15360 o"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "phorpiex",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-27 23:53:16",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/bbbf6eec-d483-456b-94eb-d1fc225c196e",
+          "tags": [
+            "auto-reg",
+            "phorpiex",
+            "botnet",
+            "miner",
+            "xmrig",
+            "winring0-sys",
+            "vuln-driver",
+            "xor-url",
+            "generic"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Phorpiex",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95554\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "phorpiex",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2b4098a38f150416a1b2064ffa82982e6ce2d836b9ef9d906d55a9e66d3a87bd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae138f3396843b93f40fea9\/reports\/e7a2b603-b47e-414f-8816-7dd5087c0050\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Phorpiex",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/cfaaf400-9e56-4a1d-a5d2-74994c6ea4a6?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Worm.Phorpiex",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-27 23:51:43",
+        "scanner_count": "36",
+        "scanner_match": "30",
+        "scanner_percent": "83.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261027-3v8mssxwax\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Stops running service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "2b4098a38f150416a1b2064ffa82982e6ce2d836b9ef9d906d55a9e66d3a87bd",
+          "md5_hash": "6e6faf90ad6127b0f968f97329a70706",
+          "sha1_hash": "b43f9abe12df091885a1dc53a4c52706ea785853",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/fa6629f9-db57-4d63-9083-564c53db7880\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "Bitsight",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-27T23:50:43Z",
+  "last_seen": "2026-10-28T00:34:03Z"
+}
