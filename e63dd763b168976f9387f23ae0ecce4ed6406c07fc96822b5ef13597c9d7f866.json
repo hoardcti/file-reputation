@@ -1,0 +1,136 @@
+{
+  "hashes": {
+    "sha256": "e63dd763b168976f9387f23ae0ecce4ed6406c07fc96822b5ef13597c9d7f866",
+    "sha1": "ad711681b2308f336a943abdfa551ce220b192b5",
+    "md5": "ff9d3cde2d235e41957cca463f2aa031",
+    "sha3_384": "2193d7bb2909abd3d1a6e2e01a749b95e5e83cff9592f05dcefe77e22023d66cc05a642795dae3498204752bfa52ffdc",
+    "tlsh": "T1A8242319A34490026355940571643B92B4A363FC0B5CFB31BD5BE7D82BBDA2C5D3A8FE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:h+g8yACMwj9vpwZZdzOPB/urL5XK3sdLDSx8eng:hQCMAhwTtcdurL5XxLDJL"
+  },
+  "file_metadata": {
+    "names": [
+      "Statement_of_Account.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 212468,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e63dd763b168976f9387f23ae0ecce4ed6406c07fc96822b5ef13597c9d7f866\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "PE File",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae1d33230cc2e20c243cde6\/reports\/\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "zip",
+        "first_seen": "2026-10-24T20:03:00Z",
+        "last_seen": "2026-10-26T14:37:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e63dd763b168976f9387f23ae0ecce4ed6406c07fc96822b5ef13597c9d7f866\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Suschil",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-25 00:49:26",
+        "scanner_count": "36",
+        "scanner_match": "27",
+        "scanner_percent": "75.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "5",
+        "link": "https:\/\/tria.ge\/reports\/261028-nfn8aaz1e1\/",
+        "tags": [
+          "defense_evasion",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.14"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "TomU",
+    "anonymous": false,
+    "origin_country": "CH",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T10:48:22Z",
+  "last_seen": "2026-10-28T10:50:26Z"
+}

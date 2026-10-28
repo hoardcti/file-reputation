@@ -33,6 +33,15 @@
     "tags": [
       "zip"
     ],
+    "comments": [
+      {
+        "id": "516468",
+        "date_added": "2026-10-28 08:37:08",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static reverse-engineering writeup.\n\nFake Chinese \"106\" commercial-SMS console (.NET/WinForms) that is really a dropper + smishing kit. Fabricated ICP 沪ICP备12038240号-1 / licence B2-20203099 and a \"report fraud, call 110\" banner for cover; one tab is a pure decoy that just sleeps and reports \"normal.\"\n\nBehind the GUI, on every launch it extracts a bundled Node.js runtime + embedded JS and silently downloads a second stage from https://kozae666.com/Windows to C:\\Hnze_okea\\runtime_host.exe, launching it detached/hidden (keeps the fetch and spawn out of the .NET process and off PowerShell). runtime_host.exe is a native (MFC-skeleton) C++ reverse-TCP shellcode loader: it dynamically resolves Winsock + VirtualProtect/CreateThread to stay off the IAT, connects to roujizaixian.com:6666 (154.198.49.54, AS138995 Antbox Networks, HK), streams back ~640 KB and executes it in RWX memory as position-independent shellcode (no PE on disk). The C2 name roujizaixian = 肉鸡在线 (\"bots online\"; 肉鸡 = compromised-host slang), on classic botnet port 6666.\n\nSeparately, submitted \"orders\" (operator-supplied target phone-number lists + SMS copy) are exfiltrated to a Telegram bot via sendDocument/sendMessage; the bot token/chat_id are placeholders in this build. Beijing-prefix filtering, a locally-generated 6-digit terminal_id gate (no activation server).\n\nIOCs:\n- https://kozae666.com/Windows -\u003e C:\\Hnze_okea\\runtime_host.exe\n- C2 roujizaixian.com:6666 -\u003e 154.198.49.54 (AS138995 ANTBOX1-AS-AP, Hong Kong)\n- TLS: Sectigo DV *.roujizaixian.com, first seen 2026-08-24\n- Mutex Local\\SMS106_Client_Mutex ; data dir %LOCALAPPDATA%\\SMS106\\\n\nFull analysis: https://github.com/CtxtArc/malware-analysis/blob/main/f4ed301e2c1eeddedd613903051c93c486aebd19140635c32b1a5b7404c51de2/README.md"
+      }
+    ],
     "vendor_intel": {
       "DocGuard": {
         "verdict": "Malicious",

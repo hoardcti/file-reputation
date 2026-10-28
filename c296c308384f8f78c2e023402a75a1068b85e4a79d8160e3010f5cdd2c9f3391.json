@@ -1,0 +1,191 @@
+{
+  "hashes": {
+    "sha256": "c296c308384f8f78c2e023402a75a1068b85e4a79d8160e3010f5cdd2c9f3391",
+    "sha1": "4e37fc1c47803208102f47a4058b42f4e3054f9a",
+    "md5": "b4b937156fcd16e1e383cb038a85583b",
+    "sha3_384": "2c0da31efc0fd4b8fbe084869b4f77b3be36274ea6a986aa302fe5545842510657614d094b96ceee73f645df383281df",
+    "tlsh": "T1B3D57B13B2452AE2D29EB178485E5B2AF3B17816CB30E2C71296594D1F2BBE5DF7F100",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:wcQ/PSIDDOc96E5QIus+TX8fV1L+OOWgtWp1qVXiA:wb/PUz"
+  },
+  "file_metadata": {
+    "names": [
+      "Penalty Order.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 2947072,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.5% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.2% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.0% (.BIN\/MACBIN) MacBinary 1 (1033\/5)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "iso",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c296c308384f8f78c2e023402a75a1068b85e4a79d8160e3010f5cdd2c9f3391\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae1cd8e23354268c93c4377\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Packed.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-28 06:19:00",
+        "scanner_count": "36",
+        "scanner_match": "4",
+        "scanner_percent": "11.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261028-nfl3xszt3k\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "trojan",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "143.109.37.187:33915"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "143.109.37.187:33916"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-28T10:24:50Z",
+  "last_seen": null
+}
