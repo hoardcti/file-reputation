@@ -1,0 +1,125 @@
+{
+  "hashes": {
+    "sha256": "87367d9c60bb5923526138d10340a60d13d150f3280bba966d0ef8a335893635",
+    "sha1": "9f7098040c3cc2980c3e95bcb09837f1dd2a578c",
+    "md5": "babc4eb49a070dda66ba9fd06cbc8b48",
+    "sha3_384": "17a4f062bde32b0c0644e73c24e125b5de0142cb983e0e57064199c85f0cb80a0b6d3f4367403f332fee8d6291638d4d",
+    "tlsh": "T1F785F150966752ADD84326F3DC100FE568D8678407486EF96231EB663E31F93BFA72B0",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:1n5ZbQEnro7r/vka1j8UetvCcgiJqR7CDCxuV6UV3tLSlIDjy0CBbu+R:JJEjJ8OiJfGIV6+3t9fy7"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_87367d9c60bb.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1840368,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/0611cf61fa7ef2bab6cabd19207b0256a69a2981966b1f32691057c7dc03a433\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/8d8dd9808f875b74c2ba8aa735c00e661b2d366f658d4d78a79bbb041b504eb2\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/ab5ba540eae3608c2e2ca230cc60f630e51e612ee0d65253e0eaf7d42ddb2f55\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "Warp",
+        "author": "Seth Hardy",
+        "description": "Warp",
+        "reference": null
+      },
+      {
+        "rule_name": "WarpStrings",
+        "author": "Seth Hardy",
+        "description": "Warp Identifying Strings",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/87367d9c60bb5923526138d10340a60d13d150f3280bba966d0ef8a335893635\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae29e9714feaadade7d2275\/reports\/18c575d1-b867-4950-9a46-e8fa09e923ca\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-29 01:17:22",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-29T01:16:41Z",
+  "last_seen": null
+}

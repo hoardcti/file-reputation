@@ -1,0 +1,278 @@
+{
+  "hashes": {
+    "sha256": "d20a70b97cfda84fd416a92de64625ea2f21d1ae3986bbcfb204a92f65a7cecc",
+    "sha1": "dc4c6eda99cdda5db5eb5b605e43f124a749f8b9",
+    "md5": "03736ecc9ad5fa51ac2c1bdeb4fa9ee4",
+    "sha3_384": "d52e0b5eba80eba9fd39c140fc484ff3377046b881adac5fc31b653d3ef410bbec07ccdca7551b299c42a7b90e4ace62",
+    "tlsh": "T156F5335BF1AF47B3F7D9A831560FC66458B09FE41A20D38AD4DBAA9F0886BD0C241375",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:niJ2oaNEfaVbzxGvBkBWZGVLTfh7wpEES4OR:iJiafuIO7rhWEES4c"
+  },
+  "file_metadata": {
+    "names": [
+      "d20a70b97cfda84fd416a92de64625ea2f21d1ae3986bbcfb204a92f65a7cecc.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 3593043,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "52.7% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "12.8% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "9.8% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "8.7% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "4.0% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4016952\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95843\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "873aacdd29d787b3bff0b4637b26b2155044c58bb86fab3dac7351e596692661"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "97ad9f9455e0ce5eaa26f53aba9991d3"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SalatStealer",
+    "tags": [
+      "exe",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-29 01:08:24",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c688f92e-f90e-4a3a-bb10-081dc81c59fe",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "upx",
+            "susp-powershell",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "Salat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95843\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d20a70b97cfda84fd416a92de64625ea2f21d1ae3986bbcfb204a92f65a7cecc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae2980b6d3527d501eee1a3\/reports\/f06062ae-6b4c-479a-a1fe-84f8b189c0a3\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/d04a2fee-e2b2-4072-ba91-7bf2e8c9f2d7?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-10-26T07:15:00Z",
+        "last_seen": "2026-10-28T01:28:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/d20a70b97cfda84fd416a92de64625ea2f21d1ae3986bbcfb204a92f65a7cecc\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.SalatStealer",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-26 10:46:36",
+        "scanner_count": "36",
+        "scanner_match": "32",
+        "scanner_percent": "88.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "salatstealer",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261029-a6harshh39\/",
+        "tags": [
+          "family:salatstealer",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "spyware",
+          "stealer",
+          "trojan",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect SalatStealer payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: salatstealer",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "d20a70b97cfda84fd416a92de64625ea2f21d1ae3986bbcfb204a92f65a7cecc",
+          "md5_hash": "03736ecc9ad5fa51ac2c1bdeb4fa9ee4",
+          "sha1_hash": "dc4c6eda99cdda5db5eb5b605e43f124a749f8b9",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/d554b88f-340a-478c-beba-cba6fbc1c98a\/"
+        },
+        {
+          "sha256_hash": "9215f1e05e4eb602cf4665c42428006cb486547b1814639bb9099967b181544c",
+          "md5_hash": "9f5d59b4a24fa8fc43f33fc12313aaf3",
+          "sha1_hash": "cba9c38431816e6dada080e1b10fc704f9b9b76e",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/d554b88f-340a-478c-beba-cba6fbc1c98a\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-29T00:48:41Z",
+  "last_seen": null
+}
