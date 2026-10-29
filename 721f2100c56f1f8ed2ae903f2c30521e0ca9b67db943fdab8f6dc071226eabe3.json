@@ -1,0 +1,185 @@
+{
+  "hashes": {
+    "sha256": "721f2100c56f1f8ed2ae903f2c30521e0ca9b67db943fdab8f6dc071226eabe3",
+    "sha1": "47568fc014c361726b27aeb874ff49236e5d0cff",
+    "md5": "b93e8a7f1b91fd54692813eed90da6f9",
+    "sha3_384": "b6844b0a7cb3e29b747e41d57b80d5ca5ea78b515e8fe869e984e437532fd5ef4d9c52d8ad5d2f742cae46601e1fd151",
+    "tlsh": "T1D80451548AF5C013BAE6BE08B8D251277B57AACF683C44DD849DF20CA7A341219747FE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:BPO+tcHKzqosidHpfTqW1L4ixuHXY6L71ZGtpfsEMgTdGx7GRvkDuLxLBHX5HGvB:NJfw/GzsEVi/syV"
+  },
+  "file_metadata": {
+    "names": [
+      "doc20261029_99000011990.docx.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 177142,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": [
+      "66.6% (.TXT) Text - UTF-16 (LE) encoded (2000\/1)",
+      "33.3% (.MP3) MP3 audio (1000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/95944\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "XWorm",
+    "tags": [
+      "vbs",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/95944\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/721f2100c56f1f8ed2ae903f2c30521e0ca9b67db943fdab8f6dc071226eabe3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae33157d4b88ebbd001bf73\/reports\/540a0d5e-abf8-4ab7-ac59-9f800810f8b7\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-10-29T07:13:00Z",
+        "last_seen": "2026-10-29T08:44:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/721f2100c56f1f8ed2ae903f2c30521e0ca9b67db943fdab8f6dc071226eabe3\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Script.Trojan.Valyria",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-29 11:43:25",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261029-nvn6tsbv4w\/",
+        "tags": [
+          "family:xworm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "xworm",
+            "c2": "https:\/\/white-band-a6fb.to-o-ls-mee.workers.dev\/avkedcp"
+          },
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "217.60.102.94:443"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-29T11:42:33Z",
+  "last_seen": null
+}

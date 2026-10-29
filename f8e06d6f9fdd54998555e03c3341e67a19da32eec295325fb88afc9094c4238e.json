@@ -1,0 +1,160 @@
+{
+  "hashes": {
+    "sha256": "f8e06d6f9fdd54998555e03c3341e67a19da32eec295325fb88afc9094c4238e",
+    "sha1": "e7b0dffe0b7bfbcbdef8bc526fa766e1359334aa",
+    "md5": "eb2411d64a2070c8809b3101bf11c3a0",
+    "sha3_384": "7f77075cf4cace3f89d5a1e88c163630156f903a062dd69a7d992e30e6b73e8e2e3d132de9332e97c7d974740038b699",
+    "tlsh": "T1B8A4D41B6A22CF6DF365C63187BB4E24E75C32D723E1D645E19CD6012E2024E646FFA8",
+    "imphash": null,
+    "telfhash": "t10a51de18097813e4a2691c9d49ecff36d5e364df7e1a1c378e20d86ea76ae839901c1c",
+    "gimphash": null,
+    "ssdeep": "6144:x/r6Hw8/2nI3yTgQwGPIowFyM9nUk+RoP1xo3gNWB8v1ViNPiNhnguSxjj/UI9cK:xDl8+IVQRoXHNWvNaNhgl14Zq"
+  },
+  "file_metadata": {
+    "names": [
+      "160.119.71.27_n2_mips.inner"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 461048,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "ddos",
+      "dht",
+      "elf",
+      "Mirai",
+      "sixsayven",
+      "Torii",
+      "unknown"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_all_IPv6_variants",
+        "author": "Bierchermuesli",
+        "description": "Generic IPv6 catcher",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f8e06d6f9fdd54998555e03c3341e67a19da32eec295325fb88afc9094c4238e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae35d40451f265196e45148\/reports\/3b742d21-177e-44a1-9623-454e63f85afe\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/93324942-e040-4c33-8ec4-e8a9c915eb94?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-29 14:50:33",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261029-r7ve6ady6q\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "deepfield",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-29T14:49:22Z",
+  "last_seen": null
+}
