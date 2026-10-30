@@ -1,0 +1,288 @@
+{
+  "hashes": {
+    "sha256": "8a8ce129b3b8e9d9cd27fd9cb793f0e0868b67579d595f076e2ffc81d3dafce2",
+    "sha1": "df9bc4b6424590d95db90d20b8fe421117fffe37",
+    "md5": "61298feca856c8f43082b91c01341955",
+    "sha3_384": "fb59c1110633455182f6af26a962ab9ca1e65b5ed24dfaf0a0650d5cd4ad8eea655043fcba8499d24d21ed84de65ef5f",
+    "tlsh": "T161059D142126C762D8657BF3CE32D8F117732CA6D2A2D2DB4EE13CEA7972B606905713",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:3iIqLgBSATMDkY3j3gb8skUtXtDOV7d5y2Ruhut+hez8cm/dNQqmF8WxhQo:S0BSATMocj+ULRuMkhOjiaqu8W"
+  },
+  "file_metadata": {
+    "names": [
+      "payment advice.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 807424,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "73.9% (.EXE) Generic CIL Executable (.NET, Mono, etc.) (73123\/4\/13)",
+      "6.6% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "6.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.5% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "2.0% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96216\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AgentTesla",
+    "tags": [
+      "AgentTesla",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "AgentTesla_DIFF_Common_Strings_01",
+        "author": "schmidtsz",
+        "description": "Identify partial Agent Tesla strings",
+        "reference": null
+      },
+      {
+        "rule_name": "DotNet_RGB_Embedded_AssemblyLoader_Hunt",
+        "author": "ShadowOpCode",
+        "description": "Hunt .NET bitmap RGB extraction combined with embedded resources and assembly loading",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "HUNT_NET_Loader_ImagePixel_To_AssemblyLoad",
+        "author": "Anish Bogati",
+        "description": "Hunting: .NET loader that reads pixel data from an embedded image, loads it as a .NET assembly, and runs it via reflection or late binding. Catches bitmap-steganography loaders.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Derialock_ForgeAuto_3127f957_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Derialock (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "agenttesla",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-10-30 12:19:25",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/2cb784ad-b083-44b7-a5f3-bb9ab17f06a8",
+          "tags": [
+            "rgbloader",
+            "loader",
+            "ip-check",
+            "evasion",
+            "stealer",
+            "exfiltration",
+            "agenttesla",
+            "ftp"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "AgentTesla",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96216\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "agenttesla",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8a8ce129b3b8e9d9cd27fd9cb793f0e0868b67579d595f076e2ffc81d3dafce2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae48ac9869b93e00becbf91\/reports\/2cf15b9e-5808-43a3-9fa0-eeeb328b5f51\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Agent Tesla",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/1b68d570-0a9c-4c5e-a3f8-a57105c51522?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-10-29T19:47:00Z",
+        "last_seen": "2026-10-30T09:06:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/8a8ce129b3b8e9d9cd27fd9cb793f0e0868b67579d595f076e2ffc81d3dafce2\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Spyware.Negasteal",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-30 01:44:55",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "agenttesla",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261030-pf5qpsbz61\/",
+        "tags": [
+          "family:agenttesla",
+          "collection",
+          "discovery",
+          "keylogger",
+          "spyware",
+          "stealer",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: AgentTesla",
+            "score": "10"
+          },
+          {
+            "signature": "Reads user\/profile data of local email clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "8a8ce129b3b8e9d9cd27fd9cb793f0e0868b67579d595f076e2ffc81d3dafce2",
+          "md5_hash": "61298feca856c8f43082b91c01341955",
+          "sha1_hash": "df9bc4b6424590d95db90d20b8fe421117fffe37",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/373551e8-f5cf-41d4-9e1c-a65acce8f6a2\/"
+        },
+        {
+          "sha256_hash": "f613bcf6eebf22d1f7a80092ba723757aa68f9c1d67a640fe575057a22b17bd2",
+          "md5_hash": "8e3cc3cd26a9d0346bff772a195f94c2",
+          "sha1_hash": "7953eef655fbd6ff426164ba7aea665937f29e9c",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/373551e8-f5cf-41d4-9e1c-a65acce8f6a2\/"
+        },
+        {
+          "sha256_hash": "b9ef8fef5b455817a626806044ae6567cb1f7bafaa7d17a7724a02a25f90d2d2",
+          "md5_hash": "86ce51cb209a5dcd67d0b47572b4e9e2",
+          "sha1_hash": "b6ea8196e73da138d403048b659127ffd5c0c73f",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/373551e8-f5cf-41d4-9e1c-a65acce8f6a2\/"
+        },
+        {
+          "sha256_hash": "89c1a2c27470e898513e95d6175c382cd5a33fd6a509cde700b213214ecf0b80",
+          "md5_hash": "9a3d0e61430550fc5f788c7cef6c1644",
+          "sha1_hash": "c5dfb45b76144ce20870bbdd5defb0a51989e0bb",
+          "detections": [
+            "triage_agenttesla_infostealer",
+            "win_agent_tesla_g2",
+            "Agenttesla_type2",
+            "INDICATOR_EXE_Packed_GEN01",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_References_Confidential_Data_Store",
+            "INDICATOR_SUSPICIOUS_EXE_References_Messaging_Clients",
+            "INDICATOR_SUSPICIOUS_EXE_Referenfces_File_Transfer_Clients",
+            "INDICATOR_SUSPICIOUS_EXE_SandboxHookingDLL",
+            "INDICATOR_SUSPICIOUS_EXE_VaultSchemaGUID",
+            "MALWARE_Win_AgentTeslaV2"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/373551e8-f5cf-41d4-9e1c-a65acce8f6a2\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "James_inthe_box",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-30T12:17:06Z",
+  "last_seen": null
+}
