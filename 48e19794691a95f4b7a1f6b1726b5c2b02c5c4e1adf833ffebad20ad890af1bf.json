@@ -1,0 +1,134 @@
+{
+  "hashes": {
+    "sha256": "48e19794691a95f4b7a1f6b1726b5c2b02c5c4e1adf833ffebad20ad890af1bf",
+    "sha1": "3b88df71d382d1853ef5c07ebf75acf264cf07df",
+    "md5": "b8a2398399633623c9fd6111d5362b92",
+    "sha3_384": "69319974969682ec744c0e55dd302169c6ee87a5d376b6e3d5b95f02bdd790f439bd5b16004226e7ba4dd70ddddaa9b3",
+    "tlsh": "T15B2413E32A7AE019FA71E235B1740BC7676748D108DF97CA4D05B12BF4B06521AD193F",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:lpt+xiCmyMpV2/K+g2IOnll8XezMeHwCSUb1DuIL+Vr/:d+xiU4Qg9GllXz/SUb1DuIL"
+  },
+  "file_metadata": {
+    "names": [
+      "stub.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 219136,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "64.7% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "25.0% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "4.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "1.8% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/NotAlexei\/akuma-stealer-analysis"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96001\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AkumaStealer",
+    "tags": [
+      "AkumaStealer",
+      "clipper",
+      "exe",
+      "infostealer",
+      "MaaS",
+      "Stealer",
+      "UPX",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96001\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae43c4e0dd6269d2a158adf\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-30 00:24:27",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "UnpacMe": [
+        {
+          "sha256_hash": "48e19794691a95f4b7a1f6b1726b5c2b02c5c4e1adf833ffebad20ad890af1bf",
+          "md5_hash": "b8a2398399633623c9fd6111d5362b92",
+          "sha1_hash": "3b88df71d382d1853ef5c07ebf75acf264cf07df",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/94626ef0-333d-4f3a-be25-29e33e708e10\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.14"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "NotAlexei",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "multiple"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-29T23:37:43Z",
+  "last_seen": null
+}
