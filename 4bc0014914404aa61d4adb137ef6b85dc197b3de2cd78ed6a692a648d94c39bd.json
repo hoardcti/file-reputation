@@ -1,0 +1,132 @@
+{
+  "hashes": {
+    "sha256": "4bc0014914404aa61d4adb137ef6b85dc197b3de2cd78ed6a692a648d94c39bd",
+    "sha1": "583c6333b4720747c3e2c24b4ea481d49bac4357",
+    "md5": "22aad9f5b4c57bb7c4a45d609646dcc6",
+    "sha3_384": "895e787511dc05b14c77c3f95dea4c0df6dff9ec68142c4a62a69ed5b7b3726f395f70ccefd4291853eeec5dda378e1b",
+    "tlsh": "T1EBE5C8BC59EAF76585A05E2AFDDEF5091C117FF262CA9E87788CA3F841114548FB0832",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:/+3JVXSXPht5wW1dhRdyX9k8i3Ar4KdXz:0"
+  },
+  "file_metadata": {
+    "names": [
+      "4bc0014914404aa61d4adb137ef6b85dc197b3de2cd78ed6a692a648d94c39bd.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 3279076,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4047744\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae599ff6907339e04863295\/reports\/caec2d9e-c290-49bc-aace-c5fcc717c4d0\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Ransomware.Nokonoko",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-11 03:25:41",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261031-jealaavxcs\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-31T01:46:03Z",
+  "last_seen": null
+}
