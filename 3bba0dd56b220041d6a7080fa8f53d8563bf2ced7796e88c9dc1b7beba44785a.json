@@ -1,0 +1,119 @@
+{
+  "hashes": {
+    "sha256": "3bba0dd56b220041d6a7080fa8f53d8563bf2ced7796e88c9dc1b7beba44785a",
+    "sha1": "e666366ded4849da544d7dffd01f27dd82cd3492",
+    "md5": "d60d8605a33656a456607e397ff353f7",
+    "sha3_384": "03e06189531b634b29dfd82ae063ada1173ac7cbfc87dc1726458cac61b6536fd104c48e182014dfc6b05007bf919b25",
+    "tlsh": "T16985F15CAB26539BF4423C328D1D1F5524A0BB919E8A6EFA6230C7352F31A53F663731",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:9bD32h8BrXBPfPA8gWCKLloht0QutcK9J3hi3uEGp7e8xAaj0l:R3tfPzgWCKpQl"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_3bba0dd56b22.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 1775360,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3947856\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_FwRot_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill/stratos generation with a rotated framework set: fat x86_64+arm64 linking libSystem+libc++ and two or more system frameworks (CoreFoundation no longer required) while importing nothing from any framework, CF, objc or swift, with the task_info/mach_task_self_/pthread_once resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_NoFw_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill/stratos generation, framework-agnostic: fat x86_64+arm64 linking libSystem+libc++ with any number of system frameworks (zero since 2026-10-30) and no framework, CF, objc or swift import, the task_info/mach_task_self_/pthread_once resolver core in both slices, and a 128 KB-1 MB __DATA_CONST,__const payload section in both slices",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill generation with run-time settings back inside the payload script (no constructor settings file): fat x86_64+arm64 linking CoreFoundation+libSystem+libc++ but importing nothing from CoreFoundation or objc, with the task_info/mach_task_self_ resolver core in both slices inside a per-build random libc decoy import set",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3bba0dd56b220041d6a7080fa8f53d8563bf2ced7796e88c9dc1b7beba44785a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae60ccca92e538c02dfef25\/reports\/88a745df-6d89-469b-a9e9-83f51881bd85\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "macho fat",
+        "first_seen": "2026-10-29T07:49:00Z",
+        "last_seen": "2026-10-29T08:04:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/3bba0dd56b220041d6a7080fa8f53d8563bf2ced7796e88c9dc1b7beba44785a\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-31 09:00:46",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-10-31T15:43:33Z",
+  "last_seen": null
+}
