@@ -40,8 +40,9 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "DesktopStreamRAT",
     "tags": [
+      "DesktopStreamRAT",
       "exe"
     ],
     "yara_rules": [
@@ -143,6 +144,13 @@
         "twitter_handle": null,
         "display_name": null,
         "comment": "Family attribution \u0026 static/dynamic analysis: Lold/1.0 (LOLD_CFG_V1) native x64 chunked downloader/loader (hermesik.exe = 'little Hermes') for the Hermes MaaS stealer/RAT platform (Malpedia win.hermes_stealer; ref: https://papers.lisdex.sh/hermes/report.pdf), staged at http://107.175.82.242:9000/wilow/hermesik.exe (URLhaus 4049483). Extracted .loldcfg section at raw offset 0xcc200 (magic LOLD_CFG_V1): C2 Base URL = http://144.31.53.142:8093 (User-Agent: Lold/1.0), delivery_mode = chunks, payload_id = p_cd2f8d7fd6dbd230, build_exe_name = bld_C6h67XDjY-FEeNPOAEDhElF9.exe, poll_interval = 1800s, Bearer/X-Chunk-Key prefix = k_a126... (50 bytes, SHA-256 b48e1353901b2390eb81e4f37dece72934297f83309f3d6bfd298c725ac87a33), persistence mask at +0xFA0 = 0x1F, identity salt at +0x112C = s_cfda580f07dc0e88961f49a4c9160565. In Tria.ge 261101-nsnsaaat3s, hermesik.exe fetched http://144.31.53.142:8093/chunks/p_cd2f8d7fd6dbd230/v3/manifest.json (X-Fileserver-Scheme: rsnk) and 0.bin..5.bin (6 x 3,243,136 bytes), reconstructed and executed the downstream Hermes payload OneDriveUpdate.exe (SHA-256 f26a0a27dfa8b7f20413a6c1818752cf25031cf9700ca7ffaa161e7b16eb16c2), which exfiltrated LZNT1-compressed stealer data to http://144.31.53.142:8787/api/client/report (User-Agent: local-state-simple-api/1.0) and streamed live desktop video via WebSocket to ws://144.31.53.142:8080/ws/publisher (User-Agent: DesktopStreamClient/0.1; panel at http://144.31.53.142:8700)."
+      },
+      {
+        "id": "519294",
+        "date_added": "2026-11-01 18:58:31",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Hermes Stealer v1.4.3 (win.hermes_stealer) wire protocol \u0026 persistence analysis for C2 144.31.53.142:\n- Client metadata (decoded from LZNT1-compressed POST http://144.31.53.142:8787/api/client/report with headers X-Compression: lznt1 and X-Uncompressed-Size): clientVersion=1.4.3, buildVariant=full-recovery, buildTag=Cardinal, featureMask=7, hwid_version=desktopstream-hwid-v2\n- Live HVNC \u0026 keylogger streaming: RFC 6455 WebSocket GET ws://144.31.53.142:8080/ws/publisher?deviceId=\u003c64hex_hwid\u003e (note: ?deviceId= is the victim's 64-hex desktopstream-hwid-v2 SMBIOS/CPU/firmware hash, such as f26a0a27dfa8b7f20413a6c1818752cf25031cf9700ca7ffaa161e7b16eb16c2 in Tria.ge, not a file hash), streaming JSON hello, monitors, keylog_history, and JPEG frame packets\n- C2 backend server path leaked in HTTP 200 JSON response from 144.31.53.142:8787: C:\\Hermes\\panel\\backend\\windows-amd64\\output\\client_reports\\\u003chwid\u003e\\\n- Dropped 824 KB self-mutated persistence copies (HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\OneDriveSync_A2C7DA76):\n  * %LOCALAPPDATA%\\Microsoft\\OneDriveStandalone\\OneDriveUpdate.exe (SHA-256: e16427e979ee889a2b7bb9c658da21dd633a6de7670deec6df0bef6af4d9f78f)\n  * %LOCALAPPDATA%\\Microsoft\\SyncServices\\SyncService.exe (SHA-256: d230f1e16de2cd58b95dcc1e90d5b9eacbcdd2b6a9ed8f1b43cf657939db3e3d, feed2985b53a0910a79919deaf8f7f304f65d5df651e2056fba05e166475af2e)"
       }
     ],
     "vendor_intel": {
