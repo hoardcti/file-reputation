@@ -1,0 +1,308 @@
+{
+  "hashes": {
+    "sha256": "f8dfee4f37a0e8ddeba1b31a116997b7f5080d5ca243f747a255c99e2441350a",
+    "sha1": "006bcf725c5867fac0b061b615372c51a120a4fb",
+    "md5": "183ff113073b9e3c0776a7d88252677c",
+    "sha3_384": "aa0db58730a4a38e987ee32078ed3dc80a8a6591d89543097fbdfaf6f543705ee62fafa182520f55a4153a0361121d67",
+    "tlsh": "T181053A157A49187DCAC6D475978F6923462834CF0E61BCFF83C9A2323EAA0B59F36714",
+    "imphash": "71eb0f18e577947f062d0811f3a37327",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:m7tcNWRdeUTXAWIZHvKFHB63NuOlbYmg8GLYmDX0/gKxVk5k0O1u6VK6f:Mcox7ATKj8+YmDXzKFHnf"
+  },
+  "file_metadata": {
+    "names": [
+      "bld_WrhPmSV4V4TJSTXsDdtCrIh2.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 850840,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96583\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "Hermes",
+      "loader",
+      "Lold"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "cobalt_strike_tmp01925d3f",
+        "author": "The DFIR Report",
+        "description": "files - file ~tmp01925d3f.exe",
+        "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "Lold_Loader_Implant_CFG_V1",
+        "author": "Daydream",
+        "description": "Lold/1.0 (Lold.UpdateClient) x64 C++ loader/implant and verbatim outer PE wrappers: matches the .loldcfg (LOLD_CFG_V1) configuration section, Lold/1.0 User-Agent, Local\\Lold_ mutex, --lold-container CLI flag, and rs42 Reed-Solomon RS(4,2) chunk assembly strings",
+        "reference": "https://bazaar.abuse.ch/sample/269b268ad54168172f307ae50896b64735e3164946f4abc91c2e8257b0fb6300/"
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient",
+        "author": "anonymous",
+        "description": "Lold Update Client (lold-container) payload delivered via ClickFix: WinHTTP C2 on :8093 (/files, /files/hb, /files/inbox), embedded LOLD_CFG_V1 config",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient_Config",
+        "author": "anonymous",
+        "description": "Lold Update Client embedded config block (LOLD_CFG_V1 + C2 URL + k_ key); also matches memory dumps",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_Lold_Memory_C2",
+        "author": "anonymous",
+        "description": "Lold Update Client C2 artefacts in process memory or dumps: :8093 base URL with payload chunk path or k_ session key",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "TigerRAT_pe_yaraify",
+        "author": "hunts-yara-code",
+        "description": "YARAify-tightened byte rule from 9 sample(s) -- VERIFY hits",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_4fa7e284_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "519267",
+        "date_added": "2026-11-01 14:25:56",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Family attribution \u0026 static config extraction: Lold/1.0 (LOLD_CFG_V1) native x64 chunked downloader/loader for the Hermes MaaS stealer/RAT platform (Malpedia win.hermes_stealer; ref: https://papers.lisdex.sh/hermes/report.pdf). Code section (.text 0x400..0xa8800) is byte-identical to hermesik.exe (90d527fa9b8bde1c4965293428eeeaad4fd527e7d2271dd02a4404a9de8376d9). Extracted .loldcfg section at raw offset 0xcc600 (magic LOLD_CFG_V1): C2 Base URL = http://216.158.95.183:8093 (User-Agent: Lold/1.0), delivery_mode = chunks, payload_id = p_3e3b1bbfab33ca78, build_exe_name = bld_WrhPmSV4V4TJSTXsDdtCrIh2.exe, poll_interval = 1800s, Bearer/X-Chunk-Key prefix = k_0974... (50 bytes, SHA-256 7452ea361f74c7e6ee504a524dbb6335b10a9299b88946c6a4a61d2fae77cf60), persistence mask at +0xFA0 = 0x1F, identity salt at +0x112C = s_bd05e1e4866001507e4a5202ed3b7b58."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-01 14:28:52",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c243dfe1-d08a-4601-9d5d-70518506f81f",
+          "tags": [
+            "lold",
+            "rat",
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96583\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f8dfee4f37a0e8ddeba1b31a116997b7f5080d5ca243f747a255c99e2441350a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae74c0288b9ea3dccafe509\/reports\/19baad36-ccb7-417f-b859-6e74cf90d3bc\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/9173c61c-45cd-4b5f-8ba9-0600b2b418d4?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-31T14:34:00Z",
+        "last_seen": "2026-10-31T15:03:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/f8dfee4f37a0e8ddeba1b31a116997b7f5080d5ca243f747a255c99e2441350a\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Ravartar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-31 18:15:00",
+        "scanner_count": "36",
+        "scanner_match": "29",
+        "scanner_percent": "80.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261101-rrw9taxw3m\/",
+        "tags": [
+          "discovery",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "f8dfee4f37a0e8ddeba1b31a116997b7f5080d5ca243f747a255c99e2441350a",
+          "md5_hash": "183ff113073b9e3c0776a7d88252677c",
+          "sha1_hash": "006bcf725c5867fac0b061b615372c51a120a4fb",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/66656d3b-2251-4ddf-bf78-a209a9d9c618\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP POST request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Daydream",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-01T14:25:47Z",
+  "last_seen": null
+}

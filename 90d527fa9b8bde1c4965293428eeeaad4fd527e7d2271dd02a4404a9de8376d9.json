@@ -1,0 +1,409 @@
+{
+  "hashes": {
+    "sha256": "90d527fa9b8bde1c4965293428eeeaad4fd527e7d2271dd02a4404a9de8376d9",
+    "sha1": "4c0cdbc2e40b5ac40ada2919ae5d49aca272c51e",
+    "md5": "63ede54a4653c32dcb984e789460fbcb",
+    "sha3_384": "e589215f06c1b16d5aab818fdde85f25c5c1ada9f42a91e214e5e3b786b1a9c85f1bc26a195e3d03dc5d7b8e42c8f2d8",
+    "tlsh": "T1B0053B197A4918BDC9C6D475978B6923452834CF1E61BCFF83CAA2323E6A0B4DF36714",
+    "imphash": "71eb0f18e577947f062d0811f3a37327",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:I7tcNWRdeUTXAWIZHvKFHB63NuOlbYmg8GLYmDX0/gKxVk5k0O1uoVF6:Kcox7ATKj8+YmDXzKFRg"
+  },
+  "file_metadata": {
+    "names": [
+      "hermesik.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 843776,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4049483\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96567\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "cobalt_strike_tmp01925d3f",
+        "author": "The DFIR Report",
+        "description": "files - file ~tmp01925d3f.exe",
+        "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "Lold_Loader_Implant_CFG_V1",
+        "author": "Daydream",
+        "description": "Lold/1.0 (Lold.UpdateClient) x64 C++ loader/implant and verbatim outer PE wrappers: matches the .loldcfg (LOLD_CFG_V1) configuration section, Lold/1.0 User-Agent, Local\\Lold_ mutex, --lold-container CLI flag, and rs42 Reed-Solomon RS(4,2) chunk assembly strings",
+        "reference": "https://bazaar.abuse.ch/sample/269b268ad54168172f307ae50896b64735e3164946f4abc91c2e8257b0fb6300/"
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient",
+        "author": "anonymous",
+        "description": "Lold Update Client (lold-container) payload delivered via ClickFix: WinHTTP C2 on :8093 (/files, /files/hb, /files/inbox), embedded LOLD_CFG_V1 config",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient_Config",
+        "author": "anonymous",
+        "description": "Lold Update Client embedded config block (LOLD_CFG_V1 + C2 URL + k_ key); also matches memory dumps",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_Lold_Memory_C2",
+        "author": "anonymous",
+        "description": "Lold Update Client C2 artefacts in process memory or dumps: :8093 base URL with payload chunk path or k_ session key",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "TigerRAT_pe_yaraify",
+        "author": "hunts-yara-code",
+        "description": "YARAify-tightened byte rule from 9 sample(s) -- VERIFY hits",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_4fa7e284_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "519266",
+        "date_added": "2026-11-01 14:25:53",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Family attribution \u0026 static/dynamic analysis: Lold/1.0 (LOLD_CFG_V1) native x64 chunked downloader/loader (hermesik.exe = 'little Hermes') for the Hermes MaaS stealer/RAT platform (Malpedia win.hermes_stealer; ref: https://papers.lisdex.sh/hermes/report.pdf), staged at http://107.175.82.242:9000/wilow/hermesik.exe (URLhaus 4049483). Extracted .loldcfg section at raw offset 0xcc200 (magic LOLD_CFG_V1): C2 Base URL = http://144.31.53.142:8093 (User-Agent: Lold/1.0), delivery_mode = chunks, payload_id = p_cd2f8d7fd6dbd230, build_exe_name = bld_C6h67XDjY-FEeNPOAEDhElF9.exe, poll_interval = 1800s, Bearer/X-Chunk-Key prefix = k_a126... (50 bytes, SHA-256 b48e1353901b2390eb81e4f37dece72934297f83309f3d6bfd298c725ac87a33), persistence mask at +0xFA0 = 0x1F, identity salt at +0x112C = s_cfda580f07dc0e88961f49a4c9160565. In Tria.ge 261101-nsnsaaat3s, hermesik.exe fetched http://144.31.53.142:8093/chunks/p_cd2f8d7fd6dbd230/v3/manifest.json (X-Fileserver-Scheme: rsnk) and 0.bin..5.bin (6 x 3,243,136 bytes), reconstructed and executed the downstream Hermes payload OneDriveUpdate.exe (SHA-256 f26a0a27dfa8b7f20413a6c1818752cf25031cf9700ca7ffaa161e7b16eb16c2), which exfiltrated LZNT1-compressed stealer data to http://144.31.53.142:8787/api/client/report (User-Agent: local-state-simple-api/1.0) and streamed live desktop video via WebSocket to ws://144.31.53.142:8080/ws/publisher (User-Agent: DesktopStreamClient/0.1; panel at http://144.31.53.142:8700)."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-01 12:26:19",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/152ded1a-3834-4230-b452-5b4eb9c0115f",
+          "tags": [
+            "lold",
+            "rat",
+            "auto-reg",
+            "loader",
+            "ip-check",
+            "websocket",
+            "stealer"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96567\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/90d527fa9b8bde1c4965293428eeeaad4fd527e7d2271dd02a4404a9de8376d9\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae725062d80bb95ce4c9342\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4d43f3fe-8680-4f45-8ca7-8b9fbbe69631?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-11-01T04:54:00Z",
+        "last_seen": "2026-11-01T06:13:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/90d527fa9b8bde1c4965293428eeeaad4fd527e7d2271dd02a4404a9de8376d9\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-01 09:55:38",
+        "scanner_count": "36",
+        "scanner_match": "23",
+        "scanner_percent": "63.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261101-nsnsaaat3s\/",
+        "tags": [
+          "collection",
+          "discovery",
+          "persistence",
+          "ransomware",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "90d527fa9b8bde1c4965293428eeeaad4fd527e7d2271dd02a4404a9de8376d9",
+          "md5_hash": "63ede54a4653c32dcb984e789460fbcb",
+          "sha1_hash": "4c0cdbc2e40b5ac40ada2919ae5d49aca272c51e",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/abd958a5-0725-4a14-b9de-6a516cbd016e\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP POST request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-01T11:38:39Z",
+  "last_seen": null
+}

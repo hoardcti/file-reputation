@@ -1,0 +1,359 @@
+{
+  "hashes": {
+    "sha256": "925a9d35a32e1a6a1ce1ae4b9ff09e289184d4d925d700752c99f15ab04296dd",
+    "sha1": "6a60d7fb542c4a603f982e8a6f0d6269188b2899",
+    "md5": "f74a0fbddac01f282b070fc6b57811a6",
+    "sha3_384": "7d1ea59899697e85a392ae6921ac79112ef280d2d3634e49febe0459f73dcb2a6d20dea476f0c8ef1bad88110f4bf113",
+    "tlsh": "T1E585E547EBB651E4D8FAC1398666722BBC71385983349BD797408A474B62FF0E93E340",
+    "imphash": "44283d942ff89951d738ee96c0033e23",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:MRCHWdzPchRf8DQeR74F66JhyjtRzxDt+GSpnZ/0BtTODJzEvQMNgx:VkxKYODpil"
+  },
+  "file_metadata": {
+    "names": [
+      "serial.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1748480,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96532\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4049533\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "NightshadeC2",
+    "tags": [
+      "exe",
+      "NightshadeC2"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Check_OutputDebugStringA_iat",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore",
+        "author": "ditekSHen",
+        "description": "Detects executables containing SQL queries to confidential data stores. Observed in infostealers",
+        "reference": null
+      },
+      {
+        "rule_name": "NightshadeC2",
+        "author": "YungBinary",
+        "description": "NightshadeC2 AKA CastleRAT - https://x.com/YungBinary/status/1963751038340534482",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ENV_Folder_Root_File_Jan23_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious file path pointing to the root of a folder easily accessible via environment variables",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Trojan_NightshadeC2_80e08aba",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "https:\/\/mytimocom.co\/personal-dashboard-account-overview-client-portal-profile-preferences-settings-activity-history-documents-and-messages-notifications-registration-complete-contact-details-language-preferences-support-and-help-account-management-profile-information-session-history-document-library-message-center-notification-settings-regional-preferences-accessibility-options-connected-devices-and-account-summary",
+          "date": "2026-10-28 08:52:10",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/1b932af3-cd05-4c36-b18b-90b8ea01d24c",
+          "tags": [
+            "opendir",
+            "webdav",
+            "meshagent",
+            "rmm-tool",
+            "emmenhtal",
+            "golang"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "NightshadeC2",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96532\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/925a9d35a32e1a6a1ce1ae4b9ff09e289184d4d925d700752c99f15ab04296dd\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae723f82d80bb95ce4c8c6b\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/64047035-a3cd-4b2f-94d5-8849335c81ae?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-11-01T04:57:00Z",
+        "last_seen": "2026-11-01T07:14:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/925a9d35a32e1a6a1ce1ae4b9ff09e289184d4d925d700752c99f15ab04296dd\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-01 09:07:27",
+        "scanner_count": "38",
+        "scanner_match": "19",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261101-np72raww7m\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "925a9d35a32e1a6a1ce1ae4b9ff09e289184d4d925d700752c99f15ab04296dd",
+          "md5_hash": "f74a0fbddac01f282b070fc6b57811a6",
+          "sha1_hash": "6a60d7fb542c4a603f982e8a6f0d6269188b2899",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/58e1e0c5-685f-4747-8ba0-5bcd9ebbb861\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Deleting of the original file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Setting a global event handler for the keyboard"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-01T11:34:31Z",
+  "last_seen": null
+}

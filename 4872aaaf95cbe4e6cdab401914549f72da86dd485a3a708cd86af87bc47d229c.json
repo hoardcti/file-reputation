@@ -1,0 +1,288 @@
+{
+  "hashes": {
+    "sha256": "4872aaaf95cbe4e6cdab401914549f72da86dd485a3a708cd86af87bc47d229c",
+    "sha1": "b528292362c02aa5ff1500e563c76c87cd157b29",
+    "md5": "45f35fa37276991e28bbedaaf15c1852",
+    "sha3_384": "1024b7f6e8e7db4d10c451de30c0df80dcff007c432eb62e56ffe9ecfed314a2f9c3f5e689f7f5c507df6c06a683de97",
+    "tlsh": "T175A56E17D2E2A8F8CD2BC1B487665732A56174684235F93E26A8DB321F30E70577EB34",
+    "imphash": "f54a029d0151658f314585ccc1801b5c",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:6sRMmkWs7b6+TfpNWZAaTuV+Y3tBtfACswy7UagcVLyrb:FWB3EAaS2"
+  },
+  "file_metadata": {
+    "names": [
+      "corvus.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2107392,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96535\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4049464\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Check_OutputDebugStringA_iat",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-01 13:01:23",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/9b1c0037-d44f-4b7e-b2cf-fc6f0a5f402a",
+          "tags": [
+            "corvusminer",
+            "miner",
+            "loader",
+            "xmrig"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96535\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4872aaaf95cbe4e6cdab401914549f72da86dd485a3a708cd86af87bc47d229c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae723f52d80bb95ce4c8c4a\/reports\/cb400b12-197b-4865-8bdb-e672031e8849\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "SloppyRAT",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6e45f679-9ef5-4902-831d-bfcb07d881b3?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-11-01T04:56:00Z",
+        "last_seen": "2026-11-01T07:14:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/4872aaaf95cbe4e6cdab401914549f72da86dd485a3a708cd86af87bc47d229c\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Packed.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-01 09:54:54",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261101-np8chsww7r\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Suspicious use of NtCreateUserProcessOtherParentProcess",
+            "score": "10"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "4872aaaf95cbe4e6cdab401914549f72da86dd485a3a708cd86af87bc47d229c",
+          "md5_hash": "45f35fa37276991e28bbedaaf15c1852",
+          "sha1_hash": "b528292362c02aa5ff1500e563c76c87cd157b29",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/53afb66a-79f1-4c92-9112-af83cf134954\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Sending an HTTP POST request to an infection source"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Defender launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-01T11:34:46Z",
+  "last_seen": null
+}
