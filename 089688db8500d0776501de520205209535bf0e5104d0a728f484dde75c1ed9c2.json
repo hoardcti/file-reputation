@@ -1,0 +1,161 @@
+{
+  "hashes": {
+    "sha256": "089688db8500d0776501de520205209535bf0e5104d0a728f484dde75c1ed9c2",
+    "sha1": "a8cd54727010b5032be004f0db145661b848c7fd",
+    "md5": "5dc80b8872c309b36fba9d33f7422515",
+    "sha3_384": "feff2a3928f7058c59312f58522c0dbc8942beba3bbe5ea81a1b334951c9c8bd003e2483a3819df110177a3acf9426d8",
+    "tlsh": "T150441291D731442EEAAD643204CB23394B14CF64C462AA1F2644F73776BA35EA3C67DB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:LvE2KENL+Jk26uc91Cj+0ZVf8GdlmZ/DDjci2FFN:LNC3Wg+8lLm5PwFX"
+  },
+  "file_metadata": {
+    "names": [
+      "089688db_monkeysdk_com.huawei.io_170-205-28-207_9000.apk"
+    ],
+    "mime_type": "application/vnd.android.package-archive",
+    "type": "apk",
+    "size": 257701,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "apk",
+    "trid": [
+      "60.6% (.APK) Android Package (27000\/1\/5)",
+      "30.3% (.JAR) Java Archive (13500\/1\/2)",
+      "8.9% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "apk",
+      "ddos",
+      "elf.jackskid",
+      "jackskid",
+      "Mirai",
+      "rctea",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/089688db8500d0776501de520205209535bf0e5104d0a728f484dde75c1ed9c2\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae84e0c997978972f503d02\/reports\/b31b6bdd-32b3-4051-a44c-9caf4fc45578\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-02 08:47:16",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261102-kpfqqa11ev\/",
+        "tags": [
+          "android",
+          "defense_evasion",
+          "persistence",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Acquires the wake lock",
+            "score": "6"
+          },
+          {
+            "signature": "Makes use of the framework's foreground persistence service",
+            "score": "6"
+          },
+          {
+            "signature": "Requests disabling of battery optimizations (often used to enable hiding in the background).",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "deepfield",
+    "anonymous": false,
+    "origin_country": "IT",
+    "delivery_method": "other"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "Willy",
+      "issuer_cn": "Willy",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-10-29T03:15:54Z",
+      "valid_to": "2051-10-23T03:15:54Z",
+      "serial_number": "01",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-02T08:46:12Z",
+  "last_seen": null
+}

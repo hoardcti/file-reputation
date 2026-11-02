@@ -1,0 +1,195 @@
+{
+  "hashes": {
+    "sha256": "34a2f3bf3e131e794689b61d42c8415d0a9d5c1fd46e3aef12bb1f17f30db91c",
+    "sha1": "07e96e5f68c9fc1102de195eedcc0336813c38a9",
+    "md5": "7d35ce2f577a56fec910bf6a566bdbfc",
+    "sha3_384": "57016847529b08996b7a2b33a6f4f51e9d5d5f981fab61f5854d7784135ca604ef7b379c99737f8c1ee6986b23c7f94d",
+    "tlsh": "T142D4EB6633C4FC62D14ADBB8AD110C17E3EE11A9DFDF989ECBD5F6480887518464ECA2",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:y0VwaSprBZJSplsHGLRmRPRhe1Q0DwwoF8qSX1zjS1hDHuDHXtuRYRa6Fj9hWR+a:fRmRPR1wKRYRwWslB11kjyh2Q2oL1Lz"
+  },
+  "file_metadata": {
+    "names": [
+      "34a2f3bf3e131e794689b61d42c8415d0a9d5c1fd46e3aef12bb1f17f30db91c.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 647491,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ACRStealer",
+    "tags": [
+      "ACRStealer",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae82dfefa55558d1af7f3bc\/reports\/ccf76f64-4bbc-48cf-aa39-72540a59e447\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-PowerShell.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-01 15:37:38",
+        "scanner_count": "36",
+        "scanner_match": "10",
+        "scanner_percent": "27.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "acrstealer",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261102-g9nqaaed24\/",
+        "tags": [
+          "family:acrstealer",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "privilege_escalation",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: ACR stealer,GrMsk",
+            "score": "10"
+          },
+          {
+            "signature": "Suspicious use of NtCreateUserProcessOtherParentProcess",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Reads user\/profile data of local email clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "acrstealer",
+            "c2": "lb.birchcore.cc"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-02T01:30:21Z",
+  "last_seen": null
+}
