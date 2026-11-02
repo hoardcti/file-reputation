@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "4bef6fd2f00e0d76b7bb9aa6f1ec8472ba32726ad79e08a7d0a105f7fbb1fbac",
+    "sha1": "8bac1244f2022a49b2d37a26e6d5c51f90373d96",
+    "md5": "72835ba918f593f53e5685ee1ef4c064",
+    "sha3_384": "23b5563b85b161d6d5b363ee625937a9da78d7bcdfa49bfc7f1ca0d538c82e9c693a14bf0c45771349f9838d36970618",
+    "tlsh": "T1BEF330962D8A8E13DDBBF904A96F2596E1C7B04FB4BACE0C4DCD15A897730136E50F09",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:RSiHrRxJhooKI4DmiP6m5Hm48+ZQaNSy3LYLK:/VhooKI4DmiP6mk4pZQaNSy3LUK"
+  },
+  "file_metadata": {
+    "names": [
+      "Order1122026-PDF.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 168034,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96835\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "RemcosRAT",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96835\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4bef6fd2f00e0d76b7bb9aa6f1ec8472ba32726ad79e08a7d0a105f7fbb1fbac\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae892440eab61a365d648db\/reports\/fe8b9731-a995-464a-bead-5f2810d21e2b\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "2026-11-01T21:12:00Z",
+        "last_seen": "2026-11-02T07:27:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/4bef6fd2f00e0d76b7bb9aa6f1ec8472ba32726ad79e08a7d0a105f7fbb1fbac\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Downloader.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-02 13:00:38",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261102-qw1x5awx4j\/",
+        "tags": [
+          "family:remcos",
+          "botnet:abigo",
+          "collection",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Hide Artifacts: Hidden Window",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "remcos",
+            "c2": "https:\/\/green-breeze-ca3a.fortunespromailsd.workers.dev\/wvddnv"
+          },
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "abigo54343.duckdns.org:25674"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-02T13:37:13Z",
+  "last_seen": null
+}

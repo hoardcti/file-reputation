@@ -1,0 +1,311 @@
+{
+  "hashes": {
+    "sha256": "a918ece64739fd805355df17b8cc8de205d8392e789a08a98648f383851d91fe",
+    "sha1": "b1cdb9bc6d6bddacaf2ba2ae07a4a279a28ce95b",
+    "md5": "18b00e76897a30521ecb8fc15bd6e251",
+    "sha3_384": "3e510e63519106a97e5449586ba606cbb3f58c1d150051e5ce5b1b0547d8653b6f2f340f15d1ffbe795c12852b71fbc9",
+    "tlsh": "T1C92401A8F3D58D64D87F87368D3D03580AB6FD975850D71B09CF886E2EE2AC4A524F90",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:Cvwz+gJdSxrQbNgMxLG/ealPkfkETwbJQ/HX1pr7+bvIUEDb9iy/eT:CvSU0NZxVapk1ssHr7+jIUA9iy"
+  },
+  "file_metadata": {
+    "names": [
+      "Plain Craft Launcher2.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 216576,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "21.4% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "21.2% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "14.6% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "6.6% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96825\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "02f7162f3a8bdef7d764ad6efcf6cada061fb50a6933e3b052b817195b42df19"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "6424b0946d013f1fcac74fb3efbdcaeb"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AsyncRAT",
+    "tags": [
+      "C",
+      "exe",
+      "Loader",
+      "Minecraft",
+      "PCL2",
+      "RAT",
+      "VB.NET",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-02 15:20:14",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ba1abaf2-a9e1-40fb-94ef-ea2aedc56c7b",
+          "tags": [
+            "evasion",
+            "auto-reg",
+            "uac",
+            "auto-startup",
+            "ip-check",
+            "xworm"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96825\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": "xworm",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a918ece64739fd805355df17b8cc8de205d8392e789a08a98648f383851d91fe\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae893ed9fce965c9c3a4fd0\/reports\/197f9073-1362-44a6-aa77-cfa149c1d923\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/92cc273e-4426-4706-a0fb-5462761c42af?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-02 13:45:22",
+        "scanner_count": "36",
+        "scanner_match": "15",
+        "scanner_percent": "41.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261102-q2f5xatyhz\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "a918ece64739fd805355df17b8cc8de205d8392e789a08a98648f383851d91fe",
+          "md5_hash": "18b00e76897a30521ecb8fc15bd6e251",
+          "sha1_hash": "b1cdb9bc6d6bddacaf2ba2ae07a4a279a28ce95b",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/3c48eae0-6c15-4985-bd8d-48ced94da41a\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Forced shutdown of a system process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Defender launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Security Center launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the default Windows debugger (dwwin.exe)"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "youngski",
+    "anonymous": false,
+    "origin_country": "HK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-02T13:05:25Z",
+  "last_seen": null
+}
