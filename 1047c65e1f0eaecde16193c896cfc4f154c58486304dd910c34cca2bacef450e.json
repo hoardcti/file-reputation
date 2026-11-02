@@ -31,6 +31,14 @@
       {
         "context": "cape",
         "value": "https:\/\/www.capesandbox.com\/analysis\/96383\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "e6400ea4ea364afbc1dd39f6836ddcab26b6653d2c22751aac847112874ad45b"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "ef43722a360f0839149e518b7347ea51"
       }
     ],
     "ole_information": []
@@ -98,6 +106,15 @@
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat binaire)",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "519335",
+        "date_added": "2026-11-01 23:41:26",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "DvnX Loader v2 (Base32-Dot + Scatter-Gather + SplitMix64 Stream XOR + LZSS) delivering Warden Stealer (YapStealer) Protocol v2 (Family_B). Unlike Oct 2026 DvnX v1 loaders (88-symbol ASCII exclusion bitmask 0x4400000008002201 + contiguous .rdata blobs), this build (1) shuffles a-z0-9 with seed 0x7a9764bbbd7da471 ^ .tls+0x80 (0xfef51ec0124dd75b) and takes the first 32 symbols (zsbv26n8ad5xui4ywqk79lohg1tj0crf) with a '.' separator every 35 chars (idx % 36 == 35); (2) scatters the encoded PE across two .data (va, len) descriptor tables: 0x1800d7108 (3 chunks, 509 B, seed 0xc9d18848eb547511 -\u003e 1,024 B PE32+ header with MZ/PE zeroed) and 0x1800d7138 (203 chunks, 724,574 B, seed 0x2d460538e6066a71 -\u003e 614,400 B raw section image); (3) unshuffles, Base32-decodes, XORs with custom 64-bit stream generator (+= 0xb02607bb4c093303, *= 0x64c3bf460ba3394b), and LZSS-decompresses unpacked Stage 2 sha256 e6400ea4ea364afbc1dd39f6836ddcab26b6653d2c22751aac847112874ad45b (615,424 B). Stage 2 wire key K_32 = 430901a9a64b355d49c35262522027006f7a3435c890a76967173373288a5fde; C2s at .rdata 0x180079ad8: dxnoft.homes, dxyour.forum."
       }
     ],
     "vendor_intel": {
