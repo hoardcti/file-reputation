@@ -1,0 +1,208 @@
+{
+  "hashes": {
+    "sha256": "8882748b3e07de882e34ef819a6dc2cfc8d70d71594d7c0ca9c71725d2118cbd",
+    "sha1": "3e7ab617ec4196e275364881211733636e9028f4",
+    "md5": "a15d970fcd1c19c773399291b43f88da",
+    "sha3_384": "0642731da403024ee671d6850ba954216c565894c637ab8f81c1f0c8c669075de25fef004d67c8c8ae0bee3e8f8125e7",
+    "tlsh": "T1B8951206B65800BAE2A2C674CA934902F7737C454B7166CF17907A7A9E37BD09F3E712",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:lULnpFxqeh9IG9UJQ6WNXMc2GINGIojDAQ3:Yx9/9n2GIP4"
+  },
+  "file_metadata": {
+    "names": [
+      "PDF-izer-1.1.9.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 1957888,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/96947\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/96947\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8882748b3e07de882e34ef819a6dc2cfc8d70d71594d7c0ca9c71725d2118cbd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6ae99a69736130dd033afea9\/reports\/38a1d1ec-b189-4d85-9d2f-782219aef51d\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "2026-10-24T12:20:00Z",
+        "last_seen": "2026-10-24T17:53:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/8882748b3e07de882e34ef819a6dc2cfc8d70d71594d7c0ca9c71725d2118cbd\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-24 01:09:12",
+        "scanner_count": "23",
+        "scanner_match": "8",
+        "scanner_percent": "34.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261103-kbabsags6y\/",
+        "tags": [
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/u.pdfizersoft.com\/v1\/events"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SquiblydooBlog",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-03T08:24:41Z",
+  "last_seen": "2026-11-03T09:17:41Z"
+}
