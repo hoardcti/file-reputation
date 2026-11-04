@@ -1,0 +1,165 @@
+{
+  "hashes": {
+    "sha256": "ce53a018048b9d35b8d4e17fff78da3744667e747093c4c84880330e65b903d3",
+    "sha1": "ebad0802d5bcf9baf3717f5b01ea6f4e72e5461b",
+    "md5": "e8eaa08d3992cf1bf13bac7835b9ce53",
+    "sha3_384": "98cf65bd9b9332e0e2a386dbd3002cc487baea322c282fd25fda5f731d40e1db171c26bc9bd3726da8d0f2b008e16641",
+    "tlsh": "T1CAA30856F880D912C6D8367AFA1E109C331717B8D6DD3202CE149E3477EBD9D463BA4A",
+    "imphash": null,
+    "telfhash": "t126e08651f6d42e7af182c5718d36213b0a7a1e6ce304115693396a5e3da28d4e151517",
+    "gimphash": null,
+    "ssdeep": "1536:FXoB7fkOik5G65j6qUdS9MheEL5Thwmr/ND8hmQc8V75Rxz3LdwjtO+GM6XqHbuh:FYpkfmkFEOFT8V75Rx7B+GMS4i"
+  },
+  "file_metadata": {
+    "names": [
+      "morte.arm6"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 103456,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4056899\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CVE_2017_17215",
+        "author": "NDA0E",
+        "description": "Detects exploitation attempt of CVE-2017-17215",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Exploit_CVE_2017_17215_8b78a857",
+        "author": "Elastic Security",
+        "description": "Exploit code used in the ZeroBot malware",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_da28eb8b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/ce53a018048b9d35b8d4e17fff78da3744667e747093c4c84880330e65b903d3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeb5c9b3b1bc766f49c1ce2\/reports\/d8511f86-adff-4cd3-ba21-677d50c04723\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a7aa054d-d7d0-4690-94f6-627123094191?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261104-tvwtkaxz7p\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (61229) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T16:23:09Z",
+  "last_seen": null
+}
