@@ -1,0 +1,184 @@
+{
+  "hashes": {
+    "sha256": "97eb4db5eda9b30ebe5e06ac7621e1c64627698b888edad09afe7bc1520eba69",
+    "sha1": "ceb0a9773e2b787b91704fcd6bd4ad9397a1fd36",
+    "md5": "c38d9922d049bdbd5d5397093d85b967",
+    "sha3_384": "0e98e20754b7815dc18fe19936848a25d0749893b22fe198f5274ad662200e1e412222a0aee5a9fd39f3ef7b7277a22c",
+    "tlsh": "T155062313BAE81AE3D4338B3049654394BBB2ED388B569F175586333DAD743904E2ADF1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:tcR0Ku+ub1yB3dlaJnSfpxAOTO8KK/Ipc9mN:tcSKxuJyBtl7pxfH0c9mN"
+  },
+  "file_metadata": {
+    "names": [
+      "Set-up.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 3899392,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "84.7% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "15.2% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97132\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97132\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/97eb4db5eda9b30ebe5e06ac7621e1c64627698b888edad09afe7bc1520eba69\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeae2965ac532ff529d18b4\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-04 07:45:30",
+        "scanner_count": "36",
+        "scanner_match": "15",
+        "scanner_percent": "41.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261104-jlmt7acg84\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adrian__luca",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T07:44:20Z",
+  "last_seen": "2026-11-04T08:25:01Z"
+}

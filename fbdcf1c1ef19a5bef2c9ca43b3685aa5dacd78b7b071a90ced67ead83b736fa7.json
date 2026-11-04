@@ -1,0 +1,225 @@
+{
+  "hashes": {
+    "sha256": "fbdcf1c1ef19a5bef2c9ca43b3685aa5dacd78b7b071a90ced67ead83b736fa7",
+    "sha1": "d733df31ae3a19d71a167fb2a2e0eb3edce164fb",
+    "md5": "30e6ca8c4dd2fdd08995b7b35e725bdf",
+    "sha3_384": "a0da649da05d8d64e62551fc65d8b47f52eff7d79a8ec11929d43fe32377777201f15e55980febb6db7781cec73a8468",
+    "tlsh": "T174D63324E8629737C1BA0D34E6AA8D7DEF387F012762C42E8784F54524B925067F17EE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:qBr8Q3iwPuUfRpAEPWRU8KjVismtU6B6/+jDONK+6/llQnALTsY6XmgX:CM+nOoU73cEDONd69uny22C"
+  },
+  "file_metadata": {
+    "names": [
+      "_RJP9CMD.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 13328384,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97151\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "signed"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97151\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/fbdcf1c1ef19a5bef2c9ca43b3685aa5dacd78b7b071a90ced67ead83b736fa7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeaf46145af020c78965ff5\/reports\/d8b89463-c40e-4a3c-818e-67ee8372d195\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.Backdoor.Zapchast",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-03 06:43:00",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261104-ky3a3svt2n\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Internet Connection Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Runs ping.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "SquiblydooBlog",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "code_sign": [
+    {
+      "subject_cn": "Melvin Jackson",
+      "issuer_cn": "SSL.com Code Signing Intermediate CA RSA R1",
+      "algorithm": "sha256WithRSAEncryption",
+      "valid_from": "2026-10-27T21:33:25Z",
+      "valid_to": "2027-10-27T21:33:25Z",
+      "serial_number": "6dbb6dd7243b97569d7ec15dab2d1a10",
+      "cscb_listed": false,
+      "cscb_reason": null
+    }
+  ],
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T09:00:37Z",
+  "last_seen": null
+}

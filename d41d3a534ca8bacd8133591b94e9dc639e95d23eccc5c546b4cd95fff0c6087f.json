@@ -1,0 +1,283 @@
+{
+  "hashes": {
+    "sha256": "d41d3a534ca8bacd8133591b94e9dc639e95d23eccc5c546b4cd95fff0c6087f",
+    "sha1": "1e9fe57a01a0e1e832b5b69c88a1f41084300a7e",
+    "md5": "c2e50d8ee2dfd0813d9692da01e3d470",
+    "sha3_384": "985d7453783f6ddd1bf2c49bce48cfad1423019881114c8f34bd37776f4bc1c980b703eae327221990b90c6d5255a1be",
+    "tlsh": "T1BC05F702BE44CE11F0191633C3EF654987B0A95166A6E32B7DBA377E15123AB3C0D9DB",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:4Cuk7jgMv14geUAv2d3zS1sj4CjIepbkRLk1YgKJxhcr8R:XsMv1iD2djq2jRCZDJ88R"
+  },
+  "file_metadata": {
+    "names": [
+      "C2E50D8EE2DFD0813D9692DA01E3D470.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 847360,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "53.3% (.EXE) Generic CIL Executable (.NET, Mono, etc.) (73123\/4\/13)",
+      "22.7% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "4.7% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "4.7% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "3.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97152\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "DCRat",
+    "tags": [
+      "DCRat",
+      "exe",
+      "RAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "BAZT_B5_NOCEXInvalidStream",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "DotNet_Reactor",
+        "author": "@bartblaze",
+        "description": "Identifies .NET Reactor, which offers .NET code protection such as obfuscation, encryption and so on.",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "PureCrypter",
+        "author": "@bartblaze",
+        "description": "Identifies PureCrypter, .NET loader and obfuscator.",
+        "reference": "https://malpedia.caad.fkie.fraunhofer.de/details/win.purecrypter"
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_XWorm_ForgeAuto_6b06c990_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects XWorm (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "dcrat",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-04 06:55:34",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ebd973e8-d5e6-408d-b35d-c68aea43c66d",
+          "tags": [
+            "dcrat",
+            "rat",
+            "auto-sch",
+            "ip-check",
+            "evasion",
+            "darkcrystal",
+            "netreactor"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "DCRat",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97152\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/d41d3a534ca8bacd8133591b94e9dc639e95d23eccc5c546b4cd95fff0c6087f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeaf680081179a5df95fd43\/reports\/8f5e0709-fcf9-4e66-8239-99c2149492c0\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5cc09ac0-7485-4e0d-a157-4636e2c1fc1e?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-11-01T07:32:00Z",
+        "last_seen": "2026-11-01T07:44:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/d41d3a534ca8bacd8133591b94e9dc639e95d23eccc5c546b4cd95fff0c6087f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.Backdoor.DCRat",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-02 12:01:19",
+        "scanner_count": "36",
+        "scanner_match": "32",
+        "scanner_percent": "88.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "dcrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261104-k48p2svt5l\/",
+        "tags": [
+          "family:dcrat",
+          "discovery",
+          "execution",
+          "infostealer",
+          "persistence",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "DCRat payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DcRat",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "d41d3a534ca8bacd8133591b94e9dc639e95d23eccc5c546b4cd95fff0c6087f",
+          "md5_hash": "c2e50d8ee2dfd0813d9692da01e3d470",
+          "sha1_hash": "1e9fe57a01a0e1e832b5b69c88a1f41084300a7e",
+          "detections": [
+            "SUSP_OBF_NET_Reactor_Indicators_Jan24"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/ec6106de-58c6-4f6a-b099-b711633ea53d\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "DCRat",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/d41d3a534ca8\/report\/overview.html"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T09:10:19Z",
+  "last_seen": null
+}
