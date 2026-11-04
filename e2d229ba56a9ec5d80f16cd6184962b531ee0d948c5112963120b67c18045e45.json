@@ -1,0 +1,248 @@
+{
+  "hashes": {
+    "sha256": "e2d229ba56a9ec5d80f16cd6184962b531ee0d948c5112963120b67c18045e45",
+    "sha1": "1b11b123cf3faa8988c2447b33b6088c484ffe2f",
+    "md5": "75330e8f4c0c6324f93681060e53443a",
+    "sha3_384": "504bd0af8ea1cb676cb981fb8395e971f6ad76e7b856a48d2f0b8f0b85413a7a6a20c2c5102e12f1b62c2d75864755bd",
+    "tlsh": "T12BD623116BF89678F0F22A35E876A0B1A5377C525E22D12E2324791E2C75EC0C9B3777",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:iHxcp9ym3nltDUJVJHxcp9ym3xHxcp9ym3MHxcp9ym30Hxcp9ym31Hxcp9ym32Hq:wGplpSGpjGpqGpSGpnGpEGpN"
+  },
+  "file_metadata": {
+    "names": [
+      "e2d229ba56a9ec5d80f16cd6184962b531ee0d948c5112963120b67c18045e45.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 13414400,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97039\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ConnectWise",
+    "tags": [
+      "ConnectWise",
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_RMM_ConnectWise_ScreenConnect",
+        "author": "ditekSHen",
+        "description": "Detects ConnectWise Control (formerly ScreenConnect). Review RMM Inventory",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "win_evilconwi_w0",
+        "author": "Karsten Hahn @ G DATA CyberDefense",
+        "description": "Settings from app.config that hide the connection of the client. These settings are potentially unwanted",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97039\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e2d229ba56a9ec5d80f16cd6184962b531ee0d948c5112963120b67c18045e45\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aea7f67f49d641dd9335f5a\/reports\/7f7631a4-1355-430e-b7e3-ecd7fe11303b\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "msi",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e2d229ba56a9ec5d80f16cd6184962b531ee0d948c5112963120b67c18045e45\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.PUA.ConnectWise",
+        "status": "MALICIOUS",
+        "first_seen": "2026-07-20 01:39:49",
+        "scanner_count": "36",
+        "scanner_match": "12",
+        "scanner_percent": "33.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261104-a2ghnsgx9k\/",
+        "tags": [
+          "backdoor",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "rat",
+          "revoked_codesign"
+        ],
+        "signatures": [
+          {
+            "signature": "Sets service image path in registry",
+            "score": "8"
+          },
+          {
+            "signature": "Signed with revoked ConnectWise certificate",
+            "score": "8"
+          },
+          {
+            "signature": "ConnectWise ScreenConnect remote access tool",
+            "score": "7"
+          },
+          {
+            "signature": "Event Triggered Execution: Component Object Model Hijacking",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Boot or Logon Autostart Execution: Authentication Package",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T00:41:49Z",
+  "last_seen": null
+}

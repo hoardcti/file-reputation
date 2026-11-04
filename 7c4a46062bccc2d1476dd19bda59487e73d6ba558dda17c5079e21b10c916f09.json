@@ -44,6 +44,18 @@
     ],
     "yara_rules": [
       {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__MemoryWorkingSet",
+        "author": "Fernando Mercês",
+        "description": "Anti-debug process memory working set size check",
+        "reference": "http://www.gironsec.com/blog/2015/06/anti-debugger-trick-quicky/"
+      },
+      {
         "rule_name": "Entroprism_AIP_AIP_20261104_D001",
         "author": "Entroprism (Beijing Yijun Foreign Trade Co., Ltd.)",
         "description": "Entroprism AIP defensive validation: driveby.exploit_kit -\u003e payload.transform -\u003e persist.schtasks -\u003e inject.apc -\u003e c2.http_beacon",
@@ -1782,9 +1794,43 @@
         "author": "Serhii Kocherhan",
         "description": "Detects files containing HTTP or HTTPS links pointing directly to .bin payload extensions.",
         "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_92a28498",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-03 23:53:20",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/841f4fcd-a5f2-47e6-86a1-4b4063eb23a0",
+          "tags": [
+            "auto-reg"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97021\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/7c4a46062bccc2d1476dd19bda59487e73d6ba558dda17c5079e21b10c916f09\/"
@@ -1804,9 +1850,9 @@
         "threat_name": null,
         "status": "KNOWN",
         "first_seen": "2026-11-03 03:50:57",
-        "scanner_count": "38",
+        "scanner_count": "36",
         "scanner_match": "2",
-        "scanner_percent": "5.26"
+        "scanner_percent": "5.56"
       },
       "Spamhaus_HBL": [
         {
@@ -1891,10 +1937,96 @@
           "link": "https:\/\/www.unpac.me\/results\/c2a7c2d3-70c0-42f0-b51c-adb852d83359\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/7c4a46062bcc\/report\/overview.html"
+      },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP POST request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Replacing files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          }
+        ]
       }
     }
   },

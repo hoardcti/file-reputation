@@ -1,0 +1,119 @@
+{
+  "hashes": {
+    "sha256": "26539975049a135b6d47537264556da7a0d2c5a73bb7402acf3922c23381ebcc",
+    "sha1": "ac8f6b2de6096eb868172b2b76109faccedbf993",
+    "md5": "ba1f6bdbb872934e225fb43af7a8475f",
+    "sha3_384": "37517b7c79625295d88d8f15eef2511e5ad5a50d346ee37bdf3fb0f8094ac010665bc701cfeb9c9418c94c623d43d840",
+    "tlsh": "T1D9B5F210B2F692AAEC43147299114FD1E4A976503E18BDFE692DC7366C31DA3BC63B31",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:NWATz8HTh5DQb3ojWpkKozV4q+0OZYaMZfmCf0uDBQRHQvcNM:QNba4mHS"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_26539975049a.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2315664,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/fbb6171ee8310129b57960d68b3478d4a803b1f0b6152d36a30763a49a0d85fa\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/5c18af8d98e6b13dbf5b8b408d817a302a5239311fff0da0319e11c9d5ce76cb\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/6ee52429a22ee09c723794eaa590cd4f08a4109d5e3bd9bb7e71f94de3e3851a\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_NoFw_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill/stratos generation, framework-agnostic: fat x86_64+arm64 linking libSystem+libc++ with any number of system frameworks (zero since 2026-10-30) and no framework, CF, objc or swift import, the task_info/mach_task_self_/pthread_once resolver core in both slices, and a 128 KB-1 MB __DATA_CONST,__const payload section in both slices",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/26539975049a135b6d47537264556da7a0d2c5a73bb7402acf3922c23381ebcc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aea7d0e5dde0b753d29b974\/reports\/5e79f88a-510a-4ef7-adf8-0c97673f18c3\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-04 00:32:19",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T00:31:44Z",
+  "last_seen": null
+}

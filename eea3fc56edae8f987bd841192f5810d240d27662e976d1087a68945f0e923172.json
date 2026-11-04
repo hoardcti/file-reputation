@@ -1,0 +1,113 @@
+{
+  "hashes": {
+    "sha256": "eea3fc56edae8f987bd841192f5810d240d27662e976d1087a68945f0e923172",
+    "sha1": "11fae6fc5627efb650863274ef182cfd6acfb361",
+    "md5": "50a4028061fc8c343f194c95ad0e4db5",
+    "sha3_384": "5a9c4ae2c8216d81cc206f6a8063e5f89735eb524122689b774304c138110ea84ad0b4a2efa8604eaf07af75f9d232f7",
+    "tlsh": "T13195E0408F5E9157C8AD4173DC9A8B5E85743180CE89CED9A341638BDE3A393B35B1EB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:e/rNLFxDPsEq6CDBzCUZnSF3h2/3JOXLiM4pyhFCRJX3wZV92BH+:mhL7+zC2gI/JOXLPuynCH0MV+"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_eea3fc56edae.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 2037776,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/46bcabf552548de2f2fb4f4c3781d10aa2cd8e3699be5b5616a6c4df1039f981\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/ec038d8ecdc9f33786ec79dab5b30ac1682bc9378540e1a7e775dda5c8bdb6b5\/"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/bazaar.abuse.ch\/sample\/981ff25c886308d5350b4446184f14406be6cc01186bb19ebf0de8cf843e392f\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "Foxveil",
+      "loader",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_NoFw_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill/stratos generation, framework-agnostic: fat x86_64+arm64 linking libSystem+libc++ with any number of system frameworks (zero since 2026-10-30) and no framework, CF, objc or swift import, the task_info/mach_task_self_/pthread_once resolver core in both slices, and a 128 KB-1 MB __DATA_CONST,__const payload section in both slices",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/eea3fc56edae8f987bd841192f5810d240d27662e976d1087a68945f0e923172\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aea7a471b2aa4252d989830\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-04 00:20:28",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T00:20:04Z",
+  "last_seen": null
+}
