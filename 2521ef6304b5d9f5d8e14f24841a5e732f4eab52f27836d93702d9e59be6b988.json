@@ -1,0 +1,271 @@
+{
+  "hashes": {
+    "sha256": "2521ef6304b5d9f5d8e14f24841a5e732f4eab52f27836d93702d9e59be6b988",
+    "sha1": "4f330bfa003617cf14e713fdb57e65dd825dab53",
+    "md5": "ad9e8c8f5c064bc53ed0761e244a23d9",
+    "sha3_384": "e72f4ee772c9c23a2bc8e9cd649a1727265be0eeeab71ebace7fcb7eafc164b16a34142e29b428bf4bc4285d76f776e0",
+    "tlsh": "T156F73308C3A6B11BC2539B30908748E543A57CD25B9870EB5245F36D92FDACACB7FA35",
+    "imphash": "8059273d4e02b6a119cc1997b32d7800",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:qo8XK10FG5Q/WH7Wuqk8blilY6dlAEjs3gk+lPgoA6bcmnJ1IL82i:Ga1y/WzZelCP7A3gTA6AyvIL8",
+    "dhash_icon": "7c70d0d6dac0c0d4"
+  },
+  "file_metadata": {
+    "names": [
+      "malware.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 74163712,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "BLOWFISH_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for Blowfish constants",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      },
+      {
+        "rule_name": "WHIRLPOOL_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for WhirlPool constants",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-05 19:45:33",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/b189b7cf-9bf2-4373-836a-1df1b08e548c",
+          "tags": [
+            "python",
+            "auto-reg",
+            "auto-startup",
+            "telegram",
+            "ims-api",
+            "generic",
+            "pyinstaller",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aecd9fc4e526fa278767189\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-02 16:39:05",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261105-x9nchsy19p\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the default Windows debugger (dwwin.exe)"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-05T19:33:03Z",
+  "last_seen": null
+}

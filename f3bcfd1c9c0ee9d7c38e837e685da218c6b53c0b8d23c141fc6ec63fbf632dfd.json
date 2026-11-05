@@ -1,0 +1,191 @@
+{
+  "hashes": {
+    "sha256": "f3bcfd1c9c0ee9d7c38e837e685da218c6b53c0b8d23c141fc6ec63fbf632dfd",
+    "sha1": "6b6ba0d3b61620606c8c029fd2971e6f75014cc7",
+    "md5": "963f204585703345925793ca1a26912c",
+    "sha3_384": "5fc5e3f51cc6c3c651e27a84d50b2f6b6f169a285665fbc106487a9a4b4073b81d0c05be9b5beba356353f97d867ecdb",
+    "tlsh": "T1F831E1CB16E65E783CA2E85B316F88147592E0CB18C66F4278EC3CFE99CCE047414A93",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:I22z+lO7G6LhLbIGqrhrsDzX2+kex7ZOsUl:H2z+lO7GMFCgDzX2+kq1OsI"
+  },
+  "file_metadata": {
+    "names": [
+      "e"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1615,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4056496\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202412_suspect_bash_script",
+        "author": "abuse.ch",
+        "description": "Detects suspicious Linux bash scripts",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      },
+      {
+        "rule_name": "UNK_install_script",
+        "author": "evilcel3ri",
+        "description": "Detects a suspicious behaviour in an bash installation script",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f3bcfd1c9c0ee9d7c38e837e685da218c6b53c0b8d23c141fc6ec63fbf632dfd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aece0ff64a7068c203dce4f\/reports\/51365a82-6f3a-46d6-abdf-aaa5f8cf52ab\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-05 20:03:22",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261105-ysrjaazt4k\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies environment variables",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Bash startup script",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.11"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-05T20:03:05Z",
+  "last_seen": null
+}
