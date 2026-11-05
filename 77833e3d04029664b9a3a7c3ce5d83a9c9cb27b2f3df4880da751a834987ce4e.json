@@ -1,0 +1,175 @@
+{
+  "hashes": {
+    "sha256": "77833e3d04029664b9a3a7c3ce5d83a9c9cb27b2f3df4880da751a834987ce4e",
+    "sha1": "13dfc5f313664c037f93f8aef797d576521b1738",
+    "md5": "8fa603700991277b35b1f9bf9e1a475e",
+    "sha3_384": "b2836bb0418ac7fbaf4dcf68a28b73df3609843bc6664a1c4cee518e7bd674f9949dda1078bbf5c434cb0bb93011818b",
+    "tlsh": "T1C9C4AE0BF6B114E9D8AECC348A5AA133EA29BCD5421276677FD85B213F15E10EF0E741",
+    "imphash": null,
+    "telfhash": "t15771c808afd664663f936dd486f79817a97e004ce7c1a5905f81f8f72e02dc1095e873",
+    "gimphash": null,
+    "ssdeep": "12288:rdYksGgpYLaAgFvsYpZDqelyrsE0LMwf1zkFAlfUCa:MmLHgFvBMk1YEfUCa"
+  },
+  "file_metadata": {
+    "names": [
+      "bot.x86_64"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 580553,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "cowrie",
+      "elf",
+      "honeypot"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Rust",
+        "author": "albertzsigovits",
+        "description": "Application written in Rust programming language",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/77833e3d04029664b9a3a7c3ce5d83a9c9cb27b2f3df4880da751a834987ce4e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeb93f66a7d93147baf7b4a\/reports\/d6a26512-9253-475a-99ff-b01eb9c2e6ea\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/743fd0f0-e7b9-4ec9-ac05-175704e2a10c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-04 20:22:14",
+        "scanner_count": "36",
+        "scanner_match": "2",
+        "scanner_percent": "5.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261104-y5ltkazv9n\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Runs EXE from memory",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Reads MAC address of network interface",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Jerry1113",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T20:21:21Z",
+  "last_seen": null
+}

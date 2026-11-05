@@ -1,0 +1,182 @@
+{
+  "hashes": {
+    "sha256": "fe889213f1122629fe0561aead7032e15493eaa3cbb2ddfaec1923fa3d6498d3",
+    "sha1": "059f630465c5d52b0361a4f780bee3ca3b711bf1",
+    "md5": "6224dea1ce5520e4e57c7aa5f9dc20ae",
+    "sha3_384": "e8674ed7b3446c365870874adb3d64cb297a79bd1202658ea035727ac603835975717edff3b49e80f5a0aeb16ad9748d",
+    "tlsh": "T1D3E02B3D78CFCF543287FC3507EEB7356D24E20D72900182E165426E98A5A38D466286",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12:ZuF7pYXLs98XIYAHpcnUTvZuF7p3csKLs8XIYAHpcn+TvZu7unn:ZuF72X4zTsF767YTs7w"
+  },
+  "file_metadata": {
+    "names": [
+      "mk_dec_200.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 385,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/fe889213f1122629fe0561aead7032e15493eaa3cbb2ddfaec1923fa3d6498d3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeb85c12fbece0fc3ef4006\/reports\/75ecb5f7-b24f-4384-ab5a-7d738570b81e\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-04 19:21:41",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "5",
+        "link": "https:\/\/tria.ge\/reports\/261104-x2sx2acy3w\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the system32 subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Forced system process termination"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "anonymous",
+    "anonymous": true,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-04T19:20:55Z",
+  "last_seen": null
+}
