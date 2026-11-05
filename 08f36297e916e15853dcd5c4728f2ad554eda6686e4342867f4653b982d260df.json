@@ -1,0 +1,189 @@
+{
+  "hashes": {
+    "sha256": "08f36297e916e15853dcd5c4728f2ad554eda6686e4342867f4653b982d260df",
+    "sha1": "f38a68b52e0a0763f0ebf72286b938d8729c15ce",
+    "md5": "1af3efb0bfab4885d74dd372a84093f9",
+    "sha3_384": "03922806b9a332385a482a847d7548a5477d4af8e4032436cf99742ab883e5170c0acd75ef59e33f791fcf1377be1a50",
+    "tlsh": "T142A43E2133C4B862514EDFB96C510C0B93DDA06ADFCFA84DABCEE6844B87538469DCB5",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:Iw41H0nnOA/i7ZdDrjqmUHdgEaVN0k4w7OvfkK7Osa0D3K1p1q1E1p1q1KZ/AVSf:24f1G8VAVR"
+  },
+  "file_metadata": {
+    "names": [
+      "bbd224f8-8296-404b-ab7c-c93301380271.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 453893,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261105-c3346ssw6l\/behavioral2"
+      },
+      {
+        "context": "dropped_by_malware",
+        "value": "ACRStealer"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "62-238-87-60",
+      "Arechclient2",
+      "AsgardProtector",
+      "dropped-by-ACRStealer",
+      "ps1",
+      "SectopRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_PWSH_B64Encoded_Concatenated_FileEXEC",
+        "author": "ditekSHen",
+        "description": "Detects PowerShell scripts containing patterns of base64 encoded files, concatenation and execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/08f36297e916e15853dcd5c4728f2ad554eda6686e4342867f4653b982d260df\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aebf04a0970fe72562c786a\/reports\/581ed02a-d6b0-4ac3-80b5-729b380d54da\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-05 02:56:14",
+        "scanner_count": "36",
+        "scanner_match": "2",
+        "scanner_percent": "5.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "sectoprat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261105-de3zyawzft\/",
+        "tags": [
+          "family:sectoprat",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects SectopRAT aka Arechclient2",
+            "score": "10"
+          },
+          {
+            "signature": "Family: SectopRAT",
+            "score": "10"
+          },
+          {
+            "signature": "Suspicious use of NtCreateUserProcessOtherParentProcess",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Registers new Windows logon scripts automatically executed at logon.",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "PT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-05T02:55:53Z",
+  "last_seen": null
+}
