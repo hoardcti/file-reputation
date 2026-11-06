@@ -1,0 +1,162 @@
+{
+  "hashes": {
+    "sha256": "900f628cdbf9a814a8cdfb059b788b03952f3de51ed79eec0faada6ff991901b",
+    "sha1": "6e1dd9806e3791cae1bf001a25745e51831d0694",
+    "md5": "2500658f2e5c8e4b18ad4c4fdc2ed828",
+    "sha3_384": "23d232462384d3a1400a4dc50f17b0cc4141b5d08b630b603756e2556dfdc2edb2d76197ebbc9d8d0ff3d7849b9d3b9e",
+    "tlsh": "T136E3E80E7E258F7DF3ADC23847F75E21921923C626E1D586D26CE9115F6028E241FFA8",
+    "imphash": null,
+    "telfhash": "t1e1214c5c497413e09b711c995baeff73e5a130cf1b266d3b8f11a9a8baadd825d00c0c",
+    "gimphash": null,
+    "ssdeep": "3072:FchlL94u/HopRSf+Vmt8YNMfBPT7rs8njb6FXCIL:FcXL94u/HopRSf+VDYef5gKjeFBL"
+  },
+  "file_metadata": {
+    "names": [
+      "900f628cdbf9a814a8cdfb059b788b03952f3de51ed79eec0faada6ff991901b"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 144484,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "ddos",
+      "elf",
+      "mips",
+      "Mirai",
+      "Torii",
+      "udp-flood"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "Linux_Trojan_Gafgyt_28a2fe0c",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/900f628cdbf9a814a8cdfb059b788b03952f3de51ed79eec0faada6ff991901b\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aed5d3960a84a7ffa98af99\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c7d653f2-19a0-486e-b338-991637dce2f8?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.be",
+        "first_seen": "2026-11-01T03:44:00Z",
+        "last_seen": "2026-11-01T03:57:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/900f628cdbf9a814a8cdfb059b788b03952f3de51ed79eec0faada6ff991901b\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-01 00:59:00",
+        "scanner_count": "36",
+        "scanner_match": "24",
+        "scanner_percent": "66.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-fjpzzsat2j\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (47252) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "tanabotan",
+    "anonymous": false,
+    "origin_country": "JP",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T04:52:41Z",
+  "last_seen": null
+}

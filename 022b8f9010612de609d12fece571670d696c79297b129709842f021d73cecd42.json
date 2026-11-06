@@ -1,0 +1,228 @@
+{
+  "hashes": {
+    "sha256": "022b8f9010612de609d12fece571670d696c79297b129709842f021d73cecd42",
+    "sha1": "5387679cbdad2d9470c9619d6ece76c0bfabd771",
+    "md5": "bb03625896f1523fcc82fc7057109281",
+    "sha3_384": "253ac7a8eae8c603b6fbe8cdfdc7e881970fc65b1fa2fd13c710ce763b430704bcdf4ab75c87e1764a01c48f1c816de4",
+    "tlsh": "T169B633FEAE0F186A953DE5554E1D942DAC23688DF38A0D9A9D79C7CBCBC08073611BC1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:lb22C4vXtcLyYhHztMsL+LACOZOLfH4c8F6x8NMhSlnt+t4igTrEYFDro5OZ52u1:lb22nvmLyyztMsLUACrbH4FF6+NCSj0Y"
+  },
+  "file_metadata": {
+    "names": [
+      "022b8f9010612de609d12fece571670d696c79297b129709842f021d73cecd42"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 11446480,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "8d23f427a29a0d2010097c8066901e026e81c41163672cbb5e522942786d1091"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "ce5ac0fbd5d4cf695444f46a78012519"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "elf",
+      "honeypot",
+      "rootkit",
+      "ssh-backdoor",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/022b8f9010612de609d12fece571670d696c79297b129709842f021d73cecd42\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aed7868ed39199be9b29a4f\/reports\/2637c975-2b1a-43c8-8adf-f85e145896e8\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/225e28a9-8302-4ee6-867b-16068cf87fca?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261106-hleyxahx2t\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Adds new SSH keys",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies password files for system users\/ groups",
+            "score": "8"
+          },
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies sudoers policy",
+            "score": "7"
+          },
+          {
+            "signature": "OS Credential Dumping",
+            "score": "7"
+          },
+          {
+            "signature": " Abuse Elevation Control Mechanism: Sudo and Sudo Caching",
+            "score": "6"
+          },
+          {
+            "signature": "Adds a user to the system",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies environment variables",
+            "score": "6"
+          },
+          {
+            "signature": "Deletes log files",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Removes the immutable protection flag from a file",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Bash startup script",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Creates a desktop entry file",
+            "score": "4"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/022b8f901061\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.12"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ArchonLabs",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T06:42:54Z",
+  "last_seen": null
+}
