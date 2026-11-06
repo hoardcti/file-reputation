@@ -1,0 +1,281 @@
+{
+  "hashes": {
+    "sha256": "02e1bfbf151148ad8bb5f57373bb27f70e355bd633ed2a4c523af9c8a897454c",
+    "sha1": "3a615002d875a4f232e2cd19aa1df4f82c919254",
+    "md5": "87409880908f8592e6d6144411d07905",
+    "sha3_384": "f8f23ed79f90f51ba4bdc01047b8dd300a68b0386d86690c67c1e1b66937549521e9d55294c83196cc958ed1ab29f86f",
+    "tlsh": "T1B8626C6599B5F145CC86BB7DB90E8F879447208E7AE5129BC2CEB0EF844FC5726C3015",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:CS2xvm6nb0gS2xnj5ajs7S2x7IBi/P1BtS9b64JAHOwWiX:Cdhn0gdBB7dx4964f4"
+  },
+  "file_metadata": {
+    "names": [
+      "request meta_070612.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 15235,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "QuasarRAT",
+    "tags": [
+      "QuasarRAT",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Archive_in_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies archive (compressed) files in shortcut (LNK) files.",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Download_in_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies download artefacts in shortcut (LNK) files.",
+        "reference": null
+      },
+      {
+        "rule_name": "EXT_EXPL_ZTH_LNK_EXPLOIT_A",
+        "author": "Peter Girnus",
+        "description": "This YARA file detects padded LNK files designed to exploit ZDI-CAN-25373.",
+        "reference": "https://www.trendmicro.com/en_us/research/25/c/windows-shortcut-zero-day-exploit.html"
+      },
+      {
+        "rule_name": "PS_in_LNK",
+        "author": "@bartblaze",
+        "description": "Identifies PowerShell artefacts in shortcut (LNK) files.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_LNK_SuspiciousCommands",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects LNK file with suspicious content",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/02e1bfbf151148ad8bb5f57373bb27f70e355bd633ed2a4c523af9c8a897454c\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aee0f1acc302ff5042d829a\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Shortcut.Trojan.PowerShell",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-06 17:26:17",
+        "scanner_count": "36",
+        "scanner_match": "18",
+        "scanner_percent": "50.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "quasar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-wbvhhazs5m\/",
+        "tags": [
+          "family:quasar",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "module",
+          "persistence",
+          "rat",
+          "spyware",
+          "stealer",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Quasar RAT",
+            "score": "10"
+          },
+          {
+            "signature": "PulsaRAT library module",
+            "score": "10"
+          },
+          {
+            "signature": "Quasar payload",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads data files stored by FTP clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "GoLang User-Agent",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Modifies system certificate store",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "quasar",
+            "c2": "https:\/\/github.com\/denoland\/deno\/releases\/latest\/download\/deno-x86_64-pc-windows-msvc.zip"
+          },
+          {
+            "extraction": "dropper",
+            "family": "quasar",
+            "c2": "https:\/\/www-go.cfd\/d\/9dcea45b3c77"
+          },
+          {
+            "extraction": "dropper",
+            "family": "quasar",
+            "c2": "https:\/\/deno.land\/install.ps1"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Fasol09",
+    "anonymous": false,
+    "origin_country": "DK",
+    "delivery_method": "email_attachment"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T17:16:33Z",
+  "last_seen": null
+}

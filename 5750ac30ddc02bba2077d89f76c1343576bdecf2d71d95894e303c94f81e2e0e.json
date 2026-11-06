@@ -1,0 +1,177 @@
+{
+  "hashes": {
+    "sha256": "5750ac30ddc02bba2077d89f76c1343576bdecf2d71d95894e303c94f81e2e0e",
+    "sha1": "2b1136f9fa01e35cb2bb55b06ab0bb6d2ec28edc",
+    "md5": "38582f6a32c853388ea22c7df39936c4",
+    "sha3_384": "c857c84d4ecdabf19140a1236ae11dc9981069484d84661cfcda72359830899afb818dccae75a9716989e39d2cd0a233",
+    "tlsh": "T1BD26332AFC848DA4EB77C4B926804FA7B21461F8E256F0DBFAF0A9715D839C42F51507",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:LZ8VMAciOz74Pl6+JRz71wnwrmz5VJLq/TI0RCtgbJQtoameq:MMAcMPl6+JJmnNz5XLq/TI0mUQtozeq"
+  },
+  "file_metadata": {
+    "names": [
+      "Krispy-Client.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 4462906,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "57.8% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "32.5% (.JAR) Java Archive (13500\/1\/2)",
+      "9.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_malware",
+        "value": "SilentNet"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97809\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058583\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058584\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Silentnet",
+    "tags": [
+      "jar",
+      "java",
+      "python",
+      "silentnet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_JAVA_JAR_Skidfuscator_Random_Runtime_Path_Oct26",
+        "author": "rc4",
+        "description": "Detects JAR files containing a class at a randomized 16+16 lowercase letter path as used for the runtime class of Skidfuscator 2.0.x community builds (heuristic, lower confidence)",
+        "reference": "https://github.com/skidfuscatordev/skidfuscator-java-obfuscator"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "jar",
+          "date": "2026-11-06 18:39:32",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c574b3d1-3e41-4f4d-8330-82027b26f839",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "python",
+            "auto",
+            "generic",
+            "arch-exec",
+            "arch-doc",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97809\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5750ac30ddc02bba2077d89f76c1343576bdecf2d71d95894e303c94f81e2e0e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aee0f1e2132b25f4e966e5e\/reports\/b908b34d-ed42-464a-a051-f9a596a758bb\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Ravartar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-27 06:53:17",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261106-vy6zdacz81\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.35"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "ID",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T17:23:57Z",
+  "last_seen": "2026-11-06T17:24:40Z"
+}

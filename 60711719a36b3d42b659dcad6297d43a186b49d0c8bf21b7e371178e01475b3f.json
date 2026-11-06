@@ -1,0 +1,226 @@
+{
+  "hashes": {
+    "sha256": "60711719a36b3d42b659dcad6297d43a186b49d0c8bf21b7e371178e01475b3f",
+    "sha1": "69a0d7eb8177872d7f279e5f01ff8155c3435573",
+    "md5": "2ee2fc871b46ce470d18f783e4d4cd93",
+    "sha3_384": "0b8cb20822ee1f8e6a0fdd568d95a12b1a30c6cb45e045d6d2700612216e8f7181bc48641d16b4360689978a56b49bb4",
+    "tlsh": "T1BE0512A9B35CBDF5F6E4C43D6490AC7E9276702651E9412202FC005BAB65BA054F32FF",
+    "imphash": "94c2c7c7d58e107a347ea86080458f57",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:81F4roKCnWezWpmNy6f/qhTPDMeEvBMLZjs:81F4rMWgy6f/qhTZEvmLxs",
+    "dhash_icon": "10481671302a4c30"
+  },
+  "file_metadata": {
+    "names": [
+      "launcher.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 814592,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97833\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "cedfa03a14236403f8f8835d0c1940b8f5d4193f7c72559c1230f6e4eac37dc4"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "b47af15cdea6d1ba3144315bd60f40bc"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "WARDENStealer",
+    "tags": [
+      "exe",
+      "Stealer",
+      "upx",
+      "Warden",
+      "WardenStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-11-06 21:13:17",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/251f7bea-3c19-4b9a-8b49-f7fdc940befc",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97833\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/60711719a36b3d42b659dcad6297d43a186b49d0c8bf21b7e371178e01475b3f\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aee4412016f9a41d0f728b8\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/fdf3f9f8-5495-4a05-8584-6f2a76b16f10?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261106-zz242a1z4n\/",
+        "tags": [
+          "discovery",
+          "spyware",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "60711719a36b3d42b659dcad6297d43a186b49d0c8bf21b7e371178e01475b3f",
+          "md5_hash": "2ee2fc871b46ce470d18f783e4d4cd93",
+          "sha1_hash": "69a0d7eb8177872d7f279e5f01ff8155c3435573",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/e68478a4-bc0d-4b39-8df6-26056209353a\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.89"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T21:09:21Z",
+  "last_seen": null
+}

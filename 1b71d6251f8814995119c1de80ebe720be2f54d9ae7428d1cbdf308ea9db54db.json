@@ -1,0 +1,395 @@
+{
+  "hashes": {
+    "sha256": "1b71d6251f8814995119c1de80ebe720be2f54d9ae7428d1cbdf308ea9db54db",
+    "sha1": "9428df85435903e6d70f2eed3a43ffc5ac4fccbe",
+    "md5": "54c4b142adbec02104c0853fccdf8322",
+    "sha3_384": "b87ba72c89089e0a4b70a2864efc984f10cae6e53169b6071b620998a6fe5a22b1b3f31ec940d8ef496c006f5f807b00",
+    "tlsh": "T16E357C83E7A385D8C116C9B5534BF137F9627C8E4B157197ABC41E633A67BA4E22CB00",
+    "imphash": "73f461c771aef77ec43d53a0c54f0c8d",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:Tbs/m0E54jwaFXGc8lEBBBHGBKq2IZwDyvfqItNqdg:TbOVE5ifGPRZwOvf3fd"
+  },
+  "file_metadata": {
+    "names": [
+      "Xeno Executor.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1139712,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97808\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058579\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058580\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058581\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058587\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "exe",
+      "python",
+      "silentnet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_Nuitka_Stage",
+        "author": "GhostTypes",
+        "description": "SilentNet exe/bin channel, two lanes: (A) Zig AppHost downloader - std.http client with custom UA template plus registry/env/process import combo and Zig .CRT/.tls section pair; (B) Nuitka-Commercial DataHiding pyd stage - DLL whose RT_RCDATA#3 blob declares a size ending exactly 24 bytes before the resource end (the MD5-digest trailer of the commercial blob framing; stock Nuitka has no trailer, onefile builds have no RCDATA)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "VIGIA_SilentNet_0e73fcdc",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "dc75f6ad-fcce-402e-af18-74cd73e4565a - SilentNet candidate detection",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
+        "rule_name": "VIGIA_SilentNet_59fd2415",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "c495aa95-aee7-4a2d-a80a-1ed5e722a843 - SilentNet HTTP templates and corroborated runtime indicators",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
+        "rule_name": "VIGIA_SilentNet_f7408dfb",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "42613b14-3008-48bf-b427-29aaa05c17eb - file b13b22c66cd105a2e5a10bbc9339bfa0e4f4cb1faa4cd2d0a7ae854948d2b1c5.exe",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
+        "rule_name": "WARDEN_Stealer_Family",
+        "author": "Rony",
+        "description": "Warden Stealer, any build (x64 DLL or EXE): the stack-built stub for its remote CryptUnprotectMemory call, or its SHA-256-keystream C2 message cipher",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "Xeno Executor.exe",
+          "date": "2026-11-06 17:20:56",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/5f7848f7-823b-4b89-a75b-1a3e3d5b1ee6",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "python",
+            "arch-exec",
+            "arch-doc"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97808\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1b71d6251f8814995119c1de80ebe720be2f54d9ae7428d1cbdf308ea9db54db\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aee0f1b2132b25f4e966e59\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f91e3108-0e35-4dd4-8d8e-d3bac0c425ae?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-21T13:27:00Z",
+        "last_seen": "2026-10-21T13:44:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/1b71d6251f8814995119c1de80ebe720be2f54d9ae7428d1cbdf308ea9db54db\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Convagent",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-24 08:33:55",
+        "scanner_count": "36",
+        "scanner_match": "25",
+        "scanner_percent": "69.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xmrig",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-vyak6scz8x\/",
+        "tags": [
+          "family:xmrig",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: xmrig",
+            "score": "10"
+          },
+          {
+            "signature": "XMRig Miner payload",
+            "score": "9"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies Windows Firewall",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Kills process with taskkill",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "1b71d6251f8814995119c1de80ebe720be2f54d9ae7428d1cbdf308ea9db54db",
+          "md5_hash": "54c4b142adbec02104c0853fccdf8322",
+          "sha1_hash": "9428df85435903e6d70f2eed3a43ffc5ac4fccbe",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/75e6cf0d-8dc9-4ea8-ad37-d7a7b28e69dc\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.42"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Delayed reading of the file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "ID",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T17:23:00Z",
+  "last_seen": null
+}
