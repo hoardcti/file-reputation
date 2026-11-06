@@ -1,0 +1,331 @@
+{
+  "hashes": {
+    "sha256": "50c7f2a04d72ff63cd92936a7a357ace77f14ac58f85a28b9011a95d59703095",
+    "sha1": "51b4a5310ca67c70595965de082bebeff72e2a2a",
+    "md5": "a1a619c92bf9a1bdfca40a194ad4473e",
+    "sha3_384": "59b5ee812ef8b7ac0f09519e2bb4b73c70a83cbcce25a037663169de6ca9a92bbcd4e35c0d05ae35282eccdc558b0658",
+    "tlsh": "T17908334A6F22F03FE422D473E11862E9625AE495D7338BA7113F51DEE8F26107B841B7",
+    "imphash": "b34f154ec913d2d2c435cbd644e91687",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:8z2um44Hi/sLzg1nNHG3cv4JW4/KMYAMvJmiftzjPzcsZM2AWUQriXy0:8zTm4vU49NYJo+sUifljLcs22/e",
+    "dhash_icon": "c4dadadad2f492c2"
+  },
+  "file_metadata": {
+    "names": [
+      "50c7f2a04d72ff63cd92936a7a357ace77f14ac58f85a28b9011a95d59703095"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 79785291,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "50.3% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "10.6% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "10.5% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "8.1% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "7.2% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemusStealer",
+    "tags": [
+      "exe",
+      "RemusStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_NSIS_Nullsoft_Installer",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects NSIS installers by .ndata section + NSIS header string",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "GenesisStealer_Installer_NSIS_MaaS_Template",
+        "author": "n3r",
+        "description": "GenesisStealer NSIS installer (MaaS template). Imphash-based broad detector - also catches ScarfaceStealer / RemusStealer / VoidStealer variants sharing the same installer shell.",
+        "reference": null
+      },
+      {
+        "rule_name": "NSIS",
+        "author": "kevoreilly",
+        "description": "NSIS Integrity Check function",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeda00345f74154354aec43\/reports\/9d5ad51e-0f31-4e4d-85cd-c761018c0536\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "2026-09-25T13:17:00Z",
+        "last_seen": "2026-10-29T04:34:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/50c7f2a04d72ff63cd92936a7a357ace77f14ac58f85a28b9011a95d59703095\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.Redirector",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-18 16:41:52",
+        "scanner_count": "36",
+        "scanner_match": "14",
+        "scanner_percent": "38.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-ll6cmswv7p\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Windows security bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Prevents Microsoft Defender from scanning certain paths by adding an exclusion.",
+            "score": "7"
+          },
+          {
+            "signature": "Uses Rundll32 to proxy-execute a payload",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Hide Artifacts: Hidden Window",
+            "score": "6"
+          },
+          {
+            "signature": "Obfuscated Files or Information: Command Obfuscation",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Hide Artifacts: Ignore Process Interrupts",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Runs net.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Adding exclusions to Windows Defender"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the Windows task manager window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the process to interact with network services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the %AppData% subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the %temp% subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Delayed writing of the file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adrian__luca",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T09:37:39Z",
+  "last_seen": null
+}

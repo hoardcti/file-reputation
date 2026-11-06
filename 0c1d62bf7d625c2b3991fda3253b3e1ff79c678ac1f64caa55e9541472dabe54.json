@@ -1,0 +1,231 @@
+{
+  "hashes": {
+    "sha256": "0c1d62bf7d625c2b3991fda3253b3e1ff79c678ac1f64caa55e9541472dabe54",
+    "sha1": "3950a8ea0cba96f175ac7e80694960d6c0a63cbc",
+    "md5": "db74f8bc572d5faf856ed9cc93c634fa",
+    "sha3_384": "679ef08a32ccd3e4a343d771442b8631aa40513e98053ad5a90a284e37cae773723e44abce321e6ecda81e4971a39fc4",
+    "tlsh": "T12E741242552D82B8CCB9E6B21AD886D2254DC33EFB52F73A40DDDAAD7B98F64CD14008",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:yRDHPy6cK3kYWqNjXYA1D5uaXkMMeFkuczXIczFxXRf7QVZwAzfiw1CQbj/z8CVy:mPys3kKNjtD0aXwe+uYY2ffsVfdBXzeo"
+  },
+  "file_metadata": {
+    "names": [
+      "0c1d62bf7d625c2b3991fda3253b3e1ff79c678ac1f64caa55e9541472dabe54"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 369152,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "61.0% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "23.5% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "5.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.7% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97731\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "16c48bc99cf7c9f44e7078c36fdd9ebfe346fcd8e29582c04a7a5f9642e684ad"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "b2eeae7cee6d24623e78202ec9594f08"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "vidar",
+          "verdict": "Malicious activity",
+          "file_name": "0c1d62bf7d625c2b3991fda3253b3e1ff79c678ac1f64caa55e9541472dabe54",
+          "date": "2026-11-06 12:10:11",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/f1613ea5-98eb-47fd-a6fb-9e4161e893fe",
+          "tags": [
+            "telegram",
+            "stealer",
+            "vidar"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97731\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0c1d62bf7d625c2b3991fda3253b3e1ff79c678ac1f64caa55e9541472dabe54\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aedead0570a19b966ac2dd3\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": null,
+        "family_name": null,
+        "analysis_url": "?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-06 14:52:32",
+        "scanner_count": "36",
+        "scanner_match": "13",
+        "scanner_percent": "36.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vidar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-r8w1dadv5p\/",
+        "tags": [
+          "family:vidar",
+          "botnet:9ffa6921dc07cb0d5239304ef8210a35",
+          "discovery",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/telegram.me\/bj00tyr"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/community.fandom.com\/wikia.php?controller=UserProfile\u0026method=getUserData\u0026format=json\u0026userId=64444700"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/steamcommunity.com\/profiles\/76561198630398488"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "0c1d62bf7d625c2b3991fda3253b3e1ff79c678ac1f64caa55e9541472dabe54",
+          "md5_hash": "db74f8bc572d5faf856ed9cc93c634fa",
+          "sha1_hash": "3950a8ea0cba96f175ac7e80694960d6c0a63cbc",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/0c89c31c-6d30-4171-ac18-77edf041d18d\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.22"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adrian__luca",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T14:51:28Z",
+  "last_seen": "2026-11-06T15:29:29Z"
+}

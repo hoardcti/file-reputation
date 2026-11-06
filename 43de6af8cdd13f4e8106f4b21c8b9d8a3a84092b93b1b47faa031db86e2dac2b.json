@@ -1,0 +1,309 @@
+{
+  "hashes": {
+    "sha256": "43de6af8cdd13f4e8106f4b21c8b9d8a3a84092b93b1b47faa031db86e2dac2b",
+    "sha1": "c3b70ecb62e2c52113c83e69d0645287d8aefbce",
+    "md5": "7009ce8cd1117a464dd3949490e1d4ed",
+    "sha3_384": "7124eaafe703fcc38ece382dd96b8e242dbc02893264cec13ed970a2060eb2fc7952c6ca3c8e32a7c80cd27945984131",
+    "tlsh": "T18354193ADC0BDE93BEE94220F1518DF56663E45160B34F6A8E8FC94B8B5740639E1339",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:un9yLUktNKjvik6vEEahAeTDKjStZYzYz2QsZTaY9D5mbch7O7ZojFnhrrfXZhaJ:ol"
+  },
+  "file_metadata": {
+    "names": [
+      "Orden de compra-9738399_xls.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 290906,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97613\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "XWorm",
+    "tags": [
+      "vbs",
+      "XWorm"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97613\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/43de6af8cdd13f4e8106f4b21c8b9d8a3a84092b93b1b47faa031db86e2dac2b\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aedb37c8e477fb92827b7f7\/reports\/0a6d8d94-132e-47b1-b291-9897ab1d5d91\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/43de6af8cdd13f4e8106f4b21c8b9d8a3a84092b93b1b47faa031db86e2dac2b\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Script.Infostealer.Zeus",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-05 21:25:16",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261106-m4tx1acs8p\/",
+        "tags": [
+          "family:xworm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "xworm",
+            "c2": "http:\/\/94.156.152.4\/rumpnovember.png"
+          },
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "203.202.232.254:1122"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.70"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %AppData% directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Setting a global event handler for the keyboard"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connecting to a non-recommended domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T11:01:02Z",
+  "last_seen": null
+}

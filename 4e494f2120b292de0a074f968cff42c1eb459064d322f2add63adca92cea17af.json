@@ -1,0 +1,255 @@
+{
+  "hashes": {
+    "sha256": "4e494f2120b292de0a074f968cff42c1eb459064d322f2add63adca92cea17af",
+    "sha1": "c08e34bd51a12f492cdbe1ec7f7ed29cc4fc0165",
+    "md5": "828288e7a70149ed6dc8363c400880a3",
+    "sha3_384": "f8dfb5c1414916b18e7a353d64702de3f7eed6fb543b96b970ee5fc12667873f01d716752ab4621a40399923f144799d",
+    "tlsh": "T1A983AFBCB7102DE515BF23ABC965ADDD036656638F869CCCA09577C20863369FF2680C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:70dHZEKa5+n/e+J1jWHcuhY9UevL7fL2ZWk81sYk2N3vJTh:70xZ1aInGemaUevHj2cjN5Nh"
+  },
+  "file_metadata": {
+    "names": [
+      "CKTRUCKINGLLC.cmd"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "cmd",
+    "size": 83141,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "cmd"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_PS1_JAB_Pattern_Jun22_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious UTF16 and Base64 encoded PowerShell code that starts with a $ sign and a single char variable",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "SUSP_VBS_Wscript_Shell",
+        "author": "SECUINFRA Falcon Team",
+        "description": "Detects the definition of 'Wscript.Shell' which is often used by Malware, FPs are possible and commmon",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_XWorm_ForgeAuto_6b06c990_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects XWorm (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4e494f2120b292de0a074f968cff42c1eb459064d322f2add63adca92cea17af\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aed98f7fdbbb29d3e159aa6\/reports\/142b8fe5-925b-4496-947a-3d2ee32429b8\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-03 17:07:04",
+        "scanner_count": "36",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261106-k3x7xsysew\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "spyware",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Stops running service(s)",
+            "score": "7"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Discovers running processes",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Queries registry keys for unique system GUIDs",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Internet Connection Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Kills process with taskkill",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Runs ping.exe",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-06T09:07:54Z",
+  "last_seen": null
+}
