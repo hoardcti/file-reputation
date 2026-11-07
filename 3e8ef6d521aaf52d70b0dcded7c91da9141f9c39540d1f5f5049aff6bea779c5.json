@@ -1,0 +1,161 @@
+{
+  "hashes": {
+    "sha256": "3e8ef6d521aaf52d70b0dcded7c91da9141f9c39540d1f5f5049aff6bea779c5",
+    "sha1": "501af231a73b5f846d0336e6fa292cb00816699e",
+    "md5": "62e0de6dd997845a4e7c4b1fe7aa3193",
+    "sha3_384": "9f807c8a532fa398d41cc24864dccb37f1833a0cb5d844c059ed83058058a5da77f7f3491c0dd9212be1db389f74407c",
+    "tlsh": "T1DE358D1AB2B2F67CD007C03057DBCAA14532F07569323D7B26C4DA393EA6DE52369B25",
+    "imphash": null,
+    "telfhash": "t105a011c0aa0002020acb8aa00c2800c203808003ec08b8b02a20ce8200208208f880ca",
+    "gimphash": null,
+    "ssdeep": "12288:5hhRar2v1VDaHNcaL32qhd2HsLmi4RUnHYlikFO08pezPaySKAzHXSErN8ZeLE:5j1jDaHNca72Uz4IkFOXpeJA2sN8Z"
+  },
+  "file_metadata": {
+    "names": [
+      "bot_linux"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 1072664,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058873\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ldpreload",
+        "author": "xorseed",
+        "description": null,
+        "reference": "https://stuff.rop.io/"
+      },
+      {
+        "rule_name": "malwareelf55503",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "MIRAI_OHSHIT_payload",
+        "author": "AfterPacket",
+        "description": "MIRAI_OHSHIT ELF payload -- compiled-in C2 set, all architectures",
+        "reference": "https://github.com/Afterpacket/drosera-threat-intel"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3e8ef6d521aaf52d70b0dcded7c91da9141f9c39540d1f5f5049aff6bea779c5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeed8a7d92dc11782196c7d\/reports\/b8ed9e4c-5c83-4b0a-82c2-91abeb395203\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/d30f83ce-baba-4832-91da-02dd5d11939b?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-07 07:53:18",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "4",
+        "link": "https:\/\/tria.ge\/reports\/261107-jqgtqsw1ew\/",
+        "tags": [
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.29"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-07T07:52:04Z",
+  "last_seen": null
+}

@@ -1,0 +1,176 @@
+{
+  "hashes": {
+    "sha256": "4689a824b8d338949996ab54d6dce23c53ad9cd70357acec2fc693f27e5601ee",
+    "sha1": "fee0fb9e4b254d83fe071438c83e6b7433a0d070",
+    "md5": "806b8118fc7b2612345ad13cc4301beb",
+    "sha3_384": "fa576423cddf61f8b9ff4946522f02733393ef1746c2e53dbd5ac4221cd3958329ffbe8141ff91ae24fee7d865a18e8d",
+    "tlsh": "T1EE9377B761917FFA4782A86A7B460CE0F137F95EB3D39F652489B914106E18383AF074",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:jiqhoj96direJrr6XCXdbSbJ1J8DFtyK8lZ165tR:jiqhojUireEyHDFN8l6p"
+  },
+  "file_metadata": {
+    "names": [
+      "4689a824b8d338949996ab54d6dce23c53ad9cd70357acec2fc693f27e5601ee.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "js",
+    "size": 94433,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "QuasarRAT",
+    "tags": [
+      "js",
+      "QuasarRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_Script_PowerShell_Hidden_Launcher",
+        "author": "Marjoriefort",
+        "description": "Script (JS/VBS) lancant PowerShell en mode furtif - dropper frais MalwareBazaar",
+        "reference": "Veille fraicheur 2026-09-14 / cluster misses web"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "WScript_Shell_PowerShell_Combo_RID32E7",
+        "author": "Florian Roth",
+        "description": "Detects malware from Middle Eastern campaign reported by Talos",
+        "reference": "http://blog.talosintelligence.com/2018/02/targeted-attacks-in-middle-east.html"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4689a824b8d338949996ab54d6dce23c53ad9cd70357acec2fc693f27e5601ee\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aeed873de928fcd5a5763e6\/reports\/169a2ab9-b8d9-4a1e-b462-da141479c9e7\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-06 23:18:19",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261107-jpx5bsw1dz\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/dimonpert.com\/cim.png"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-07T04:12:18Z",
+  "last_seen": null
+}

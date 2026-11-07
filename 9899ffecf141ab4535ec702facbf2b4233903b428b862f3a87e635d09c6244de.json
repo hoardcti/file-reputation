@@ -1,0 +1,215 @@
+{
+  "hashes": {
+    "sha256": "9899ffecf141ab4535ec702facbf2b4233903b428b862f3a87e635d09c6244de",
+    "sha1": "7d14f457f193d75dd7f52becdee5cf25b948573b",
+    "md5": "92cbbe2d06d03c156c83ae1a02ab30e3",
+    "sha3_384": "42a38c0b3070966ea19d4b7025981f63240146e20971b3f0c4c9e4227a42e603a04b39547879208db9f979c989424b20",
+    "tlsh": "T180D42341B8886031EB1897F1533F9116BB364D69AF2BE60221D5BADC3EF23C550375E6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:GnAYhZFoqIVAV0yjNZzucNNZLVk/dJJibRoQu9kzWEYCdrflYemcS1/U:UASZFKAVbBZzu0Ni49oQu9DuZYebSS"
+  },
+  "file_metadata": {
+    "names": [
+      "23bfe55d.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 655360,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/97885\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "msi",
+      "rdp trojan"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "RDPWrap",
+        "author": "@bartblaze",
+        "description": "Identifies RDP Wrapper, sometimes used by attackers to maintain persistence.",
+        "reference": "https://github.com/stascorp/rdpwrap"
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/97885\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/9899ffecf141ab4535ec702facbf2b4233903b428b862f3a87e635d09c6244de\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aef13f50888835101fb3adf\/reports\/d6877d93-866a-470a-8b94-0eed69878d66\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "msi",
+        "first_seen": "2017-12-27T23:09:00Z",
+        "last_seen": "2026-11-04T23:35:00Z",
+        "hitscount": 10000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/9899ffecf141ab4535ec702facbf2b4233903b428b862f3a87e635d09c6244de\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.PUA.RDPWrap",
+        "status": "MALICIOUS",
+        "first_seen": "2017-12-28 13:13:20",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261107-n891fscx9p\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies RDP port number used by Windows",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies Windows Firewall",
+            "score": "8"
+          },
+          {
+            "signature": "Server Software Component: Terminal Services DLL",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies WinLogon",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "anonymous",
+    "anonymous": true,
+    "origin_country": "TR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-07T12:04:25Z",
+  "last_seen": null
+}
