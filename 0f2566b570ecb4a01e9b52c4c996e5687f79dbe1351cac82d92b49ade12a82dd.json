@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    "sha256": "0f2566b570ecb4a01e9b52c4c996e5687f79dbe1351cac82d92b49ade12a82dd",
+    "sha1": "43a56217e243b1a4873870f7a0f2592abdd50ecf",
+    "md5": "cf7f1595c11e6137c7f542753d630b14",
+    "sha3_384": "767fbe8da30c72992a40db2329fd1b3e6f71c088586eb76541ed5167f4257fd89ba41fb61215d89fd2a5fe86383eb04c",
+    "tlsh": "T1FE325247B6A8317684A7CEBBE0D19381C27B064CC64E1614C36C4E1BDD6EECAB86D4B1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:KwaGnSYJ5uylsYNuylsY8AuylsYwArYSuylsYAuylsY4RvUYBib:RaGnbu+fu+Ru+KAbu+mu+0vHib"
+  },
+  "file_metadata": {
+    "names": [
+      "stage2_decoded.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 11514,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "50ba5dffde0eacd8d1f48be9b389c1348d1c484bb1740ad119b4207319b13778"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "00f85bb784f3422ca0d959732a58bfceb4457c7adedd1d498ad1759148bb164b"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "67af823ae5b8aa16bfc5bd12d3f69619"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "bd7ee2fe4c3836ba07007197655c6acf"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "81-168-24-109",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0f2566b570ecb4a01e9b52c4c996e5687f79dbe1351cac82d92b49ade12a82dd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af0de659ad549dc24764aa0\/reports\/876c9d4b-df4a-470a-9d42-ae1c21f8686f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-06 09:37:01",
+        "scanner_count": "38",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261108-zggqdatxbw\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/81.168.62.45\/p?t=32ff8d4242c6"
+          },
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/asgyuhdjimok.com\/p?t=32ff8d4242c6"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-08T20:40:47Z",
+  "last_seen": null
+}

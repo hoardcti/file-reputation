@@ -1,0 +1,150 @@
+{
+  "hashes": {
+    "sha256": "2121db1beb4769c65157a3d805a5103f204249b814bb2f8eaccc2cb57a46c6a7",
+    "sha1": "9a76a15bf8e3643d43fac2fd56eef132069a4a95",
+    "md5": "87b0a7f3ec050b4af3149000cddfc4ab",
+    "sha3_384": "730dd7922300c5ead681d70f1378d026f3d881e0549afb74e12906df7fd5f4112f130316bd23c684670c9827eb51a970",
+    "tlsh": "T17173E0A3BCDCC519C8268F74725583737D3F26E9F12E722715A1585348A6C220F379EA",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:YUyS3rVwSBk2Rp9DRYTTQxYlLvIRkMcbDDj9J3hMPIZTDsACum:/yORTk23mTFnDDjj6gNm"
+  },
+  "file_metadata": {
+    "names": [
+      "dulkirmod-fabric-v4.6.3.zip"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 79914,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "77.1% (.JAR) Java Archive (13500\/1\/2)",
+      "22.8% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/98012\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "BlockchainC2",
+      "FabricMod",
+      "jar",
+      "SessionHijack",
+      "systemnotifier.st"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "JAVA_Malware_Unknown_ForgeAuto_0ece8eba",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (class, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "JAVA_Malware_Unknown_ForgeAuto_90eece6c_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (class, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_6dc545a6",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_b2a4008d",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat binaire)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "522503",
+        "date_added": "2026-11-08 15:24:07",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Attribution addendum (full RE): this is a SilentNet chain-B \"donki gen-2\" MaaS builder output — same builder as the Polinex-Fabric-1.21 graft (60932c68, 2026-10-19), 1:1 structural match across the 6-class live core (entrypoint/RPC-resolver/raw-TLS+DoH transport/memory:-ClassLoader/URL handler/conn): identical contract+selector, identical exfil JSON keys (username/uuid/accessToken/C2/jarFileName), byte-identical /api/static/loading + com.example.Main.initialize composition, same ABI parse, DoH 1.1.1.1/8.8.8.8, RPC mirror set is a strict subset of the kit's 32. No customer UUID exists in this generation — per-build marker is jarFileName = \"dulkirmod-fabric--v4.6.3\" (double dash = builder template quirk), sent in every /api/receive/sess beacon. Build event 2026-10-31 20:31:02 (fabric.mod.json + payload + decoys stamped together; carrier mtimes zeroed). Lure brand fake: real DulkirMod-Fabric tops out at 1.1.4-rc1 — any \u003e1.1.4 is fake by definition. The 12 za2q0iij.* classes are the builder's decoy scaffold (hashCode-returning stubs + absent vault.bin), not a live second implant."
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/98012\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2121db1beb4769c65157a3d805a5103f204249b814bb2f8eaccc2cb57a46c6a7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af0a04b7c29e07e8ae76ee9\/reports\/c61ff3d4-b719-494c-8fbc-779c80f389fb\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-03 20:25:18",
+        "scanner_count": "24",
+        "scanner_match": "2",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261108-t51khasvbt\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "GhostTypes",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-08T15:10:58Z",
+  "last_seen": null
+}
