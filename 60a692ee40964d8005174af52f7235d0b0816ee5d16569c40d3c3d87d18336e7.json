@@ -38,7 +38,7 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "ValleyRAT",
     "tags": [
       "exe",
       "SilverFox",
@@ -50,6 +50,12 @@
         "author": "DiegoAnalytics",
         "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
         "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "DebuggerCheck__API",
@@ -88,10 +94,22 @@
         "reference": null
       },
       {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
         "rule_name": "RIPEMD160_Constants",
         "author": "phoul (@phoul)",
         "description": "Look for RIPEMD-160 constants",
         "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "SEH__vectored",
@@ -297,6 +315,52 @@
       "YOROI_YOMI": {
         "detection": "Malicious File",
         "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          }
+        ]
       }
     }
   },

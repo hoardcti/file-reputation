@@ -1,0 +1,203 @@
+{
+  "hashes": {
+    "sha256": "e90c74c7af54082bb98e39a484d63ee7df255e63a8ef7b73f75069059f8672b7",
+    "sha1": "54f49fa85b54d9017dd044a5e62ea1614a4cc685",
+    "md5": "98f8d56dceb732fbf716501ef952b611",
+    "sha3_384": "9005d1e779da45b7f57957f0d0ae67343d0afa4da0a07be2993bb8feddf86ef4415593d40762c75626902f98b00fde46",
+    "tlsh": "T162155C83FAA344D4DA56CC7C821EB137E614BC8A4515B2176BC4AF623F29764EB1DF80",
+    "imphash": null,
+    "telfhash": "t16cc19d07d3ec2d5a2bf4220282c5145b2c5f60d1a48e4ec7b3a976d70d6ef522b2d4b3",
+    "gimphash": null,
+    "ssdeep": "12288:FqbqdBQq1qqCGnU4rCDKbunvWC1P1ly2jbJAJUFkCuQ:Fc6pnDGJvWC1P1llWJWkCu"
+  },
+  "file_metadata": {
+    "names": [
+      "zm-v05"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 931664,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4059937\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_Packer_Dropper_Fileless_Armhf",
+        "author": "Serhii Kocherhan",
+        "description": "Detects obfuscated Linux ELF packers/droppers featuring ChaCha20/RC4 decryption, memfd_create/execveat fileless execution capabilities, and unique binary artifacts.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e90c74c7af54082bb98e39a484d63ee7df255e63a8ef7b73f75069059f8672b7\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af02a6f1b124810f921dec8\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/abee2c7c-6023-4640-b371-9b805f56880d?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-08 01:49:31",
+        "scanner_count": "38",
+        "scanner_match": "1",
+        "scanner_percent": "2.63"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261108-jq2txabt2n\/",
+        "tags": [
+          "antivm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks hardware identifiers (DMI)",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Reads MAC address of network interface",
+            "score": "6"
+          },
+          {
+            "signature": "Reads hardware information",
+            "score": "6"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to shm directory",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.40"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-08T07:52:23Z",
+  "last_seen": null
+}

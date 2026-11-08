@@ -1,0 +1,131 @@
+{
+  "hashes": {
+    "sha256": "3f0a308ccc1c35b40792b8d26a941845fa9bd0e822e6e73d617cb1c1cde7757c",
+    "sha1": "0b9ffe27944b3d3f674d8008eb4dd5071f518d4c",
+    "md5": "54c717dafd7a6e62a853250ac34629b9",
+    "sha3_384": "501239b517bb2e80ef8f8947089e2d7223951407b590209aee1abe7c364f22d456ed4b309704031fb8166d755c3d80bb",
+    "tlsh": "T1DB218BCBA6B16E5228D9DD1E723B985C31A0D5CA11874F99FCEC387E949CD18B012F19",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:18C6XqJkjobQtc4ZDqc612K32NIVE2WI3iuU+gAV:eCa3jobB4ZD212aRE2Wki5XAV"
+  },
+  "file_metadata": {
+    "names": [
+      "c"
+    ],
+    "mime_type": "text/plain",
+    "type": "sh",
+    "size": 1134,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "txt",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4058927\/"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "e26e3050ddd2d01c3de8f66dae300cd8"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "837d498c786e8e2a5ac97db8de4a19b976f354a278e1c6906336b9037797f7b5"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "sh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ach_202412_suspect_bash_script",
+        "author": "abuse.ch",
+        "description": "Detects suspicious Linux bash scripts",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "MAL_Linux_IoT_MultiArch_BotnetLoader_Generic",
+        "author": "Anish Bogati",
+        "description": "Technique-based detection of IoT/Linux botnet loader shell scripts downloading binaries from numeric IPs, chmodding, and executing multi-architecture payloads",
+        "reference": "MalwareBazaar sample lilin.sh"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af024ce2829938fd319adbb\/reports\/28bfc049-c23f-4de8-ac32-1bf3e65de02c\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Downloader.Medusa",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-07 20:48:12",
+        "scanner_count": "38",
+        "scanner_match": "18",
+        "scanner_percent": "47.37"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261108-jbbzyaa18q\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-08T01:14:04Z",
+  "last_seen": "2026-11-08T07:28:01Z"
+}
