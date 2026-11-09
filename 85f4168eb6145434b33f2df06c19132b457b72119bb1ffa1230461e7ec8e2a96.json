@@ -1,0 +1,260 @@
+{
+  "hashes": {
+    "sha256": "85f4168eb6145434b33f2df06c19132b457b72119bb1ffa1230461e7ec8e2a96",
+    "sha1": "6f781fc16d991d3f6464269a069333c9bdfca76d",
+    "md5": "68779f60cc808c87f2b96ee059394683",
+    "sha3_384": "e9049e2f264d89f37786a8f4bda7c1422fa6fafafdc382d3ef23ad077980cbb4dc20eb030d19009c19f1746a4de3ded6",
+    "tlsh": "T1FB741306B11B560CE5F8C1FD4B642B867AAD673DBA48E3A783BFE52A3744E110943C5C",
+    "imphash": "6ed4f5f04d62b18d96b26d6db7c18840",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:e4/6UelwtBipJS/MG5XTeLtxS08DzzdzzZ5pfIeOk90JzJQ/Y0WGXXhbmR:NCUTqpU9jeLv18PztpNbVWsRC"
+  },
+  "file_metadata": {
+    "names": [
+      "85f4168eb6145434b33f2df06c19132b457b72119bb1ffa1230461e7ec8e2a96"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 366592,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "64.7% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "25.0% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "4.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "1.8% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/98168\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "534da8160e803a9b53203d2fec7e1b5cde635bb8c6dceaddddee76d5736c5c99"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "ac3be2af549d16e61247567c3f156655"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "upx",
+      "Vidar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "has_telegram_urls",
+        "author": "Aaron DeVera\u003caaron@backchannel.re\u003e",
+        "description": "Detects Telegram URLs",
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "VIGIA_Vidar_c7269e33",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "Vidar-associated sample detection using corroborated string layouts or code constants",
+        "reference": "https://vigia.bisite.es/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "vidar",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-09 13:34:49",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/248013e0-0ccb-4e23-9485-05a902271fa8",
+          "tags": [
+            "telegram",
+            "stealer",
+            "vidar",
+            "upx"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/98168\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/85f4168eb6145434b33f2df06c19132b457b72119bb1ffa1230461e7ec8e2a96\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af17d048d7114c2a2b3476d\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/b1efdf6b-79f5-4204-9a67-3a4175f9869a?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-07T08:55:00Z",
+        "last_seen": "2026-10-19T08:46:00Z",
+        "hitscount": 1000,
+        "report_link": "https:\/\/opentip.kaspersky.com\/85f4168eb6145434b33f2df06c19132b457b72119bb1ffa1230461e7ec8e2a96\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Vidar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-07 12:10:28",
+        "scanner_count": "36",
+        "scanner_match": "24",
+        "scanner_percent": "66.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vidar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261109-jsb19svz2j\/",
+        "tags": [
+          "family:vidar",
+          "botnet:62e8f01987466ae8396d7dad6ab3e7a6",
+          "discovery",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Vidar",
+            "score": "10"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/t.me\/bj00tyr"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/steamcommunity.com\/profiles\/76561198630398488"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "85f4168eb6145434b33f2df06c19132b457b72119bb1ffa1230461e7ec8e2a96",
+          "md5_hash": "68779f60cc808c87f2b96ee059394683",
+          "sha1_hash": "6f781fc16d991d3f6464269a069333c9bdfca76d",
+          "detections": [
+            "SUSP_Imphash_Mar23_3"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/a665d267-c53e-4aa2-8288-d95fe1d04718\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/85f4168eb614\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.22"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adrian__luca",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T07:54:47Z",
+  "last_seen": null
+}

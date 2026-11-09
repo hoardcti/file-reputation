@@ -1,0 +1,383 @@
+{
+  "hashes": {
+    "sha256": "cac94a9e8f201edfe35a7c8eea7646979944689ab3ec8cdba6c5ffc96a16cff4",
+    "sha1": "e3d1b4b2c225d167162b29fda290ced1bb4cdd76",
+    "md5": "4b731b8527a3018dee7892b53440e44c",
+    "sha3_384": "50769197d8bf2fc90b826cf025c9866c14228711720636b8d1f4d26dc82a7e6cbe6daa5679f3da5bc92de50e5056a6dd",
+    "tlsh": "T1A1554BBE674508A9D1F330FCAC513083AA60BF278660FD891F47264B9F2536F1E6915E",
+    "imphash": "67dfe0f72cccf8d60ca58a2161c16b3f",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:ypcCLCi5RaNbMxJD7nuhGumgdJjrG8Jr:EVhQeGAmr",
+    "dhash_icon": "aab2b2b2b2ba7829"
+  },
+  "file_metadata": {
+    "names": [
+      "cac94a9e8f201edfe35a7c8eea7646979944689ab3ec8cdba6c5ffc96a16cff4"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1320448,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/98388\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "exe",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Gh0stKCP",
+        "author": "Netresec",
+        "description": "Detects HP-Socket ARQ and KCP implementations, which are used in Gh0stKCP. Forked from @stvemillertime's KCP catchall rule.",
+        "reference": "https://netresec.com/?b=259a5af"
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "Indicator_MiniDumpWriteDump",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects PE files and PowerShell scripts that use MiniDumpWriteDump either through direct imports or string references",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM",
+        "author": "ditekSHen",
+        "description": "Detects Windows exceutables bypassing UAC using CMSTP COM interfaces. MITRE (T1218.003)",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "ValleyRAT",
+        "author": "NDA0E",
+        "description": "Detects ValleyRAT",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "VIGIA_ValleyRAT_ead09c7c",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "ValleyRAT candidate detection using corroborated original-sample indicators",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
+        "rule_name": "WinosStager",
+        "author": "YungBinary",
+        "description": "https://www.esentire.com/blog/winos4-0-online-module-staging-component-used-in-cleversoar-campaign",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-09 17:25:37",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/89818994-4dec-450e-8d95-719869ec0d59",
+          "tags": [
+            "auto-reg",
+            "valleyrat",
+            "rat",
+            "silverfox",
+            "winos"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "WinosStager",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/98388\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/cac94a9e8f201edfe35a7c8eea7646979944689ab3ec8cdba6c5ffc96a16cff4\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af18321cb1561db9280d057\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5132e0d1-e5ab-4f20-8671-8313c9c49129?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-16T05:23:00Z",
+        "last_seen": "2026-10-30T12:08:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/cac94a9e8f201edfe35a7c8eea7646979944689ab3ec8cdba6c5ffc96a16cff4\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Backdoor.Valleyrat",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-07 06:26:00",
+        "scanner_count": "36",
+        "scanner_match": "20",
+        "scanner_percent": "55.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261109-j8n1rsa18y\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "38.60.125.204:21531"
+          },
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "38.60.125.204:21532"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "cac94a9e8f201edfe35a7c8eea7646979944689ab3ec8cdba6c5ffc96a16cff4",
+          "md5_hash": "4b731b8527a3018dee7892b53440e44c",
+          "sha1_hash": "e3d1b4b2c225d167162b29fda290ced1bb4cdd76",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/22d6510a-2a14-4792-870e-04bfe1a439aa\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "ValleyRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/cac94a9e8f20\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Disabling the operating system update service"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Defender launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Forced shutdown of a system process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Security Center launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the User Account Control"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a system driver"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a system file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adrian__luca",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T08:20:09Z",
+  "last_seen": null
+}
