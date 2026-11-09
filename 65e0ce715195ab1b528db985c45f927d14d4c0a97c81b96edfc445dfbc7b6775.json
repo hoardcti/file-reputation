@@ -1,0 +1,184 @@
+{
+  "hashes": {
+    "sha256": "65e0ce715195ab1b528db985c45f927d14d4c0a97c81b96edfc445dfbc7b6775",
+    "sha1": "fdaff3d57546b7ce37f676f29853b208685d5928",
+    "md5": "bcb7f44713e514b47378956aec268317",
+    "sha3_384": "88055c47f976cc0a31b8e630165e5c52b29e57be45e27231055ae6e2608666a3595b772a9941c485bff002b903e4698e",
+    "tlsh": "T18D9423FBD6C0430FCF16117C277A6E22D2C6553539AD6AB0C62CF8AE0E792075944EA7",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:4h/taqLkdfH8ytYiflIw0BEmWVeygFurhCz:4YdkVLwKvyaJz"
+  },
+  "file_metadata": {
+    "names": [
+      "65e0ce715195ab1b528db985c45f927d14d4c0a97c81b96edfc445dfbc7b6775"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 436267,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Prometei",
+    "tags": [
+      "elf",
+      "Prometei"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/65e0ce715195ab1b528db985c45f927d14d4c0a97c81b96edfc445dfbc7b6775\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af1347054765c2bf1f628b0\/reports\/2ddb6436-0c8b-40a4-b627-75d0a00c06f4\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/cc121a4d-5539-45a9-93ed-37be76f82f90?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.64.le",
+        "first_seen": "2026-10-13T03:34:00Z",
+        "last_seen": "2026-10-13T03:55:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/65e0ce715195ab1b528db985c45f927d14d4c0a97c81b96edfc445dfbc7b6775\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Prometei",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-13 08:25:38",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "prometei_elf",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261109-dal6magz2l\/",
+        "tags": [
+          "family:prometei_elf",
+          "botnet",
+          "discovery",
+          "linux",
+          "miner",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Prometei",
+            "score": "10"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies the \/etc\/hosts DNS resolution file",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Hassan_Pouladi",
+    "anonymous": false,
+    "origin_country": "CA"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T02:47:30Z",
+  "last_seen": null
+}

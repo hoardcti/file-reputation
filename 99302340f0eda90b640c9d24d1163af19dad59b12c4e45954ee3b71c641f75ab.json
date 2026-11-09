@@ -1,0 +1,346 @@
+{
+  "hashes": {
+    "sha256": "99302340f0eda90b640c9d24d1163af19dad59b12c4e45954ee3b71c641f75ab",
+    "sha1": "6380ef78627fd1c91709f3594011dc34f4c22ad6",
+    "md5": "d5a8fcd01a46502370d26d0f9dca9754",
+    "sha3_384": "26b9d5a9459ba8f8982159c128ed4de8a0fa95ab4e4c2f73e0bcfeeecc876523176b74e4991d257780d776d3d5bdfc21",
+    "tlsh": "T18FA623116BF8D278F1F22A39D876A0B1A5367D119E23D12E2324791E2C75EC08A73777",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:FHxcp9ym3nltDUJVKHxcp9ym3aHxcp9ym3THxcp9ym3nHxcp9ym3:3Gplp9GpoGp9GpRGp"
+  },
+  "file_metadata": {
+    "names": [
+      "99302340f0eda90b640c9d24d1163af19dad59b12c4e45954ee3b71c641f75ab.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 9961472,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/98060\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ConnectWise",
+    "tags": [
+      "ConnectWise",
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_RMM_ConnectWise_ScreenConnect",
+        "author": "ditekSHen",
+        "description": "Detects ConnectWise Control (formerly ScreenConnect). Review RMM Inventory",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "win_evilconwi_w0",
+        "author": "Karsten Hahn @ G DATA CyberDefense",
+        "description": "Settings from app.config that hide the connection of the client. These settings are potentially unwanted",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/98060\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/99302340f0eda90b640c9d24d1163af19dad59b12c4e45954ee3b71c641f75ab\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af1193f64e88af71bab67f9\/reports\/ea7e486e-0162-4214-b896-e3e4679cdbab\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Adware",
+        "file_type": "msi",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/99302340f0eda90b640c9d24d1163af19dad59b12c4e45954ee3b71c641f75ab\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.PUA.ConnectWise",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-30 06:12:54",
+        "scanner_count": "38",
+        "scanner_match": "10",
+        "scanner_percent": "26.32"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261109-a761hsgv6q\/",
+        "tags": [
+          "backdoor",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware",
+          "rat",
+          "revoked_codesign"
+        ],
+        "signatures": [
+          {
+            "signature": "Sets service image path in registry",
+            "score": "8"
+          },
+          {
+            "signature": "Signed with revoked ConnectWise certificate",
+            "score": "8"
+          },
+          {
+            "signature": "ConnectWise ScreenConnect remote access tool",
+            "score": "7"
+          },
+          {
+            "signature": "Event Triggered Execution: Component Object Model Hijacking",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Boot or Logon Autostart Execution: Authentication Package",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the shell\\open\\command registry branches"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a suspicious library"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Program Files subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the Windows subdirectory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T00:51:51Z",
+  "last_seen": null
+}

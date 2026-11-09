@@ -1,0 +1,212 @@
+{
+  "hashes": {
+    "sha256": "0a611f10e16c07fa7b1f10f356881985c09c0e7df7cad789d313305d472efa09",
+    "sha1": "d3993c673d388575e34bdab0979d27082a301e1a",
+    "md5": "b4dfdce6eaacaedef41f32475ec4995e",
+    "sha3_384": "f9a5eda9415a26a1e7341c66051bc071f3cdb6b867d9c0d733aaace40f8fe148fc24d45c79f66e93c8e39577784bd907",
+    "tlsh": "T1CF63016AD28AD6D3C3771C28383E9087D2C15EE4B6A59DB477182A446BC014FC86A6CF",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:j4y6wk6HuT2LeolRbp+0prAoYANPbgKaskKFKavU:j4o+2iolRZp0YPbgEkKFRvU"
+  },
+  "file_metadata": {
+    "names": [
+      "arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 72868,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4059011\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "a4128a3104f8ecf6707a171eac451ab018f092041d10c95c4a858c0ea9f4aa4d"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "a57bfe46115791a73f2bcfda494c57dd"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0a611f10e16c07fa7b1f10f356881985c09c0e7df7cad789d313305d472efa09\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af115408cbd1eb754ca522a\/reports\/31e5380c-4638-4751-875b-d7d4a63d9ec3\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/d916b73d-1e25-4956-823a-d0cdabeac83e?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-09 00:07:54",
+        "scanner_count": "38",
+        "scanner_match": "7",
+        "scanner_percent": "18.42"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261109-axehhsgx6y\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Creates\/modifies environment variables",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Write file to user bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Bash startup script",
+            "score": "5"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T00:35:04Z",
+  "last_seen": "2026-11-09T01:19:45Z"
+}
