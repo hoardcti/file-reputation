@@ -1,0 +1,187 @@
+{
+  "hashes": {
+    "sha256": "688d91d5e4abf37a22ada96a5a8bdb5dafb55cb4a3827db97abcc895d7af1c8a",
+    "sha1": "ae4f751aef3029659cd184e37fdd8f3141f55f0c",
+    "md5": "cc7e39bb49a822813b1778866fe07f80",
+    "sha3_384": "b441680b123d43ec416ee21629f9ca3b2e2fe85c66962ad32a375ab258e779df856bd073a7d89e37e03cb4996449950f",
+    "tlsh": "T11BC46D347E062EFF5BB820C248D9C50C563C26B4D9682CF66ACB5CA2390D77617B79B1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:yf/0xPX338qz1TMVOUNr4U3Qs27DPcM0doiDGElSbv463WTYM6QPn7IakU+:JmVXNkgQs2XcMopSpWTYM6QPn7Hy"
+  },
+  "file_metadata": {
+    "names": [
+      "688d91d5e4abf37a.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 564847,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_PWSH_B64Encoded_Concatenated_FileEXEC",
+        "author": "ditekSHen",
+        "description": "Detects PowerShell scripts containing patterns of base64 encoded files, concatenation and execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/688d91d5e4abf37a22ada96a5a8bdb5dafb55cb4a3827db97abcc895d7af1c8a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af22bea82f033d632c89235\/reports\/991b8e5a-d0cf-4014-af5e-a1dfe5785981\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261109-y5e11s1x9k\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Owner\/User Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "12",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T20:21:02Z",
+  "last_seen": null
+}

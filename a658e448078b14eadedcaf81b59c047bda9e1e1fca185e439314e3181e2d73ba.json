@@ -1,0 +1,219 @@
+{
+  "hashes": {
+    "sha256": "a658e448078b14eadedcaf81b59c047bda9e1e1fca185e439314e3181e2d73ba",
+    "sha1": "63f1e043d707afe82fd94decdec2c63fec8c9f8e",
+    "md5": "4ec841c2c7ec66a5b3b61236cb041828",
+    "sha3_384": "67ab1028e6c5bba7a9d9c26e5fdb2132081c7d662427fcb5607e6cdcf0a97f1bae629c8bfdd24c37ea9bd3bbce2b1786",
+    "tlsh": "T16FC6232523FD401AE8F75A79ED3682F45972BE64CF22C11E9328B90D2A74D4096737B3",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:KWh0cGwYWh0cGrWh0cGkWh0cGkWh0cGoWh0cG:KWacSWaciWacTWac5WacTWac"
+  },
+  "file_metadata": {
+    "names": [
+      "a658e448078b14eadedcaf81b59c047bda9e1e1fca185e439314e3181e2d73ba.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 11640832,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/98857\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ConnectWise",
+    "tags": [
+      "ConnectWise",
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_RMM_ConnectWise_ScreenConnect",
+        "author": "ditekSHen",
+        "description": "Detects ConnectWise Control (formerly ScreenConnect). Review RMM Inventory",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "win_evilconwi_w0",
+        "author": "Karsten Hahn @ G DATA CyberDefense",
+        "description": "Settings from app.config that hide the connection of the client. These settings are potentially unwanted",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/98857\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/a658e448078b14eadedcaf81b59c047bda9e1e1fca185e439314e3181e2d73ba\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af25ff6227548b25fa85b14\/reports\/119f6d65-4466-4489-8ea5-7a2a0ef4540b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-MSIL.PUA.ConnectWise",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-09 23:14:29",
+        "scanner_count": "36",
+        "scanner_match": "8",
+        "scanner_percent": "22.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261110-ads7kafv2t\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": null,
+        "maliciousness": null,
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-10T00:05:49Z",
+  "last_seen": null
+}

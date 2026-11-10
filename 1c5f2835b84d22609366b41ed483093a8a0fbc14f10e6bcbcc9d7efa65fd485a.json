@@ -45,6 +45,12 @@
     ],
     "yara_rules": [
       {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
         "rule_name": "DebuggerCheck__API",
         "author": null,
         "description": null,
@@ -57,8 +63,26 @@
         "reference": null
       },
       {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
         "rule_name": "SUSP_XORed_Mozilla",
         "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
         "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
         "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
       },
@@ -79,6 +103,18 @@
         "author": "Florian Roth",
         "description": "Detects an XORed URL in an executable",
         "reference": "https://twitter.com/stvemillertime/status/1237035794973560834"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
       }
     ],
     "vendor_intel": {

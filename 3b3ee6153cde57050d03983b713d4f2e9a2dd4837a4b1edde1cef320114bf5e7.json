@@ -1,0 +1,180 @@
+{
+  "hashes": {
+    "sha256": "3b3ee6153cde57050d03983b713d4f2e9a2dd4837a4b1edde1cef320114bf5e7",
+    "sha1": "19d196a6d02e397f50a2a2ee2cc49a0ec4f70dbd",
+    "md5": "80dbdafc1db76334efda930dbcfdefd1",
+    "sha3_384": "ee790b2b6c2abf2017da989c184cf8ad2aae8127037745a3e1607d154877f17bd7122102daaaf8d5513e6b751c72a4d7",
+    "tlsh": "T13FF31A89EE750FEFC56FCA30451E036B1AED595F92F0633A527CDC08759E6088AE3858",
+    "imphash": null,
+    "telfhash": "t1fd316744dc3c9a1979de07f998ad96e5d20dc566ec000f20cf78c3858166418e51feaf",
+    "gimphash": null,
+    "ssdeep": "3072:YFIdFFTmtDOFJPPxikErHxSjlzYpgzL5UoWF:YFIdjTwY9w09xz9/M"
+  },
+  "file_metadata": {
+    "names": [
+      "mpsl"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 161224,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4062211\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "elf_arm_mips_ko_so",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "F01_s1ckrule",
+        "author": "s1ckb017",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3b3ee6153cde57050d03983b713d4f2e9a2dd4837a4b1edde1cef320114bf5e7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af24e2672d99a23a53b2f33\/reports\/43458ee3-3f9b-451e-a6b9-4accade6b8c7\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/851fbb0a-0069-4adc-94db-41b520114c3c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-09 22:50:30",
+        "scanner_count": "36",
+        "scanner_match": "9",
+        "scanner_percent": "25.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261109-2sdh7swtey\/",
+        "tags": [
+          "antivm",
+          "discovery",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to shm directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-09T22:50:04Z",
+  "last_seen": null
+}
