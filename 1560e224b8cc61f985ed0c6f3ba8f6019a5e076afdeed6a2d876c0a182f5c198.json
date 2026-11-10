@@ -25,13 +25,15 @@
       "57.1% (.7Z) 7-Zip compressed archive (v0.4) (8000\/1)",
       "42.8% (.7Z) 7-Zip compressed archive (gen) (6000\/1)"
     ],
+    "archive_pw": "infected",
     "file_information": null,
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "GuLoader",
     "tags": [
-      "7z"
+      "7z",
+      "GuLoader"
     ],
     "yara_rules": [
       {
@@ -71,7 +73,50 @@
           "detection": "suspicious",
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
-      ]
+      ],
+      "Triage": {
+        "malware_family": "guloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261110-ve7fssby8v\/",
+        "tags": [
+          "family:guloader",
+          "defense_evasion",
+          "discovery",
+          "downloader",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Guloader,Cloudeye",
+            "score": "10"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
     }
   },
   "submission": {
@@ -83,5 +128,5 @@
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-11-10T14:12:12Z",
-  "last_seen": null
+  "last_seen": "2026-11-10T19:46:42Z"
 }
