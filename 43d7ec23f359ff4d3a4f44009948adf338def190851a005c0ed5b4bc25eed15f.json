@@ -1,0 +1,220 @@
+{
+  "hashes": {
+    "sha256": "43d7ec23f359ff4d3a4f44009948adf338def190851a005c0ed5b4bc25eed15f",
+    "sha1": "bcb2faabe3b54565754b22b6ba9a42466258b7e1",
+    "md5": "a5002456926fc6dcf3e0ea735ccb68f9",
+    "sha3_384": "01d17838ae8830dbd71c47d27a1df99281ea9bfc67313582b7cfac960b4700819281e867b22a3e49cdbfc513b342125d",
+    "tlsh": "T17115CF06929901BCE0B7A3789D575902FB7A780903B1DAEF03D4D5772E56AE09E3EF10",
+    "imphash": "7be476d096ff2d43b2380de66c82171e",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:PzbANGIcymiSuf17H2FSTxEEPrJQ7os7kCcsHHP6epZWoVHCDOAy2mQXuIeuakBe:LfjyH2FQPrYzIy6mQPOUmQeLvB4E"
+  },
+  "file_metadata": {
+    "names": [
+      "43d7ec23f359ff4d3a4f44009948adf338def190851a005c0ed5b4bc25eed15f.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 894464,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99150\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "DesktopStreamRAT",
+    "tags": [
+      "DesktopStreamRAT",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "cobalt_strike_tmp01925d3f",
+        "author": "The DFIR Report",
+        "description": "files - file ~tmp01925d3f.exe",
+        "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "Lold_Loader_Implant_CFG_V1",
+        "author": "Daydream",
+        "description": "Lold/1.0 (Lold.UpdateClient) x64 C++ loader/implant and verbatim outer PE wrappers: matches the .loldcfg (LOLD_CFG_V1) configuration section, Lold/1.0 User-Agent, Local\\Lold_ mutex, --lold-container CLI flag, and rs42 Reed-Solomon RS(4,2) chunk assembly strings",
+        "reference": "https://bazaar.abuse.ch/sample/269b268ad54168172f307ae50896b64735e3164946f4abc91c2e8257b0fb6300/"
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient",
+        "author": "anonymous",
+        "description": "Lold Update Client (lold-container) payload delivered via ClickFix: WinHTTP C2 on :8093 (/files, /files/hb, /files/inbox), embedded LOLD_CFG_V1 config",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_LoldUpdateClient_Config",
+        "author": "anonymous",
+        "description": "Lold Update Client embedded config block (LOLD_CFG_V1 + C2 URL + k_ key); also matches memory dumps",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Win_Lold_Memory_C2",
+        "author": "anonymous",
+        "description": "Lold Update Client C2 artefacts in process memory or dumps: :8093 base URL with payload chunk path or k_ session key",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "TigerRAT_pe_yaraify",
+        "author": "hunts-yara-code",
+        "description": "YARAify-tightened byte rule from 9 sample(s) -- VERIFY hits",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99150\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/43d7ec23f359ff4d3a4f44009948adf338def190851a005c0ed5b4bc25eed15f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af3096bd3a2fe92d60c1fa4\/reports\/d94021de-e7b6-4592-b416-1450606a9bd4\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c45c9db1-d196-4df7-b77b-ccdaee5d94bf?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-10-31T20:54:00Z",
+        "last_seen": "2026-11-01T13:29:00Z",
+        "hitscount": 100,
+        "report_link": "https:\/\/opentip.kaspersky.com\/43d7ec23f359ff4d3a4f44009948adf338def190851a005c0ed5b4bc25eed15f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Passwordstealer",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-31 18:35:22",
+        "scanner_count": "36",
+        "scanner_match": "28",
+        "scanner_percent": "77.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261110-pbkvqssyhw\/",
+        "tags": [],
+        "signatures": [
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "43d7ec23f359ff4d3a4f44009948adf338def190851a005c0ed5b4bc25eed15f",
+          "md5_hash": "a5002456926fc6dcf3e0ea735ccb68f9",
+          "sha1_hash": "bcb2faabe3b54565754b22b6ba9a42466258b7e1",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/d13eb37e-d88e-482e-9d55-33870cf796de\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "albertzsigovits",
+    "anonymous": false,
+    "origin_country": "DE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-10T12:08:46Z",
+  "last_seen": "2026-11-10T12:49:21Z"
+}

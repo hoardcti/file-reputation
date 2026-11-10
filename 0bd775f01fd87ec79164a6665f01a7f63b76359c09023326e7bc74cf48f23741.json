@@ -1,0 +1,383 @@
+{
+  "hashes": {
+    "sha256": "0bd775f01fd87ec79164a6665f01a7f63b76359c09023326e7bc74cf48f23741",
+    "sha1": "a2812c0d59722f98f1075f4d9f3a109d92c2479e",
+    "md5": "d14444d739913ed640af75b73ed6a24e",
+    "sha3_384": "27ed6eb5f20e8c53594235bdee81090b6fa2346594b6792283e94049e480dee03a68ed666a274a3197f862c82e1f3a79",
+    "tlsh": "T1D215E0343DEA401EF273EE755AD0B5AAED2FBE633B06944A1051334A4A32E81DED153D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:d488T14FahDtY/PUVGb3eJflOYnXRZKv8KTpinqM:h8T14FahDYTeJVKvtTcqM"
+  },
+  "file_metadata": {
+    "names": [
+      "Commercial_Invoice.doc"
+    ],
+    "mime_type": "application/msword",
+    "type": "doc",
+    "size": 951808,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "doc",
+    "trid": [
+      "38.7% (.4PK) Perfect Keyboard macro set (36000\/1\/2)",
+      "32.2% (.DOC) Microsoft Word document (30000\/1\/2)",
+      "20.4% (.DOC) Microsoft Word document (old ver.) (19000\/1\/2)",
+      "8.6% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": {
+      "oleid": {
+        "ole_format": null,
+        "file_format": "MS Word 97-2003",
+        "container_format": "OLE",
+        "has_summaryinfo_stream": null,
+        "application_name": "Microsoft Office",
+        "author": "Admini",
+        "encrypted": true,
+        "word": null,
+        "vba_macros": true,
+        "xlm_macros": true,
+        "excel": null,
+        "powerpoint": null,
+        "visio": null,
+        "objectpool": null,
+        "flash_objects": null,
+        "external_relationships": 0,
+        "maldoc_score": 32
+      },
+      "olevba": [
+        {
+          "type": "AutoExec",
+          "keyword": "Document_Open",
+          "description": "Runs when the Word or Publisher document isopened"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "expandenvironmentstrings",
+          "description": "May read system environment variables"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Open",
+          "description": "May open a file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Write",
+          "description": "May write to a file (if combined with Open)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "ADODB.Stream",
+          "description": "May create a text file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "WriteText",
+          "description": "May create a text file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "SaveToFile",
+          "description": "May create a text file"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "shell",
+          "description": "May run an executable file or a systemcommand"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "wscript.shell",
+          "description": "May run an executable file or a systemcommand"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "CreateObject",
+          "description": "May create an OLE object"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Xor",
+          "description": "May attempt to obfuscate specific strings(use option --deobf to deobfuscate)"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": ".Variables",
+          "description": "May use Word Document Variables to store andhide data"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "run",
+          "description": "May run an executable file or a system"
+        },
+        {
+          "type": "Suspicious",
+          "keyword": "Base64 Strings",
+          "description": "Base64-encoded strings were detected, may beused to obfuscate strings (option --decode tosee all)"
+        }
+      ]
+    }
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "doc"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "informational_win_ole_protected",
+        "author": "Jeff White (karttoon@gmail.com) @noottrak",
+        "description": "Identify OLE Project protection within documents.",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AgentTesla_ForgeAuto_ed343f78_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects AgentTesla (inconnu, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_0fd7af39_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_1ec7d1c2_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_4f67e0b3_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_57b77e4a_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_a7cc1c07_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (inconnu, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_Unknown_ForgeAuto_e38c53ae_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (archive, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_PythonStealer_ForgeAuto_b24cb5bd",
+        "author": "Marjoriefort",
+        "description": "Detects PythonStealer (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_5001c94c",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "doc",
+          "date": "2026-11-10 13:49:29",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/4a2920c2-87cb-483d-b1b9-424ead1d5193",
+          "tags": [
+            "macros",
+            "macros-on-open",
+            "phish-ml-doc",
+            "arch-doc"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0bd775f01fd87ec79164a6665f01a7f63b76359c09023326e7bc74cf48f23741\/"
+      },
+      "DocGuard": {
+        "verdict": "Malicious",
+        "filetype": "Legacy Word File with Macro",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af2ee6fa7fc4a95666a6c4f\/reports\/d14ed62f-da06-403a-b258-7f534dea8a38\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "doc",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/0bd775f01fd87ec79164a6665f01a7f63b76359c09023326e7bc74cf48f23741\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Document-Word.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-09 13:02:32",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261110-l9qbbshz7s\/",
+        "tags": [
+          "macro",
+          "macro_on_action"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Launching a process by exploiting the app vulnerability"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-10T10:13:19Z",
+  "last_seen": null
+}
