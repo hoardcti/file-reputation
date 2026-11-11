@@ -1,0 +1,207 @@
+{
+  "hashes": {
+    "sha256": "7db79169e437472ff9d24560a89c64259c618e1282f3e4b4cdec0bf4907e16e1",
+    "sha1": "4ba4bfbf0dc2bc3f8eec968992c788fc1067473e",
+    "md5": "cc357b3937906fb48e8819d29415ad3a",
+    "sha3_384": "7c24fd678c61097bfe3ece24569ffa8af92fd567a1ee79772a4f3f1c4e9a35aba2d5730b6a9821be4acba60e06687119",
+    "tlsh": "T169F633935AB3C4C1D8A9413854EA89B99217F63C72E0B3F52B18D1B2DF5C835CE72B61",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:X/Mi53KiLs3UotK8g34HIGRTajrI0BW8GzYt:ki5dDokQ+sza"
+  },
+  "file_metadata": {
+    "names": [
+      "Installer.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 15339520,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.7% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.0% (.BIN\/MACBIN) MacBinary 1 (1033\/5)",
+      "0.0% (.SMT) Memo File Apollo Database Engine (88\/84)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261111-c9fx8adg58\/behavioral1"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "8edc371dba96886ccfd530735ccd86929101706ec58ed14d782107fd877389fb"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "29d056cc1f780fe8157e998c47bbd38a"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "CNBackdoor",
+      "iso"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7db79169e437472ff9d24560a89c64259c618e1282f3e4b4cdec0bf4907e16e1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af3df29bd9826fe57c91f87\/reports\/b396c472-2bcf-47a9-adfb-e4ced074da0a\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-11 03:21:21",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "cnbackdoor",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261111-hqgcjax1by\/",
+        "tags": [
+          "family:cnbackdoor",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "themida",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: CNBackdoor",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Themida packer",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security bypass",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security modification",
+            "score": "7"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "PT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-11T03:20:48Z",
+  "last_seen": null
+}
