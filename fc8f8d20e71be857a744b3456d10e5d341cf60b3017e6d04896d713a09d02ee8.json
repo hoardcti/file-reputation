@@ -1,0 +1,226 @@
+{
+  "hashes": {
+    "sha256": "fc8f8d20e71be857a744b3456d10e5d341cf60b3017e6d04896d713a09d02ee8",
+    "sha1": "a372948d801b26e5493da19787ea88c6385fe2b1",
+    "md5": "5963d6eac49b2d5a2c2700af23fb9122",
+    "sha3_384": "93bc5f1b759a1c40ed66bb42a3100570cbd4883a9c4d1ea9a28405b429bf93800c4a931f59a6f219eb51dc6be6c74065",
+    "tlsh": "T1FC2533AD3E20A334CA5E0FB0D666E4EA7770BE6A47A22077176B374C2D31C4452676F4",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:MOGx0tnCuNPVr44VV1ubECopde9epHIpo4eRLSAVADpZSdDaF:MFx00uJVr422bECgGtppw"
+  },
+  "file_metadata": {
+    "names": [
+      "POGt45241112.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 1048576,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99580\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "msi",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99580\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/fc8f8d20e71be857a744b3456d10e5d341cf60b3017e6d04896d713a09d02ee8\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af5956c6eb79b70f5aeb89c\/reports\/551de3c7-1d53-4fb5-8d26-2e26e5125aee\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/fc8f8d20e71be857a744b3456d10e5d341cf60b3017e6d04896d713a09d02ee8\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Binary.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-12 10:31:16",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261112-mkfk9seg22\/",
+        "tags": [
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Remcos",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/fc8f8d20e71b\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "lowmal3",
+    "anonymous": false,
+    "origin_country": "DE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T10:30:27Z",
+  "last_seen": null
+}

@@ -1,0 +1,172 @@
+{
+  "hashes": {
+    "sha256": "3f7d8fac9c2b89f315f94c538d15828002d9053da4d871b83d3a21fa46a1c7cc",
+    "sha1": "f75f288a47d28eb760bd999236f45806ef7320ad",
+    "md5": "ca5521eb5960c983f302aa25538ef283",
+    "sha3_384": "78e70e86b9c6e7761177d54e837a556fc17c3b4d1b83499e31686824efa683cf562e6a6fc42036c6d51ed0d4786d00fe",
+    "tlsh": "T195935B80F693D1F1E9A30932001BE76B9B35DD358064DF8AF7087A31ED76B02495B6AC",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:h+NomoKfl03rmZPvT73v+BN4+pkLduYU9gK4ZpjUGBBUVzYaTgjiJorsD:ImJK9lPvf3v62+0du3uK4LjnmVsaTAV"
+  },
+  "file_metadata": {
+    "names": [
+      "x86"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 91564,
+    "format": "ELF",
+    "arch": "I386",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4062980\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Gafgyt",
+    "tags": [
+      "elf",
+      "Gafgyt"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3f7d8fac9c2b89f315f94c538d15828002d9053da4d871b83d3a21fa46a1c7cc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "UNKNOWN",
+        "threatlevel": "0.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af59f840a4c5c056efebb05\/reports\/f13d9968-3e57-4f29-b723-2a461d5639b0\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Gafgyt",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/0a5f42ba-3b6b-4fb0-aba6-fa3604b09a11?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261112-nb36mseh27\/",
+        "tags": [
+          "antivm",
+          "discovery",
+          "linux",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to shm directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.20"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T11:14:06Z",
+  "last_seen": null
+}

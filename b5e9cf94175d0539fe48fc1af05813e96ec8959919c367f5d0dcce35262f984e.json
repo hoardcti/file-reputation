@@ -1,0 +1,550 @@
+{
+  "hashes": {
+    "sha256": "b5e9cf94175d0539fe48fc1af05813e96ec8959919c367f5d0dcce35262f984e",
+    "sha1": "ff59ac565fd37305602a3055918679d72b60f834",
+    "md5": "67584b27bb4d302a661212c48012e7a7",
+    "sha3_384": "27a66f11d8e8a73b919bcd8711170853137de18e772d6fde20ee955ef09e9aaf2e51095c3a1f4da472052e58e3662909",
+    "tlsh": "T1A7B533227BFDD140E13CFEF3EA4539B3EAA1A11F5251945CE771480499B0ADE29EC839",
+    "imphash": "b6c0c50925190faee8aea563b239030b",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:dnDDmKiMNItfGp+0IxVA3ZK+hKfiSdyZ8m0gkfXQXQKqQYP:xXmIWd21nscKFyym0gkf0BqQYP"
+  },
+  "file_metadata": {
+    "names": [
+      "DeltaLoader.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2407424,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_malware",
+        "value": "salatstealer"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4064241\/"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99654\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "e2f648876c1ef5ef755e8f9887f928689c519fc2eb79551273940d4765dfe4c0"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "735601e45960fba9af9308bb4028df62"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SalatStealer",
+    "tags": [
+      "exe",
+      "salatstealer",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "command_and_control",
+        "author": "CD_R0M_",
+        "description": "This rule searches for common strings found by malware using C2. Based on a sample used by a Ransomware group",
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_Remcos_RAT",
+        "author": "daniyyell",
+        "description": "Detects Remcos RAT payloads and commands",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "grakate_stealer_nov_2021",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+        "author": "ditekSHen",
+        "description": "Detect binaries embedding considerable number of cryptocurrency wallet browser extension IDs.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+        "author": "ditekSHen",
+        "description": "Detects binaries (Windows and macOS) referencing many web browsers. Observed in information stealers.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore",
+        "author": "ditekSHen",
+        "description": "Detects executables containing SQL queries to confidential data stores. Observed in infostealers",
+        "reference": null
+      },
+      {
+        "rule_name": "Macos_Infostealer_Wallets_8e469ea0",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Rust",
+        "author": "albertzsigovits",
+        "description": "Application written in Rust programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RIPEMD160_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for RIPEMD-160 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "Rustyloader_mem_loose",
+        "author": "James_inthe_box",
+        "description": "Corroded buerloader",
+        "reference": "https://app.any.run/tasks/83064edd-c7eb-4558-85e8-621db72b2a24"
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "SHA1_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA1 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_Process",
+        "author": "Security Research Team",
+        "description": "Suspicious process creation",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_All_Windows_PE_Malware",
+        "author": "DiegoAnalytics",
+        "description": "Detects Windows PE malware of all types, avoids non-executables like .html",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Exploit_Generic_e95cc41c",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_30f84f37",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_4fa7e284_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "DeltaLoader.exe",
+          "date": "2026-11-11 19:50:09",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/70ef57de-84fd-4b00-8859-5a954330073e",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "upx",
+            "susp-powershell"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99654\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b5e9cf94175d0539fe48fc1af05813e96ec8959919c367f5d0dcce35262f984e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af615648bbe793397cd1c7e\/reports\/a9e86878-54d8-4029-b217-81f3b946590c\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/9941115a-29bd-40e7-a2dd-5a308c9f18d0?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/b5e9cf94175d0539fe48fc1af05813e96ec8959919c367f5d0dcce35262f984e\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Spyware.Salatstealer",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-11 18:10:09",
+        "scanner_count": "36",
+        "scanner_match": "19",
+        "scanner_percent": "52.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261112-ybwfxabv7s\/",
+        "tags": [
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "spyware",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of local email clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "b5e9cf94175d0539fe48fc1af05813e96ec8959919c367f5d0dcce35262f984e",
+          "md5_hash": "67584b27bb4d302a661212c48012e7a7",
+          "sha1_hash": "ff59ac565fd37305602a3055918679d72b60f834",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/48caa7ad-3df4-427b-98b3-830f64fcad84\/"
+        },
+        {
+          "sha256_hash": "e2f648876c1ef5ef755e8f9887f928689c519fc2eb79551273940d4765dfe4c0",
+          "md5_hash": "735601e45960fba9af9308bb4028df62",
+          "sha1_hash": "91c8356b7cc36580c0a8543fad06894b6686e402",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_Binary_Embedded_Crypto_Wallet_Browser_Extension_IDs",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/48caa7ad-3df4-427b-98b3-830f64fcad84\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a UDP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the system32 subdirectories"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "wok",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T19:36:25Z",
+  "last_seen": "2026-11-12T20:20:51Z"
+}

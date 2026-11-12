@@ -1,0 +1,174 @@
+{
+  "hashes": {
+    "sha256": "1d2c04c5757040ec0f68dccd59beadd5e93d8811087422b4fc22d69ebc821c34",
+    "sha1": "2e74cb1d3b2f3df2c93caa6ae03bfcd31595caf4",
+    "md5": "a53dfb1ab2fa84779563d38fd46c0159",
+    "sha3_384": "f9604f6cdd97878ebc049e8b5df880a968946a77b3796fb20ccedaae196100e4996739a55609f2a8e6e35b8204d2b790",
+    "tlsh": "T1983100F5A094B4367089E678DF0AEF8875033E6D7468CE8858923861992C80D3C864E6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:rjLhUWKqJMaXMMdSRmBLrZsCD6yqEXYW+uXurIKlEFcFLH:rPfKqJMANdSRmBLNsCuyqEoW3+fH"
+  },
+  "file_metadata": {
+    "names": [
+      "loader.sh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "sh",
+    "size": 1488,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4064643\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "LIN_Downloader_Unknown_WgetChmodExecute",
+        "author": "Marjoriefort",
+        "description": "Script shell downloader : wget+curl, chmod 777, execution, effacement (rm -rf) - botnet style",
+        "reference": "misses_archive / grappe 5.182.210.174"
+      },
+      {
+        "rule_name": "NSVPS_Mirai_Busybox_Staging",
+        "author": "sanad (NSVPS-SOC)",
+        "description": "Mirai-style busybox wget/tftp payload staging seen in NSVPS honeypot",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1d2c04c5757040ec0f68dccd59beadd5e93d8811087422b4fc22d69ebc821c34\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af6075193ca0a08bb19231f\/reports\/4d1bba55-9d9b-4bf0-bf7b-018215555a02\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-12 18:29:02",
+        "scanner_count": "36",
+        "scanner_match": "3",
+        "scanner_percent": "8.33"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261112-w7twvawx4n\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": " File and Directory Permissions Modification",
+            "score": "7"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Runs EXE from memory",
+            "score": "7"
+          },
+          {
+            "signature": "Unexpected DNS network traffic destination",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Reads MAC address of network interface",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.31"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "BlinkzSec",
+    "anonymous": false,
+    "origin_country": "SK",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T18:34:10Z",
+  "last_seen": null
+}

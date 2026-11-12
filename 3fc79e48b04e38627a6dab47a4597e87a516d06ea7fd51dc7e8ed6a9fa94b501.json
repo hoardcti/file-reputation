@@ -1,0 +1,286 @@
+{
+  "hashes": {
+    "sha256": "3fc79e48b04e38627a6dab47a4597e87a516d06ea7fd51dc7e8ed6a9fa94b501",
+    "sha1": "5bc12d864cf1a083c4bd45cc7ccfe3bff9bc1df0",
+    "md5": "36a1ce4cf43c8a6d46a2ad47c574954c",
+    "sha3_384": "9a9705f56d1d7ddbc2862f1f35fc63eeebaf9499d1bc7bbbcc0ee6ee7b94519919b2a364ea08377182407591a450c664",
+    "tlsh": "T1E5D73320B527A5A5EA2F93BFD068DF994075BDE07327D5EB23B83F954A7068120B1D03",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1572864:zMRdvkrEnp4Q8b1t/fnjzwImBHGbU1wWe7HKnNN:odvkrmpYb/jzWB4U1wWeLy"
+  },
+  "file_metadata": {
+    "names": [
+      "Yifanyitalkapp.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 61520896,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Socks5Systemz",
+    "tags": [
+      "msi",
+      "SilverFox",
+      "Socks5Systemz",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_MSI_LATAM_Banker_From_LatAm",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af616922b2ed650b502fe85\/reports\/2cfa231e-b4b0-4da7-9d33-87734c38fbda\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/3fc79e48b04e38627a6dab47a4597e87a516d06ea7fd51dc7e8ed6a9fa94b501\/results?tab=lookup",
+        "detections": [
+          "Trojan.Win32.Autorun.sb",
+          "Trojan.Win32.Agent.sb",
+          "Trojan.OLE2.Agent.sb",
+          "HEUR:Trojan.Win64.Silverfox.gen",
+          "HEUR:Trojan.Win64.Agent.gen",
+          "Trojan.Win32.Shellcode.sb",
+          "Trojan.Win32.Inject.sb"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-08 17:34:30",
+        "scanner_count": "36",
+        "scanner_match": "11",
+        "scanner_percent": "30.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261112-yes5ysbv8x\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy WMI provider",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "DonutLoader,ValleyRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/3fc79e48b04e\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a suspicious library"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Forced system process termination"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "CNGaoLing",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T19:41:27Z",
+  "last_seen": null
+}
