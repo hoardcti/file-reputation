@@ -1,0 +1,203 @@
+{
+  "hashes": {
+    "sha256": "c266833d1ca0b41a8d455a13202b76a9fdc734ea556ced624f2b90d0ecd122f7",
+    "sha1": "05729277452b2e8d4d4b5648fec1777fc8ab3160",
+    "md5": "1c246694dae0f87df93f503c9e136695",
+    "sha3_384": "094412bb77ab9ae734bbf25c2815431a7405382f992482b8b3365c09967a73ec80f6fee12adea5d37da765882cd149b4",
+    "tlsh": "T139A42337475F2D32F17A6B32E63720F61983D974B901EF38982D3E9A61EA1E14360356",
+    "imphash": "a426b2cbef1f0c4f54be9fd7fd5c4e53",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:SxiGtGOGxc63ysFIOqwIpvN/aoDDyvozkObHcjRGG0CSnVMnGejla3Ydh:+cxcYJqPp1SoDYVObybSnVYZa4"
+  },
+  "file_metadata": {
+    "names": [
+      "jli.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 450560,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99687\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "ffe87766f7ee26d57508f630f54f79cfe65888e1e9825bf0aa1fba1e5cbc5437"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "6f7dbc120c4d0d4a8160e5965b536030"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "WARDENStealer",
+    "tags": [
+      "exe",
+      "stealer",
+      "upx",
+      "Warden",
+      "WARDENStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-12 23:56:37",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d76b1b17-0745-4541-960c-c080fa9ab270",
+          "tags": [
+            "upx"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99687\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c266833d1ca0b41a8d455a13202b76a9fdc734ea556ced624f2b90d0ecd122f7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af650b6c0ee5b91aede4a3d\/reports\/35e46f4c-444d-451a-ad3d-a68a5f39d539\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a7425e24-2dd7-4269-a804-25707fb033ef?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Yogi",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-12 23:50:17",
+        "scanner_count": "36",
+        "scanner_match": "10",
+        "scanner_percent": "27.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261112-3vpvpady6m\/",
+        "tags": [
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "c266833d1ca0b41a8d455a13202b76a9fdc734ea556ced624f2b90d0ecd122f7",
+          "md5_hash": "1c246694dae0f87df93f503c9e136695",
+          "sha1_hash": "05729277452b2e8d4d4b5648fec1777fc8ab3160",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f59797b0-1a18-4e50-8a7d-0a7cd434beb6\/"
+        },
+        {
+          "sha256_hash": "ffe87766f7ee26d57508f630f54f79cfe65888e1e9825bf0aa1fba1e5cbc5437",
+          "md5_hash": "6f7dbc120c4d0d4a8160e5965b536030",
+          "sha1_hash": "1fb2d9d375f63de7ed6b1d3a792c0c6ce9653628",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f59797b0-1a18-4e50-8a7d-0a7cd434beb6\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.14"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-12T23:49:50Z",
+  "last_seen": "2026-11-13T00:42:34Z"
+}
