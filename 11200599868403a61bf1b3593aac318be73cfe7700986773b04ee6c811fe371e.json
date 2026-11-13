@@ -1,0 +1,271 @@
+{
+  "hashes": {
+    "sha256": "11200599868403a61bf1b3593aac318be73cfe7700986773b04ee6c811fe371e",
+    "sha1": "3c142a6c0399386eb4c37ea0246c15992e23a1ef",
+    "md5": "978b573db760df0dae475882b49cb426",
+    "sha3_384": "4e386b6b44bb94a670b9a21feb897e39b7b43003e8401b833c2dcedf75bfaa44f96c07c03039a8da1645ed1870bc244d",
+    "tlsh": "T15EE1E6153A1CA49451B34E66EAD3A058FB13C03B075B0A18B9ECC3DA1F35266C29CF5E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:mHGud32o1Ey/lNmg4laJJJFkms7maJM4wV8QR6:anl51FV4ag"
+  },
+  "file_metadata": {
+    "names": [
+      "see3.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 6786,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3949368\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SheetRAT",
+    "tags": [
+      "ps1",
+      "SheetRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "telegram_bot_api",
+        "author": "rectifyq",
+        "description": "Detects file containing Telegram Bot API",
+        "reference": null
+      },
+      {
+        "rule_name": "Web_Generic_Binary_URL_Download",
+        "author": "Serhii Kocherhan",
+        "description": "Detects files containing HTTP or HTTPS links pointing directly to .bin payload extensions.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/11200599868403a61bf1b3593aac318be73cfe7700986773b04ee6c811fe371e\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af7119f0823fbcd1c19ba68\/reports\/cdd66618-e558-499b-bc80-dd3a1703ad2d\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/11200599868403a61bf1b3593aac318be73cfe7700986773b04ee6c811fe371e\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Malware.Boxter",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-13 12:55:57",
+        "scanner_count": "38",
+        "scanner_match": "4",
+        "scanner_percent": "10.53"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "sheetrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261113-qrcdzaws9j\/",
+        "tags": [
+          "family:donutloader",
+          "family:sheetrat",
+          "campaign:ayu",
+          "discovery",
+          "execution",
+          "loader",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Detects Sheetrat Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Sheetrat, NonEuclid rat",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "sheetrat",
+            "c2": "wuohzjgoj.localto.net:3837"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Unauthorized injection to a system process"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connecting to a non-recommended domain"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-13T13:28:30Z",
+  "last_seen": null
+}

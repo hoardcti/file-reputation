@@ -1,0 +1,293 @@
+{
+  "hashes": {
+    "sha256": "297c9bb0dd3008f50d9b0b7f45ed6873abacbd37890b61cfc5d8ec3bbc731746",
+    "sha1": "24c149ab38f3b85064a1f2b046824da1cb3d6053",
+    "md5": "133624990e62728737b31d58ade5562b",
+    "sha3_384": "39a7e8482e82e0843b8c54b01028693443dd90aff38049d9228692f7d620a6f2c2170ac0222868743dadff986b8bfae4",
+    "tlsh": "T1E2757D43E69181FDC59AC07887479632FA23BC8D0A3576EB27D09B242E76F806F1DB15",
+    "imphash": "dfb2f84a87d56649bceb3e3b4a19c816",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:BgkT3Zr4KBl+SmRZ4JUTEc+N64n7V6RJIdXmtVIH06iy9FMU:OkrZcTETN64n7VMJ4wIU6isd"
+  },
+  "file_metadata": {
+    "names": [
+      "khot-rs.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1625088,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99852\/"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4065061\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RustyStealer",
+    "tags": [
+      "exe",
+      "RustyStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Rust",
+        "author": "albertzsigovits",
+        "description": "Application written in Rust programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Rustyloader_mem_loose",
+        "author": "James_inthe_box",
+        "description": "Corroded buerloader",
+        "reference": "https://app.any.run/tasks/83064edd-c7eb-4558-85e8-621db72b2a24"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_Process",
+        "author": "Security Research Team",
+        "description": "Suspicious process creation",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_All_Windows_PE_Malware",
+        "author": "DiegoAnalytics",
+        "description": "Detects Windows PE malware of all types, avoids non-executables like .html",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Fantom_ForgeAuto_98e6f354_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Fantom (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_4fa7e284_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "khot-rs.exe",
+          "date": "2026-11-13 10:30:47",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c015e3e1-73e1-42a7-a632-84c1f1115b46",
+          "tags": [
+            "uac-bypass"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99852\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/297c9bb0dd3008f50d9b0b7f45ed6873abacbd37890b61cfc5d8ec3bbc731746\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af711a3f81284d5eab88960\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "trusted",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a18015db-d9b1-4ce4-b365-50e57339ba14?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "NoThreats",
+        "file_type": "exe x64",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/297c9bb0dd3008f50d9b0b7f45ed6873abacbd37890b61cfc5d8ec3bbc731746\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-13 12:55:53",
+        "scanner_count": "38",
+        "scanner_match": "2",
+        "scanner_percent": "5.26"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261113-qry8qsct2l\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Runs net.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "297c9bb0dd3008f50d9b0b7f45ed6873abacbd37890b61cfc5d8ec3bbc731746",
+          "md5_hash": "133624990e62728737b31d58ade5562b",
+          "sha1_hash": "24c149ab38f3b85064a1f2b046824da1cb3d6053",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/ed12d342-7185-425d-92dc-a386490ad328\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "38",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the process to interact with network services"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "SE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-13T13:29:34Z",
+  "last_seen": null
+}
