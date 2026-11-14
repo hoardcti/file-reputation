@@ -1,0 +1,274 @@
+{
+  "hashes": {
+    "sha256": "7cf216ab6fb9e6373de7c51f05960a5dbcaa2bd8470fb60d445c327ec7c4704c",
+    "sha1": "eaf688e3f01912bf21e59736879985b58903c632",
+    "md5": "61d4f2e1d70247cada838a22ca3f3a9d",
+    "sha3_384": "df45e75332000ee4d356a852f6a0c2bc87a28e512bb5918d6772e6af7fb4b3a0c377fccb616ceb05b207390dd9e4513b",
+    "tlsh": "T1E8B63310FBE816F9ED674079C968D86AC1B3341183B1D7CF2398859A3E336E06D7974A",
+    "imphash": "e3e80a143805ea18936c8f612e25d363",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:x5IZ78ZMIiQZhAkjhh/zrlbGwpYvy2ZzXp6VP7g9EbGXNBICteEroXM/zlxZV3Gh:x5I5wPY0hdrhJYv599E8InEroXY14S2v",
+    "dhash_icon": "0000000000000000"
+  },
+  "file_metadata": {
+    "names": [
+      "7cf216ab6fb9e6373de7c51f05960a5dbcaa2bd8470fb60d445c327ec7c4704c.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 10708578,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99879\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CoinMiner",
+    "tags": [
+      "CoinMiner",
+      "exe",
+      "Miner"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_PyInstaller",
+        "author": "Obscurity Labs LLC",
+        "description": "Detects PyInstaller compiled executables across platforms",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "PyInstaller",
+        "author": "@bartblaze",
+        "description": "Identifies executable converted using PyInstaller. This rule by itself does NOT necessarily mean the detected file is malicious.",
+        "reference": null
+      },
+      {
+        "rule_name": "upxHook",
+        "author": "@r3dbU7z",
+        "description": "Detect artifacts from 'upxHook' - modification of UPX packer",
+        "reference": "https://bazaar.abuse.ch/sample/6352be8aa5d8063673aa428c3807228c40505004320232a23d99ebd9ef48478a/"
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "xmrig",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-13 21:14:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/7c223fd1-e832-4ed2-8888-9a7b0b943f50",
+          "tags": [
+            "miner",
+            "python",
+            "auto-startup",
+            "xmrig",
+            "pyinstaller",
+            "api-base64"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": "CoinMiner02",
+        "link": "https:\/\/www.capesandbox.com\/analysis\/99879\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7cf216ab6fb9e6373de7c51f05960a5dbcaa2bd8470fb60d445c327ec7c4704c\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af77da66a9b58a4a5f7a28d\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "XMRig Miner",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/efd45628-fbe7-427d-91d4-7e40941a202f?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/7cf216ab6fb9e6373de7c51f05960a5dbcaa2bd8470fb60d445c327ec7c4704c\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "UnpacMe": [
+        {
+          "sha256_hash": "7cf216ab6fb9e6373de7c51f05960a5dbcaa2bd8470fb60d445c327ec7c4704c",
+          "md5_hash": "61d4f2e1d70247cada838a22ca3f3a9d",
+          "sha1_hash": "eaf688e3f01912bf21e59736879985b58903c632",
+          "detections": [
+            "PyInstaller"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/c32ae235-0efd-4896-aa78-ab36fa9da459\/"
+        },
+        {
+          "sha256_hash": "664c3e52f914e351bb8a66ce2465ee0d40acab1d2a6b3167ae6acf6f1d1724d2",
+          "md5_hash": "63c4f445b6998e63a1414f5765c18217",
+          "sha1_hash": "8c1ac1b4290b122e62f706f7434517077974f40e",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/c32ae235-0efd-4896-aa78-ab36fa9da459\/"
+        },
+        {
+          "sha256_hash": "8d5e09791b8b251676e16bdd66a7118d88b10b66ad80a87d5897fadbefb91790",
+          "md5_hash": "a5471f05fd616b0f8e582211ea470a15",
+          "sha1_hash": "cb5f8bf048dc4fc58f80bdfd2e04570dbef4730e",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/c32ae235-0efd-4896-aa78-ab36fa9da459\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "XMRig",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/7cf216ab6fb9\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connecting to a cryptocurrency mining pool"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a system driver"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Kejult",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_drive-by"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-13T21:13:11Z",
+  "last_seen": null
+}

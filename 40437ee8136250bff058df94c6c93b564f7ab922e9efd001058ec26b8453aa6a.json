@@ -1,0 +1,173 @@
+{
+  "hashes": {
+    "sha256": "40437ee8136250bff058df94c6c93b564f7ab922e9efd001058ec26b8453aa6a",
+    "sha1": "671a78734f0cae21eb22d720e5c059dd9d4b062c",
+    "md5": "b1a80687078f26b595a49cf0f338ac3c",
+    "sha3_384": "0f1abd83e969f3f1f1f29753b6c7157b91652c0afaaa306f14d7b3808890757b8aa3e9467fab2542babe58f12e08a3d9",
+    "tlsh": "T1CEE47E307E426EFF5BBC208248D6811C563C22B5DA682DF569CB4CE23A0D77617B79B1",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:01W36kC8yy71py45rUEmvj410JmRPKEuDt91k9GKhHu7Yd7zxHcEjzj:01WKGHyqrUEmpQRP8DtA86aozZ/"
+  },
+  "file_metadata": {
+    "names": [
+      "40437ee8136250bf.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 681900,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_Zoom_Invite_malware_RAT_C2",
+        "author": "daniyyell",
+        "description": "Detects Zoom Invite Call Leading to Malware Hosted in Telegram C2",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_PWSH_B64Encoded_Concatenated_FileEXEC",
+        "author": "ditekSHen",
+        "description": "Detects PowerShell scripts containing patterns of base64 encoded files, concatenation and execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Suspicious_PS_Strings",
+        "author": "Lucas Acha (http://www.lukeacha.com)",
+        "description": "observed set of strings which are likely malicious, observed with Jupyter malware.",
+        "reference": "http://security5magics.blogspot.com/2020/12/tracking-jupyter-malware.html"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/40437ee8136250bff058df94c6c93b564f7ab922e9efd001058ec26b8453aa6a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af775313daaf176720fb25d\/reports\/ac306d11-cf33-46c4-a634-bdf51da1ab7f\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-13 20:38:15",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261113-zerskagt8y\/",
+        "tags": [
+          "discovery",
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Owner\/User Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-13T20:37:30Z",
+  "last_seen": null
+}
