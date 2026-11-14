@@ -1,0 +1,182 @@
+{
+  "hashes": {
+    "sha256": "10031cfa9d5c5bd08ff5dde4837902a56e7b33268cfc6710a8afcf150d960f54",
+    "sha1": "d78452f634e8a52bc502e60cf00bda1c92c5f6c3",
+    "md5": "f60b727015037e007170b1edf91cf97f",
+    "sha3_384": "1bc83d59c9ec494a44d5be7f19fb6061fff21f4d2d5fcbeccf0c87bb604a891716f115039903acacbb6ea24d2307a4b1",
+    "tlsh": "T1FD0733EBB44707E4C5A86737422F418F4A187E3A57BB553B728477392532239A1AF338",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:CjOSfwDeL1NaNgiR7rOYSe8z79ebyGGNRK+Iqkf4:2OOfLHaN75V8X94yGGNom"
+  },
+  "file_metadata": {
+    "names": [
+      "clsar.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 16920576,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "88.4% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "11.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261114-ejyrfsct9x\/behavioral1"
+      },
+      {
+        "context": "dropped_by_malware",
+        "value": "ACRStealer"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/99930\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "dropped-by-ACRStealer",
+      "msi",
+      "PavinLoader"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/10031cfa9d5c5bd08ff5dde4837902a56e7b33268cfc6710a8afcf150d960f54\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af7e2ab0bfddac79af651f5\/reports\/aa05f805-1027-4a2d-ad34-619e89b4b374\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-14 01:39:42",
+        "scanner_count": "38",
+        "scanner_match": "1",
+        "scanner_percent": "2.63"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261114-e13fzavw3m\/",
+        "tags": [
+          "defense_evasion",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "PT",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-14T04:24:37Z",
+  "last_seen": null
+}

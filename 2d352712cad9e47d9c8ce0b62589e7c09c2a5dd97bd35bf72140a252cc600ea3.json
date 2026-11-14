@@ -1,0 +1,104 @@
+{
+  "hashes": {
+    "sha256": "2d352712cad9e47d9c8ce0b62589e7c09c2a5dd97bd35bf72140a252cc600ea3",
+    "sha1": "578cbd47b742de006593793c2c951ec47ec48772",
+    "md5": "496f8faa8df140a08da90953904b94fd",
+    "sha3_384": "a9b07e6fa8bdacc7438145b2026e37e15b1846f73ee13452105c009b0de7f3b22df15a85e72ac393b02b12ab69a07721",
+    "tlsh": "T195F42AAB527AA4D4EC4732747B8A3BF7EE40B47663F5E4A9AA42513448F3374913021F",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:tU7wAcpxXAIIETE1UWLwJrr1nuwyHPUcyvmByHaRR1L+:tU7RyAOTtXvPaRW"
+  },
+  "file_metadata": {
+    "names": [
+      "2d352712cad9e47d.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 723072,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "82.2% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "17.7% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "amos",
+      "macho"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Gibberdrop_AMOS_ConfigRolXor",
+        "author": null,
+        "description": "AMOS macOS stealer (mainline panel builds) - rolling-key XOR decrypt loop of the embedded __data config (key rotated right by 1 per byte), arm64 and x86_64",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2d352712cad9e47d9c8ce0b62589e7c09c2a5dd97bd35bf72140a252cc600ea3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af7b8b426d75cc981de4be1\/reports\/a349e372-b4b2-4c80-bcce-e10d3b106ce2\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "macho fat",
+        "first_seen": "2026-10-30T22:45:00Z",
+        "last_seen": "2026-10-30T23:37:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/2d352712cad9e47d9c8ce0b62589e7c09c2a5dd97bd35bf72140a252cc600ea3\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Trojan.AmosStealer",
+        "status": "MALICIOUS",
+        "first_seen": "2026-10-30 09:29:20",
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-14T01:25:57Z",
+  "last_seen": null
+}
