@@ -1,0 +1,135 @@
+{
+  "hashes": {
+    "sha256": "831b1da4225f551deb80aa02826159a6a055a222fb9ef84c56ba7359fa7ae850",
+    "sha1": "9364098cd8dd9e07f26c10ad3cd18cb99fc3be65",
+    "md5": "c9f411cdaf83008121a99940ea20cc7a",
+    "sha3_384": "1767ff03fea2279b2bc6aa8bc7599dfe4e7f3acc198af030c43fa6f76fbe414808ae4685bb027102ea6b565176681e73",
+    "tlsh": "T140C31857BB508FA2C368C2300DF3CB97ABE525D616D29509A32DDE187E30259782FED4",
+    "imphash": null,
+    "telfhash": "t1ec01d00ef43b0b1b57f20128cc585f32c225aa56b8610f21cf14fac046a2092d35bd88",
+    "gimphash": null,
+    "ssdeep": "1536:/Xi0xwcuRgSqDWN2hVTLf/7A6EKqqUoZwPKiyDQV3Ncw2NMXYjXFgLjM6vrfx04x:qJqDW0PLf/7AXqU0wPKiPuNCDjfj"
+  },
+  "file_metadata": {
+    "names": [
+      "c8.mips"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 125196,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "elf_arm_mips_ko_so",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "HUNT_ICS_MultiProtocolMagic_Nov2026",
+        "author": "p0p_rsp",
+        "description": "Single binary carrying constants of two or more ICS protocols (S7, IEC-104, IEC-101, OPC UA, Modbus, EtherNet/IP, BACnet) - multi-protocol weaponized toolkit indicator (Industroyer-shaped); legitimate tools are single-protocol, every match is a triage case",
+        "reference": "https://www.welivesecurity.com/2017/06/12/industroyer-biggest-threat-industrial-control-systems-since-stuxnet/"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/831b1da4225f551deb80aa02826159a6a055a222fb9ef84c56ba7359fa7ae850\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af8086732997902a932fe06\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "not_supported",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/3a4e0634-1121-42f1-84ea-1b3045d3ff6d?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-14 07:02:22",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261114-hrs3qawz2l\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads MAC address of network interface",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Latin",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-14T06:58:23Z",
+  "last_seen": null
+}
