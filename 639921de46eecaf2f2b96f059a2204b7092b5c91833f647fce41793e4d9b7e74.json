@@ -194,6 +194,10 @@
           ]
         }
       ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100099\/"
+      },
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/639921de46eecaf2f2b96f059a2204b7092b5c91833f647fce41793e4d9b7e74\/"
@@ -223,12 +227,12 @@
         ]
       },
       "ReversingLabs": {
-        "threat_name": "Win64.Dropper.AdvML",
+        "threat_name": "Win64.Trojan.AdvML",
         "status": "MALICIOUS",
         "first_seen": "2026-11-07 00:13:23",
-        "scanner_count": "38",
-        "scanner_match": "11",
-        "scanner_percent": "28.95"
+        "scanner_count": "36",
+        "scanner_match": "17",
+        "scanner_percent": "47.22"
       },
       "Spamhaus_HBL": [
         {
@@ -238,10 +242,37 @@
       ],
       "Triage": {
         "malware_family": null,
-        "score": null,
+        "score": "7",
         "link": "https:\/\/tria.ge\/reports\/261115-bphqmsys2k\/",
-        "tags": [],
-        "signatures": [],
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
         "malware_config": []
       },
       "UnpacMe": [
@@ -275,9 +306,38 @@
         }
       ],
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "clean1",
+        "maliciousness": "12",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
       }
     }
   },
