@@ -1,0 +1,158 @@
+{
+  "hashes": {
+    "sha256": "fd198e3ef51fe7356794c789f37ba771681d5603ba79cb99e0e61fb7939bb12a",
+    "sha1": "2af703a111f14dc13d143b26d14f7b4513d8398e",
+    "md5": "f1d6431946ad96fc4a6921a61b093508",
+    "sha3_384": "faa9ee006eebc9783ab134f40749a2d85316936c1eb1294bc510a2ad37070bbe7d899266c2e8f2c1f03f808690779f13",
+    "tlsh": "T12F062216E44C40DAD102E7BE411B4A61ADD813B0E40EA1DE9BE55E0B17EF4FE6A1F93C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:RR92TVj4aHQroo/51mEGxP4xfkSywF3MU:j+aaHkoo/51bGeuSxMU"
+  },
+  "file_metadata": {
+    "names": [
+      "4e-crack.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 3831082,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "57.8% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "32.5% (.JAR) Java Archive (13500\/1\/2)",
+      "9.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100161\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "jar",
+      "SilentNet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_Stored_ConfigBlob",
+        "author": "GhostTypes",
+        "description": "SilentNet kit AES-config blobs shipped as STORED (uncompressed) random-named assets/*.dat|*.bin entries \u003e=64KB inside an otherwise deflated jar",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "jar",
+          "date": "2026-11-15 18:14:22",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/23c93be2-7b9c-48fc-a823-3404df7d3444",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "arch-exec",
+            "arch-doc",
+            "python",
+            "auto",
+            "generic",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100161\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/fd198e3ef51fe7356794c789f37ba771681d5603ba79cb99e0e61fb7939bb12a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af9f20436eaf8e5f139c1d2\/reports\/3c2a7584-aeb4-40ee-b5be-d967fd605cc4\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-10 18:43:34",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261115-whj1cayy3j\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ButDoge",
+    "anonymous": false,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-15T17:54:41Z",
+  "last_seen": null
+}

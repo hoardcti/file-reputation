@@ -1,0 +1,163 @@
+{
+  "hashes": {
+    "sha256": "3a0a8a18fc850c63fa1d59f1bae153925ed296ec59da37b2c046b18af3cd1a95",
+    "sha1": "90a5e4f1d0e6ce573315d80f61320e69b61fad90",
+    "md5": "6937d14cb8088c1b576fd72fac172395",
+    "sha3_384": "2e961c6ca8eeada234fbc93a164189e6c385fd60d7831701c30aa031cfe68e835715d3dbbf8af22a2eea7309e9105ad7",
+    "tlsh": "T1920623A749DDECB0E8A3363C466539E37D3AA384F38A5C321460A0D31D5AD9A3F57319",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:nsiy/5vouQ0qs9PaGbxN12wcGrjhKXsLGx4qgtZzquJjPzt:6/eT0bv12YfhKXsLGfg7qYF"
+  },
+  "file_metadata": {
+    "names": [
+      "krypton-crack.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 3678520,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "57.8% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "32.5% (.JAR) Java Archive (13500\/1\/2)",
+      "9.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100163\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "jar",
+      "SilentNet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_Stored_ConfigBlob",
+        "author": "GhostTypes",
+        "description": "SilentNet kit AES-config blobs shipped as STORED (uncompressed) random-named assets/*.dat|*.bin entries \u003e=64KB inside an otherwise deflated jar",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "jar",
+          "date": "2026-11-15 18:09:22",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/00300539-8172-41a1-b0b0-5b2dab4b4e73",
+          "tags": [
+            "arch-doc",
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "arch-exec",
+            "python",
+            "auto",
+            "generic",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100163\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3a0a8a18fc850c63fa1d59f1bae153925ed296ec59da37b2c046b18af3cd1a95\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af9f20236eaf8e5f139c1c9\/reports\/\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "jar",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/3a0a8a18fc850c63fa1d59f1bae153925ed296ec59da37b2c046b18af3cd1a95\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-JAVA.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-11 01:13:24",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261115-whka4sby9q\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ButDoge",
+    "anonymous": false,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-15T17:54:56Z",
+  "last_seen": null
+}

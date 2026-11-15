@@ -1,0 +1,148 @@
+{
+  "hashes": {
+    "sha256": "aa12e5a0d862b1b2555ebeb77aaa32f0e6880ecd2f7e500f300b3ebc4ac04e1b",
+    "sha1": "e85e509fcf29e5b0b95b8beb36734d24817fb236",
+    "md5": "6afdd0ffe3d50aff82f487729167aad6",
+    "sha3_384": "851009c76afeb4f8caa77ef9321be1f1e01fbb0a4f51f52b7f92a708dc84258198cd79963e06b74418b4346c7c33e110",
+    "tlsh": "T1BD162312E428492EF93B9D71E7C00EE6B5FD0EB9E507603F05B8199A1591CFF0B462D6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:j3cmHh+aJHsR5YC6X6BbAcMWWgID0iOoMv+oT70iRMxOpX:DFBHHjCgIHMlD0iOoC5f0JxO9"
+  },
+  "file_metadata": {
+    "names": [
+      "mochi-cracked.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 4172434,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "57.8% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "32.5% (.JAR) Java Archive (13500\/1\/2)",
+      "9.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100164\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "jar",
+      "SilentNet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "jar",
+          "date": "2026-11-15 18:10:53",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ffe080e5-9d24-4564-ad51-12fff73e29c3",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "arch-exec",
+            "arch-doc",
+            "python",
+            "auto",
+            "generic",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100164\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/aa12e5a0d862b1b2555ebeb77aaa32f0e6880ecd2f7e500f300b3ebc4ac04e1b\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af9f20397a251adcb9a5b3e\/reports\/b5c427eb-de7c-497f-af3d-c031fe8c5d71\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-15 08:59:09",
+        "scanner_count": "36",
+        "scanner_match": "1",
+        "scanner_percent": "2.78"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261115-whka4syy3l\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ButDoge",
+    "anonymous": false,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-15T17:55:02Z",
+  "last_seen": null
+}

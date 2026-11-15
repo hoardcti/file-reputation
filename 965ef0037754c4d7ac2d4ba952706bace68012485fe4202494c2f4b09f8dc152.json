@@ -1,0 +1,149 @@
+{
+  "hashes": {
+    "sha256": "965ef0037754c4d7ac2d4ba952706bace68012485fe4202494c2f4b09f8dc152",
+    "sha1": "2dc3de2d0f70226a89b3b1a904d2d1b851d9bb55",
+    "md5": "48a9e355d937eecb6f4a4578ce2e4a3b",
+    "sha3_384": "b3ba60854bd9c6cd2400f0e5ed94d80f35606bbebb472e6fe1c24f5ddbcd17c469ea510a955469f235890095c9ae80d9",
+    "tlsh": "T163B523306E7504F5C74FBA3AC0219D60692D7B60BD87B03B83A9A8538F719B70ED165E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:kVfvad00Finrc+Xm2Xhu7vyZ05tuyZ05tKyZ05tsM1:kVfS4tmih6vyZgUyZggyZgmM"
+  },
+  "file_metadata": {
+    "names": [
+      "radium-crack.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 2303913,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "48.5% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "27.2% (.JAR) Java Archive (13500\/1\/2)",
+      "16.1% (.FB2K-COMPONENT) foobar2000 component (8000\/1\/2)",
+      "8.0% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100166\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "jar",
+      "SilentNet"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Jar_Container",
+        "author": "NyxIndius",
+        "description": "Detects fake Fabric mod JAR with net/fabric/ package (not net/fabricmc/) and random class names, associated with SilentNet loader/stealer",
+        "reference": null
+      },
+      {
+        "rule_name": "SilentNet_FakeFabric_Mod_Jar",
+        "author": "NyxIndius",
+        "description": "Detects SilentNet Minecraft stealer fake Fabric mod JAR: fabric.mod.json plus random-named classes directly under com/github/ or net/fabric/ (incl. inner classes), without net/fabricmc/",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "jar",
+          "date": "2026-11-15 18:13:22",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/6daae02a-917e-49da-95b8-5f7d7ef7b3e0",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "python",
+            "arch-exec",
+            "arch-doc",
+            "auto",
+            "generic",
+            "openssl",
+            "tool"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100166\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/965ef0037754c4d7ac2d4ba952706bace68012485fe4202494c2f4b09f8dc152\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af9f23b36eaf8e5f139c2d3\/reports\/76fa1d0e-aa1f-4489-8359-4de16b02d493\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-JAVA.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-10 23:52:11",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261115-wh4pragz3z\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ButDoge",
+    "anonymous": false,
+    "origin_country": "BR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-15T17:55:26Z",
+  "last_seen": null
+}

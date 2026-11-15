@@ -1,0 +1,272 @@
+{
+  "hashes": {
+    "sha256": "b5f636069e9fdffbd31fe0a2327126bd1f3ba0e7f67b58c8c29c8a648d0a65e6",
+    "sha1": "3e2e8723b8384cddaced3dc9179845a4a6336592",
+    "md5": "0f3bcb00f0e2f1ab8b0c59e7af7814ba",
+    "sha3_384": "988d056453fbfc52c066824a89fe9e86ac9f982076ed5814a6259671dc32ed84a7b9ed0646a47dd49855cff714d28d23",
+    "tlsh": "T1A671DC3DDAB1FCC047BD72D0DD263E9720A45B23DBB04A78DA8214AA1C24255DF3B29C",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:pnv7FouLa7dzKdYGY+z9hxatEI+EjMt3lREkOxCjhE6nE5M/8obcB:pnv7Pa7dzJG9hxatE4E5OxQhyg8obcB"
+  },
+  "file_metadata": {
+    "names": [
+      "Sync.bat"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "bat",
+    "size": 3791,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100149\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MeshAgent",
+    "tags": [
+      "bat",
+      "MeshAgent"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "Who-Are-You-.bat",
+          "date": "2026-11-12 04:53:58",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c2faa27c-d6f3-4d9e-a3b5-fc71a8d85908",
+          "tags": [
+            "susp-powershell",
+            "neptunerat",
+            "rat",
+            "loader"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100149\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b5f636069e9fdffbd31fe0a2327126bd1f3ba0e7f67b58c8c29c8a648d0a65e6\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af9df79ea2ef41e548fb2d6\/reports\/5a4f4e35-c4d4-444e-9a22-ce69c782d6ff\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "unix shell",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/b5f636069e9fdffbd31fe0a2327126bd1f3ba0e7f67b58c8c29c8a648d0a65e6\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-10 19:59:53",
+        "scanner_count": "36",
+        "scanner_match": "2",
+        "scanner_percent": "5.56"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "meshagent",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261115-t39qdsxz9k\/",
+        "tags": [
+          "family:meshagent",
+          "botnet:support",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects MeshAgent payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: MeshAgent",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies file permissions",
+            "score": "7"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Launches sc.exe",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Internet Connection Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Runs ping.exe",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Views\/modifies file attributes",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "meshagent",
+            "c2": "https:\/\/deskrelay.net\/downloads"
+          },
+          {
+            "extraction": "dropper",
+            "family": "meshagent",
+            "c2": "https:\/\/deskrelay.net\/downloads\/install.ps1"
+          },
+          {
+            "extraction": "dropper",
+            "family": "meshagent",
+            "c2": "https:\/\/relay.deskrelay.net\/downloads\/install.ps1"
+          },
+          {
+            "extraction": "dropper",
+            "family": "meshagent",
+            "c2": "https:\/\/deskrelay.net"
+          },
+          {
+            "extraction": "dropper",
+            "family": "meshagent",
+            "c2": "https:\/\/relay.deskrelay.net\/dl\/agent"
+          },
+          {
+            "extraction": "c2",
+            "family": "meshagent",
+            "c2": "http:\/\/deskrelay.net:443\/agent.ashx"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smackeythefrog",
+    "anonymous": false
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-15T16:35:27Z",
+  "last_seen": null
+}
