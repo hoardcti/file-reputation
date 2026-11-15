@@ -1,0 +1,214 @@
+{
+  "hashes": {
+    "sha256": "8bb6c6974c13d4dd6a2e34136a2e4c840cef548e3f9e7caf707eb8518e6cd786",
+    "sha1": "479926fef4446a03eb971e19643062291cb7f434",
+    "md5": "ec44fa5c74d5e15901d9797573331234",
+    "sha3_384": "0453a548b89d23805c0d2f2e9040b709c61c892b6ea9b9aff44c55c3430c362572c3ad5fd374819a8e47d08f91bc0abb",
+    "tlsh": "T1F15165117E5A0FAAA283402ECC8AF064F562423B86CE1C40779CCAC5EF55D9DD0A5B6E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:wQ2j+GJIPuDgtFaDOJMDksiF8xtT9+0XksG9ViZpHADV1Cz5j16X42iSbj:YjAP8gtH2Dkss8jMoGziZCbCzp16XASf"
+  },
+  "file_metadata": {
+    "names": [
+      "s46_stager.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 2728,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/e4482b4f-5ea3-4fb9-a811-b8e3aa74c5ba"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/www.hybrid-analysis.com\/sample\/8bb6c6974c13d4dd6a2e34136a2e4c840cef548e3f9e7caf707eb8518e6cd786"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261114-25vcgswy3j"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "VShell",
+    "tags": [
+      "downloader",
+      "loader",
+      "ps1",
+      "VShell"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8bb6c6974c13d4dd6a2e34136a2e4c840cef548e3f9e7caf707eb8518e6cd786\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6af8ecad817bec2881eade61\/reports\/9fb4c059-b658-4d0c-b04d-3376474dffc1\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "unix shell",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/8bb6c6974c13d4dd6a2e34136a2e4c840cef548e3f9e7caf707eb8518e6cd786\/results?tab=lookup",
+        "detections": [
+          "HEUR:Trojan.MSIL.Convagent.gen",
+          "Trojan-PSW.Stealer.TCP.C\u0026C",
+          "PDM:Trojan.Win32.Generic",
+          "HEUR:Trojan.PowerShell.Alien.gen",
+          "Backdoor.VShell.TCP.C\u0026C",
+          "HEUR:Trojan.PowerShell.Generic",
+          "HEUR:Trojan.MSIL.Rozena.gen"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Malware.Boxter",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-14 23:20:19",
+        "scanner_count": "36",
+        "scanner_match": "5",
+        "scanner_percent": "13.89"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vshell",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261114-3bhbhaex4v\/",
+        "tags": [
+          "family:vshell",
+          "backdoor",
+          "execution",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects VSHELL Backdoor",
+            "score": "10"
+          },
+          {
+            "signature": "Family: VShell",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vshell",
+            "c2": "154.94.232.212:21128"
+          }
+        ]
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% subdirectories"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "rifteyy",
+    "anonymous": false,
+    "origin_country": "CZ",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-14T23:19:41Z",
+  "last_seen": null
+}
