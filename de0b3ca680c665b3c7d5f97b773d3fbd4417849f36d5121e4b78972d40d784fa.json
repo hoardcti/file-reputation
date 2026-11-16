@@ -1,0 +1,201 @@
+{
+  "hashes": {
+    "sha256": "de0b3ca680c665b3c7d5f97b773d3fbd4417849f36d5121e4b78972d40d784fa",
+    "sha1": "8057a55b5f9500cc7f4e64d422611d1b51906280",
+    "md5": "a5daa665bb712f2f85231317374901a0",
+    "sha3_384": "2b730be8b14032b074ef9097e97b13ca1062c02c8092f93714c39bb6cc437a951f224e1cf34d187e435250e86a0c4f34",
+    "tlsh": "T11C3533A432A5E1B3C5D336BCA760DD85897DA32B75E1EF0D09E010A4BC3A7D41E6A307",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:Yl/+7qVafyc3IIaWz2W/lD1OnDH/tcN0UZFisyrsUAdrpm+kWUto9IRemi0qd8hT:2MI3+mDHF6sLIUsrLYm0PtFusyFQIx"
+  },
+  "file_metadata": {
+    "names": [
+      "de0b3ca680c665b3c7d5f97b773d3fbd4417849f36d5121e4b78972d40d784fa.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1160704,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100232\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-16 00:35:07",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/049d9986-e92d-4cb4-a20f-952dd4ba1f00",
+          "tags": []
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100232\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/de0b3ca680c665b3c7d5f97b773d3fbd4417849f36d5121e4b78972d40d784fa\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afa4d2841c1f412aa96ffa8\/reports\/9d62ffae-4621-4fde-9b12-ee0be4e30d8a\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/556a8fb9-326a-447f-a37d-d87bc6b2e111?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-16 00:24:12",
+        "scanner_count": "36",
+        "scanner_match": "7",
+        "scanner_percent": "19.44"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261116-ap5dzavt9q\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "6"
+          },
+          {
+            "signature": "Network Share Discovery",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "de0b3ca680c665b3c7d5f97b773d3fbd4417849f36d5121e4b78972d40d784fa",
+          "md5_hash": "a5daa665bb712f2f85231317374901a0",
+          "sha1_hash": "8057a55b5f9500cc7f4e64d422611d1b51906280",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/885168ef-1a4b-44b4-a298-aa71b378e9ac\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "6",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-16T00:23:35Z",
+  "last_seen": null
+}
