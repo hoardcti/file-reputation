@@ -1,0 +1,172 @@
+{
+  "hashes": {
+    "sha256": "cdad11582436c9dcdd377ea67f838edc5c3d6d99c7bdd9febc26d88773aef126",
+    "sha1": "21f9b085609681b461d918df589b6284f8a068a8",
+    "md5": "1e23b4996992a1af0da46fd725eeade3",
+    "sha3_384": "ef64cd42d8e7f40a5aa061e7eb8025f8c4ebf08461e2eadd41b7a7f0ce5692e9e1be1cb24b60df0d81669cb87e6b9ac5",
+    "tlsh": "T177A62310A63D5075DE2FD739E031CBA5EC3822C1954B76977AFA06CD588BE861FC9328",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:q4R6ugWd31ngUAC4C4DdQYs8V6PJCyaQ+oWtbez93Uhun3O/8iRXkxWRBuo:JReGQC4CTYVOCiWE93uRXkqBuo"
+  },
+  "file_metadata": {
+    "names": [
+      "efn-client-1.2.0.jar"
+    ],
+    "mime_type": "application/java-archive",
+    "type": "jar",
+    "size": 9541565,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "jar",
+    "trid": [
+      "46.1% (.JAR) Minecraft Fabric Mod (24020\/2\/4)",
+      "25.9% (.JAR) Java Archive (13500\/1\/2)",
+      "20.1% (.SH3D) Sweet Home 3D Design (generic) (10500\/1\/3)",
+      "7.6% (.ZIP) ZIP compressed archive (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/www.malwation.com\/blog\/inside-silentnet-analysis-of-a-java-based-infostealer-with-blockchain-based-c2"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/www.broadcom.com\/support\/security-center\/protection-bulletin\/silentnet-a-rat-stealer-masquerading-as-a-minecraft-hack-client"
+      },
+      {
+        "context": "cape",
+        "value": "https:\/\/www.capesandbox.com\/analysis\/100578\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SilentNet",
+    "tags": [
+      "ghost-client",
+      "jar",
+      "Minecraft",
+      "SilentNet",
+      "stealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "527005",
+        "date_added": "2026-11-16 20:03:42",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "EFN ghost client 1.2.0 (fabric.mod.json id 'efn', https://efn.lol) - Minecraft Fabric client mod carrying a SilentNET infostealer payload. Fake-Fabric shape: 8 obfuscated classes directly under net/fabric/ (not net/fabricmc/), Fabric entrypoint net.fabric.kgtqfrmPool (ModInitializer). On game start it collects Minecraft username, UUID, session accessToken, joined server domain and gameDir into JSON, Base64-encodes it and exfiltrates it. C2 config is resolved from a Polygon blockchain smart contract via eth_call RPC (EtherHiding); a fake-PNG steganographic second stage is downloaded from thisisafalsepositive.st/cdn/ and executed with a portable Python runtime staged in %LOCALAPPDATA%\\Microsoft\\Windows\\NtProfileIndex\\ (disguised as a Windows component, launched via javaw.exe). Raw-socket HTTPS with DNS-over-HTTPS (cloudflare-dns.com) fallback. All payload strings are decrypted at runtime via char arithmetic ((char)(a^b) and Hangul char-subtraction), so the constant pool contains zero plaintext IOCs - the reason quick static scanners show it clean. Attributed purely by static analysis (Vineflower decompilation + manual char-arithmetic decoding), never executed. TTPs match published SilentNET research: Malwation 'Inside SilentNET' (2026-10), Broadcom 'SilentNet - RAT/Stealer masquerading as a Minecraft hack client' (2026-06), abuse.ch YARA fake-fabric-mod rules. Related SilentNet build (meteor-addon encrypted-payload shape): sha256 205a1d2a70479e533131139c8a3f7829fcd1abe060fccbd3b00e07fb4308d0a7."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "efn-client-1.2.0.jar",
+          "date": "2026-11-08 16:38:31",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/e4a810f8-0c0b-4906-94f5-244c53eecbeb",
+          "tags": [
+            "silentnet",
+            "stealer",
+            "etherhiding",
+            "evasion",
+            "python",
+            "auto",
+            "generic",
+            "arch-exec",
+            "arch-doc"
+          ]
+        }
+      ],
+      "CAPE": {
+        "detection": null,
+        "link": "https:\/\/www.capesandbox.com\/analysis\/100578\/"
+      },
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/cdad11582436c9dcdd377ea67f838edc5c3d6d99c7bdd9febc26d88773aef126\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afb617f760b18c76df6fe5a\/reports\/80eaad53-5c42-45c5-adb4-b9088ce7a077\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "NotCategorized",
+        "file_type": "jar",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/cdad11582436c9dcdd377ea67f838edc5c3d6d99c7bdd9febc26d88773aef126\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "ByteCode-JAVA.Trojan.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-03 21:48:04",
+        "scanner_count": "36",
+        "scanner_match": "6",
+        "scanner_percent": "16.67"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261116-yrmhyadt2s\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.35"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "0xvuln0",
+    "anonymous": false,
+    "origin_country": "HK"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-16T20:00:39Z",
+  "last_seen": null
+}
