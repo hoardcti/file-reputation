@@ -1,0 +1,206 @@
+{
+  "hashes": {
+    "sha256": "2cacbfd0e4720d8c2f04e7545aff344cf10ad608373a4407b014ae8452d0ac30",
+    "sha1": "a1522ad7889b61d83935dde6930976a6fe539069",
+    "md5": "81f11ccc783d95ef0d5ab20a3edcf94b",
+    "sha3_384": "eafa1423e270e94e4da6a6aac91317e5c5983f9f123ed5db4aeaf782c9a76598a2ceb2ac30cae0ccb95c89536977fe19",
+    "tlsh": "T1B134090AEF500EFBE46FDD3741F80B4625CC655222A53775763CEA18B60AA4E4AE3D34",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:lo164DG7kKzgJ37zyqvcCPK8xQcZJqdQXxuFMy24fQ+T:lfAG7kKnf8xQcLqdAEFQi"
+  },
+  "file_metadata": {
+    "names": [
+      "main_mpsl"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 237020,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "5ff96271f79cb10998183106e67ce1f56257a70330810acfd97272007f10071c"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4068163\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "9fcbc38c76afd0523f043d987359b9f5"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Hajime",
+      "Mirai",
+      "Torii",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "Linux_Exploit_CVE_2018_10562_badc0676",
+        "author": "Elastic Security",
+        "description": "Exploit code used in the ZeroBot malware",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2cacbfd0e4720d8c2f04e7545aff344cf10ad608373a4407b014ae8452d0ac30\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afc9a6721e1628fe8235709\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": null,
+        "family_name": null,
+        "analysis_url": "?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Trojan.Hajime",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-17 18:18:22",
+        "scanner_count": "37",
+        "scanner_match": "11",
+        "scanner_percent": "29.73"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261117-wxsk2azy2q\/",
+        "tags": [
+          "antivm",
+          "command_and_control",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (47841) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Outbound SSH connection to public host",
+            "score": "7"
+          },
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Checks hardware identifiers (DMI)",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Checks CPU configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-17T18:17:35Z",
+  "last_seen": null
+}
