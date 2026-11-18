@@ -1,0 +1,175 @@
+{
+  "hashes": {
+    "sha256": "95607ad9481e85fade62d3d84d505f892fb0da2b1070c1c00d2ef0fc5f88eff3",
+    "sha1": "755cfa029359249f45f752f095d5c1f082390b98",
+    "md5": "1e5f5a48064b31e49b4557245a9bad41",
+    "sha3_384": "a8f6591c498b793c7aacb726d9bc235ca2dae3d718d947fd743dc01015ce386a55d8db5a3932d9c9e3f073efd1e9a097",
+    "tlsh": "T137933A46FC818B21D5C512BEFE1E118E331357B8E2DE72239E14AF25738A56B0E7B416",
+    "imphash": null,
+    "telfhash": "t1af11bd968d1c9bcc6bf1c144049e321eb7f432f8ab54af96ce6d770b0453890b089031",
+    "gimphash": null,
+    "ssdeep": "1536:gAnlTCM3V5CfTK75rB3yZG9+uMhJzaca/7TmXNCDqRimgmzslI7UR5eYD:lCQ4ZZuQJzJa/ApgmzslIARc4"
+  },
+  "file_metadata": {
+    "names": [
+      "mentality-cloud.arm6"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 95708,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "54e83b62acba5dc73beb55160f4c7f4388bc8f01d03588e76c7a3b5e783e7c04"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4068962\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "a60e0a82970179e8a97de538612e58b8"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "Torii",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "deepfield_qtxbot_mirai_xor_table",
+        "author": "Nokia Deepfield ERT",
+        "description": "morte/Kurayami-lineage Mirai fork table: qtxbot and GhostWuzHere666 XOR-0x22 encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Toriilike_persist",
+        "author": "4r4",
+        "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+        "reference": "Identified via researched data"
+      },
+      {
+        "rule_name": "Linux_Generic_Threat_c19ca8e5",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_Oct19",
+        "author": "Florian Roth",
+        "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+        "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+      },
+      {
+        "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/95607ad9481e85fade62d3d84d505f892fb0da2b1070c1c00d2ef0fc5f88eff3\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afdcd2f7b925bc3b1c75eeb\/reports\/85eb3ac7-c2ea-4fd9-9e20-5f866756f190\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mirai",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4a9c678d-0d58-4fd5-9fcd-2d7f050f89a0?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "elf.32.le",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/95607ad9481e85fade62d3d84d505f892fb0da2b1070c1c00d2ef0fc5f88eff3\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-18 08:05:52",
+        "scanner_count": "39",
+        "scanner_match": "27",
+        "scanner_percent": "69.23"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261118-tkqjssdt3n\/",
+        "tags": [
+          "family:mirai",
+          "botnet"
+        ],
+        "signatures": [],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "37.221.79.128"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-18T16:06:16Z",
+  "last_seen": null
+}

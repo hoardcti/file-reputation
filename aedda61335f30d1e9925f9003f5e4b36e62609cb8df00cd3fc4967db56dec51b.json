@@ -1,0 +1,145 @@
+{
+  "hashes": {
+    "sha256": "aedda61335f30d1e9925f9003f5e4b36e62609cb8df00cd3fc4967db56dec51b",
+    "sha1": "8c1ab2981e87f672f2b134239e475eff9e7683c4",
+    "md5": "ade83be21b702768e49a0ff34f0fadd6",
+    "sha3_384": "6af7226c98381e278e47e15f8926891e3e3af7fded56b30662f58caf2c234d4485f7cdc0166d431c6e5046f0c4ae0099",
+    "tlsh": "T17DD2EB359497416F7593E07D6BCA4005B562B013329CACA0B98C73A09FCD63D87B9AFB",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:ZJihDoJSgVlqItp/BkHV5LqnVasgTSK/gI2ysfO1jg/qa4h:SRoJSs1nBkH7uVu1eSt"
+  },
+  "file_metadata": {
+    "names": [
+      "kkam-run"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 28761,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4069400\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Miner",
+      "PowerShell",
+      "ps1",
+      "RobloxStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "MULTI_Malware_AzaleaAgent_ForgeAuto_8919d4ba",
+        "author": "Marjoriefort",
+        "description": "Detects AzaleaAgent (inconnu, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "528588",
+        "date_added": "2026-11-18 14:07:14",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "PowerShell Roblox credential stealer, 28.8 KB, served live at https://kkam.download/run. Purpose: steal the .ROBLOSECURITY cookie — this cookie is a full Roblox session token, so theft equals full account takeover (Robux, limiteds, groups). Chromium family (Chrome, Edge, Brave, Opera/GX, Vivaldi): if the browser runs, a C# ReadProcessMemory scanner walks the --type=network-service process (up to 512 MB in 4 MB chunks) for the needle string \"_|WARNING:-DO-NOT-SHARE-THIS\" (start of every ROBLOSECURITY cookie); falls back to scanning all browser processes. If the browser is closed, the script starts the real browser binary headless with --remote-debugging-port on a random port, enumerates profiles (Default, Profile N), reads all cookies over the Chrome DevTools Protocol (Network.getAllCookies, WebSocket), then taskkill /F /T the browser tree. Firefox: built-in SQLite b-tree leaf-page parser (varint + serial-type decoding) reads cookies.sqlite directly including -wal frames — no Sqlite3.dll needed. Geolocation of victim via ipapi.co / ipwho.is / ipinfo.io (country code). Exfil: POST https://kkam.download/info, JSON body {cookie, country_code}. The server evaluates the account for the operator: username, id, creation date, ban status, Robux + pending Robux, owned groups with group funds, and played-checks for Loomian Legacy, Murder Mystery 2, Adopt Me (valuable-account triage for resale). Local transcript %TEMP%\\roblox_lookup.txt. Distribution: fake Minecraft \"Baritone\" mod jars; this stealer runs in parallel with an XMRig miner installed by the same chain (xaerosminimap.com/deploy.ps1). Infra: kkam.download and xaerosminimap.com both resolve to 202.170.75.132 (AS219067)."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/aedda61335f30d1e9925f9003f5e4b36e62609cb8df00cd3fc4967db56dec51b\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afdc6669fb070b7fc9ee508\/reports\/226b9125-9850-48e9-b879-e5c7ffa43707\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261118-s25vdav16q\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "GhostTypes",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-18T14:02:44Z",
+  "last_seen": "2026-11-18T14:07:13Z"
+}
