@@ -1,0 +1,192 @@
+{
+  "hashes": {
+    "sha256": "bcfe124eab9d8c814e1b5808b514b8f5865d9fd9e51e4dffc670baa31929d4c6",
+    "sha1": "6942c19d119a6d3567dda36e009a1cc376ca836a",
+    "md5": "f1dab4b9e39808e43e6e2fe38224c5e1",
+    "sha3_384": "f23745d67c6edd7c9513cf6824d8c9dab434695a619dcd1402d9b573e894ec6adb7fa530c36a99b62ea9f3f0f405be11",
+    "tlsh": "T1AFB423D86FDE48F9D96066F29A85CAE24ED4111AC44E17C824043BDC67818EE13ADF7B",
+    "imphash": "9c99bf82237676706b9b7bccac7f4694",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:1s7Z1g5xpu3Wl6UgDoN6Yf+P5qlqS5XBF+8L8DSTh2hZjs:1s7y63WQUBcYWIlqS5xF+8zThsZI"
+  },
+  "file_metadata": {
+    "names": [
+      "jli.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 528896,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "7487b2b9ae5b13b152dbb39df4583ba9d8d393d6c1d8f3e4f7762622be2d656b"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "0b4d16a6678b04c826877a66293be66b"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "stealer",
+      "upx",
+      "Warden",
+      "WARDENStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-17 23:46:28",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/f5c0c1e2-3bf0-4ad0-bca8-9ede1fcd1a8b",
+          "tags": [
+            "upx"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bcfe124eab9d8c814e1b5808b514b8f5865d9fd9e51e4dffc670baa31929d4c6\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afce4ea0b315bbe43e2ba01\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/871b20e3-43c5-481c-8b9d-fcc67a8ba2b4?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Yogi",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-17 23:36:16",
+        "scanner_count": "37",
+        "scanner_match": "11",
+        "scanner_percent": "29.73"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261117-3lnk9shx21\/",
+        "tags": [
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "bcfe124eab9d8c814e1b5808b514b8f5865d9fd9e51e4dffc670baa31929d4c6",
+          "md5_hash": "f1dab4b9e39808e43e6e2fe38224c5e1",
+          "sha1_hash": "6942c19d119a6d3567dda36e009a1cc376ca836a",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/50298695-c5e1-460c-996d-aeda794bd262\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.84"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-17T23:35:47Z",
+  "last_seen": null
+}
