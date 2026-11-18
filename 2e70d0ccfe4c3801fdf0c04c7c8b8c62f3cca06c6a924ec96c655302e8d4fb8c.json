@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "2e70d0ccfe4c3801fdf0c04c7c8b8c62f3cca06c6a924ec96c655302e8d4fb8c",
+    "sha1": "94f45dd8ead829d3b56251c2196c5ee180c0578a",
+    "md5": "e57600da98abab1828db5187882ce496",
+    "sha3_384": "a3393b4e63e79ef9da396579b857e34daee1f725f1b1aafe13a1b9d567b7c426cb29b8ecf9dcfaef2eff5d29317ecc85",
+    "tlsh": "T1A303E1BB7217DCF4DC7BF5BD3B1831A8E754AC4B60054BAB989528FB04E59C1672420E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:X0i+NO9yr/GRlf0Q269TA8Nv+gMuj8NHvMXFDyQYBXy7c4i:EG9y8f0/6TtYuj8NPsDyQIgU"
+  },
+  "file_metadata": {
+    "names": [
+      "x86_64"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 39640,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4068395\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "c454718ad0aae3685fa313fd1604acae986071605bbd89febd4a6565a06f8e0f"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "2a3f3a57c37790ff5401c045dbf300d0"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2e70d0ccfe4c3801fdf0c04c7c8b8c62f3cca06c6a924ec96c655302e8d4fb8c\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6afd010f03dea9b63d506d68\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/e4e09845-dd59-490c-b50f-3d3b79f05659?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-18 01:26:23",
+        "scanner_count": "37",
+        "scanner_match": "4",
+        "scanner_percent": "10.81"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261118-bs6lwaaw4x\/",
+        "tags": [
+          "credential_access",
+          "discovery",
+          "linux",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Reads process memory",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-18T01:25:20Z",
+  "last_seen": "2026-11-18T02:24:19Z"
+}
