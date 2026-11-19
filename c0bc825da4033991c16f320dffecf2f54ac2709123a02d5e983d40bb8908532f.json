@@ -45,12 +45,19 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "CoinMiner",
     "tags": [
+      "CoinMiner",
       "exe",
       "Xmrig"
     ],
     "yara_rules": [
+      {
+        "rule_name": "BLOWFISH_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for Blowfish constants",
+        "reference": null
+      },
       {
         "rule_name": "command_and_control",
         "author": "CD_R0M_",
@@ -70,6 +77,24 @@
         "reference": null
       },
       {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__MemoryWorkingSet",
+        "author": "Fernando Mercês",
+        "description": "Anti-debug process memory working set size check",
+        "reference": "http://www.gironsec.com/blog/2015/06/anti-debugger-trick-quicky/"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
         "rule_name": "DebuggerCheck__QueryInfo",
         "author": null,
         "description": null,
@@ -77,6 +102,12 @@
       },
       {
         "rule_name": "DebuggerException__ConsoleCtrl",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerException__SetConsoleCtrl",
         "author": null,
         "description": null,
         "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
@@ -142,6 +173,48 @@
         "reference": null
       },
       {
+        "rule_name": "MacOS_Cryptominer_Xmrig_241780a1",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "MALWARE_Win_CoinMiner02",
+        "author": "ditekSHen",
+        "description": "Detects coinmining malware",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_XMR_Miner_May19_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects Monero Crypto Coin Miner",
+        "reference": "https://www.guardicore.com/2019/05/nansh0u-campaign-hackers-arsenal-grows-stronger/"
+      },
+      {
+        "rule_name": "MAL_XMR_Miner_May19_1_RID2E1B",
+        "author": "Florian Roth",
+        "description": "Detects Monero Crypto Coin Miner",
+        "reference": "https://www.guardicore.com/2019/05/nansh0u-campaign-hackers-arsenal-grows-stronger/"
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "Multi_Cryptominer_Xmrig_f9516741",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "pe_detect_tls_callbacks",
         "author": null,
         "description": null,
@@ -176,6 +249,12 @@
         "author": "Marjoriefort",
         "description": "Detects Unknown (script_js, etat binaire)",
         "reference": null
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "SEH__vectored",
@@ -226,9 +305,39 @@
         "reference": "https://cyfare.net/"
       },
       {
+        "rule_name": "VIGIA_CoinMiner_39e34c46",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "18496859-0cd6-4bd3-abd8-6ff72e7d525f - original-sample indicators and compositional CoinMiner detection",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
+        "rule_name": "VIGIA_CoinMiner_e8aa2ada",
+        "author": "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector",
+        "description": "e075bd3f-7748-405a-be99-d47b361375a6 - CoinMiner mining components with deployment and watchdog indicators",
+        "reference": "https://vigia.bisite.es/"
+      },
+      {
         "rule_name": "vmdetect",
         "author": "nex",
         "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      },
+      {
+        "rule_name": "WHIRLPOOL_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for WhirlPool constants",
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Cryptominer_Generic_f53cfb9b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Win_FakeInstaller_PythonShellcodeLoader_Crepectl_2026",
+        "author": "SixHands",
+        "description": "Detects the analyzed fake installer sample using .key config, XOR key, and Python/fiber shellcode loader traits",
         "reference": null
       },
       {
@@ -296,6 +405,18 @@
         "author": "Marjoriefort",
         "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
         "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      },
+      {
+        "rule_name": "XMRIG_Monero_Miner",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects Monero mining software",
+        "reference": "https://github.com/xmrig/xmrig/releases"
+      },
+      {
+        "rule_name": "xmrig_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
       }
     ],
     "vendor_intel": {
