@@ -40,10 +40,11 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "WARDENStealer",
     "tags": [
       "exe",
-      "upx-dec"
+      "upx-dec",
+      "WARDENStealer"
     ],
     "yara_rules": [
       {
@@ -51,6 +52,12 @@
         "author": "The DFIR Report",
         "description": "files - file ~tmp01925d3f.exe",
         "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "DebuggerCheck__API",
@@ -77,8 +84,20 @@
         "reference": null
       },
       {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "telebot_framework",
         "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TeslaCryptPackedMalware",
+        "author": null,
         "description": null,
         "reference": null
       },
@@ -95,13 +114,41 @@
         "reference": null
       },
       {
+        "rule_name": "VIGIA_WARDENStealer_8f4ac3a9",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "WARDEN_Stealer_ABE_CPUID_Hunt",
+        "author": "Rony",
+        "description": "Warden Stealer VM screening: an RBX-preserving CPUID query, with the Chromium v20 app-bound-encryption key tag reported as graded evidence. BROAD: the required signal alone is weak, see the condition",
+        "reference": null
+      },
+      {
         "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat binaire)",
         "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_4fa7e284_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-20 00:18:16",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/58f39f76-95e2-40ca-8990-bdbe47b9152c",
+          "tags": []
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/00d00d195b1223603d7946a7efdee62c2f23cf838dd1c8367e8df8274e44d0b1\/"
@@ -118,12 +165,12 @@
         "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/cb82ba6d-00cb-46d5-b9c5-920903cbb853?utm_source=MalwareBazaar"
       },
       "ReversingLabs": {
-        "threat_name": null,
-        "status": "UNKNOWN",
-        "first_seen": null,
-        "scanner_count": null,
-        "scanner_match": null,
-        "scanner_percent": null
+        "threat_name": "Win64.Trojan.Yogi",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-19 23:44:15",
+        "scanner_count": "37",
+        "scanner_match": "12",
+        "scanner_percent": "32.43"
       },
       "Spamhaus_HBL": [
         {
@@ -131,6 +178,29 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261120-avsmcse14k\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
       "UnpacMe": [
         {
           "sha256_hash": "00d00d195b1223603d7946a7efdee62c2f23cf838dd1c8367e8df8274e44d0b1",
@@ -159,11 +229,11 @@
   "submission": {
     "reporter": "abuse_ch",
     "anonymous": false,
-    "origin_country": "NL"
+    "origin_country": "FR"
   },
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-11-19T23:43:18Z",
-  "last_seen": null
+  "last_seen": "2026-11-20T00:31:39Z"
 }

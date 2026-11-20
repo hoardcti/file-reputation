@@ -41,9 +41,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "RemusStealer",
     "tags": [
       "exe",
+      "RemusStealer",
       "upx-dec"
     ],
     "yara_rules": [
@@ -144,6 +145,12 @@
         "reference": null
       },
       {
+        "rule_name": "Remus",
+        "author": "kevoreilly",
+        "description": null,
+        "reference": null
+      },
+      {
         "rule_name": "RemusStealer_GoPayload",
         "author": "burger",
         "description": "Detects RemusStealer Go-compiled payload",
@@ -184,9 +191,25 @@
         "author": "Marjoriefort",
         "description": "Detects Unknown (pe, etat binaire)",
         "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-20 00:33:18",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d2c98161-0edf-4434-af99-6cc17e30f931",
+          "tags": []
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/87f5ed0ef0755ad87223df1584c330d9be872cf9b559d5fdba5f2f3bfb2eedff\/"
@@ -216,6 +239,64 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261120-a22tlsfx8x\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads ssh keys stored on the system",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of local email clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
       "UnpacMe": [
         {
           "sha256_hash": "87f5ed0ef0755ad87223df1584c330d9be872cf9b559d5fdba5f2f3bfb2eedff",
@@ -225,25 +306,59 @@
           "link": "https:\/\/www.unpac.me\/results\/c5c003a8-142d-400f-ace6-d56d8258a770\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Remus",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/87f5ed0ef075\/report\/overview.html"
+      },
       "YOROI_YOMI": {
         "detection": "Malicious File",
         "score": "0.98"
       },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
   "submission": {
     "reporter": "abuse_ch",
     "anonymous": false,
-    "origin_country": "NL"
+    "origin_country": "FR"
   },
   "sources": [
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-11-19T23:49:23Z",
-  "last_seen": null
+  "last_seen": "2026-11-20T00:31:53Z"
 }

@@ -1,0 +1,207 @@
+{
+  "hashes": {
+    "sha256": "bed457d40a5f0bce711b5764377e350c7f5550e30eb93f93ed3239c78280ecde",
+    "sha1": "56a9c0480a303b286ad8dbd8db523fd5875645bd",
+    "md5": "cef25fc2a5677b209736c6a328763d88",
+    "sha3_384": "a016c3f80ea9895d0cbe55fe986ef0377baa6614e36e3061c092cf7ca7f099c04eadcedc1442cd3cce000e1b61e55491",
+    "tlsh": "T128E46D25335352D8E133A53AE6CFB11BB1B17C59A7A4DE770A844E862AC3360371B397",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:6uEemeBHM8Em2sHkdlmJ8dHfrTdiF/OCxg:PEemeBZvaHfrYF9xg"
+  },
+  "file_metadata": {
+    "names": [
+      "cacd3bcc5c397d82545b49c22f8f831aee6976893bd977d8a827a67e9781df9b.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 675877,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "cacd3bcc5c397d82545b49c22f8f831aee6976893bd977d8a827a67e9781df9b"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/3903903\/"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "df87ba7751bef5ad406806ffafeb8c96"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-20 00:54:19",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d534582e-ffbe-4218-a52a-da134d110ffd",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bed457d40a5f0bce711b5764377e350c7f5550e30eb93f93ed3239c78280ecde\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aff95c376604c1ab42f9835\/reports\/effcd2f6-08db-454d-8aba-609a59c7df39\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/6b5241f6-132c-49f4-86e6-12cc3ceaa15c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-20 00:34:28",
+        "scanner_count": "37",
+        "scanner_match": "13",
+        "scanner_percent": "35.14"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261120-axgymse14q\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Checks system information in the registry",
+            "score": "5"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "bed457d40a5f0bce711b5764377e350c7f5550e30eb93f93ed3239c78280ecde",
+          "md5_hash": "cef25fc2a5677b209736c6a328763d88",
+          "sha1_hash": "56a9c0480a303b286ad8dbd8db523fd5875645bd",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/0eae24d3-45a7-430d-ae44-e6a2e87cc9ca\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-20T00:34:18Z",
+  "last_seen": "2026-11-20T01:24:07Z"
+}

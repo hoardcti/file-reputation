@@ -34,8 +34,10 @@
   "intelligence": {
     "signature": "RemusStealer",
     "tags": [
+      "remus",
       "RemusStealer",
-      "signed"
+      "signed",
+      "stealer"
     ],
     "yara_rules": [
       {
@@ -196,6 +198,20 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-20 00:08:17",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/0dd4fbe1-361c-4ee0-8b83-a8be845f17d7",
+          "tags": [
+            "golang",
+            "stealer",
+            "arch-scr"
+          ]
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/cc14be93d074e6cb78d9703ea7982f673c89e6e62a4922a395c93978af707a34\/"
@@ -234,6 +250,35 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261120-a2173se17j\/",
+        "tags": [
+          "discovery",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads ssh keys stored on the system",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
       "UnpacMe": [
         {
           "sha256_hash": "cc14be93d074e6cb78d9703ea7982f673c89e6e62a4922a395c93978af707a34",
@@ -243,21 +288,55 @@
           "link": "https:\/\/www.unpac.me\/results\/8656f407-c7e3-455c-8c07-1ce17b301ed8\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Remus",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/cc14be93d074\/report\/overview.html"
+      },
       "YOROI_YOMI": {
         "detection": "Legit File",
         "score": "0.00"
       },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
   "submission": {
     "reporter": "AmadeyHunter",
     "anonymous": false,
-    "origin_country": "US",
+    "origin_country": "FR",
     "delivery_method": "web_download"
   },
   "code_sign": [
@@ -276,5 +355,5 @@
     "MalwareBazaar (abuse.ch)"
   ],
   "first_seen": "2026-11-19T23:47:33Z",
-  "last_seen": null
+  "last_seen": "2026-11-20T00:31:51Z"
 }
