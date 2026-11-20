@@ -1,0 +1,179 @@
+{
+  "hashes": {
+    "sha256": "c7bd74f8ac586cda3ed25e2911148555dfcc3c210efb64014580fcd18a2426fc",
+    "sha1": "f61cc6ad1fbbd9ddc7a69c4342af78518e228f17",
+    "md5": "ed6c5ee078eb41bbb3a75c9c35854a47",
+    "sha3_384": "773bf589d4c8ccb5ce839da3c4e6ed75c743823f2d7740109acedd7beb9fa9caaaed6812702c11ab8a64d4615c9c2c72",
+    "tlsh": "T1294595648A33A082EC634378B40E55FA8BBF78850752DAF3364B5A447DCA6E1457D38F",
+    "imphash": "694a10f92efdb5ba9c32ad08fff67a41",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:f6p2MUgIxpMRrR14PrYJIv46XsbsSHmzOb4Lgtt8tiJDAffwAqKcRMe5HI/u2Gil:f6p7Utx6hRmrYJIv46XymzhDfhqANm+"
+  },
+  "file_metadata": {
+    "names": [
+      "spaceware_payload.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1274558,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MopsStealer",
+    "tags": [
+      "exe",
+      "MopsStealer",
+      "process-hollowing",
+      "unpacked"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM",
+        "author": "ditekSHen",
+        "description": "Detects Windows exceutables bypassing UAC using CMSTP COM interfaces. MITRE (T1218.003)",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Backdoor_RuntimeBroker_WebSocket_Nov26",
+        "author": "quiet-heron-sec",
+        "description": "Detects a backdoor that installs itself as RuntimeBroker.exe in ProgramData and uses a WebSocket C2",
+        "reference": "https://bazaar.abuse.ch/sample/40ea2317b6703a8b3e0108ed49686203cdafc59c59ff8c604bd46740c405e5a5/"
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-20 19:56:48",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/07998f99-6228-43c3-a6a3-ac3819ec83c2",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c7bd74f8ac586cda3ed25e2911148555dfcc3c210efb64014580fcd18a2426fc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b00a1e6995b76191380d330\/reports\/197b0c28-dc1b-4686-9b2b-1b05231ca6e4\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/005435fb-41aa-4ef7-aa2c-757cc3b55a22?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-20 19:37:21",
+        "scanner_count": "37",
+        "scanner_match": "21",
+        "scanner_percent": "56.76"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "4",
+        "link": "https:\/\/tria.ge\/reports\/261120-ybw3fawv5n\/",
+        "tags": [],
+        "signatures": [
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "c7bd74f8ac586cda3ed25e2911148555dfcc3c210efb64014580fcd18a2426fc",
+          "md5_hash": "ed6c5ee078eb41bbb3a75c9c35854a47",
+          "sha1_hash": "f61cc6ad1fbbd9ddc7a69c4342af78518e228f17",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/ab03e5fd-894e-4d5a-ab74-18588f5595bc\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ncp",
+    "anonymous": false,
+    "origin_country": "GB"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-20T19:27:23Z",
+  "last_seen": null
+}

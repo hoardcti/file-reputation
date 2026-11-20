@@ -1,0 +1,310 @@
+{
+  "hashes": {
+    "sha256": "1906d64b6be146d99dbc6c8fcb629b4764a74fa9df78bb9889cdf1c3bfaef087",
+    "sha1": "3bad8059228943e748c1fb1dccafa1182a908780",
+    "md5": "7dae83f5619a1e45438db1a78925708a",
+    "sha3_384": "9130235f44b92a712b999afbf448418851f850acd52d76ba408a3ad9bd3e13a55cc4a4c59828af04eb7e1faad5685f7b",
+    "tlsh": "T113172342F0A1ACF4DA1640B7A35BD4B216377B6B0A747AEF54DC2A36BF539E1570A300",
+    "imphash": "f9617ffc3b1c6c7388ebc119ada71cc0",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:Yze99o03T353lCwGpcPvFkP9hRXK8Ik2XbDY39T782LbgdOLb7JrKYXppJ1HuORl:YzM3V1CwucPvshl50bctdbzMYXd1HuQp"
+  },
+  "file_metadata": {
+    "names": [
+      "Setup.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 18713168,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MopsStealer",
+    "tags": [
+      "crypter",
+      "exe",
+      "loader",
+      "MopsStealer",
+      "rust"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ProgramLanguage_Rust",
+        "author": "albertzsigovits",
+        "description": "Application written in Rust programming language",
+        "reference": null
+      },
+      {
+        "rule_name": "Rustyloader_mem_loose",
+        "author": "James_inthe_box",
+        "description": "Corroded buerloader",
+        "reference": "https://app.any.run/tasks/83064edd-c7eb-4558-85e8-621db72b2a24"
+      },
+      {
+        "rule_name": "SEH__vectored",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "comments": [
+      {
+        "id": "530355",
+        "date_added": "2026-11-20 19:32:31",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Update. Payload is decrypted now, c8285d5398eaadfafdf661ce6b210c7a121eb92c6e0cb583f67c21fa0bf6e32d. Resource type 318 deinterleaved 1 byte out of 16, config in the last 0x80 bytes, AES-256-GCM with verifying tag, then FNV-1a seeded PCG keystream. Targets svchost.exe, fakes Microsoft version info. Same crypter and same payload GUID as SpaceWare Launcher.exe 1b3684c5ac515f5545afd79c80699c04dee0805df8d8bbd0bab68ca485342194, payload c7bd74f8ac586cda3ed25e2911148555dfcc3c210efb64014580fcd18a2426fc."
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-20 18:26:25",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8e21b713-909a-4f6d-9280-320489bf78d3",
+          "tags": [
+            "susp-powershell",
+            "rust"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1906d64b6be146d99dbc6c8fcb629b4764a74fa9df78bb9889cdf1c3bfaef087\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b00905f6df7fdb65fda6804\/reports\/bbfbe3a9-3ef2-4b8c-add5-d4bbe09f6fff\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Malware.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-20 18:22:22",
+        "scanner_count": "37",
+        "scanner_match": "13",
+        "scanner_percent": "35.14"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261120-wzyvtsdz3q\/",
+        "tags": [
+          "defense_evasion",
+          "execution",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security bypass",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security modification",
+            "score": "7"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "1906d64b6be146d99dbc6c8fcb629b4764a74fa9df78bb9889cdf1c3bfaef087",
+          "md5_hash": "7dae83f5619a1e45438db1a78925708a",
+          "sha1_hash": "3bad8059228943e748c1fb1dccafa1182a908780",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/57d29b74-73b3-43a3-b155-26cd62ca9992\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ncp",
+    "anonymous": false,
+    "origin_country": "GB"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-20T17:37:14Z",
+  "last_seen": null
+}

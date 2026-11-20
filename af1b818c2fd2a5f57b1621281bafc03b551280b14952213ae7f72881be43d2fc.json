@@ -31,6 +31,7 @@
       "arm",
       "elf",
       "honeypot",
+      "MikroTik",
       "Mirai",
       "ssh",
       "Torii"
@@ -143,6 +144,15 @@
         "author": "phoul (@phoul)",
         "description": "Look for WhirlPool constants",
         "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "530298",
+        "date_added": "2026-11-20 16:12:34",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Reporter note: this does not look like Mirai or Torii. It is a statically linked ARM Linux SSH worm (libssh2 + libpcap SYN scanner) dropped over SCP as /sbin/apcid on an SSH honeypot, seen from 2 unrelated IPs on 2026-11-19 and 2026-11-20. It brute-forces SSH, takes over MikroTik RouterOS (/user set 0 password=%s, /ip cloud set ddns-enabled=yes) and installs to hidden ..systemd paths (incl. Synology /volume1). The Toriilike/Hydra YARA hits are generic heuristics. YARAhub rule: honeypot_elf_sshworm_mikrotik."
       }
     ],
     "vendor_intel": {

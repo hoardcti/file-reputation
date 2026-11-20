@@ -22,12 +22,15 @@
     "info": null,
     "magika": "zip",
     "trid": null,
+    "archive_pw": "infected",
     "file_information": null,
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
-    "tags": null,
+    "signature": "Ransomware.WannaCry",
+    "tags": [
+      "Ransomware.WannaCry"
+    ],
     "yara_rules": [
       {
         "rule_name": "exploit_any_poppopret",
@@ -47,6 +50,12 @@
         "alertlevel": "0",
         "urls": []
       },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b004f9bed4f7f2dc1b38a2e\/reports\/b35bc0e2-455d-452c-8bff-16ecf5e20263\/overview"
+      },
       "ReversingLabs": {
         "threat_name": null,
         "status": "KNOWN",
@@ -61,6 +70,56 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": "wannacry",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261120-q34bts1x8k\/",
+        "tags": [
+          "family:wannacry",
+          "discovery",
+          "ransomware",
+          "worm"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Wannacry",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (3376) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
       "YOROI_YOMI": {
         "detection": "Malicious File",
         "score": "1.00"
