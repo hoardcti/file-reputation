@@ -1,0 +1,259 @@
+{
+  "hashes": {
+    "sha256": "8bffa6a1414d96f7d31b51e17701da3375f38d50a713f5b491ff63e7fc7cbfdc",
+    "sha1": "4594feac478973eac8f791f9508cbd2095483334",
+    "md5": "8659070486cf44847fa383298217f031",
+    "sha3_384": "f041fa08d8ee4dc315b3bc0c83203ade6264d452d27ab0aa9351c3ee94ae43bd1a4d4121bf7aaef7b9fa1c914d7c37ff",
+    "tlsh": "T18DE65B4B7AB041E6D192C1B4896BE2B2E9B178C15C34D74B52A1851F2F33BB1FE6D720",
+    "imphash": "057d4281968aa84d2cc31c0b76cb153b",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:6KgKnjEqPXbgoK3TcsO5NdlYlPmLTvSH:MKnhfVK7zluPSH"
+  },
+  "file_metadata": {
+    "names": [
+      "ONMAIN.DLL"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 13917696,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "48.4% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "19.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.7% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "5.9% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "5.8% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "dll",
+      "DLL-sideloading",
+      "exe",
+      "loader",
+      "module-stomping",
+      "shellcode"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__MemoryWorkingSet",
+        "author": "Fernando Mercês",
+        "description": "Anti-debug process memory working set size check",
+        "reference": "http://www.gironsec.com/blog/2015/06/anti-debugger-trick-quicky/"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "MoleBoxv20",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "OneNote_EmbeddedFiles_NoPictures",
+        "author": "Nicholas Dhaeyer - @DhaeyerWolf",
+        "description": "OneNote files that contain embedded files that are not pictures.",
+        "reference": "https://blog.didierstevens.com/2023/01/22/analyzing-malicious-onenote-documents/"
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "skip20_sqllang_hook",
+        "author": "Mathieu Tartare \u003cmathieu.tartare@eset.com\u003e",
+        "description": "YARA rule to detect if a sqllang.dll version is targeted by skip-2.0. Each byte pattern corresponds to a function hooked by skip-2.0. If $1_0 or $1_1 match, it is probably targeted as it corresponds to the hook responsible for bypassing the authentication.",
+        "reference": "https://www.welivesecurity.com/"
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_1762e598_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_37b4704b",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_43faefd2",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_5001c94c",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_74566f98",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_79234c04",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_f1079127",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ValleyRAT_ForgeAuto_401c5e16",
+        "author": "Marjoriefort",
+        "description": "Detects ValleyRAT (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-19 19:39:26",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d2b897c8-6184-4137-93c1-e9d7f3bc288d",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/8bffa6a1414d96f7d31b51e17701da3375f38d50a713f5b491ff63e7fc7cbfdc\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aff52b549e3c6edc53dc033\/reports\/aba544c2-7f83-4d02-b580-8a92e356d954\/overview"
+      },
+      "Intezer": {
+        "verdict": "trusted",
+        "family_name": "Microsoft Corporation",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4973013e-383b-4ebc-b78a-a57d9b9a080e?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261119-yl2exadx5s\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "8bffa6a1414d96f7d31b51e17701da3375f38d50a713f5b491ff63e7fc7cbfdc",
+          "md5_hash": "8659070486cf44847fa383298217f031",
+          "sha1_hash": "4594feac478973eac8f791f9508cbd2095483334",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/ff37033e-1d93-40f1-97d4-6c826bd0e658\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean2",
+        "maliciousness": "19",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "ncp",
+    "anonymous": false,
+    "origin_country": "SE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-19T19:35:44Z",
+  "last_seen": null
+}

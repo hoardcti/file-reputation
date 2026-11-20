@@ -1,0 +1,214 @@
+{
+  "hashes": {
+    "sha256": "3afd00f1a793645b38031a5fba5f3efd485909d002240408bd3abf14e8e7dfc5",
+    "sha1": "8504c487ebae895d4aa0adcf173e2651dfd5f49a",
+    "md5": "7b60aa32fa38ce513271b819452d9f81",
+    "sha3_384": "26adcc89ec227fa7489fd336546db05e37ec9999270166e5dc8bc98ef8b96d53b95072c754bda0e9468ade6658fccc62",
+    "tlsh": "T1A741642A3124DCBA87D3085A805A7343F5B3600BCA5E1811B7D9C8D8CF6476CDA8D7DE",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:aWIFeNmbC0SLIxMMObJQuZFRVWeiQzdatcBfDVoM/r:oImbRSKMMObJQoWpQzQtcBhr"
+  },
+  "file_metadata": {
+    "names": [
+      "w2new.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 2194,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/45082270-5815-41f4-a992-fa8a21306c03"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/www.hybrid-analysis.com\/sample\/3afd00f1a793645b38031a5fba5f3efd485909d002240408bd3abf14e8e7dfc5"
+      },
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261119-zrznyaes5z"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ps1",
+      "revshell"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3afd00f1a793645b38031a5fba5f3efd485909d002240408bd3abf14e8e7dfc5\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6aff6757f233fb07c11a0ad2\/reports\/ea2872d4-47a2-4de6-bb85-ff1e65b9c7c8\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "ps1",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/3afd00f1a793645b38031a5fba5f3efd485909d002240408bd3abf14e8e7dfc5\/results?tab=lookup",
+        "detections": [
+          "Trojan-Downloader.Agent.HTTP.C\u0026C",
+          "PDM:Trojan.Win32.Generic",
+          "Backdoor.Agent.HTTP.C\u0026C"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-19 21:17:14",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261119-z43ala1t6p\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "http:\/\/38.45.64.250:9003\/w2new.ps1"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.90"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "rifteyy",
+    "anonymous": false,
+    "origin_country": "CZ",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-19T21:16:55Z",
+  "last_seen": null
+}
