@@ -1,0 +1,236 @@
+{
+  "hashes": {
+    "sha256": "c8f5b1c2b898a7c13fc2843dd9771566e0a1b7e79bd18f479300e3518fda7d20",
+    "sha1": "7c93740f0157735d4ab2ff9816e14b1e96ef999a",
+    "md5": "ba1c669f89ff24b8479a52af59be2259",
+    "sha3_384": "40f0fed3bb8c5c6b1b34dff7e78ebe4d4ba896ecf189b8aea35344a24ec4eb898bce55d3498648d42685bdf1384810b3",
+    "tlsh": "T1F6156B14776791C5E036593AE1CEAA17F5A2BC196AF4CF7B0A408FC62ED3260275B313",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:39cUD03Y/mNbDTeN8r5ufZmS5OmK/Bnv7zhkC7LvPUnrJdqWDzFTbXFMGSM:3K/88r5cc0iBnjd5UnrJdq6bXFMGf"
+  },
+  "file_metadata": {
+    "names": [
+      "inner_payload_c8f5b1c2.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 937984,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "cryptotrice",
+      "dead-drop",
+      "decrypted-payload",
+      "exe",
+      "fake-trading-software",
+      "infostealer",
+      "stealer",
+      "Vidar",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_URL_In_EXE",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects an XORed URL in an executable",
+        "reference": "https://twitter.com/stvemillertime/status/1237035794973560834"
+      },
+      {
+        "rule_name": "SUSP_XORed_URL_in_EXE_RID2E46",
+        "author": "Florian Roth",
+        "description": "Detects an XORed URL in an executable",
+        "reference": "https://twitter.com/stvemillertime/status/1237035794973560834"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "530109",
+        "date_added": "2026-11-20 10:34:11",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Decrypted inner payload of the Go reflective loader b8c1d239... (also on MalwareBazaar), original file layout (937,984 B, raw offsets differ from RVAs; not a memory dump). Recovered statically: the loader's six in-place byte passes (rol5, reverse, +29*i+10, half swap, -17*i-0x7a, rol3) over the 1,006,700 B blob in .rdata, run as bare CPU-emulator loops (no OS, no network); the result equals an earlier emulator memory dump with 0 byte differences. x64 C/C++ infostealer: browser, wallet, Telegram, Steam and Discord data theft, a Telegram-channel dead drop that decrypts to a /gate URL, multipart POST exfiltration. Family label is behavioural only (Vidar 2.x-like). Delivered by a fake \"cracked trading software\" promoted on X. Rule and tool: github.com/harperjohnsai/detections (cryptotrice-go-loader). More research: youtube.com/@HarperJohnsAI - Harper Johns\n"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-11-20 10:42:26",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/be31661b-264d-410d-b328-db9602593476",
+          "tags": [
+            "xor-url",
+            "generic"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/c8f5b1c2b898a7c13fc2843dd9771566e0a1b7e79bd18f479300e3518fda7d20\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b00222654edaa80249b121c\/reports\/457d267b-71bf-4d6b-8721-59662364f6fa\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f66e7517-384b-474b-8739-8639587a6e7b?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261120-ml7q5sax6q\/",
+        "tags": [
+          "defense_evasion",
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Checks system information in the registry",
+            "score": "5"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "c8f5b1c2b898a7c13fc2843dd9771566e0a1b7e79bd18f479300e3518fda7d20",
+          "md5_hash": "ba1c669f89ff24b8479a52af59be2259",
+          "sha1_hash": "7c93740f0157735d4ab2ff9816e14b1e96ef999a",
+          "detections": [
+            "SUSP_XORed_URL_In_EXE"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/d00ad411-90f4-476c-8929-b24853fc7ac2\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/c8f5b1c2b898\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-20T10:33:56Z",
+  "last_seen": "2026-11-20T11:18:53Z"
+}
