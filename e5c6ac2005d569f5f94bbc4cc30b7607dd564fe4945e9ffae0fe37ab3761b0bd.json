@@ -1,0 +1,196 @@
+{
+  "hashes": {
+    "sha256": "e5c6ac2005d569f5f94bbc4cc30b7607dd564fe4945e9ffae0fe37ab3761b0bd",
+    "sha1": "6ebce020cfb572b5f31f100eba313792621861ed",
+    "md5": "176772d1de37a5c1d9ae25821058ab85",
+    "sha3_384": "567901e7398bb35353eeb96a17297bbed3019a2d90fbb0076405187b2c5c3b19d8d4c2c1f63c3a9ed5573d2cd4a233d3",
+    "tlsh": "T14083027B6AD643C3193723BD6449FAD6F5F6881B440B12E67B4C924A37740E2D4AC8F8",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:Op6SXMVP0ggm+YFy+w6duYWDo+yCLj++ZHEw9iXxAtpMjStPJvEj6:Op6NVPFgm+YF1JHCL9Hx6xAtpMjAPJvZ"
+  },
+  "file_metadata": {
+    "names": [
+      "IS.bat"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "bat",
+    "size": 86248,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "bat"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "obfuscated_BAT",
+        "author": "@warz_s",
+        "description": "Identifies obfuscated BAT files",
+        "reference": "https://github.com/secwarz/YaraRules"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-11-20 21:58:13",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ebee2ae9-0af4-463d-b99d-ff1f5b1c2ccd",
+          "tags": [
+            "susp-powershell",
+            "discord",
+            "evasion",
+            "stealer",
+            "auto-sch",
+            "auto-startup",
+            "ims-api",
+            "generic"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e5c6ac2005d569f5f94bbc4cc30b7607dd564fe4945e9ffae0fe37ab3761b0bd\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b00c109d475de7ccafb741f\/reports\/be0efdec-4ed6-4b90-80a2-8082f88b2b6e\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-20 21:52:18",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261120-1q5dgaxy5k\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Looks for VMWare services registry key.",
+            "score": "8"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "6"
+          },
+          {
+            "signature": "Contacts third-party web service commonly abused for C2",
+            "score": "6"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "System Network Configuration Discovery: Wi-Fi Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-20T21:51:52Z",
+  "last_seen": null
+}
