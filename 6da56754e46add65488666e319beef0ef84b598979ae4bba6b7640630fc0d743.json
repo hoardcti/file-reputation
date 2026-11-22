@@ -1,0 +1,167 @@
+{
+  "hashes": {
+    "sha256": "6da56754e46add65488666e319beef0ef84b598979ae4bba6b7640630fc0d743",
+    "sha1": "6869c5110dc1bfcf83a0ce5a9375ac11b8a73ce5",
+    "md5": "8a6a817e013ee633db478a7fca232c03",
+    "sha3_384": "cc06b270f1347fb1474dbc4841b69282df0b0562692dee34c6f47837608f92a3cbfee183371ab88350af6a8be1d275d5",
+    "tlsh": "T17EE46C25335352D8E132953AF2CFB60BB5F17C55ABA5DE3B0A448F862A83221375B347",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:NJRuzjI9o+l9Cn+C6cyN+2uZMozYK/lNqyr3whniLD8rpB:TRWa9C+C6cS+2upY+fqyrgBpr"
+  },
+  "file_metadata": {
+    "names": [
+      "6da56754e46add65488666e319beef0ef84b598979ae4bba6b7640630fc0d743.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 674304,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "go-crypter-payload",
+      "stealer",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531006",
+        "date_added": "2026-11-22 09:37:45",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Decrypted inner payload (674,304 B, AMD64 PE, file layout, not a memory dump) of a Go crypter loader (imphash 4f2f006e cluster). Loader sha256: 407352c707103e711c525ab17599dd2bb83c47c736a9345c595dadf437e0c31e. Loader label(s) on MalwareBazaar: Vidar. YARA Forge: no hits (lead, not attribution). Extracted statically by emulating the loader's blob-builder function (no OS layer, no network); tool: https://github.com/harperjohnsai/detections/tree/main/tools/cryptotrice-go-loader - More research: youtube.com/@HarperJohnsAI - Harper Johns"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-22 10:03:55",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/72c44bd7-4b78-4172-8f98-eed37c52edd5",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6da56754e46add65488666e319beef0ef84b598979ae4bba6b7640630fc0d743\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02b90292146a3ecb795a25\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8376c316-86ce-4282-bb59-25c12f309c91?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 09:38:31",
+        "scanner_count": "37",
+        "scanner_match": "21",
+        "scanner_percent": "56.76"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261122-ll5q4sev2z\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "6da56754e46add65488666e319beef0ef84b598979ae4bba6b7640630fc0d743",
+          "md5_hash": "8a6a817e013ee633db478a7fca232c03",
+          "sha1_hash": "6869c5110dc1bfcf83a0ce5a9375ac11b8a73ce5",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f4307b70-5690-44ad-a619-051efc942dcc\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T09:37:39Z",
+  "last_seen": null
+}

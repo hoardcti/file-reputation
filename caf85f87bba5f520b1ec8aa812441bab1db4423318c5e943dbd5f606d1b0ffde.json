@@ -1,0 +1,170 @@
+{
+  "hashes": {
+    "sha256": "caf85f87bba5f520b1ec8aa812441bab1db4423318c5e943dbd5f606d1b0ffde",
+    "sha1": "d509b054cdf79cde2af523d83dbb95f3e94484d2",
+    "md5": "fc7c4b60f99685dd21217c43940d4405",
+    "sha3_384": "adcaa9ba22584c0f918695d28ba6fdf0e480f6460ccc998295e11811706e9977ad7e0281bc95bfced5e924b89e54acf6",
+    "tlsh": "T1CB256B1572A342D5E132553AD1CEFA17B5F27C19AAE0DF2B1A408FC22AD3260376B357",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:FQ6bgMlS+MQHA2qkOfWBgD6buQeDZhgnMXqsXMWAYlGEEE3ojGZ+euzyNg1HjJQd:O6bgMlS+MQHA2qkOfWBgD6buQeDZhgnk"
+  },
+  "file_metadata": {
+    "names": [
+      "caf85f87bba5f520b1ec8aa812441bab1db4423318c5e943dbd5f606d1b0ffde.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 966656,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "go-crypter-payload",
+      "stealer",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531020",
+        "date_added": "2026-11-22 09:42:19",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Decrypted inner payload (966,656 B, AMD64 PE, file layout, not a memory dump) of a Go crypter loader (imphash 4f2f006e cluster). Loader sha256: 74d0d2017569799772741c8252f7a96cc9f24e75be52cb761726696c56b0e343, 7c2c2e9b864f38e2b915cb87250f51b2a88b95b3a8737fd9588107da125e9b7e, 92cde019c950917e7bbe175e6a4128d31f53e2fb8af600734f383b6982faa2f4 (+1 more). Loader label(s) on MalwareBazaar: Vidar. YARA Forge: no hits (lead, not attribution). Extracted statically by emulating the loader's blob-builder function (no OS layer, no network); tool: https://github.com/harperjohnsai/detections/tree/main/tools/cryptotrice-go-loader - More research: youtube.com/@HarperJohnsAI - Harper Johns"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-22 09:43:54",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/f083f993-1dc4-4c8b-b7ec-7c10ad1b2b87",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/caf85f87bba5f520b1ec8aa812441bab1db4423318c5e943dbd5f606d1b0ffde\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02b911a764c3e12a5d107b\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Vidar",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/9e79cfb5-b309-48da-af98-8698f28307e6?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Vidar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 09:42:25",
+        "scanner_count": "37",
+        "scanner_match": "22",
+        "scanner_percent": "59.46"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261122-lphezsgv8j\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "caf85f87bba5f520b1ec8aa812441bab1db4423318c5e943dbd5f606d1b0ffde",
+          "md5_hash": "fc7c4b60f99685dd21217c43940d4405",
+          "sha1_hash": "d509b054cdf79cde2af523d83dbb95f3e94484d2",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/c8125abd-cea7-48c8-b682-43c01e6cab3d\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/caf85f87bba5\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T09:42:12Z",
+  "last_seen": null
+}

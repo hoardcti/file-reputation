@@ -1,0 +1,193 @@
+{
+  "hashes": {
+    "sha256": "6276b87c1afed5cdd81b055019ba451603cda15b7a6bd36c6e93b8c7924a4da8",
+    "sha1": "b6223ddf742cccbf93eb689f55b867e79b3ead1f",
+    "md5": "38fad2ef91b7b92508b64fcdb5bdaa29",
+    "sha3_384": "6d8b0903d8ff6fd3be85230fb46eb45efd7e4ab09229d1c63646abebdebeee2d6b06760af99118c51c2441997ed7a1f5",
+    "tlsh": "T10F156B14776791C5E036593AE1CEAA17F1A2BC196AF5CF7B0A408FC62ED3260275B313",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:39cUD03Y/mNbDTeN8r5ufZmS5OmK/Bnv7zhkC7LvPUnrJdqWDzFTbpFMGSM:3K/88r5cc0iBnjd5UnrJdq6bpFMGf"
+  },
+  "file_metadata": {
+    "names": [
+      "6276b87c1afed5cdd81b055019ba451603cda15b7a6bd36c6e93b8c7924a4da8.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 937984,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "go-crypter-payload",
+      "stealer",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_URL_In_EXE",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects an XORed URL in an executable",
+        "reference": "https://twitter.com/stvemillertime/status/1237035794973560834"
+      },
+      {
+        "rule_name": "SUSP_XORed_URL_in_EXE_RID2E46",
+        "author": "Florian Roth",
+        "description": "Detects an XORed URL in an executable",
+        "reference": "https://twitter.com/stvemillertime/status/1237035794973560834"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531004",
+        "date_added": "2026-11-22 09:37:07",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Decrypted inner payload (937,984 B, AMD64 PE, file layout, not a memory dump) of a Go crypter loader (imphash 4f2f006e cluster). Loader sha256: 2b51009b5712d49af298d35b4fc22a014bb04575d7474f3b44fc6753720f39da. Loader label(s) on MalwareBazaar: Vidar. YARA Forge: no hits (lead, not attribution). Extracted statically by emulating the loader's blob-builder function (no OS layer, no network); tool: https://github.com/harperjohnsai/detections/tree/main/tools/cryptotrice-go-loader - More research: youtube.com/@HarperJohnsAI - Harper Johns"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "exe",
+          "date": "2026-11-22 10:13:55",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8c9bca52-202d-4f29-bbeb-3f1f76214266",
+          "tags": [
+            "xor-url",
+            "generic"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6276b87c1afed5cdd81b055019ba451603cda15b7a6bd36c6e93b8c7924a4da8\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02b7cb34b32b5f847fbfdc\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/be893eac-fa1f-4a9d-94ff-82bdd7825498?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Vidar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 09:37:17",
+        "scanner_count": "37",
+        "scanner_match": "22",
+        "scanner_percent": "59.46"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261122-lllcgagv6r\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "6276b87c1afed5cdd81b055019ba451603cda15b7a6bd36c6e93b8c7924a4da8",
+          "md5_hash": "38fad2ef91b7b92508b64fcdb5bdaa29",
+          "sha1_hash": "b6223ddf742cccbf93eb689f55b867e79b3ead1f",
+          "detections": [
+            "SUSP_XORed_URL_In_EXE"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/056b3c5b-ddaf-497b-bb75-5b56c25f1735\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/6276b87c1afe\/report\/overview.html"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T09:37:01Z",
+  "last_seen": null
+}

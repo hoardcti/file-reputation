@@ -1,0 +1,164 @@
+{
+  "hashes": {
+    "sha256": "6c705d296e0fe83d0435a5d5c22152c2efeebc1c49c8a35846118834958fb229",
+    "sha1": "20bb580394a003b8e1e1860ca99ea90bbc77172b",
+    "md5": "2ff4048ff0df1cf21418a89210644341",
+    "sha3_384": "70fa22d9713c16976baee4f0ff3db7525dd0e1df5a002bc4826456c64af6ee226ad1234f27a3471567604317456b57b5",
+    "tlsh": "T1A9948CAEE78410F8D97BE178C947560BF2F274584530AB1F07B64AA21F73266E93E305",
+    "imphash": "21205d807c30db2c0bb36fc173e49661",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:Wu8lNzwkhnb/RcuZcwSvIMt05EEBCIICIn1RQ0SlpS:Yl9w2VY65EoICInXQ0Su"
+  },
+  "file_metadata": {
+    "names": [
+      "6c705d296e0fe83d0435a5d5c22152c2efeebc1c49c8a35846118834958fb229.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 438800,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "REF2859",
+      "REVSTEALER",
+      "SetupCenter",
+      "stealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "REVSTEALER_x64_Core_SetupCenter",
+        "author": "Harper Johns",
+        "description": "REVSTEALER x64 core: tag%3 string-descriptor dispatcher, EOF-watermark token prompt, masked ChaCha20 constants, host:port parser",
+        "reference": "https://www.elastic.co/security-labs/threat-command/revstealer-credential-harvesting-infostealer"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "530983",
+        "date_added": "2026-11-22 08:16:46",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "REVSTEALER core (original PE, 438,800 B, 16-byte EOF watermark present), matched by YARA REVSTEALER_x64_Core_SetupCenter. Static config extraction: C2 ping8.southbazaar[.]work:443, Polygon contract and Telegraph page named in the config both decrypt to the same C2 (read 2026-11-22). Domain registered 2026-11-16 (Dynadot, Cloudflare name servers). Static analysis only, C2 never contacted. IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-revstealer-setup-center - More research: youtube.com/@HarperJohnsAI - Harper Johns"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-22 08:23:23",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/92b7421f-c6a3-430d-91db-2938e691edfb",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6c705d296e0fe83d0435a5d5c22152c2efeebc1c49c8a35846118834958fb229\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02a505353f514cbce35b11\/reports\/6813e594-cec1-40fb-a393-a2458c3dedf4\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/b6bda6f2-449e-427b-9b2a-58470cfc4561?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/6c705d296e0fe83d0435a5d5c22152c2efeebc1c49c8a35846118834958fb229\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Ravartar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-18 00:13:46",
+        "scanner_count": "37",
+        "scanner_match": "30",
+        "scanner_percent": "81.08"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261122-j6rnwadw4s\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "6c705d296e0fe83d0435a5d5c22152c2efeebc1c49c8a35846118834958fb229",
+          "md5_hash": "2ff4048ff0df1cf21418a89210644341",
+          "sha1_hash": "20bb580394a003b8e1e1860ca99ea90bbc77172b",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/78ca68f8-a653-45f8-874b-bb119b28cd7a\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T08:16:40Z",
+  "last_seen": "2026-11-22T09:21:47Z"
+}

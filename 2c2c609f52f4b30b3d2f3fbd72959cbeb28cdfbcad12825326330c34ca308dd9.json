@@ -1,0 +1,165 @@
+{
+  "hashes": {
+    "sha256": "2c2c609f52f4b30b3d2f3fbd72959cbeb28cdfbcad12825326330c34ca308dd9",
+    "sha1": "e5b7b2603d6fdc4c49b6a60d3d600772968ae1f6",
+    "md5": "cbd41f8312523a327639628f0727d694",
+    "sha3_384": "a13844ada8b053a14a55e2ab53292cb0b1d94f446f8a1b8b80c2ee1d1035c52cac4a0ddbe6cb5a510ad751743b0c6f89",
+    "tlsh": "T117157C14739351D5E036553AD5CEAA17B2B2BC19AAE4CE3B0B80DFC22AD3260375B357",
+    "imphash": "",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:NKQvQ5XI4mOUvqD0EI8r0Zjd5WYYrNtfeG:NvJ7TjuBt2"
+  },
+  "file_metadata": {
+    "names": [
+      "2c2c609f52f4b30b3d2f3fbd72959cbeb28cdfbcad12825326330c34ca308dd9.bin"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 940544,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe",
+      "go-crypter-payload",
+      "stealer",
+      "x64"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531000",
+        "date_added": "2026-11-22 09:36:09",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Decrypted inner payload (940,544 B, AMD64 PE, file layout, not a memory dump) of a Go crypter loader (imphash 4f2f006e cluster). Loader sha256: 090df03cf728dacb6af8bb9cb4c7163afd32aadf83778cae71b96047e9c1aff8. Loader label(s) on MalwareBazaar: Vidar. YARA Forge: no hits (lead, not attribution). Extracted statically by emulating the loader's blob-builder function (no OS layer, no network); tool: https://github.com/harperjohnsai/detections/tree/main/tools/cryptotrice-go-loader - More research: youtube.com/@HarperJohnsAI - Harper Johns"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-22 10:08:55",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/74136616-c516-4887-ae51-7f2d2acacbc7",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2c2c609f52f4b30b3d2f3fbd72959cbeb28cdfbcad12825326330c34ca308dd9\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02b790d676cd1f74bab9ba\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/bdbd82d2-77b0-4776-82ea-8fda78cb5249?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Vidar",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 09:36:30",
+        "scanner_count": "37",
+        "scanner_match": "23",
+        "scanner_percent": "62.16"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261122-lk2casss5p\/",
+        "tags": [
+          "discovery"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "2c2c609f52f4b30b3d2f3fbd72959cbeb28cdfbcad12825326330c34ca308dd9",
+          "md5_hash": "cbd41f8312523a327639628f0727d694",
+          "sha1_hash": "e5b7b2603d6fdc4c49b6a60d3d600772968ae1f6",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/3c06c7d5-2d79-4fce-859b-452555c18866\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T09:36:02Z",
+  "last_seen": null
+}
