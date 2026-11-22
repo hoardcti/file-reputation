@@ -1,0 +1,293 @@
+{
+  "hashes": {
+    "sha256": "531d5b10ea7d2763bd8f20e69bc046a048620e55112bfb6791233a768d0d3b87",
+    "sha1": "4c1cc59f1d4181166d17ed5c92e941c79ea1541a",
+    "md5": "09f4610259cd4a73c2529d3d5192fc5a",
+    "sha3_384": "9cae9c3118fc3ba5ae2fc71bd121eafcfab2f6763e35ca6cda5c6392fc2385368363ff4e619691607f71b17dda647e4f",
+    "tlsh": "T14536AE0846C23A6355B56E6C21593A99C07F1FB6F6728B098FB6D553F12EF024EE0F90",
+    "imphash": "a9c887a4f18a3fede2cc29ceea138ed3",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:ZNjA4vNirXbKTaIVdx55onv16bfiahb7NAEN8n/9i70LhzwWLdI1:NvEAjXP5o6e47GEc/zq"
+  },
+  "file_metadata": {
+    "names": [
+      "09f4610259cd4a73c2529d3d5192fc5a.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 4967936,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.4% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "13.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "13.2% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "10.2% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "9.1% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-22 16:46:45",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/df4ce10a-df9e-4ba6-8bff-a033b51b9098",
+          "tags": [
+            "evasion",
+            "rust",
+            "loader"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/531d5b10ea7d2763bd8f20e69bc046a048620e55112bfb6791233a768d0d3b87\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b031baf896ceed4e2c75199\/reports\/c91557a5-6bfb-469f-9849-db70b9fa1f81\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Generic Malware",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/a890cd05-54a3-4acc-9f7c-6b94ecec91de?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/531d5b10ea7d2763bd8f20e69bc046a048620e55112bfb6791233a768d0d3b87\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Dropper.Dapato",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-20 08:25:55",
+        "scanner_count": "37",
+        "scanner_match": "30",
+        "scanner_percent": "81.08"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261122-t53pvswv2l\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies WinLogon for persistence",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "6"
+          },
+          {
+            "signature": "Network Share Discovery",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "531d5b10ea7d2763bd8f20e69bc046a048620e55112bfb6791233a768d0d3b87",
+          "md5_hash": "09f4610259cd4a73c2529d3d5192fc5a",
+          "sha1_hash": "4c1cc59f1d4181166d17ed5c92e941c79ea1541a",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/98e66885-aedc-4fa7-866b-67128c502af4\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/531d5b10ea7d\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun"
+          },
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T16:38:29Z",
+  "last_seen": "2026-11-22T17:30:28Z"
+}

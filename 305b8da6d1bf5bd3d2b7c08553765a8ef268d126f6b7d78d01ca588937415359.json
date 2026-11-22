@@ -1,0 +1,119 @@
+{
+  "hashes": {
+    "sha256": "305b8da6d1bf5bd3d2b7c08553765a8ef268d126f6b7d78d01ca588937415359",
+    "sha1": "8c1895798d7a410989ad21cd1606411c773a6b08",
+    "md5": "714034b6639f7f0f3af1a5c6e172d430",
+    "sha3_384": "3f0644d519ae85ceebc60d04814c2aae607117f6b8ff11342143788db53ce22c8b5cd76875de85f366fae5297799f699",
+    "tlsh": "T16C9533F80D0EF766F712295BB984F47B6818635C69BCEC8180111F25F0AF7A735A84AD",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:EEYXX6lPMop1nwzJE/Al/KFKQXn9u/yCqnd:EfoMzyYOKoo/9qd"
+  },
+  "file_metadata": {
+    "names": [
+      "a2.zip"
+    ],
+    "mime_type": "application/zip",
+    "type": "zip",
+    "size": 1881645,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "zip",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-fluxengine"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "a3x",
+      "AutoIt",
+      "banker",
+      "ES",
+      "FluxEngine",
+      "PT",
+      "zip"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "AutoIT_Script",
+        "author": "@bartblaze",
+        "description": "Identifies AutoIT script.  This rule by itself does NOT necessarily mean the detected file is malicious.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531049",
+        "date_added": "2026-11-22 11:36:06",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "FluxEngine stage 4 archive: ZIP served at hxxps://doc.pdf-unico[.]lat/d/mo1t6do6?f=a3x\u0026t=\u003ctoken\u003e\u0026h=\u003cinstallname\u003e (fetched 2026-11-22 via an ES egress; built per request, so this hash is likely per victim). Holds hswxhmql = compiled AutoIt script AU3!EA06 (sha256 4fc99727bbb91087a474126049ced32b69d252c5ed93e2b1fa40d8c13d10257e), run by the genuine signed AutoIt3.exe renamed \u003cn\u003e.exe from C:\\\u003cn\u003e\\. Decompiled, it carries the FluxEngine loader dhlib.dll (c3dc0485) as hex, maps it with its own in-memory PE loader and calls InitModule(C:\\\u003cn\u003e\\). Chain (static analysis): DOC-*.vbs (e6832534) -\u003e recon scriptlet -\u003e installer scriptlet -\u003e AutoIt3 + this script -\u003e dhlib.dll -\u003e AES container from remoto.painelst[.]com -\u003e hollowed attrib.exe -\u003e FluxEngine client (c2225d92).\nRules, IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-fluxengine\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/305b8da6d1bf5bd3d2b7c08553765a8ef268d126f6b7d78d01ca588937415359\/"
+      },
+      "DocGuard": {
+        "verdict": "Unknown",
+        "filetype": "ZIP File",
+        "alertlevel": "0",
+        "urls": []
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d3fdea14ad8a786d7d7d\/reports\/1a5d707a-95a3-4775-9a96-4292c4ddde2b\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-22 11:36:27",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/261122-nzpm6agz7m\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:36:01Z",
+  "last_seen": null
+}

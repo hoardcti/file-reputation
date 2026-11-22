@@ -1,0 +1,186 @@
+{
+  "hashes": {
+    "sha256": "216f8ae18eca087ef83446686514577e03c68bb8a3ce1381661d3d34821b6aaf",
+    "sha1": "cbfce9aedb2c132ac49379834f59cbc0d50eb36b",
+    "md5": "3b61a16fce9eff5f4b20a384aceef89b",
+    "sha3_384": "2a124f47df72ab0686fb7380107c6d942cb594dcd66b495a955caa060149820a9c863e8ce55f7b14033b51196f5e10eb",
+    "tlsh": "T102A5372E48149278E395D8EC895F7A9070F837BC4CF285A9111B4AF11B963E19FD3B36",
+    "imphash": "2eddb0dd356374d338cc10ce8c8b6680",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:i+KTgDgeJV6LKQ2CkzlAkdKSIWUYXU/V5ambPKDHVlz:DKTgDJmcpG5Oz"
+  },
+  "file_metadata": {
+    "names": [
+      "key.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2253312,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Abyssos",
+    "tags": [
+      "abyssos",
+      "AbyssosRat",
+      "exe",
+      "RAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "malware_shellcode_hash",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "detect shellcode api hash value",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-22 17:25:50",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/1626375a-2b3c-451f-8550-8afc6b2723c2",
+          "tags": [
+            "abyssos",
+            "rat",
+            "auto-reg"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/216f8ae18eca087ef83446686514577e03c68bb8a3ce1381661d3d34821b6aaf\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b031feb05b82619829c3428\/reports\/8fe258d2-9142-4d4d-88b3-96f55c9e7a5c\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2e784449-d5fc-470d-a99b-82dab110d030?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261122-vhgdsabw4w\/",
+        "tags": [
+          "discovery",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "216f8ae18eca087ef83446686514577e03c68bb8a3ce1381661d3d34821b6aaf",
+          "md5_hash": "3b61a16fce9eff5f4b20a384aceef89b",
+          "sha1_hash": "cbfce9aedb2c132ac49379834f59cbc0d50eb36b",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f5b1500a-8cbd-43c1-ae73-b4e6f87eb28f\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "94",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T16:58:57Z",
+  "last_seen": null
+}

@@ -38,6 +38,13 @@
         "twitter_handle": "9823f_",
         "display_name": null,
         "comment": "Verdict: MALICIOUS (risk 90/100)\n  +60 1 command(s) the document runs were recovered (first: regsvr32 /s /n /u /i:\"%TEMP%\\t481799.sct\" scrobj.dll)\n  +15 1 file(s) written by the macro or embedded in the document\n  +10 macros present (0 auto-run entry point(s))\n  +5 1 network indicator(s)\nMaldocTrace 0.6.0 (schema 1.7.0)\nFile: e683253477ca1b9b22c285cbc854a50284256b4d246b151e63dc171830bf7192.vbs (3653 bytes)\nSHA-256: e683253477ca1b9b22c285cbc854a50284256b4d246b151e63dc171830bf7192\nFormat: vba\nStatus: complete | Macros: present\nOperational: completed | Semantic coverage: supported_subset\n\n-- Recovered commands --\n  [command-1] command\n      Command: regsvr32 /s /n /u /i:\"%TEMP%\\t481799.sct\" scrobj.dll\n      Receiver: WScript.Shell.Run\n      Source: Module1.hhphyc:103 (inherited=true)\n      Discovery: emulated_call\n      Execution: simulated\n      Resolution: resolved\n\n-- Entry points --\n\n-- Modules --\n  Module1  (procedural, 3653 chars)\n\n-- Simulated operations --\n  #1 create_object [Module1.hhphyc:66] Msxml2.ServerXMLHTTP\n  #2 http_open [Module1.hhphyc:74] GET https://doc.pdf-unico.lat/d/abpod6?r=330767F45595\n  #3 http_request [Module1.hhphyc:77] GET https://doc.pdf-unico.lat/d/abpod6?r=330767F45595\n  #4 create_object [Module1.hhphyc:84] WScript.Shell\n  #5 expand_environment [Module1.hhphyc:85] %TEMP%\n  #6 create_object [Module1.hhphyc:89] ADODB.Stream\n  #7 file_write [Module1.hhphyc:94] %TEMP%\\t481799.sct\n  #8 wscript_shell_run [Module1.hhphyc:103] → command-1\n\n-- Reconstructed and embedded files --\n  %TEMP%\\t481799.sct sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (0 bytes)\n"
+      },
+      {
+        "id": "531047",
+        "date_added": "2026-11-22 11:34:55",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Family correction: this VBS is the first stage of FluxEngine (Brazilian Delphi remote-access banker), not Mispadu. Static analysis: Msxml2.ServerXMLHTTP GET hxxps://doc.pdf-unico[.]lat/d/abpod6?r=330767F45595 with UA 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)', saves %TEMP%\\t481799.sct and runs regsvr32 /s /n /u /i:\u003csct\u003e scrobj.dll. Chain: recon scriptlet (2ec8894d) -\u003e installer scriptlet (f32d6dc8; HKCU\\Software\\FluxEngine\\Desktop, C:\\\u003c8 letters\u003e\\ with signed AutoIt3 renamed + compiled script 4fc99727) -\u003e in-memory dhlib.dll (c3dc0485, InitModule) -\u003e AES container from the operator panel remoto.painelst[.]com -\u003e hollowed attrib.exe -\u003e FluxEngine client (c2225d92, build 1.0.3.113). The C2 address comes from a DNS TXT record read through the Cloudflare API with an embedded token. Stage host doc.pdf-unico[.]lat answered only Spain/Portugal on 2026-11-22. The Mispadu (URSA) YARA rules hit none of the chain files; the loader shares AES key and API token with known FluxEngine builds.\nYARA: MAL_FluxEngine_VBS_Downloader and siblings. Rules, IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-fluxengine\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
       }
     ],
     "vendor_intel": {
@@ -50,6 +57,15 @@
         "threatlevel": "1.0",
         "confidence": "1.0",
         "report_link": "https:\/\/www.filescan.io\/uploads\/6b01bf99d88618d0bfcd7083\/reports\/b08d1f40-5d76-4fb1-9ce8-f14bf48dd7e7\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "vbs",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/e683253477ca1b9b22c285cbc854a50284256b4d246b151e63dc171830bf7192\/results?tab=lookup",
+        "detections": []
       },
       "ReversingLabs": {
         "threat_name": "Win32.Dropper.Generic",

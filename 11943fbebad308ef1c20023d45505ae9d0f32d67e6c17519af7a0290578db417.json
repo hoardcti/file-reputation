@@ -1,0 +1,220 @@
+{
+  "hashes": {
+    "sha256": "11943fbebad308ef1c20023d45505ae9d0f32d67e6c17519af7a0290578db417",
+    "sha1": "d16c6bbeb41bb6ca50c979fb2dc33eb582d4bd78",
+    "md5": "4110479f30bc86335a66ae6449cb64c5",
+    "sha3_384": "05dc08f7d5db1d43890a9b119fd71eea166ccc6f57b06461c573f6fa7959b8df9bfa8173a6f2fc8653f2ebde1d926f7b",
+    "tlsh": "T1127423F40DB6832E93A769352636DCB3D37EB275FC78D9C644CA889812C71C637542A2",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:kRAuBb3lhRr8LmYfMUJ16GnFzeLcLPF6K7I3YvLTDozMUkdimhaiWTE4iO0EUt:huJlhRILmYdJH6MLTtUkzgiWTsO0bt"
+  },
+  "file_metadata": {
+    "names": [
+      "zerobot.arm7"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 368976,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4074021\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "bf9ac1266c733a14f5f906825cce21eedd669285f0bb770979343a7d7662900e"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "a19f0472db939f295852510dbe72f0e8"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/11943fbebad308ef1c20023d45505ae9d0f32d67e6c17519af7a0290578db417\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d3faea14ad8a786d7d6a\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2fdb2a5f-b6c0-4fa2-b84f-d3d19497202c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 11:35:25",
+        "scanner_count": "37",
+        "scanner_match": "13",
+        "scanner_percent": "35.14"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261122-nplhras13j\/",
+        "tags": [
+          "family:mirai",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Mirai ARM payload",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (45938) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: Unix Shell",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:34:15Z",
+  "last_seen": "2026-11-22T12:48:28Z"
+}

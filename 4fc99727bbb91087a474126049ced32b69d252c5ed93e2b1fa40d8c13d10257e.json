@@ -1,0 +1,105 @@
+{
+  "hashes": {
+    "sha256": "4fc99727bbb91087a474126049ced32b69d252c5ed93e2b1fa40d8c13d10257e",
+    "sha1": "6fb3f4e84fc4907707e80eeed27c766c410aa467",
+    "md5": "0230434cef5c8ab9a29303ca48642fa2",
+    "sha3_384": "99c6b33f3b875eea38e257d27b09e534c00af79250478cc5911b502060915d39ccd7a21df81d8e81e29923c80f3be429",
+    "tlsh": "T13F9533F80D0EF766B712295BB984F47B6818635C29FCAC8180111F25F0AF7A735E84AD",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:e4YZb4lHecpDnAJJu/ol/+zK2DntyBcCqvz:ebkyJoA6KoQBHq7"
+  },
+  "file_metadata": {
+    "names": [
+      "hswxhmql.a3x"
+    ],
+    "mime_type": "application/octet-stream",
+    "type": "a3x",
+    "size": 1881241,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "unknown",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-fluxengine"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "a3x",
+      "AutoIt",
+      "banker",
+      "dhlib",
+      "ES",
+      "FluxEngine",
+      "PT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "AutoIT_Script",
+        "author": "@bartblaze",
+        "description": "Identifies AutoIT script.  This rule by itself does NOT necessarily mean the detected file is malicious.",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531044",
+        "date_added": "2026-11-22 11:34:04",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "FluxEngine stage 4: compiled AutoIt script (AU3!EA06, dropped without extension as C:\\\u003cn\u003e\\\u003cn\u003e), run by the genuine signed AutoIt3.exe renamed \u003cn\u003e.exe. Decompiled: carries dhlib.dll (c3dc0485) as hex, maps it with its own in-memory PE loader and calls InitModule(C:\\\u003cn\u003e\\); status beacons au3_inicio/au3_dll_ok.\n\nChain (static analysis): DOC-*.vbs -\u003e regsvr32 /i:%TEMP%\\t\u003cdigits\u003e.sct scrobj.dll (recon scriptlet) -\u003e installer scriptlet -\u003e C:\\\u003c8 letters\u003e\\ with signed AutoIt3 (renamed) + compiled script -\u003e in-memory dhlib.dll (InitModule) -\u003e AES container from the operator panel -\u003e hollowed attrib.exe -\u003e FluxEngine client. C2 address is read from a DNS TXT record through the Cloudflare API with an embedded token.\nRules, IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-fluxengine\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/4fc99727bbb91087a474126049ced32b69d252c5ed93e2b1fa40d8c13d10257e\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d7f8c5638ed202e79f22\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-22 11:36:17",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:34:00Z",
+  "last_seen": null
+}

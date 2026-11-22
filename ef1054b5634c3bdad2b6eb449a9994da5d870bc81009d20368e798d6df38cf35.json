@@ -1,0 +1,240 @@
+{
+  "hashes": {
+    "sha256": "ef1054b5634c3bdad2b6eb449a9994da5d870bc81009d20368e798d6df38cf35",
+    "sha1": "6294336ef37a6f36ca0aed4e188be3dbc68536b4",
+    "md5": "69834021e24bd676303c3619b5345792",
+    "sha3_384": "273c2267636ced640f2edd8a543f8b4c8eaa7959597e7ae0b19c4a901fb8091fc927f3d1b371ac73ed445bdd73b876b4",
+    "tlsh": "T1C483D002DB9906F2F4FB267018FBA33B46713D734CB1E049C7A89658AE326D0591AF13",
+    "imphash": "59afdb8fa344cf92f2ab4dacd39a8659",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:1CpXFyw8qFPZtKenxxn0g8rZ9MWFSOBoHVUhPsZPKCo:1CpXFyDqFBtKYxN039lFoHyF"
+  },
+  "file_metadata": {
+    "names": [
+      "69834021e24bd676303c3619b5345792.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 80896,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "34.9% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "13.9% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "13.7% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "10.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "9.5% (.EXE) Win32 Executable (generic) (4504\/4\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AsyncRAT",
+    "tags": [
+      "AsyncRAT",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "asyncrat",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-22 16:49:45",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/b861dd2b-283b-4ef2-8992-dc33e453d792",
+          "tags": [
+            "asyncrat",
+            "rat",
+            "amsi-bypass"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": "asyncrat",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/ef1054b5634c3bdad2b6eb449a9994da5d870bc81009d20368e798d6df38cf35\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b031d147f569ee0556866fc\/reports\/826b300e-9938-4dde-98e5-91b653cd227c\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f5f295e2-2a0e-42fd-8458-e8b8a542570e?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/ef1054b5634c3bdad2b6eb449a9994da5d870bc81009d20368e798d6df38cf35\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Backdoor.AsyncRAT",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-18 07:02:00",
+        "scanner_count": "37",
+        "scanner_match": "26",
+        "scanner_percent": "70.27"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "asyncrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261122-vbrwyabv5w\/",
+        "tags": [
+          "family:asyncrat",
+          "botnet:default",
+          "discovery",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Async RAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: AsyncRat",
+            "score": "10"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "asyncrat",
+            "c2": "0vowksmplo.localto.net:1797"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "ef1054b5634c3bdad2b6eb449a9994da5d870bc81009d20368e798d6df38cf35",
+          "md5_hash": "69834021e24bd676303c3619b5345792",
+          "sha1_hash": "6294336ef37a6f36ca0aed4e188be3dbc68536b4",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/b9db19a3-f238-49d4-8b74-36964f4c00e3\/"
+        },
+        {
+          "sha256_hash": "af94546a52738f665c4a42f1fb87b01bac87f04acf3aec0e5ac38a4ddd9a07f4",
+          "md5_hash": "d919b43b21bf07fa27be24ee68c88cc1",
+          "sha1_hash": "e30dc775ce0b48acb17ef91f9cecf9debb0f9fd0",
+          "detections": [
+            "AsyncRAT",
+            "win_asyncrat_w0",
+            "asyncrat",
+            "INDICATOR_SUSPICIOUS_EXE_ASEP_REG_Reverse",
+            "win_asyncrat_bytecodes"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/b9db19a3-f238-49d4-8b74-36964f4c00e3\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "AsyncRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/ef1054b5634c\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T16:48:39Z",
+  "last_seen": "2026-11-22T17:30:09Z"
+}

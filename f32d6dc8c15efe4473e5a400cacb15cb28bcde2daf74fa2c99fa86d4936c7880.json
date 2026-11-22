@@ -1,0 +1,99 @@
+{
+  "hashes": {
+    "sha256": "f32d6dc8c15efe4473e5a400cacb15cb28bcde2daf74fa2c99fa86d4936c7880",
+    "sha1": "478f7ebce19dc6bdc936c1233f69f4c73abd52c5",
+    "md5": "fddba692fac85b5e614f22627f36dcc2",
+    "sha3_384": "201344eef66f03d2ca08794f9adce1abeb6d7ebff6ae8706c26d28e04d24878678e5c456b974d00ae24f7416c589097c",
+    "tlsh": "T19DA193001B254E9CBEE01EDA8C4FA11AA8F0DC717D55E19DAAFFC9D2BCB704A0435D1A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:knrkHN7i/I/Q/0E5/7at6c+z00zg7od+Yd2O+3/5+INHtAG:NN7i/I/Q/9/E6c+z00zg7o4jOG/kINHf"
+  },
+  "file_metadata": {
+    "names": [
+      "inewqrh.sct"
+    ],
+    "mime_type": "text/xml",
+    "type": "sct",
+    "size": 4852,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xml",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-fluxengine"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AutoIt",
+      "banker",
+      "ES",
+      "FluxEngine",
+      "PT",
+      "scriptlet",
+      "sct"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531043",
+        "date_added": "2026-11-22 11:33:50",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "FluxEngine stage 3: installer scriptlet served at hxxps://doc.pdf-unico[.]lat/d/inewqrh (fetched 2026-11-22). Runs rundll32 InetCpl.cpl,ClearMyTracksByProcess 8, writes HKCU\\Software\\FluxEngine\\Desktop (src, taskm), derives an 8-letter install name from COMPUTERNAME+USERNAME, unzips signed AutoIt3 (renamed \u003cn\u003e.exe), compiled script \u003cn\u003e (4fc99727) and \u003cn\u003e.ico into C:\\\u003cn\u003e\\, starts C:\\\u003cn\u003e\\\u003cn\u003e.exe C:\\\u003cn\u003e\\\u003cn\u003e and sets the folder +h +s.\n\nChain (static analysis): DOC-*.vbs -\u003e regsvr32 /i:%TEMP%\\t\u003cdigits\u003e.sct scrobj.dll (recon scriptlet) -\u003e installer scriptlet -\u003e C:\\\u003c8 letters\u003e\\ with signed AutoIt3 (renamed) + compiled script -\u003e in-memory dhlib.dll (InitModule) -\u003e AES container from the operator panel -\u003e hollowed attrib.exe -\u003e FluxEngine client. C2 address is read from a DNS TXT record through the Cloudflare API with an embedded token.\nRules, IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-fluxengine\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f32d6dc8c15efe4473e5a400cacb15cb28bcde2daf74fa2c99fa86d4936c7880\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d7fa92c238b76def9f87\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Document-XML.Downloader.ShellRunner",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 11:52:26",
+        "scanner_count": "37",
+        "scanner_match": "5",
+        "scanner_percent": "13.51"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:33:46Z",
+  "last_seen": null
+}

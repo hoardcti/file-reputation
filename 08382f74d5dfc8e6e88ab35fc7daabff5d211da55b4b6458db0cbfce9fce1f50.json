@@ -1,0 +1,168 @@
+{
+  "hashes": {
+    "sha256": "08382f74d5dfc8e6e88ab35fc7daabff5d211da55b4b6458db0cbfce9fce1f50",
+    "sha1": "532c74cf733f2db3d58c6967ac82ddb06d34d946",
+    "md5": "a5503546efb7e219878e45e8a72ee82f",
+    "sha3_384": "bdedf88af61f74bbfd07541a826172a19461b71102e74e3679d2d6638a55e83982f869cb2b5534a2d4215df6005c361f",
+    "tlsh": "T110F4236A83459097C0BED622AED1E3D36A3F600FC516FE52E55633824FE63D0DE061B6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:vrLoggDJONi/w5cwlxnKxtaoti2IYFaDzprQSWYOAKnzuHFVk51KDBUNv2hNkyzv:vrLCNO3+wjnaaoLM8SW6KKgsKNvCZ3"
+  },
+  "file_metadata": {
+    "names": [
+      "08382f74d5dfc8e6e88ab35fc7daabff5d211da55b4b6458db0cbfce9fce1f50"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 768576,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Sliver",
+    "tags": [
+      "diicot",
+      "elf",
+      "Sliver",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/08382f74d5dfc8e6e88ab35fc7daabff5d211da55b4b6458db0cbfce9fce1f50\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b031d0ae24cb1171f8b16f5\/reports\/5517bf48-565b-4386-b673-6a96fec387ef\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Sliver",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/7b17ee18-0fc2-4c34-9230-aab97aac3fe1?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261122-t91fasbv3x\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Renames itself",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Removes the immutable protection flag from a file",
+            "score": "6"
+          },
+          {
+            "signature": "Reads CPU attributes",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Portfwd",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T16:45:27Z",
+  "last_seen": null
+}

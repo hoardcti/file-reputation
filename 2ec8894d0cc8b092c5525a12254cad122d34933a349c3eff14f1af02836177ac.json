@@ -1,0 +1,104 @@
+{
+  "hashes": {
+    "sha256": "2ec8894d0cc8b092c5525a12254cad122d34933a349c3eff14f1af02836177ac",
+    "sha1": "041aeea985bcf28336852ca6d41d7db78f30dbc4",
+    "md5": "3a965be846451c5dbfe70ad6a6c3f34d",
+    "sha3_384": "b92e123599fdace078767f60160500e3ced606807be6bf499e77e198afbbf0b745c8235fc9c11a091c57c1397b8747d2",
+    "tlsh": "T12291B74436615A9CB2E401E7881D520D78F9FEA17C86D49CD2ECC4E67EB21070E3975A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:kD2yG8XV0S87dlSLD2j9uUceJho9gd5T/5TKbiMlhz3aKO:iBN87RcesUTxTKbioQ"
+  },
+  "file_metadata": {
+    "names": [
+      "abpod6.sct"
+    ],
+    "mime_type": "text/xml",
+    "type": "sct",
+    "size": 4357,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "xml",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-fluxengine"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "banker",
+      "ES",
+      "FluxEngine",
+      "PT",
+      "scriptlet",
+      "sct"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "531042",
+        "date_added": "2026-11-22 11:33:35",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "FluxEngine stage 2: JScript COM scriptlet served at hxxps://doc.pdf-unico[.]lat/d/abpod6?r=330767F45595 (fetched 2026-11-22, ES/PT geofence) and run by DOC-9CQC87.vbs (e6832534) via regsvr32 /s /n /u /i:\u003csct\u003e scrobj.dll. XOR string table; WMI VM/BIOS/AV checks and an analyst PC-name blocklist; beacon registrar.php?dominio=...; then saves %TEMP%\\\u003c8 base36\u003e.sct (stage 3, f32d6dc8) and runs it with regsvr32.\n\nChain (static analysis): DOC-*.vbs -\u003e regsvr32 /i:%TEMP%\\t\u003cdigits\u003e.sct scrobj.dll (recon scriptlet) -\u003e installer scriptlet -\u003e C:\\\u003c8 letters\u003e\\ with signed AutoIt3 (renamed) + compiled script -\u003e in-memory dhlib.dll (InitModule) -\u003e AES container from the operator panel -\u003e hollowed attrib.exe -\u003e FluxEngine client. C2 address is read from a DNS TXT record through the Cloudflare API with an embedded token.\nRules, IOCs: https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-fluxengine\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2ec8894d0cc8b092c5525a12254cad122d34933a349c3eff14f1af02836177ac\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d7f7de7efebb9a822b33\/reports\/cba6444d-50a9-4fb1-b7d0-e06906c838ad\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-JS.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 11:52:15",
+        "scanner_count": "37",
+        "scanner_match": "5",
+        "scanner_percent": "13.51"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ]
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:33:31Z",
+  "last_seen": null
+}

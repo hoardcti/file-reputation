@@ -1,0 +1,277 @@
+{
+  "hashes": {
+    "sha256": "f2e9b244e9182a037c681eb363c3083d5242267706ab04ff01a1d0e45a3ef9bf",
+    "sha1": "31ff026aada7f533b26b0947e8395533103e9894",
+    "md5": "abd97017af169282a9e6422bca2af4a6",
+    "sha3_384": "c4ae8fb00b921c759e08e533f923630c77bef37a9679c6c0722e2b27812861562e38ff84213da4328dd543faf0d9d816",
+    "tlsh": "T14D038D4AB6048227C5420B315A1FC7C4CF39AC845F9B200136A7F74C2EB7E9676EB9E5",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:KFzK01KI/iv6aDDCe0AcLNjd3fPQeWMbCIt08N/f1:yzL17iv6a/Ce0AcLMob7"
+  },
+  "file_metadata": {
+    "names": [
+      "fergb.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 40960,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "unknown",
+    "trid": [
+      "86.8% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "11.6% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "1.5% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/979863e1-8746-4e33-abd2-06c83b16fa92"
+      },
+      {
+        "context": "dropping_malware",
+        "value": "EtherRAT"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4073998\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "EtherRAT",
+    "tags": [
+      "EtherRAT",
+      "msi",
+      "nodejs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f2e9b244e9182a037c681eb363c3083d5242267706ab04ff01a1d0e45a3ef9bf\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02ca57ee70797c7d7e6fa3\/reports\/bd2b2db1-89cd-4271-948e-8a6bed132797\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-20 21:49:20",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261122-mz79tsgy2r\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Creates a file in the Startup directory",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Queries registry keys for unique system GUIDs",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          },
+          {
+            "signature": "cURL User-Agent",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "81",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching cmd.exe command interpreter"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "DoberGroup",
+    "anonymous": false,
+    "origin_country": "UA",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T10:54:12Z",
+  "last_seen": null
+}

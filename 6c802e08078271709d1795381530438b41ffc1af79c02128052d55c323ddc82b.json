@@ -1,0 +1,201 @@
+{
+  "hashes": {
+    "sha256": "6c802e08078271709d1795381530438b41ffc1af79c02128052d55c323ddc82b",
+    "sha1": "0c8464371e91c68eb51afb3f3452099b518af478",
+    "md5": "fea6032a9b21a5a76f05cfdf4839625e",
+    "sha3_384": "fec3762a70b975bc6cbaad50e77de19050422b90095867d8e6900a0dd48c7b7875623095d47159c9c9a10ea8e0701dd8",
+    "tlsh": "T1A75423E0D9E0C57FD4E85D3B361A06FA83D6F1128E170A0A7894CDE89DBB1C7991B271",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:/82Q/xmemwLpttWOCRp9dKFPI9QtkQZbl11Avg8dAT:RogeRpt6p9dKFPIOVlTAv5a"
+  },
+  "file_metadata": {
+    "names": [
+      "zerobot.i686"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 295504,
+    "format": "ELF",
+    "arch": "I386",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4074024\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "a100ff2b9dfc37f3d2dc0f377a907bf8ae5f32126b6b35139f64135a417629bd"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "7fac5de20c3da5e02d9f549c4671c0f5"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "elf",
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "linux_generic_ipv6_catcher",
+        "author": "@_lubiedo",
+        "description": "ELF samples using IPv6 addresses",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_ELF_LNX_UPX_Compressed_File",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a suspicious ELF binary with UPX compression",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/6c802e08078271709d1795381530438b41ffc1af79c02128052d55c323ddc82b\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b02d406ea14ad8a786d7da8\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/f0ff3433-2e4c-4c8b-9fa6-92de1b689c20?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 11:35:44",
+        "scanner_count": "37",
+        "scanner_match": "14",
+        "scanner_percent": "37.84"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261122-np6tpagz3n\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "linux",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (48174) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T11:34:23Z",
+  "last_seen": "2026-11-22T12:48:22Z"
+}
