@@ -1,0 +1,172 @@
+{
+  "hashes": {
+    "sha256": "86da5dac68bd54a80d0a2e3160e667db4cdf4b2a49a17341e0e66ff4faeb949a",
+    "sha1": "af8c8912c9ad05f0407fbd277d5f09e64c586fb3",
+    "md5": "0d9ae642170248fe40bf7ee59f220c31",
+    "sha3_384": "98df8a7037e3766b6ee9345045d42e52013d0ac93bfd2b8e8c18f5b15752eafd1e033a7ed7ff15f866cf94f83dfb0268",
+    "tlsh": "T161D2D0AEE5B445C9FD8D5C3E808C3FA10E19E581231BDB9267218C4D5B36C57F1AE4B8",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "384:n8pVWtmRsLYEpB6V8S628FuRUuNJG9whQ3Cfbo6w+K95orjyqbRWGVCz0NvX:8MYHb62x4ahQ3CfdwLjN0Wa"
+  },
+  "file_metadata": {
+    "names": [
+      "sora.mpsl"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 29944,
+    "format": "ELF",
+    "arch": "MIPS",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "c8eb80953b00c3ae023b8985e7356260e2b49b61c257fe118c7b17485c28ea3e"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "4b303784614c9169794edd3bd0c75687"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/86da5dac68bd54a80d0a2e3160e667db4cdf4b2a49a17341e0e66ff4faeb949a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0378ea12476871dddf6878\/reports\/852d40bf-d899-4293-bcec-85dc7fc4f3f5\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/44a5055e-f909-4456-ae34-d58bb147ff4c?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Worm.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 23:21:23",
+        "scanner_count": "37",
+        "scanner_match": "21",
+        "scanner_percent": "56.76"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mirai",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261122-3b3mfa1v4q\/",
+        "tags": [
+          "family:mirai",
+          "botnet:sora",
+          "botnet",
+          "defense_evasion",
+          "discovery",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Mirai",
+            "score": "10"
+          },
+          {
+            "signature": "Contacts a large (48491) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates active TCP sockets",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "mirai",
+            "c2": "181.215.115.169"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adliwahid",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T23:20:15Z",
+  "last_seen": null
+}

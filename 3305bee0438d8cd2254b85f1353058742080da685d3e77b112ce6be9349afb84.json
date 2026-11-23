@@ -26,9 +26,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "LxBaseRAT",
     "tags": [
-      "bat"
+      "bat",
+      "LxBaseRAT"
     ],
     "yara_rules": [
       {
@@ -36,6 +37,12 @@
         "author": "DiegoAnalytics",
         "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
         "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
       },
       {
         "rule_name": "DebuggerCheck__QueryInfo",
@@ -65,6 +72,12 @@
         "rule_name": "NET",
         "author": "malware-lu",
         "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_no_import_table",
+        "author": null,
+        "description": "Detect pe file that no import table",
         "reference": null
       },
       {
@@ -117,6 +130,21 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-11-22 18:11:22",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/6cedd996-649b-4fc2-8572-89048c58ef26",
+          "tags": [
+            "susp-powershell",
+            "ip-check",
+            "rmrlx",
+            "rat"
+          ]
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/3305bee0438d8cd2254b85f1353058742080da685d3e77b112ce6be9349afb84\/"
