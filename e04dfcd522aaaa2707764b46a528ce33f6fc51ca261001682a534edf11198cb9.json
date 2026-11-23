@@ -1,0 +1,161 @@
+{
+  "hashes": {
+    "sha256": "e04dfcd522aaaa2707764b46a528ce33f6fc51ca261001682a534edf11198cb9",
+    "sha1": "4d025a201b5c7dc7abd23c4f8e812f81029877e6",
+    "md5": "ffb1c6abb55b37c15bfc7452d539d15f",
+    "sha3_384": "44c5f850430ae6cfb18afe633c48ede7e7ba3243015ec098214c9b5b27a3c2d0bb2768b76ec81314176e9b5230983b3a",
+    "tlsh": "T111450806FFD89A6ACA46457A5F7D43E0532DDD242F064B073608A3AC7CF27998CB7198",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:YOu8nZ3DOlZEVbEQyBr/YW23zvFwNTbbchDze3GHT:YOr7uNTchDze"
+  },
+  "file_metadata": {
+    "names": [
+      "jew.x86"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 1252800,
+    "format": "ELF",
+    "arch": "I386",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Mirai",
+    "tags": [
+      "Mirai"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "ELF_Mirai",
+        "author": "NDA0E",
+        "description": "Detects multiple Mirai variants",
+        "reference": null
+      },
+      {
+        "rule_name": "enterpriseunix2",
+        "author": "Tim Brown @timb_machine",
+        "description": "Enterprise UNIX",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Linux_Mirai_Variant_Trimmed_OVH",
+        "author": "cyberpascal1101",
+        "description": "Linux ELF Mirai-source-derived bot (debug build, Zig/musl ARM seen): trimmed attack set with a single raw flood named ovh, table XOR key 0x54, author-specific symbols and constant tables",
+        "reference": "https://github.com/cyberpascal1101/linux-malware-research"
+      },
+      {
+        "rule_name": "setsockopt",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for setsockopt() red flags",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "mirai",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/e04dfcd522aaaa2707764b46a528ce33f6fc51ca261001682a534edf11198cb9\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0381d295a2e53ca106a13f\/reports\/b6435e03-9a4d-4e99-acd9-a204b916cdae\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/65333d50-3f0b-4e96-9c03-90579f519cc2?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Linux.Backdoor.Mirai",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-21 13:58:17",
+        "scanner_count": "37",
+        "scanner_match": "8",
+        "scanner_percent": "21.62"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "9",
+        "link": "https:\/\/tria.ge\/reports\/261122-3z9ews1x9j\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "linux"
+        ],
+        "signatures": [
+          {
+            "signature": "Contacts a large (56838) amount of remote hosts",
+            "score": "9"
+          },
+          {
+            "signature": "Creates a large amount of network flows",
+            "score": "9"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Writes file to system bin folder",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "adliwahid",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-22T23:57:18Z",
+  "last_seen": null
+}

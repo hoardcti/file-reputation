@@ -1,0 +1,204 @@
+{
+  "hashes": {
+    "sha256": "31b965833405a4e091f238ee2638e76a65f8e021bca7283abf56ecd5688395c7",
+    "sha1": "7c60745b0845d4f5278ad33d2a0227e34c459b15",
+    "md5": "0d2e441b88247b4a8ebbfd92e82a4cbb",
+    "sha3_384": "ff9b76b211bf0e79df36061a7fc2a8d98085f14fd586382b59489b8ad6d45257107d3ec3a0aa9f7831dce711df130ca1",
+    "tlsh": "T13D25334A6D46A750FB756D75030086ACE1B4F85C6B0AAACCDC8B4BE3DE37406C2DDC96",
+    "imphash": "7fd70adffa7d6a44fa24149314e7e136",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:wyfLR1xcd0h+941qnrEXMQKt0FFxCeCzbNR5Z6X6DB:wy11xcdu+eC0FFA7/ra6DB"
+  },
+  "file_metadata": {
+    "names": [
+      "keyless.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1015296,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "60.0% (.EXE) UPX compressed Win64 Executable (70117\/5\/12)",
+      "23.1% (.EXE) UPX compressed Win32 Executable (27066\/9\/6)",
+      "5.5% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.3% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "1.7% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": [
+      {
+        "context": "dropping_sha256",
+        "value": "8c069871a9921eee1db48dbfca6ecf6e05994b1cc7c2ce1934f40f2b3c429821"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "f344b1fb11a3c6946e2b22c97e5b20c3"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "abyssos",
+      "AbyssosRat",
+      "exe",
+      "RAT",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "UPX",
+        "author": "kevoreilly",
+        "description": "UPX Unpacker: dump on OEP (original entry point)",
+        "reference": null
+      },
+      {
+        "rule_name": "upx_largefile",
+        "author": "k3nr9",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-23 03:04:45",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/5465c199-808e-41b3-ac1e-cb22167e5218",
+          "tags": [
+            "abyssos",
+            "rat",
+            "auto-reg",
+            "upx"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/31b965833405a4e091f238ee2638e76a65f8e021bca7283abf56ecd5688395c7\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b039d376d5f45a33a8e2605\/reports\/2a9c729d-432c-4154-99e2-6ab1855b8a92\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4d6968ed-eb7c-468a-99e3-7a94a8a2f2bb?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Ransomware.RealProtect",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-23 01:56:24",
+        "scanner_count": "37",
+        "scanner_match": "10",
+        "scanner_percent": "27.03"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261123-ccry8asy8n\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "31b965833405a4e091f238ee2638e76a65f8e021bca7283abf56ecd5688395c7",
+          "md5_hash": "0d2e441b88247b4a8ebbfd92e82a4cbb",
+          "sha1_hash": "7c60745b0845d4f5278ad33d2a0227e34c459b15",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/c89535fe-2629-4547-8641-e2ffd5be0f3c\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "75",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "other"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T01:55:41Z",
+  "last_seen": "2026-11-23T02:21:48Z"
+}

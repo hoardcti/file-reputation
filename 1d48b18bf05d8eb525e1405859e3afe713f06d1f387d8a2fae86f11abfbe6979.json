@@ -1,0 +1,176 @@
+{
+  "hashes": {
+    "sha256": "1d48b18bf05d8eb525e1405859e3afe713f06d1f387d8a2fae86f11abfbe6979",
+    "sha1": "584303167975114df9abb267a407b765c37046ed",
+    "md5": "d7d26903a020947cf844ed8b12c53f10",
+    "sha3_384": "9b73c4f3b12e8655622fe8ccb183cca1e0368d89602ba0df88042ea9e5a8ef647d5ef318521a30e89a040a71bfe99007",
+    "tlsh": "T19AA5482D081492B8E789D8EC885F7A9170F8377C4CF285A9510B89F51BA57E18FD3B36",
+    "imphash": "e11605aecc41db7a53464381cffd00f0",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:wwigEI7NFx7kodTUjtKp6LN6JscFHgEARzWidp+y7v3qRqQwqlhZze492PM16HSv:wk9xUjR6GcFHgbzpNqPZze49JVL1"
+  },
+  "file_metadata": {
+    "names": [
+      "keyless.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2101760,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "abyssos",
+      "AbyssosRat",
+      "exe",
+      "RAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "malware_shellcode_hash",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "detect shellcode api hash value",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "https:\/\/acten.topickks.icu\/keyless.exe",
+          "date": "2026-11-23 01:51:06",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/94fe5dbe-61cd-43f2-832e-82e17c664995",
+          "tags": [
+            "loader",
+            "abyssos",
+            "rat"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/1d48b18bf05d8eb525e1405859e3afe713f06d1f387d8a2fae86f11abfbe6979\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b039d364ef7955eec4ee54f\/reports\/c7aedf56-f6ac-46a4-a6b6-bee68ffbe970\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/84c7a658-bbd0-405c-8315-e3e362ba84f0?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Ransomware.Nokonoko",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-23 01:56:16",
+        "scanner_count": "37",
+        "scanner_match": "15",
+        "scanner_percent": "40.54"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261123-ccrnfsht3y\/",
+        "tags": [
+          "discovery",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "1d48b18bf05d8eb525e1405859e3afe713f06d1f387d8a2fae86f11abfbe6979",
+          "md5_hash": "d7d26903a020947cf844ed8b12c53f10",
+          "sha1_hash": "584303167975114df9abb267a407b765c37046ed",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/313c04ea-e3ca-4ccb-bbdd-8169d7525839\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware1",
+        "maliciousness": "75",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "AmadeyHunter",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T01:55:17Z",
+  "last_seen": "2026-11-23T02:21:53Z"
+}
