@@ -1,0 +1,462 @@
+{
+  "hashes": {
+    "sha256": "088a7d8029eadf4725a86bd3a70f140426cd2b768566120a04aa6b0876e33d74",
+    "sha1": "1003b56c3a28fc9ffae3f01220225674c794778c",
+    "md5": "da706d17933e55f3ac7c7a42294bf9f2",
+    "sha3_384": "6a1e90b542666103b9820fe94397ad03b2fd77d6a1dfb8daee618b592d69ec47c900f86aba4ea261d67e65a929cd7bbd",
+    "tlsh": "T133F401447655DB06C83957F425B2E27423FABDAEB920D3069FD2BDEB3962F044E00627",
+    "imphash": "f34d5f2d4577ed6d9ceec516c1f5a744",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "12288:5Tvt5ZuMw1sJVqNVgcQPQcElPVHGGb7LgPrwit+HLl7LDj53iHjC6ydLiNh0s+5F:/Jw1seNJQPuEG3Mw/BLFiIdLw0D5B"
+  },
+  "file_metadata": {
+    "names": [
+      "N7KQ57fmd36SZwu.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 773632,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "73.9% (.EXE) Generic CIL Executable (.NET, Mono, etc.) (73123\/4\/13)",
+      "6.6% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "6.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "4.5% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "2.0% (.ICL) Windows Icons Library (generic) (2059\/9)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AgentTesla",
+    "tags": [
+      "AgentTesla",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Agenttesla_type2",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "detect Agenttesla in memory",
+        "reference": "internal research"
+      },
+      {
+        "rule_name": "DebuggerCheck__RemoteAPI",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "HUNT_ICS_EmbeddedConfig_Nov2026",
+        "author": "p0p_rsp",
+        "description": "Embedded ICS protocol configuration in PE resources (UTF-16 IP/port/ASDU parameters) - Industroyer2-style config persistence",
+        "reference": "https://www.welivesecurity.com/2024/04/11/industroyer2-campaigns-continue-using-new-techniques/"
+      },
+      {
+        "rule_name": "INDICATOR_EXE_Packed_GEN01",
+        "author": "ditekSHen",
+        "description": "Detect packed .NET executables. Mostly AgentTeslaV4.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+        "author": "ditekSHen",
+        "description": "Detects binaries (Windows and macOS) referencing many web browsers. Observed in information stealers.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_References_Confidential_Data_Store",
+        "author": "ditekSHen",
+        "description": "Detects executables referencing many confidential data stores found in browsers, mail clients, cryptocurreny wallets, etc. Observed in information stealers",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_References_Messaging_Clients",
+        "author": "ditekSHen",
+        "description": "Detects executables referencing many email and collaboration clients. Observed in information stealers",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_Referenfces_File_Transfer_Clients",
+        "author": "ditekSHen",
+        "description": "Detects executables referencing many file transfer clients. Observed in information stealers",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_SandboxHookingDLL",
+        "author": "ditekSHen",
+        "description": "Detects binaries and memory artifacts referencing sandbox DLLs typically observed in sandbox evasion",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_VaultSchemaGUID",
+        "author": "ditekSHen",
+        "description": "Detects executables referencing Windows vault credential objects. Observed in infostealers",
+        "reference": null
+      },
+      {
+        "rule_name": "malware_Agenttesla_type2",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "detect Agenttesla in memory",
+        "reference": "internal research"
+      },
+      {
+        "rule_name": "MALWARE_Win_AgentTeslaV2",
+        "author": "ditekSHen",
+        "description": "AgenetTesla Type 2 Keylogger payload",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_CRIME_STEALER_WIN_X86_PE_AgentTeslaExfilTemplate_Aug26",
+        "author": "IAmForeverAloneToo",
+        "description": "Detects AgentTesla's exfiltration report template, recovered from the decrypted stage-4 payload of this chain but generic to the family",
+        "reference": "https://github.com/IAmForeverAloneToo/malware-analysis"
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "NETexecutableMicrosoft",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_imphash",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Skystars_Malware_Imphash",
+        "author": "Skystars LightDefender",
+        "description": "imphash",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Generic_Threat_779cf969",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Trojan_AgentTesla_ebf431a8",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
+      },
+      {
+        "rule_name": "WIN_Malware_Derialock_ForgeAuto_3127f957_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects Derialock (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_XWorm_ForgeAuto_6b06c990_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects XWorm (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Sample_Unique_69354b41",
+        "author": "Marjoriefort",
+        "description": "Specimen unique (soumission Bazaar) - strings distinctifs propres au sample",
+        "reference": "69354b41e10daf03d3f3af881b32d5c0fec56b1cfe96629fd4c5263413a42854.exe"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "agenttesla",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-23 09:00:02",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ce3c4034-88bb-4f70-96b2-f62068188ffa",
+          "tags": [
+            "ip-check",
+            "stealer",
+            "agenttesla",
+            "ftp",
+            "exfiltration"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": "agenttesla",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/088a7d8029eadf4725a86bd3a70f140426cd2b768566120a04aa6b0876e33d74\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b03fd98a5cff7689904e8cb\/reports\/f15f422e-666c-45ae-964b-718c6595d9e2\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Agent Tesla",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/761e6fb4-9e05-4672-9bda-487cdf1ad871?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/088a7d8029eadf4725a86bd3a70f140426cd2b768566120a04aa6b0876e33d74\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.RealProtect",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-18 07:30:17",
+        "scanner_count": "37",
+        "scanner_match": "26",
+        "scanner_percent": "70.27"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "agenttesla",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261123-km8zgsey3l\/",
+        "tags": [
+          "family:agenttesla",
+          "collection",
+          "discovery",
+          "execution",
+          "keylogger",
+          "spyware",
+          "stealer",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: AgentTesla",
+            "score": "10"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of local email clients",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses Microsoft Outlook profiles",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "outlook_office_path",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "088a7d8029eadf4725a86bd3a70f140426cd2b768566120a04aa6b0876e33d74",
+          "md5_hash": "da706d17933e55f3ac7c7a42294bf9f2",
+          "sha1_hash": "1003b56c3a28fc9ffae3f01220225674c794778c",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f8c9ae23-6937-49ad-b4cd-f3bca661c881\/"
+        },
+        {
+          "sha256_hash": "34e1d0e53533db349aad4ed6ba731ffcc2c422b9b63959ef15f18f6f8408a82e",
+          "md5_hash": "4bfdaaf99c201bfafae8d72417739f86",
+          "sha1_hash": "19f93813a2225ad6bbb61fc57fbcead46c33afd0",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f8c9ae23-6937-49ad-b4cd-f3bca661c881\/"
+        },
+        {
+          "sha256_hash": "9c606d3b0d3d085f1211a883109ba1a2a6fca978cdebe5124a58b2dc4fe74ef6",
+          "md5_hash": "a3c8e19c41fa5847526a5906a22c8dc2",
+          "sha1_hash": "268a4c0b507f69c53d6a30980321d9841a3864bc",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f8c9ae23-6937-49ad-b4cd-f3bca661c881\/"
+        },
+        {
+          "sha256_hash": "89c1a2c27470e898513e95d6175c382cd5a33fd6a509cde700b213214ecf0b80",
+          "md5_hash": "9a3d0e61430550fc5f788c7cef6c1644",
+          "sha1_hash": "c5dfb45b76144ce20870bbdd5defb0a51989e0bb",
+          "detections": [
+            "AgentTesla",
+            "triage_agenttesla_infostealer",
+            "win_agent_tesla_g2",
+            "Agenttesla_type2",
+            "INDICATOR_EXE_Packed_GEN01",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_References_Confidential_Data_Store",
+            "INDICATOR_SUSPICIOUS_EXE_References_Messaging_Clients",
+            "INDICATOR_SUSPICIOUS_EXE_Referenfces_File_Transfer_Clients",
+            "INDICATOR_SUSPICIOUS_EXE_SandboxHookingDLL",
+            "INDICATOR_SUSPICIOUS_EXE_VaultSchemaGUID",
+            "MALWARE_Win_AgentTeslaV2"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/f8c9ae23-6937-49ad-b4cd-f3bca661c881\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Unauthorized injection to a recently created process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Restart of the analyzed sample"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Changing a file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "lowmal3",
+    "anonymous": false,
+    "origin_country": "DE"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T08:43:26Z",
+  "last_seen": null
+}

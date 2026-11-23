@@ -1,0 +1,286 @@
+{
+  "hashes": {
+    "sha256": "78da3eac7d17ec539e96f866c820519d273e991d8bf61103a4f942e252a1bbca",
+    "sha1": "8b6050e90bb3033e6c9fd64a15df663dae74ed2a",
+    "md5": "58aff32a8c3b9c347b9ccd8126c314e4",
+    "sha3_384": "8727d71cddb884a1d70d96d383ca697163b4599bdfbf9c1b03fff45e81851337ce70dd0bb263e73a3cd50e1082b6c576",
+    "tlsh": "T1EA137C73544094F7C58244706A81EA62AEB9DD771749E383F6D0AA5EECB84C76B3CF02",
+    "imphash": "7ee89a85ea0ffd700fd28e6cfa3d968f",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:Gq9m/ZsybSg2ts4L3RLc/qjhsKmHbk1+qJ0UtHG/:Gqk/Zdic/qjh8w19JDHy",
+    "dhash_icon": "b270e0d292c0c482"
+  },
+  "file_metadata": {
+    "names": [
+      "document.scr"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 41664,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "39.7% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "21.0% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "8.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "8.3% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "6.4% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "dropped_by_sha256",
+        "value": "668e065f8b7353d0cf41d4730e5ec2e90b97b3ca5cbb7cb2db115a5516d488e8"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "23e8b26a71bfb4293e2e5ded937999f1"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "MyDoom",
+    "tags": [
+      "exe",
+      "MyDoom",
+      "upx-dec"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "shellcode",
+        "author": "nex",
+        "description": "Matched shellcode byte patterns",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_XORed_MSDOS_Stub_Message",
+        "author": "Florian Roth",
+        "description": "Detects suspicious XORed MSDOS stub message",
+        "reference": "https://yara.readthedocs.io/en/latest/writingrules.html#xor-strings"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Generic_Threat_54b0ec47",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Windows_Generic_Threat_acf6222b",
+        "author": "Elastic Security",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "with_urls",
+        "author": "Antonio Sanchez \u003casanchez@hispasec.com\u003e",
+        "description": "Rule to detect the presence of an or several urls",
+        "reference": "http://laboratorio.blogs.hispasec.com/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-23 07:05:25",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/7db490ff-d8a9-4067-9db0-e1adc9864fee",
+          "tags": [
+            "mydoom",
+            "auto-reg",
+            "drop",
+            "upx"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/78da3eac7d17ec539e96f866c820519d273e991d8bf61103a4f942e252a1bbca\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b03e1adf207364132e97273\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "MYDOOM",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/690517fb-994c-4532-bcd7-e580991addcb?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "mydoom",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261123-hkvb7scs91\/",
+        "tags": [
+          "family:mydoom",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "upx",
+          "worm"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects MyDoom family",
+            "score": "10"
+          },
+          {
+            "signature": "Family: MyDoom",
+            "score": "10"
+          },
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "78da3eac7d17ec539e96f866c820519d273e991d8bf61103a4f942e252a1bbca",
+          "md5_hash": "58aff32a8c3b9c347b9ccd8126c314e4",
+          "sha1_hash": "8b6050e90bb3033e6c9fd64a15df663dae74ed2a",
+          "detections": [
+            "MyDoom",
+            "SUSP_XORed_MSDOS_Stub_Message"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/1f134536-b027-4e66-9383-f97d0c3356b1\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "NL"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T06:47:18Z",
+  "last_seen": null
+}
