@@ -1,0 +1,189 @@
+{
+  "hashes": {
+    "sha256": "b9a9e19db32f608ed23bb6d8182eb787fffa9e7cb63a09d25b211ff9f72abb23",
+    "sha1": "4b6367bbb46d0f93603a6eb1ac230cd6490a6992",
+    "md5": "a6517d1ef4e7c5be6798b7631d8f596a",
+    "sha3_384": "270deaad78836496efb2e2541efea56d31f1ca6c31daf112bab17ace0acaed84e7d26f68a7b00ff3293cbc7ac9a05f7d",
+    "tlsh": "T1AEB6D727760C255B78320104C2E1A177AE0F99A8C246C6EE9CB6B24271B54DFC57FB7B",
+    "imphash": "d72b85f91e74431955f680a2cb68745c",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:a2qtIgCqg4O09qy8Xhxuc1ilvQzeUpX+id/n5kNsVU+KqJqtWw:RFqzQVruqfD5ogG9tD"
+  },
+  "file_metadata": {
+    "names": [
+      "libcurl.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 10634528,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Loader_Fake_Libcurl_WinGup_Nov26",
+        "author": "quiet-heron-sec",
+        "description": "Detects a fake libcurl.dll side-loaded by WinGup that exports the curl API without any socket import",
+        "reference": "https://www.virustotal.com/gui/file/22dadd303759f12dc11a17b7612178dd5a8615cbf365a3a617faa181438c8273"
+      },
+      {
+        "rule_name": "PE_Digital_Certificate",
+        "author": "albertzsigovits",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Win32_Library_Libcurl_Artifacts",
+        "author": "Serhii Kocherhan",
+        "description": "Detects PE binaries or libraries containing multiple libcurl exported functions, associated with statically linked or compiled libcurl components.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "libcurl.dll",
+          "date": "2026-11-23 16:22:14",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/ae72e38f-c331-4826-85bd-9c6e55ef5cdf",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b9a9e19db32f608ed23bb6d8182eb787fffa9e7cb63a09d25b211ff9f72abb23\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b04696d743172265fd82355\/reports\/4d3648b7-b74f-4460-850a-f0a8ced4a787\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/38910192-b7d2-4241-b06a-13eec435b772?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-23 16:26:16",
+        "scanner_count": "37",
+        "scanner_match": "9",
+        "scanner_percent": "24.32"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261123-txk5vasv4r\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "b9a9e19db32f608ed23bb6d8182eb787fffa9e7cb63a09d25b211ff9f72abb23",
+          "md5_hash": "a6517d1ef4e7c5be6798b7631d8f596a",
+          "sha1_hash": "4b6367bbb46d0f93603a6eb1ac230cd6490a6992",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/16a1e09b-5758-4b89-bb68-5f9da08cacec\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "josie",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T16:25:36Z",
+  "last_seen": null
+}

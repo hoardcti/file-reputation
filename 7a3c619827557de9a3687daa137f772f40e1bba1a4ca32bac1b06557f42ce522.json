@@ -1,0 +1,365 @@
+{
+  "hashes": {
+    "sha256": "7a3c619827557de9a3687daa137f772f40e1bba1a4ca32bac1b06557f42ce522",
+    "sha1": "d194693c2e66479de880108265e6e3425838efcf",
+    "md5": "ec92fda079216379a0d89f83ebd695f3",
+    "sha3_384": "cd5ce6ba725b5e64d06ef72d6e294611e2d8612481aabe8788acbce447a3639128d5b865a0377858903b8a7739e92c3e",
+    "tlsh": "T1CC958E4BF2A400EDD467C178C9165607EB77BC0617205BDF1690BAAA6F33AE11E7E321",
+    "imphash": "ca0be66b10fdd8db5db8e7a7141ae5eb",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:mEiHi0g9LpYKvsvvYudn4NzJlvBIuy9kr/NSbgb83jb590LEkAzO0:mEZ0rGHVNzzBJIi3w3kAz",
+    "dhash_icon": "98d8f086e4656535"
+  },
+  "file_metadata": {
+    "names": [
+      "final_payload.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1972736,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "22.9% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "22.7% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "17.5% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "15.7% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "7.0% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "EvolutionRAT",
+    "tags": [
+      "EvolutionRAT",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Check_OutputDebugStringA_iat",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__MemoryWorkingSet",
+        "author": "Fernando Mercês",
+        "description": "Anti-debug process memory working set size check",
+        "reference": "http://www.gironsec.com/blog/2015/06/anti-debugger-trick-quicky/"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "HKTL_Meterpreter_inMemory",
+        "author": "netbiosX, Florian Roth",
+        "description": "Detects Meterpreter in-memory",
+        "reference": "https://www.reddit.com/r/purpleteamsec/comments/hjux11/meterpreter_memory_indicators_detection_tooling/"
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+        "author": "ditekSHen",
+        "description": "Detects binaries (Windows and macOS) referencing many web browsers. Observed in information stealers.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore",
+        "author": "ditekSHen",
+        "description": "Detects executables containing SQL queries to confidential data stores. Observed in infostealers",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_ReflectiveLoader",
+        "author": "ditekSHen",
+        "description": "Detects Reflective DLL injection artifacts",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "ReflectiveLoader",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects a unspecified hack tool, crack or malware using a reflective loader - no hard match - further investigation recommended",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "ThreadControl__Context",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "TigerRAT_pe_yaraify",
+        "author": "hunts-yara-code",
+        "description": "YARAify-tightened byte rule from 9 sample(s) -- VERIFY hits",
+        "reference": null
+      },
+      {
+        "rule_name": "Tool_FakeInstaller_2",
+        "author": "Nikos 'n0t' Totosis",
+        "description": "Detects fake installers that decrypt RC4-encrypted payloads stored in PE resources with IDs 100, 101.",
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_37b4704b",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_43faefd2",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_5001c94c",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_74566f98",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_79234c04",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_92a28498",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_f1079127",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-23 18:43:01",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/372a5d2e-fd6d-4748-8382-abbe943f64b9",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/7a3c619827557de9a3687daa137f772f40e1bba1a4ca32bac1b06557f42ce522\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0488d6aef726e54d75953a\/reports\/bceae954-8fc6-4482-99cf-989711e6275f\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8c88e578-729f-410f-bd84-c2b36e7095bb?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x64",
+        "first_seen": "2026-08-09T17:28:00Z",
+        "last_seen": "2026-08-09T21:23:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/7a3c619827557de9a3687daa137f772f40e1bba1a4ca32bac1b06557f42ce522\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.SniperLogger",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-09 22:41:13",
+        "scanner_count": "37",
+        "scanner_match": "27",
+        "scanner_percent": "72.97"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "evolutionrat",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261123-xbtrmsat9l\/",
+        "tags": [
+          "family:evolutionrat",
+          "discovery",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "evolutionrat",
+            "c2": "serversniperxx.duckdns.org:4577"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "7a3c619827557de9a3687daa137f772f40e1bba1a4ca32bac1b06557f42ce522",
+          "md5_hash": "ec92fda079216379a0d89f83ebd695f3",
+          "sha1_hash": "d194693c2e66479de880108265e6e3425838efcf",
+          "detections": [
+            "HKTL_Meterpreter_inMemory",
+            "INDICATOR_SUSPICIOUS_Binary_References_Browsers",
+            "INDICATOR_SUSPICIOUS_EXE_SQLQuery_ConfidentialDataStore",
+            "INDICATOR_SUSPICIOUS_ReflectiveLoader",
+            "ReflectiveLoader"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/5f1647ae-eda5-4cb3-ba3f-beadf2ab371e\/"
+        },
+        {
+          "sha256_hash": "7087e5b61fb911c8b163689b55148d11c5b7ab224675ec1fd1df32a8e8d9299b",
+          "md5_hash": "470abe9c444ad1402dfbbb6608201c83",
+          "sha1_hash": "c225982a80d4e198eb3bc4a94bfafdb07265d72b",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_ReflectiveLoader",
+            "Reflective_DLL_Loader_Aug17_1",
+            "ReflectiveLoader"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/5f1647ae-eda5-4cb3-ba3f-beadf2ab371e\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T18:40:45Z",
+  "last_seen": "2026-11-23T19:28:40Z"
+}

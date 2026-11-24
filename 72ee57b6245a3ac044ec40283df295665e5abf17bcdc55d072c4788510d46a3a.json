@@ -1,0 +1,125 @@
+{
+  "hashes": {
+    "sha256": "72ee57b6245a3ac044ec40283df295665e5abf17bcdc55d072c4788510d46a3a",
+    "sha1": "3efea11399cda37d5b1fcc4170fff8cfb1fbee7f",
+    "md5": "04c4367ca16cccdbb31bbb31aa8d6d3a",
+    "sha3_384": "ead0a18e7b01cb5fa3223c1b3cc57f06d7459782e6b2f381e7ada82ce4f9bae6da818f8de687f0267650dc620636b8e7",
+    "tlsh": "T1734623444FBDA226D15C4133BC8B8B1948B026A1CD8CDCCA4726A2D6FD793D3776B16B",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:6Tpv2xfez4N3L/ugicrGG+vXZUFrtp6+Pj9Y5elRET89FEf0+KiiCxtj5nm5jLdP:U2B/485"
+  },
+  "file_metadata": {
+    "names": [
+      "macho_72ee57b6245a.bin"
+    ],
+    "mime_type": "application/x-mach-binary",
+    "type": "macho",
+    "size": 5792256,
+    "format": "MACHO",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "macho",
+    "trid": [
+      "69.8% (.DYLIB) Mac OS X Mach-O universal Dynamically linked shared Library (32500\/1\/5)",
+      "15.0% (.O\/DYLIB\/BUNDLE) Mac OS X Universal Binary (generic) (7002\/2)",
+      "15.0% (.CLASS) Java bytecode (7001\/2\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/www.virustotal.com\/gui\/file\/72ee57b6245a3ac044ec40283df295665e5abf17bcdc55d072c4788510d46a3a"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4074825\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "Mach-O",
+      "macho",
+      "macOS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Loader_TaskInfo_NoFw_Bulk_Variant",
+        "author": null,
+        "description": "Foxveil macOS loader (ClickFix -\u003e AMOS), quill/stratos generation after the 2026-11-05 13:00 UTC payload bulking: fat x86_64+arm64 linking only libSystem+libc++ (no framework, CF, Sec, objc or swift import), the task_info/mach_task_self_/pthread_once resolver core in both slices, and a 128 KB-4 MB __DATA_CONST,__const payload section in both slices; file up to 12 MB",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/72ee57b6245a3ac044ec40283df295665e5abf17bcdc55d072c4788510d46a3a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b046ac8b571c1608c7fde4a\/reports\/2c017dd9-3efd-48cc-b352-6e91545562e8\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "MacOS.Infostealer.Generic",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-11-23 16:28:17",
+        "scanner_count": "37",
+        "scanner_match": "6",
+        "scanner_percent": "16.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T16:27:42Z",
+  "last_seen": "2026-11-23T16:27:57Z"
+}

@@ -1,0 +1,120 @@
+{
+  "hashes": {
+    "sha256": "eff9c045b7cddc0aa988e86ecf5cce15b4df8da117f2b2bf2193be53cab787ab",
+    "sha1": "36b55af8c0d009d4cf85ff62ae4e2038e94d5512",
+    "md5": "cef9f18e3c6da48f35d57d02eb855646",
+    "sha3_384": "ccfcb55f77a5db46d38052a86ccd5593767c79d07bfcc1c7c19a471afc06575b36672d29fcfcdba0a97058bf941274d6",
+    "tlsh": "T13AC2FA43B1E95C35D893BE3AD24A06146772DC9607231B2B2188F17C7E972EC1F19AB2",
+    "imphash": null,
+    "telfhash": "t1b9d01205ed4d1532d3611d32357fc85006966a5d72c5fb65eb6016503444d886340c14",
+    "gimphash": null,
+    "ssdeep": "192:RbR8pg+BEb4esjGm93XOfUG8QfzmaGE+pofvzz9bXM1lDkOAg4i5VE1I2gGvql/3:FZvbhyX0UG8er+pyNeh3Erv3Cr6k"
+  },
+  "file_metadata": {
+    "names": [
+      "pam_master.so"
+    ],
+    "mime_type": "application/x-sharedlib",
+    "type": "elf",
+    "size": 26272,
+    "format": "ELF",
+    "arch": "X86_64",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "backdoor",
+      "diicot",
+      "elf",
+      "mexals",
+      "pam",
+      "rootkit"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532031",
+        "date_added": "2026-11-24 02:16:58",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Static RE Analysis (Linux PAM Master-Password Backdoor — pam_master.so):\n- Unstripped ELF64 shared object (master.c, GCC 4.8.5 Red Hat 4.8.5-44 / CentOS 7).\n- Hooks pam_sm_authenticate \u0026 pam_sm_acct_mgmt: is_master() reads a runtime override hash from /etc/.pm (up to 511 B) or falls back to hardcoded SHA-512 crypt hash: $6$cONA0kbmpUGiT1Vt$j7LdoaXFCMA5lr32B/LMOnvY3z7id6CUEfSl9hIl9lH0kSYNIq.NLLLnGJ7lPCuqnQqHwDnzWO19SNzwD8Fgs/ (rejects placeholder 'REPLACE').\n- Verifies password via crypt_r(); if matched and getpwnam(user) exists, marks session via pam_set_data and returns PAM_SUCCESS (0) for silent access to any valid local account (including root), otherwise returns PAM_IGNORE (0x19)."
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/eff9c045b7cddc0aa988e86ecf5cce15b4df8da117f2b2bf2193be53cab787ab\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b045dbb275e95b5393d882b\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/061f0928-aff7-4aa9-bc49-a0ea18fdbfcd?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-23 15:35:27",
+        "scanner_count": "37",
+        "scanner_match": "2",
+        "scanner_percent": "5.41"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "1",
+        "link": "https:\/\/tria.ge\/reports\/261123-szvxdsas8x\/",
+        "tags": [
+          "linux"
+        ],
+        "signatures": [],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "anonymous",
+    "anonymous": true,
+    "origin_country": "CA"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-23T14:28:12Z",
+  "last_seen": null
+}
