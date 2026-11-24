@@ -31,10 +31,11 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "SalatStealer",
     "tags": [
       "bat",
-      "powershell"
+      "powershell",
+      "SalatStealer"
     ],
     "yara_rules": [
       {
@@ -63,6 +64,22 @@
       }
     ],
     "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-11-24 16:36:05",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/f41f66a1-9baf-41a2-a12e-f498d6c9ad64",
+          "tags": [
+            "salatstealer",
+            "stealer",
+            "golang",
+            "upx",
+            "susp-powershell"
+          ]
+        }
+      ],
       "CERT-PL_MWDB": {
         "detection": null,
         "link": "https:\/\/mwdb.cert.pl\/sample\/7b1fb828d189d179bd873953de929187c964acdd373800c000bb9133368b5b0d\/"
@@ -96,6 +113,75 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": "salatstealer",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261124-qfkk7sgz9v\/",
+        "tags": [
+          "family:salatstealer",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect SalatStealer payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: salatstealer",
+            "score": "10"
+          },
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Deobfuscate\/Decode Files or Information",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
       "YOROI_YOMI": {
         "detection": "Legit File",
         "score": "0.00"

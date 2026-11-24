@@ -1,0 +1,249 @@
+{
+  "hashes": {
+    "sha256": "84ae1127c3f3d7cdd3c7b64c51ffc8bfb4507411e59ac6472b55c51bb767c876",
+    "sha1": "7a53d5c223258660dd6f5759bbab6d9c88abc288",
+    "md5": "fd5a6c8d0fed7ab31d8d49370601c547",
+    "sha3_384": "0d46de0caed91309b0ac446826fb4874a4e79e69dca74115a2a59a7c3c2c2cc214b30cfd6ca1aadce38f7026d59fad87",
+    "tlsh": "T171E37C20DD21067A4F435BA8BCA54A61CA7CC319862755F0F6DE430DA10A9ECE3BD76E",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:PhtEjMpgNZpkYGI563cSNfWFdQd7F8CDljctlNxmqxbDhTs:POjpx0MtQJ5gdMqxbDC"
+  },
+  "file_metadata": {
+    "names": [
+      "PO 896667484 PURCHASE ORDER SINCO AUTOMATION 23 11 26 for UMA LIME HS8 REF177743200.js"
+    ],
+    "mime_type": "text/plain",
+    "type": "js",
+    "size": 146012,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "javascript",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "RemcosRAT",
+    "tags": [
+      "exe",
+      "js",
+      "RemcosRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "dependsonpythonailib",
+        "author": "Tim Brown",
+        "description": "Hunts for dependencies on Python AI libraries",
+        "reference": null
+      },
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": "remcos",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/84ae1127c3f3d7cdd3c7b64c51ffc8bfb4507411e59ac6472b55c51bb767c876\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b058cc9f9d96456751ac3a2\/reports\/46de7e6c-79ac-4d3f-942f-bfa4843d9eeb\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "js",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/84ae1127c3f3d7cdd3c7b64c51ffc8bfb4507411e59ac6472b55c51bb767c876\/results?tab=lookup",
+        "detections": [
+          "HEUR:Trojan.Script.Alien.gen"
+        ]
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Malware.Guloader",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-24 07:42:53",
+        "scanner_count": "37",
+        "scanner_match": "2",
+        "scanner_percent": "5.41"
+      },
+      "Triage": {
+        "malware_family": "remcos",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261124-qblmpsgz3w\/",
+        "tags": [
+          "family:remcos",
+          "botnet:remotehost",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "privilege_escalation",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: Remcos",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Suspicious use of NtCreateThreadExHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "172.245.92.240:2700"
+          },
+          {
+            "extraction": "c2",
+            "family": "remcos",
+            "c2": "172.245.92.240:27000"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the Windows directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching cmd.exe command interpreter"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Forced system process termination"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Possible injection to a system process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "James_inthe_box",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T13:05:12Z",
+  "last_seen": null
+}

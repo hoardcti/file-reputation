@@ -26,9 +26,10 @@
     "ole_information": []
   },
   "intelligence": {
-    "signature": null,
+    "signature": "XWorm",
     "tags": [
-      "js"
+      "js",
+      "XWorm"
     ],
     "vendor_intel": {
       "CERT-PL_MWDB": {
@@ -36,10 +37,10 @@
         "link": "https:\/\/mwdb.cert.pl\/sample\/cd5d17e5067a1c79c7ea02ea249c99a612911da33ebbf7346da811af05e37b45\/"
       },
       "FileScan-IO": {
-        "verdict": null,
-        "threatlevel": null,
-        "confidence": null,
-        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0588fde477eb96206940ce\/reports\/\/overview"
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0588fde477eb96206940ce\/reports\/dc01f7f8-6dfb-42c4-8873-608c20e622d9\/overview"
       },
       "Kaspersky": {
         "verdict": "Malware",
@@ -64,9 +65,154 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": "xworm",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261124-p9sm8sgy7x\/",
+        "tags": [
+          "family:xworm",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "rat",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Xworm Payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Xworm",
+            "score": "10"
+          },
+          {
+            "signature": "Process spawned unexpected child process",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": ".NET Reactor proctector",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates video capture drivers",
+            "score": "4"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: JavaScript",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "xworm",
+            "c2": "https:\/\/adcentral.com.mx\/beneficios\/MSI_MPG_with_markers.jpg"
+          },
+          {
+            "extraction": "c2",
+            "family": "xworm",
+            "c2": "103.83.87.3:2423"
+          }
+        ]
+      },
       "YOROI_YOMI": {
         "detection": "Malicious File",
         "score": "0.70"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
       }
     }
   },

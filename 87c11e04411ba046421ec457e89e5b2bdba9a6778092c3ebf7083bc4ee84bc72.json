@@ -1,0 +1,163 @@
+{
+  "hashes": {
+    "sha256": "87c11e04411ba046421ec457e89e5b2bdba9a6778092c3ebf7083bc4ee84bc72",
+    "sha1": "02732cd33bb50a3f2fe1add5c00e97e5909617c9",
+    "md5": "8554439bb175ddd11e5f1a766cc2bce0",
+    "sha3_384": "2237bff892b44da830281f4ed0ba625d986546a74f9a86b57a1b5d3093cb9f62d6821af3e3ae7ef87db740ca02ed7f25",
+    "tlsh": "T105B533A429517CFEBF5BE9F4CFDE07026AC9594388110E4B09781E81648B1BF6772BC6",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:o9VK3i4hxJb895dqPR6TJuolzkXHfwNNw2+IIAzSl79SYHUS:o9VK3v+d+VolQ3fwNbhezN"
+  },
+  "file_metadata": {
+    "names": [
+      "b_armv7l"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 2441624,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4075383\/"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "51e3995749f38fd07f050bef56fe4e3148efabd41ac46157746acdf41f2ad9b4"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "6ea22bbd30a54d62a75eb980a0644b44"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CatStorm",
+    "tags": [
+      "elf",
+      "upx"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_DVR_Botnet_Hama_UPX",
+        "author": "Serhii Kocherhan",
+        "description": "Detects packed and unpacked ELF IoT/DVR botnet variants targeting UPX compression structures and uncompressed code",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "upx_packed_elf_v1",
+        "author": "RandomMalware",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/87c11e04411ba046421ec457e89e5b2bdba9a6778092c3ebf7083bc4ee84bc72\/"
+      },
+      "FileScan-IO": {
+        "verdict": "NO_THREAT",
+        "threatlevel": "0.25",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b05d1e4b367730a7a51dfd9\/reports\/1c611dff-f619-422c-bcd8-f11a653f6261\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/63461db0-e691-492a-838e-2ecd150b6ae2?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-24 18:02:14",
+        "scanner_count": "37",
+        "scanner_match": "4",
+        "scanner_percent": "10.81"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "6",
+        "link": "https:\/\/tria.ge\/reports\/261124-wmhyvact31\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies init.d",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies systemd",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          },
+          {
+            "signature": "Writes file to tmp directory",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "DE",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T18:02:04Z",
+  "last_seen": null
+}
