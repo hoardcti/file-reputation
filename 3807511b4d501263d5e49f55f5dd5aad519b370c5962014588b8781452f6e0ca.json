@@ -1,0 +1,356 @@
+{
+  "hashes": {
+    "sha256": "3807511b4d501263d5e49f55f5dd5aad519b370c5962014588b8781452f6e0ca",
+    "sha1": "7af2e7b48e3c71a5a5bf1ec3ec9b606bf457a3da",
+    "md5": "31903a7995c12fe0255ff5eabc9e971c",
+    "sha3_384": "9f3bbfde0c4e3eb62197438407e10f4edb8cf85814c2e15b3ebc8bbb226b10f769a5f6eb6842292c73766ce8d1411bb9",
+    "tlsh": "T1E7B52911E505C479E0340A3C23DDFA9C8B2D8A1373B4F0E76B681C4BAEE558A767476B",
+    "imphash": "2f97d5a03679c29a93ce4a399b582382",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "3072:ygrY9VIJR4kv7MDsGjTCWjZb8KSbBO134qCAbUDMViXC8u9RDVS:ypCEZbjSY134qC+4MOAg"
+  },
+  "file_metadata": {
+    "names": [
+      "31903a7995c12fe0255ff5eabc9e971c.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 2318848,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "39.7% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "21.0% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "8.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "8.3% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "6.4% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "Vidar",
+    "tags": [
+      "exe",
+      "Vidar"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "data_manipulation",
+        "author": "Serhii Kocherhan",
+        "description": "Detects data manipulation routines including XOR encoding, Base64 references, and RC4 PRGA encryption",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "has_telegram_urls",
+        "author": "Aaron DeVera\u003caaron@backchannel.re\u003e",
+        "description": "Detects Telegram URLs",
+        "reference": null
+      },
+      {
+        "rule_name": "infostealer_win_vidar_strings_nov23",
+        "author": "Sekoia.io",
+        "description": "Finds Vidar samples based on the specific strings",
+        "reference": "https://twitter.com/crep1x/status/1722652451319202242"
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "shellcode",
+        "author": "nex",
+        "description": "Matched shellcode byte patterns",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSPICIOUS_Potential_DDR",
+        "author": "NyxIndius",
+        "description": "Detects PE files referencing web services potentially used as dead drop resolvers, with network capability correlation for single-indicator cases",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_2ffc3572",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": "vidar",
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-24 09:15:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/35ef28ff-3f7e-42f3-8c66-a50315e6357f",
+          "tags": [
+            "telegram",
+            "stealer",
+            "vidar",
+            "ddr"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": "vidar",
+        "link": "https:\/\/mwdb.cert.pl\/sample\/3807511b4d501263d5e49f55f5dd5aad519b370c5962014588b8781452f6e0ca\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0553500a40a739666eba3c\/reports\/75f32797-fadb-4c9d-a74f-cba9229c0f8b\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Vidar",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/ce6a58f1-db6d-473e-bb7c-e50c8480ee90?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "exe x32",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/3807511b4d501263d5e49f55f5dd5aad519b370c5962014588b8781452f6e0ca\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win32.Trojan.RealProtect",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-21 05:50:24",
+        "scanner_count": "37",
+        "scanner_match": "27",
+        "scanner_percent": "72.97"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "vidar",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261124-k2ap8sts3m\/",
+        "tags": [
+          "family:vidar",
+          "botnet:6502d0cc5553aa244eb93afaaa56effa",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "spyware",
+          "stealer",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect Vidar Stealer",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Vidar",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Reads data files stored by FTP clients",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Modifies system certificate store",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/t.me\/bowbrain"
+          },
+          {
+            "extraction": "c2",
+            "family": "vidar",
+            "c2": "https:\/\/steamcommunity.com\/profiles\/76561199572358993"
+          }
+        ]
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "3807511b4d501263d5e49f55f5dd5aad519b370c5962014588b8781452f6e0ca",
+          "md5_hash": "31903a7995c12fe0255ff5eabc9e971c",
+          "sha1_hash": "7af2e7b48e3c71a5a5bf1ec3ec9b606bf457a3da",
+          "detections": [
+            "VidarStealer"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/343a90df-a4e6-4865-9412-6207d63d4e7f\/"
+        }
+      ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "Vidar",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/3807511b4d50\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Behavior that indicates a threat"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T09:04:20Z",
+  "last_seen": null
+}

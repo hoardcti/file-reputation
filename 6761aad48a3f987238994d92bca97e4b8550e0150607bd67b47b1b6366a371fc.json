@@ -1,0 +1,250 @@
+{
+  "hashes": {
+    "sha256": "6761aad48a3f987238994d92bca97e4b8550e0150607bd67b47b1b6366a371fc",
+    "sha1": "61b4c712ee7d17cfaedb1c390c2fba9d8758e2f6",
+    "md5": "933d5f57f755190d6445b22a63b4a026",
+    "sha3_384": "860cf9151d53f8db34fb8b1b8f9cf28c911f69682ceeaf2ac387bf615526b7d7e1ebcbb8c356bff3908b3b9918b8d04b",
+    "tlsh": "T19637333424C31D39E8EA1CBB8A7F5C3C9A7BFA32218A414E3344A985B6B34D155F974D",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:1h3+vAn4XK1+MjIVX8yYAxDwXOkHTJIl57pqDT9L+PSf3YXc6G4f+KSd9NnyMUiu:MMqK16IOkdMeT9L+PSfqGjfNyM"
+  },
+  "file_metadata": {
+    "names": [
+      "ISOSimple.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 23456256,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "53.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "39.2% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "7.0% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Canon",
+      "ClickFix",
+      "CNCMachineRMS",
+      "DLL-sideloading",
+      "msi"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_SliverFox_String",
+        "author": "huoji",
+        "description": "Detect files is `SliverFox` malware",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532554",
+        "date_added": "2026-11-24 10:12:03",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "ROMULUS ClickFix installer, Canon chain (named in Blackpoint 2026-11-18 and Huntress 2026-09-28). The cabinet holds the Storage container monitor.raw (e614b7d5..., build key 0x26ace8d1) and the DLLs rdCore.dll (b7757541...), WMPCL.dll (9c615db0...) and WPFLocalizeExtension.dll (eff5d63d...), SHA-256 identical to the Huntress list. The container header and build key are recovered by our open-source extractor, but its layer-2 decode is not reproduced, so the gate of this build is not extracted. Static analysis only.\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b05634355beed15e93b6881\/reports\/\/overview"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "msi",
+        "first_seen": "2026-09-25T14:16:00Z",
+        "last_seen": "2026-11-04T02:46:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/6761aad48a3f987238994d92bca97e4b8550e0150607bd67b47b1b6366a371fc\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.DllHijack",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-25 15:35:35",
+        "scanner_count": "37",
+        "scanner_match": "24",
+        "scanner_percent": "64.86"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261124-l8m5ksfv4j\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for the window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:11:57Z",
+  "last_seen": null
+}

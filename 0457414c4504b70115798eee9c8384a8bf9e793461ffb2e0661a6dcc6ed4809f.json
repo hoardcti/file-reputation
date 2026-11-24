@@ -1,0 +1,159 @@
+{
+  "hashes": {
+    "sha256": "0457414c4504b70115798eee9c8384a8bf9e793461ffb2e0661a6dcc6ed4809f",
+    "sha1": "674dd3148b7f973669328feb6897bc55a1e4c1e0",
+    "md5": "8986af3c278b5384af6d0f1d954ed5fc",
+    "sha3_384": "06d68423ddd0a4f574a833fe5e8f5c38df484b1793d80bd9bb880276d7b0c9901c56f073ba1ce6118113077fb61207a6",
+    "tlsh": "T18A52539657F7224AF2B385F1ABB742CA1B7D38133172A34F9234C45A0E729409994772",
+    "imphash": "3350beb2aea41d673d0d618d4df5b3b1",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "192:jc28Q684J1tbEqsKBC0t8mT+j5j0xkdZK:jc28QklEsC0tp+j5jJ"
+  },
+  "file_metadata": {
+    "names": [
+      "DeElevator64.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 13824,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.1% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "25.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "10.4% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "10.3% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "10.1% (.EXE) Generic Win\/DOS Executable (2002\/3)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "CNCMachineRMS",
+      "dll",
+      "DLL-sideloading",
+      "exe",
+      "ROMULUS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532559",
+        "date_added": "2026-11-24 10:13:17",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Patched Stardock DeElevator64.dll of the ROMULUS Stardock chain (hash listed by Blackpoint, Forescout and Huntress): one extra non-system import, I++u.dll!contentsStroke, so the signed DeElevate64.exe loads the loader from the same folder. Extracted from IconEdit2Turb.msi (91a22cf3...). YARA MAL_ROMULUS_Stardock_DeElevator64_Patched_Import. The signed host DeElevate64.exe (22869e33...) is legitimate software; do not block it by hash.\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "Filler.txt",
+          "date": "2026-09-28 17:50:59",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/8c5ff465-1116-4a55-b44f-b0db95c3b1ec",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0457414c4504b70115798eee9c8384a8bf9e793461ffb2e0661a6dcc6ed4809f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b05634193dc55361e35a03f\/reports\/41a9ad99-4635-4225-a641-aa14d135a275\/overview"
+      },
+      "Intezer": {
+        "verdict": "trusted",
+        "family_name": "Unlabeled",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2564fed2-8be6-442b-89a3-858998fd5c83?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "dll x64",
+        "first_seen": "2026-09-29T00:40:00Z",
+        "last_seen": "2026-11-04T09:36:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/0457414c4504b70115798eee9c8384a8bf9e793461ffb2e0661a6dcc6ed4809f\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Malgent",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-26 13:04:51",
+        "scanner_count": "37",
+        "scanner_match": "26",
+        "scanner_percent": "70.27"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261124-l88raatw7k\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "0457414c4504b70115798eee9c8384a8bf9e793461ffb2e0661a6dcc6ed4809f",
+          "md5_hash": "8986af3c278b5384af6d0f1d954ed5fc",
+          "sha1_hash": "674dd3148b7f973669328feb6897bc55a1e4c1e0",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/0aa5519a-f65c-41b9-a08b-4d2b4711a6d9\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:13:11Z",
+  "last_seen": null
+}

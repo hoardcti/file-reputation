@@ -1,0 +1,209 @@
+{
+  "hashes": {
+    "sha256": "5cd20d86211ab3f4b8ab96a3efb296a069a600a3473d3548e1ed58a9d8c7062e",
+    "sha1": "e9a5bd6ee7f20bc40116db2fe18ae45fde84def3",
+    "md5": "32d58df530480cc5f7120a9fe3d71368",
+    "sha3_384": "2ed3cc561ce8f18e122cc61882b0b1dec2788cd553a1d3ea7a187a2d3dddef786ac82cbce9447505b0b8aae66ca1d7a3",
+    "tlsh": "T100A36D0B778840B9E1AE917989F6EA86E775BC421F21934F2390675E0F337903F29791",
+    "imphash": "f061108031eff822a00207ca40e5f06f",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:KSUGXK6Mp0vmK6LpiseStTdPUV2u4qN432bRCCCstaSdquzud1Wa:UfbQndiFUVCqN4WCsoSdtzw"
+  },
+  "file_metadata": {
+    "names": [
+      "5cd20d86211a.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 106496,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "CNCMachineRMS",
+      "dll",
+      "DLL-sideloading",
+      "exe",
+      "ROMULUS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CAS_Malware_Hunting",
+        "author": "Michael Reinprecht",
+        "description": "DEMO CAS YARA Rules for sample2.exe",
+        "reference": null
+      },
+      {
+        "rule_name": "cobalt_strike_tmp01925d3f",
+        "author": "The DFIR Report",
+        "description": "files - file ~tmp01925d3f.exe",
+        "reference": "https://thedfirreport.com"
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532566",
+        "date_added": "2026-11-24 10:14:47",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Unsigned x64 DLL extracted (cabinet unpack, unmodified bytes) from FilesInspectorX.msi (9ac13a8e...), a ROMULUS ClickFix installer. Matches YARA MAL_ROMULUS_SideLoaded_Decoy_Loader_DLL: decoy GUI/graphics body with random-looking exports plus a sibling-DLL import, the EnumSystemCodePagesW trampoline or the DispatchNetworkChain/InitializeNewSession export pair.\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "7c2ee0f2bde341b3a93beb410a2a8a25_FilesInspectorX.msi",
+          "date": "2026-10-07 21:20:02",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/384b7659-c592-4fb3-99fd-4128c925413c",
+          "tags": [
+            "generated-doc"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/5cd20d86211ab3f4b8ab96a3efb296a069a600a3473d3548e1ed58a9d8c7062e\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0564abe54d87f0d777adc8\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/5c354184-f768-4ed6-a8af-98a9c766a556?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "executable.pe.64.dll",
+        "first_seen": "",
+        "last_seen": "",
+        "hitscount": 0,
+        "report_link": "https:\/\/opentip.kaspersky.com\/5cd20d86211ab3f4b8ab96a3efb296a069a600a3473d3548e1ed58a9d8c7062e\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Ravartar",
+        "status": "SUSPICIOUS",
+        "first_seen": "2026-10-05 18:04:54",
+        "scanner_count": "37",
+        "scanner_match": "19",
+        "scanner_percent": "51.35"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261124-mab54aez7z\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "5cd20d86211ab3f4b8ab96a3efb296a069a600a3473d3548e1ed58a9d8c7062e",
+          "md5_hash": "32d58df530480cc5f7120a9fe3d71368",
+          "sha1_hash": "e9a5bd6ee7f20bc40116db2fe18ae45fde84def3",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/1502b3fa-fdbe-4d03-8306-1e25d59f1b22\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:14:42Z",
+  "last_seen": null
+}

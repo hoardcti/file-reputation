@@ -1,0 +1,189 @@
+{
+  "hashes": {
+    "sha256": "eff5d63ddf1813962f0d8ad1250cea5486c8bb5dd27c3f432b43957a33e43764",
+    "sha1": "ae62d713ecb26a2f763d20f2e2c168a2d414e5c1",
+    "md5": "f89c036a9ac60bd50e15b7e23d8084b8",
+    "sha3_384": "2a04f99403428f3c7ae3a68051ccc81ce8017687b6738fedbc0ea40c54235906d9f6cc0168a95992ca3048cdfd603a27",
+    "tlsh": "T118D3724FBA7610F0D5FED0359992B52BFDB070A211756707ABA29A070B73BA4EC2D740",
+    "imphash": "680bbd820b2085958f6dbdeba3270b09",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:8UAN7ytqqbF0X+d3VJH4t542ZjShtZUO3A5dtZAkS6cFC+HOUYp:8RNAvbFp94w2ZGZUMA9aPFLbYp"
+  },
+  "file_metadata": {
+    "names": [
+      "WPFLocalizeExtension.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 132096,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Canon",
+      "ClickFix",
+      "CNCMachineRMS",
+      "dll",
+      "DLL-sideloading",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532576",
+        "date_added": "2026-11-24 10:17:02",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Unsigned x64 DLL extracted (cabinet unpack, unmodified bytes) from ISOSimple.msi (6761aad4...), a ROMULUS ClickFix installer. Matches YARA MAL_ROMULUS_SideLoaded_Decoy_Loader_DLL: decoy GUI/graphics body with random-looking exports plus a sibling-DLL import, the EnumSystemCodePagesW trampoline or the DispatchNetworkChain/InitializeNewSession export pair. SHA-256 identical to the WPFLocalizeExtension.dll listed by Huntress (2026-09-28).\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "clickfixexamples.txt",
+          "date": "2026-09-25 15:35:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/d9e9bd81-b377-4899-b95b-0f24b10b2b3d",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/eff5d63ddf1813962f0d8ad1250cea5486c8bb5dd27c3f432b43957a33e43764\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0564bd93dc55361e35ab67\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "CustomGPT ClickFix Loader",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/99f4822d-6221-46f7-b0cc-7b45faf6e937?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "executable.pe.64.dll",
+        "first_seen": "2026-09-29T19:42:00Z",
+        "last_seen": "2026-11-04T09:36:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/eff5d63ddf1813962f0d8ad1250cea5486c8bb5dd27c3f432b43957a33e43764\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Wacatac",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-25 14:33:13",
+        "scanner_count": "37",
+        "scanner_match": "27",
+        "scanner_percent": "72.97"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261124-mbhn9stx2n\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "eff5d63ddf1813962f0d8ad1250cea5486c8bb5dd27c3f432b43957a33e43764",
+          "md5_hash": "f89c036a9ac60bd50e15b7e23d8084b8",
+          "sha1_hash": "ae62d713ecb26a2f763d20f2e2c168a2d414e5c1",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/04fa54be-07c3-48d2-9ab0-318b81c59b0a\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:16:56Z",
+  "last_seen": null
+}

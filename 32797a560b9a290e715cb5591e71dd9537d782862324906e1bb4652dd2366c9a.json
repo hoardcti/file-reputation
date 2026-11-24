@@ -1,0 +1,184 @@
+{
+  "hashes": {
+    "sha256": "32797a560b9a290e715cb5591e71dd9537d782862324906e1bb4652dd2366c9a",
+    "sha1": "af581247c4095d829cc493c12f8963a7887dfb9d",
+    "md5": "18a77c124873581799cc69ab17611c85",
+    "sha3_384": "ae21772bc6c2de5adf6f73108b6714e58143d9f1e545bdd925bacc38b4bc687ea7d066a13347c025dd82563b978fa662",
+    "tlsh": "T18AA36C0566E4406CF0AAD2BE8DF1DA17F732F8511736D3EF5390A55A1E23A84AE3C712",
+    "imphash": "2908a65a92cd1d01df1fc1e277a2bca3",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:5dlUXjRzd4laqOEt0CWtF+eLReHd48MW7MPFAIROMFljSPR0NpJKE:W0oqOEtwvNdsMXRljeZ0Npg"
+  },
+  "file_metadata": {
+    "names": [
+      "HTS25.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 97792,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "ClickFix",
+      "CNCMachineRMS",
+      "dll",
+      "DLL-sideloading",
+      "exe",
+      "ROMULUS"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "Win_Clipboard_Clipper_Thengavar",
+        "author": "Thengavar",
+        "description": "Detects malware manipulating the Windows clipboard for clipping or crypto stealing attacks",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532564",
+        "date_added": "2026-11-24 10:14:18",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Unsigned x64 DLL from the BabaDeda zip c68bffb8... (MalwareBazaar, tag CNCMachineRMS, 2026-08-21), original file name HTS25.dll. Matches YARA MAL_ROMULUS_SideLoaded_Decoy_Loader_DLL: decoy GUI/graphics body with random-looking exports plus a sibling-DLL import or the EnumSystemCodePagesW trampoline. The zip also holds load.db, a CNCMachineRMS Storage container with gates triotmelon[.]com:443 and 144[.]124[.]242[.]171:443 (our extractor).\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Suspicious activity",
+          "file_name": "c68bffb8c177ade24a91666c3103e6c19097890abc558233ba0eb4f745f41e96.zip",
+          "date": "2026-08-21 08:34:26",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/6edb9c82-9fd2-4ff5-aad5-1e42c7884fc0",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/32797a560b9a290e715cb5591e71dd9537d782862324906e1bb4652dd2366c9a\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0564a755beed15e93b6f70\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "trusted",
+        "family_name": "Dell Inc.",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/2f11c605-c3f1-46f9-a0a9-96da6ac84d3b?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "executable.pe.64.dll",
+        "first_seen": "2026-09-11T05:38:00Z",
+        "last_seen": "2026-09-16T04:03:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/32797a560b9a290e715cb5591e71dd9537d782862324906e1bb4652dd2366c9a\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.Shelload",
+        "status": "MALICIOUS",
+        "first_seen": "2026-08-08 17:45:45",
+        "scanner_count": "37",
+        "scanner_match": "19",
+        "scanner_percent": "51.35"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261124-l9q8mafv5l\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "32797a560b9a290e715cb5591e71dd9537d782862324906e1bb4652dd2366c9a",
+          "md5_hash": "18a77c124873581799cc69ab17611c85",
+          "sha1_hash": "af581247c4095d829cc493c12f8963a7887dfb9d",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/01f0978a-3e06-4c00-9d52-f753d8ff8d1c\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": []
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:14:13Z",
+  "last_seen": null
+}

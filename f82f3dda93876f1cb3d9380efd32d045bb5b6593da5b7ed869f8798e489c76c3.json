@@ -1,0 +1,185 @@
+{
+  "hashes": {
+    "sha256": "f82f3dda93876f1cb3d9380efd32d045bb5b6593da5b7ed869f8798e489c76c3",
+    "sha1": "f1b0deb11e001b46c572ac466ad1cfe5085ad2f7",
+    "md5": "4cf5170474f8db2aec5e7fc96d849cd3",
+    "sha3_384": "27fef6b1543b4fafb6448cc254163841fc3a841c38c2a81c962e638786f56427c02dd8a88af90c645bfef80d35a85342",
+    "tlsh": "T1DED69C322603BCFA3F6E6EC599142D404C4D3D974254C9A4BE4EF8B3A6DE1486FAE474",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:GYJZB1zf1AShb/lCG17d1wXhQ1+DxnSstWu5Ju2WrTmBGS4as+hQ8jxK9pXYHdzh:u"
+  },
+  "file_metadata": {
+    "names": [
+      "f82f3dda93876f1c.bin"
+    ],
+    "mime_type": "text/x-msdos-batch",
+    "type": "bat",
+    "size": 13345633,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "batch",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4053987\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SalatStealer",
+    "tags": [
+      "bat",
+      "powershell",
+      "SalatStealer"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ClamAV_Emotet_String_Aggregate",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "telebot_framework",
+        "author": "vietdx.mb",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "bat",
+          "date": "2026-11-24 09:05:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/3720d758-6cf2-4316-a50e-6d901914646a",
+          "tags": [
+            "evasion",
+            "salatstealer",
+            "stealer",
+            "golang",
+            "upx",
+            "susp-powershell"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/f82f3dda93876f1cb3d9380efd32d045bb5b6593da5b7ed869f8798e489c76c3\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b054b4e964b6cc45edf84b0\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-BAT.Trojan.Salatloader",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-04 20:37:49",
+        "scanner_count": "37",
+        "scanner_match": "16",
+        "scanner_percent": "43.24"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "salatstealer",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261124-kesyassz2q\/",
+        "tags": [
+          "family:salatstealer",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "stealer",
+          "upx"
+        ],
+        "signatures": [
+          {
+            "signature": "Detect SalatStealer payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: salatstealer",
+            "score": "10"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Deobfuscate\/Decode Files or Information",
+            "score": "6"
+          },
+          {
+            "signature": "UPX packed file",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T08:25:01Z",
+  "last_seen": null
+}

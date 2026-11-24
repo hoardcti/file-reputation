@@ -1,0 +1,201 @@
+{
+  "hashes": {
+    "sha256": "b77575413c0f97eaf31e4a44c884c1ecdc0049ec89916ceb0bf3aaaedc0442fe",
+    "sha1": "20ef6b2019aaf23f2e23ebfed46e09ec6dc5f196",
+    "md5": "3670e2b4fbd64fbd735d585793f489e5",
+    "sha3_384": "a94be109e4016d92c1689925b421b978d263c390281e232541d561b2180321ccd9af29f95878c7fb11ee02cf371e24fe",
+    "tlsh": "T1BE935C1AAF69406FE29EC97ACDE2C806DB31BC8257B1B75E53500CD60E27A509F2D713",
+    "imphash": "dd1332e16b5992f1a6e0a445911b08ab",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "1536:gwu37FQPk9DyQGRzbb31F4ZO3n2F1GV7vCeurafjAw2T3pG4G2G6:gDhQP73b3cO3nwseafjAp44G2t"
+  },
+  "file_metadata": {
+    "names": [
+      "rdCore.dll"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 95232,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "37.0% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "28.6% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.5% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "11.3% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "11.3% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/github.com\/harperjohnsai\/detections\/tree\/main\/iocs\/2026-11-romulus-clickfix"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "Canon",
+      "ClickFix",
+      "CNCMachineRMS",
+      "dll",
+      "DLL-sideloading",
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "Glasses",
+        "author": "Seth Hardy",
+        "description": "Glasses family",
+        "reference": null
+      },
+      {
+        "rule_name": "GlassesCode",
+        "author": "Seth Hardy",
+        "description": "Glasses code features",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "comments": [
+      {
+        "id": "532571",
+        "date_added": "2026-11-24 10:16:02",
+        "twitter_handle": null,
+        "display_name": null,
+        "comment": "Unsigned x64 DLL extracted (cabinet unpack, unmodified bytes) from ISOSimple.msi (6761aad4...), a ROMULUS ClickFix installer. Matches YARA MAL_ROMULUS_SideLoaded_Decoy_Loader_DLL: decoy GUI/graphics body with random-looking exports plus a sibling-DLL import, the EnumSystemCodePagesW trampoline or the DispatchNetworkChain/InitializeNewSession export pair. SHA-256 identical to the rdCore.dll listed by Huntress (2026-09-28).\n\nChain and gates (static analysis, nothing executed): https://github.com/harperjohnsai/detections/tree/main/iocs/2026-11-romulus-clickfix\nRules (YARA, Sigma), IOCs, extractor: https://github.com/harperjohnsai/detections\nHarper Johns, security researcher\nMore research: youtube.com/@HarperJohnsAI"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "1777.ps1",
+          "date": "2026-09-25 14:47:25",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/53307645-9da1-483e-bab5-df1d06cbed84",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/b77575413c0f97eaf31e4a44c884c1ecdc0049ec89916ceb0bf3aaaedc0442fe\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0564b6e54d87f0d777adf6\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "CustomGPT ClickFix Loader",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/799fb5c2-eafd-4ee6-ba17-90f2c99eabb5?utm_source=MalwareBazaar"
+      },
+      "Kaspersky": {
+        "verdict": "Malware",
+        "file_type": "executable.pe.64.dll",
+        "first_seen": "2026-09-29T19:42:00Z",
+        "last_seen": "2026-09-29T19:50:00Z",
+        "hitscount": 10,
+        "report_link": "https:\/\/opentip.kaspersky.com\/b77575413c0f97eaf31e4a44c884c1ecdc0049ec89916ceb0bf3aaaedc0442fe\/results?tab=lookup",
+        "detections": []
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.ShellcodeRunner",
+        "status": "MALICIOUS",
+        "first_seen": "2026-09-25 14:33:32",
+        "scanner_count": "37",
+        "scanner_match": "27",
+        "scanner_percent": "72.97"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261124-maxrsstw9r\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "b77575413c0f97eaf31e4a44c884c1ecdc0049ec89916ceb0bf3aaaedc0442fe",
+          "md5_hash": "3670e2b4fbd64fbd735d585793f489e5",
+          "sha1_hash": "20ef6b2019aaf23f2e23ebfed46e09ec6dc5f196",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/2f212d27-4b05-4d25-b120-822eea299af1\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "harperjohns",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-24T10:15:57Z",
+  "last_seen": null
+}
