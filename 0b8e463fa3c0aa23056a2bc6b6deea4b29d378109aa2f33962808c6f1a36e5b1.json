@@ -1,0 +1,161 @@
+{
+  "hashes": {
+    "sha256": "0b8e463fa3c0aa23056a2bc6b6deea4b29d378109aa2f33962808c6f1a36e5b1",
+    "sha1": "4f0241ea05bee0f2e858ba68afea34b1ba0168e6",
+    "md5": "a64afe46bf561e39f6f1e862d5241d4e",
+    "sha3_384": "d68313d05e6260436694baf3cabd45c0285e0cb14369356fc60eaaf8ef2d06246acd2562747f86712ab96fb3fc44cd27",
+    "tlsh": "T10AC141A97D13746142FBA77FBED32040FA6750B7460A1C04BE9CA1451FB01B8C7A6F56",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:fzDQ66oTX0YHLU/ZSDeXwXURowXeT77IwnacXA:/Q66oTX0YrUxUeX66o6eT77Da2A"
+  },
+  "file_metadata": {
+    "names": [
+      "0b8e463fa3c0aa23056a2bc6b6deea4b29d378109aa2f33962808c6f1a36e5b1.bin"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 5807,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4075874\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "OverlordRAT",
+    "tags": [
+      "OverlordRAT",
+      "ps1"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0b8e463fa3c0aa23056a2bc6b6deea4b29d378109aa2f33962808c6f1a36e5b1\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0687ba71f3da29a50983ca\/reports\/ad4c74e7-c4d6-48c4-850b-cd100de23289\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script.Trojan.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-22 10:36:06",
+        "scanner_count": "37",
+        "scanner_match": "7",
+        "scanner_percent": "18.92"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "overlord",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261125-htazxsdw3j\/",
+        "tags": [
+          "family:donutloader",
+          "family:overlord",
+          "execution",
+          "loader",
+          "rat"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Detects Overlord RAT",
+            "score": "10"
+          },
+          {
+            "signature": "Family: DonutLoader",
+            "score": "10"
+          },
+          {
+            "signature": "Family: Overlord",
+            "score": "10"
+          },
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": "overlord",
+            "c2": "http:\/\/1.1.1.1:1111"
+          },
+          {
+            "extraction": "dropper",
+            "family": "overlord",
+            "c2": "https:\/\/api.mainnet-beta.solana.com"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-25T06:58:16Z",
+  "last_seen": null
+}

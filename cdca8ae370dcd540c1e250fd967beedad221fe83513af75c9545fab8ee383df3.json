@@ -1,0 +1,315 @@
+{
+  "hashes": {
+    "sha256": "cdca8ae370dcd540c1e250fd967beedad221fe83513af75c9545fab8ee383df3",
+    "sha1": "ffd5c7da2b7281ff00387397da90d70ec5b50d0a",
+    "md5": "5e7b6ae2b87cb1444287db8fe536b1c5",
+    "sha3_384": "40fb5a56a3ad2dfd8f83ccb07b7a376bfe5f1a83956646cf0717797899c041be1b5886022a58117eef8933dd1995d9c0",
+    "tlsh": "T1C8673303928997EDC0C1563C549E504BA0C0A87BC9BAC3997FCBCC07B656D6946AE3F7",
+    "imphash": "8f8c311eec54e652db9624ea0b1973c5",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:pW8rLd+XFcrGe6qr/rDmrAdVWqH2fEw2ZkaaSXnX+HSHK0de7j263m0fSy5kSJfw:pW8rLMQR6qrXKI2rSn+gd6m0qyD4HF",
+    "dhash_icon": "963369555d4d3396"
+  },
+  "file_metadata": {
+    "names": [
+      "EPT_382C510D_33637141.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 30689024,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "44.6% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "14.0% (.ICL) Windows Icons Library (generic) (2059\/9)",
+      "13.8% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "13.7% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "13.6% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "exe"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-25 09:00:02",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/bec9763b-4d70-4228-83cd-7f6c11fdc734",
+          "tags": [
+            "susp-powershell",
+            "xor-url",
+            "generic",
+            "upx"
+          ]
+        }
+      ],
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b06a3612fc5113d6358ce6d\/reports\/83b98d9d-d5fb-48e4-bc34-7613c3009fda\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261125-kxv6dafv7y\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "evasion",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Modifies Windows Defender DisableAntiSpyware settings",
+            "score": "10"
+          },
+          {
+            "signature": "Modifies Windows Defender Real-time Protection settings",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Disables use of System Restore points",
+            "score": "8"
+          },
+          {
+            "signature": "Modifies Windows Firewall",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies Security services",
+            "score": "6"
+          },
+          {
+            "signature": "Obfuscated Files or Information: Command Obfuscation",
+            "score": "6"
+          },
+          {
+            "signature": "Power Settings",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Event Triggered Execution: Netsh Helper DLL",
+            "score": "3"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.56"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Adding an exclusion to Microsoft Defender"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Firewall traversal"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the Windows Defender launch"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun for a service"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the System Restore"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Blocking the User Account Control"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Running batch commands"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching the process to change the firewall settings"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Modifying a system file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the system32 directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Moving a file to the system32 directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-25T08:58:29Z",
+  "last_seen": null
+}

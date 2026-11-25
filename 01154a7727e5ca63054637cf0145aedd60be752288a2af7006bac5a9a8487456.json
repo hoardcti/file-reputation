@@ -1,0 +1,230 @@
+{
+  "hashes": {
+    "sha256": "01154a7727e5ca63054637cf0145aedd60be752288a2af7006bac5a9a8487456",
+    "sha1": "f4c461495f30458953d9a3aa3878d5e231729891",
+    "md5": "732f0bb2cd9990ad76976a6ec31342a3",
+    "sha3_384": "64c88c28920bec708990e3e410069e71f32a15e10a6ab6de3dd41bbd1dc607f04f22b6ee606202d6c3fddfd132b37b62",
+    "tlsh": "T1A966E017B7580AF6D4AAD2B899939A06F7B174460330D3CB02D6571E1F277E1AFBB210",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:YIl6X3aru8uVp/EOnu00QiuUwGeKLppPQuxhDpp7coIneRr:YIlm3aq8OnU7pYIhDpi+"
+  },
+  "file_metadata": {
+    "names": [
+      "SOA.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 6813696,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.5% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.2% (.ATN) Photoshop Action (5007\/6\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.0% (.BIN\/MACBIN) MacBinary 1 (1033\/5)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "iso"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "MD5_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for MD5 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "skip20_sqllang_hook",
+        "author": "Mathieu Tartare \u003cmathieu.tartare@eset.com\u003e",
+        "description": "YARA rule to detect if a sqllang.dll version is targeted by skip-2.0. Each byte pattern corresponds to a function hooked by skip-2.0. If $1_0 or $1_1 match, it is probably targeted as it corresponds to the hook responsible for bypassing the authentication.",
+        "reference": "https://www.welivesecurity.com/"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/01154a7727e5ca63054637cf0145aedd60be752288a2af7006bac5a9a8487456\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b06ccea87fbcaa076660806\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "valleyrat_s2",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261125-s6jgyaf13l\/",
+        "tags": [
+          "family:valleyrat_s2",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects ValleyRAT payload",
+            "score": "10"
+          },
+          {
+            "signature": "Family: ValleyRat",
+            "score": "10"
+          },
+          {
+            "signature": "Modifies Windows Defender notification settings",
+            "score": "10"
+          },
+          {
+            "signature": "Modifies security service",
+            "score": "10"
+          },
+          {
+            "signature": "UAC bypass",
+            "score": "10"
+          },
+          {
+            "signature": "Server Software Component: Terminal Services DLL",
+            "score": "8"
+          },
+          {
+            "signature": "Windows security bypass",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security modification",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Hijack Execution Flow: Executable Installer File Permissions Weakness",
+            "score": "6"
+          },
+          {
+            "signature": "Looks up external IP address via web service",
+            "score": "6"
+          },
+          {
+            "signature": "Checks installed software on the system",
+            "score": "4"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "4"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "4"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Modifies registry class",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: LoadsDriver",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "System policy modification",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "c2",
+            "family": "valleyrat_s2",
+            "c2": "134.122.136.137:32019"
+          }
+        ]
+      },
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": "ValleyRAT",
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/01154a7727e5\/report\/overview.html"
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "HU"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-25T11:51:14Z",
+  "last_seen": null
+}
