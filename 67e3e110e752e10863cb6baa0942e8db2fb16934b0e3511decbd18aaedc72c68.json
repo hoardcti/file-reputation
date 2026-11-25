@@ -1,0 +1,189 @@
+{
+  "hashes": {
+    "sha256": "67e3e110e752e10863cb6baa0942e8db2fb16934b0e3511decbd18aaedc72c68",
+    "sha1": "768cbe6324e5e8cda1d54840d74237a24c7d9cea",
+    "md5": "e3aa6fd9b1317be237d0968481e7d8b3",
+    "sha3_384": "8a1f9c0c50d8f3974ae4318a81cbc806de4736e3fd3022a51e8335c89bc2f93aae62c4e0b4999cdf6769e79c657d9107",
+    "tlsh": "T1BBF474A3E663668AFD97847DD80F5303A43F38410988E83315679D81375DB768BAE24F",
+    "imphash": "694a10f92efdb5ba9c32ad08fff67a41",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "6144:DBBTDDDqgnzvVx5+lZnKITaZ6gUzdncYw/GLthWwsgREBShkElQqson92LU:DDjq0DVxwvE2PREBats"
+  },
+  "file_metadata": {
+    "names": [
+      "RuntimeBroker.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 790016,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "51.9% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "16.1% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "15.9% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "15.9% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "backdoor",
+      "exe",
+      "fake-cheat",
+      "loader",
+      "RuntimeBrokerAds",
+      "SnoopyTriage",
+      "WebSocket"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM",
+        "author": "ditekSHen",
+        "description": "Detects Windows exceutables bypassing UAC using CMSTP COM interfaces. MITRE (T1218.003)",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Backdoor_RuntimeBroker_WebSocket_Nov26",
+        "author": "quiet-heron-sec",
+        "description": "Detects a backdoor that installs itself as RuntimeBroker.exe in ProgramData and uses a WebSocket C2",
+        "reference": "https://bazaar.abuse.ch/sample/40ea2317b6703a8b3e0108ed49686203cdafc59c59ff8c604bd46740c405e5a5/"
+      },
+      {
+        "rule_name": "pe_detect_tls_callbacks",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-25 03:26:50",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/c0d75556-9f48-4183-b165-8f5c24b7b533",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/67e3e110e752e10863cb6baa0942e8db2fb16934b0e3511decbd18aaedc72c68\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0653384632f2835dc8ca7f\/reports\/0f65844c-6ecd-43c0-9ad2-08069d5d6855\/overview"
+      },
+      "Intezer": {
+        "verdict": "suspicious",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/eb8dadcc-b748-4aba-976b-d96ded88bde5?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Hacktool.Knotweed",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-25 03:17:15",
+        "scanner_count": "37",
+        "scanner_match": "20",
+        "scanner_percent": "54.05"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261125-ds4hmacy3k\/",
+        "tags": [
+          "defense_evasion"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes a file named after a Windows system binary",
+            "score": "7"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "67e3e110e752e10863cb6baa0942e8db2fb16934b0e3511decbd18aaedc72c68",
+          "md5_hash": "e3aa6fd9b1317be237d0968481e7d8b3",
+          "sha1_hash": "768cbe6324e5e8cda1d54840d74237a24c7d9cea",
+          "detections": [
+            "INDICATOR_SUSPICIOUS_EXE_UACBypass_CMSTPCOM"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/87240804-35c4-46cf-bcea-a9887f73d88c\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-25T03:16:36Z",
+  "last_seen": null
+}
