@@ -1,0 +1,335 @@
+{
+  "hashes": {
+    "sha256": "eb1c3d52bd01ed52a6d87cdf908fcae036723f7b413360ad09df130368520210",
+    "sha1": "b24db8e6f39d0349c434b7405a617854514bc456",
+    "md5": "c4538fabe78f03912212a302b2e23781",
+    "sha3_384": "d7075494a5b59d2f6201013b6c07fa0c57b2ddb3809eac8d5c730e3662f805902a09ed2e08228aa85b7e8c8e2004be8a",
+    "tlsh": "T1A5963383B3B518F8C4A181729FE8DB46D131DB6C5B525E5A03C98F263EB32B26603DD5",
+    "imphash": "b5a014d7eeb4c2042897567e1288a095",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "196608:+pbj5ix+wywSBcWyJ8EPhydVh3oPekIAJzMvFtEVgn/e8j4klzeOE+Ay:+pbj5SdBWxUUVh3YeXyoEueSlzgy",
+    "dhash_icon": "c292ecd8f2f6fe1c"
+  },
+  "file_metadata": {
+    "names": [
+      "1.exe"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 8782376,
+    "format": "PE",
+    "arch": "I386",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "42.7% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "16.8% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "13.0% (.EXE) Win16 NE executable (generic) (5038\/12\/1)",
+      "11.6% (.EXE) Win32 Executable (generic) (4504\/4\/1)",
+      "5.2% (.EXE) OS\/2 Executable (generic) (2029\/13)"
+    ],
+    "file_information": [
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4035717\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "SnappyClient",
+    "tags": [
+      "exe",
+      "SnappyClient"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-26 07:37:46",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/b9b5cc61-270a-49ec-b4e4-f1176cf8842d",
+          "tags": [
+            "hijackloader",
+            "loader",
+            "auto-startup",
+            "snappyclient",
+            "rat",
+            "stealer"
+          ]
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/eb1c3d52bd01ed52a6d87cdf908fcae036723f7b413360ad09df130368520210\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b07d66bc7f81c316512096e\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "IDAT Loader",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/4ff463a8-9edf-423e-a3d2-92d29d93e602?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "malicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "hijackloader",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261126-hlkt6agx4t\/",
+        "tags": [
+          "family:hijackloader",
+          "credential_access",
+          "defense_evasion",
+          "discovery",
+          "loader",
+          "privilege_escalation",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Detects HijackLoader (aka IDAT Loader)",
+            "score": "10"
+          },
+          {
+            "signature": "Family: HijackLoader, IDAT loader, Ghostulse,",
+            "score": "10"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Unsecured Credentials: Credentials In Files",
+            "score": "7"
+          },
+          {
+            "signature": "Accesses cryptocurrency files\/wallets, possible credential harvesting",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of SetThreadContext",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Program Files directory",
+            "score": "4"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Browser Information Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "System Time Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Enumerates system info in registry",
+            "score": null
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: AddClipboardFormatListener",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: GetForegroundWindowSpam",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: MapViewOfSection",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: NtCreateUserProcessBlockNonMicrosoftBinary",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SendNotifyMessage",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "eb1c3d52bd01ed52a6d87cdf908fcae036723f7b413360ad09df130368520210",
+          "md5_hash": "c4538fabe78f03912212a302b2e23781",
+          "sha1_hash": "b24db8e6f39d0349c434b7405a617854514bc456",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/2c14eedf-73c8-47a2-962e-fb2f39efbc78\/"
+        },
+        {
+          "sha256_hash": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+          "md5_hash": "32da96115c9d783a0769312c0482a62d",
+          "sha1_hash": "2ea840a5faa87a2fe8d7e5cb4367f2418077d66b",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/2c14eedf-73c8-47a2-962e-fb2f39efbc78\/"
+        },
+        {
+          "sha256_hash": "28198a9047eb39aaac72194fb462c966e610b2299160837857a91833458cf460",
+          "md5_hash": "0dda43c7c9046a15025f65936ebbe252",
+          "sha1_hash": "ccb40e3290a8a8e88dcaa308d9344da0b5dd3ea1",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/2c14eedf-73c8-47a2-962e-fb2f39efbc78\/"
+        }
+      ],
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Unauthorized injection to a recently created process by context flags manipulation"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Stealing user critical data"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Using the Windows Management Instrumentation requests"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "DNS request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Reading critical registry keys"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "abuse_ch",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-26T06:48:59Z",
+  "last_seen": null
+}
