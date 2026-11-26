@@ -1,0 +1,228 @@
+{
+  "hashes": {
+    "sha256": "bfee1462d691d3b373a3fb6642d0aa47198bbe7ca6299c7da30dc925d09e277f",
+    "sha1": "867a4136c8773945db20dc9041e75744c24450d6",
+    "md5": "3e30b8212795cbf6105f55a9f01a0931",
+    "sha3_384": "24b9e7af6f9a357999046fa3e64fd9bc6819d66376a824eddc6e30aeb4faec2cdf613b8c7abc4a2004ee1a9607bdae19",
+    "tlsh": "T1343612213A8AC53AE56E05B3593E9B6B513E68790B7104C763D8BA5A3DB00C1533EFD3",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "98304:XlFC2YWYrAkQXgRf6B9BILhHRjMIIKTFNxwLhZcL:XlQ2AvRSB9BmhCfh4"
+  },
+  "file_metadata": {
+    "names": [
+      "tk2.y"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 5329920,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "80.0% (.MSI) Microsoft Windows Installer (454500\/1\/170)",
+      "10.7% (.MST) Windows SDK Setup Transform script (61000\/1\/5)",
+      "7.8% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "1.4% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/11b3a34b-2b02-423b-87e0-11d1b9a923e5"
+      },
+      {
+        "context": "dropped_by_sha256",
+        "value": "923a4e54b0954f7d53188cc24281f3b326bf30ac40a4caf06e09f7911554af9f"
+      },
+      {
+        "context": "dropped_by_md5",
+        "value": "459f255725b86be398710bc3c24cb7ab"
+      },
+      {
+        "context": "URLhaus",
+        "value": "https:\/\/urlhaus.abuse.ch\/url\/4076632\/"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "ValleyRAT",
+    "tags": [
+      "msi",
+      "python",
+      "SilverFox",
+      "ValleyRAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DebuggerCheck__QueryInfo",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "Detect_MSI_LATAM_Banker_From_LatAm",
+        "author": null,
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "vmdetect",
+        "author": "nex",
+        "description": "Possibly employs anti-virtualization techniques",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/bfee1462d691d3b373a3fb6642d0aa47198bbe7ca6299c7da30dc925d09e277f\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b07ffe4d50492e19e96ff92\/reports\/1df11e9f-0501-4c56-81c3-2bb44c5c4a73\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-Python.Trojan.ShellcodeRunner",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-26 09:47:14",
+        "scanner_count": "37",
+        "scanner_match": "6",
+        "scanner_percent": "16.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261126-lrpxvawv4l\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Loads dropped DLL",
+            "score": "7"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "12",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Loading a suspicious library"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Deleting a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "DoberGroup",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_drive-by"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-26T09:46:08Z",
+  "last_seen": "2026-11-26T10:41:49Z"
+}

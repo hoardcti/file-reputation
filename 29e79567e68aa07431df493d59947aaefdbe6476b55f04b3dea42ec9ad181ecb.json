@@ -1,0 +1,249 @@
+{
+  "hashes": {
+    "sha256": "29e79567e68aa07431df493d59947aaefdbe6476b55f04b3dea42ec9ad181ecb",
+    "sha1": "afccfa8c381b14af6763738413345418d141b23b",
+    "md5": "34d2a3bcf9769741eb89ea7bef14d9fb",
+    "sha3_384": "59e8209b9fc68b354358609495279d1723de6340ffb80bcf4ba43bb0e770aa8ba6b037af208ae4c099bc13f05ed8346c",
+    "tlsh": "T13263FA237A445333C5421332951FA3E09F794C5C8BF74212766AB29C1EB1EB462FB9E5",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "768:7PZTbl+MomHmBwCuXbgRpRCG+fYGAScLYimmtkOiZ6:FTD6wVgRyG+fYVMnmtPA6"
+  },
+  "file_metadata": {
+    "names": [
+      "Document.pdf.msi"
+    ],
+    "mime_type": "application/x-msi",
+    "type": "msi",
+    "size": 69632,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "msi",
+    "trid": [
+      "84.7% (.MSP) Windows Installer Patch (44509\/10\/5)",
+      "15.2% (.) Generic OLE2 \/ Multistream Compound (8000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "any_run",
+        "value": "https:\/\/app.any.run\/tasks\/b37aea7c-42b0-4405-a504-2e3a7b3d8caa"
+      },
+      {
+        "context": "links",
+        "value": "http:\/\/1.159.39.155:8080\/delivery\/Document.pdf.msi"
+      },
+      {
+        "context": "dropping_malware",
+        "value": "SpectralRAT"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "dropper",
+      "msi",
+      "powershell",
+      "RAT"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "PowerShell_in_Word_Doc_RID2FBC",
+        "author": "Florian Roth",
+        "description": "Detects a powershell and bypass keyword in a Word document",
+        "reference": "Internal Research - ME"
+      },
+      {
+        "rule_name": "PowerShell_Susp_Parameter_Combo_RID336F",
+        "author": "Florian Roth",
+        "description": "Detects PowerShell invocation with suspicious parameters",
+        "reference": "https://goo.gl/uAic1X"
+      },
+      {
+        "rule_name": "SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (script_js, etat binaire)",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_PS1_JAB_Pattern_Jun22_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious UTF16 and Base64 encoded PowerShell code that starts with a $ sign and a single char variable",
+        "reference": "Internal Research"
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/29e79567e68aa07431df493d59947aaefdbe6476b55f04b3dea42ec9ad181ecb\/"
+      },
+      "FileScan-IO": {
+        "verdict": "SUSPICIOUS",
+        "threatlevel": "0.5",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b086f73cf3f290d997cb659\/reports\/f54a8db0-1d24-429d-8324-ce10da94d855\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-26 17:42:14",
+        "scanner_count": "37",
+        "scanner_match": "0",
+        "scanner_percent": "0.00"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261126-v93fbsew5t\/",
+        "tags": [
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation",
+          "ransomware"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Enumerates connected drives",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Event Triggered Execution: Installer Packages",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks SCSI registry key(s)",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of FindShellTrayWindow",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of SetWindowsHookEx",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Volume Shadow Copy service COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "suspicious1",
+        "maliciousness": "44",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Searching for synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the Windows subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %temp% directory"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "DoberGroup",
+    "anonymous": false,
+    "origin_country": "FR",
+    "delivery_method": "web_drive-by"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-26T17:41:14Z",
+  "last_seen": "2026-11-26T18:18:38Z"
+}
