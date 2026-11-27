@@ -1,0 +1,188 @@
+{
+  "hashes": {
+    "sha256": "260168c5edf011ea3f57db4a0dbc39b4b0368d0f167a42d91d00ed44fe5eb244",
+    "sha1": "6ddf80e90129cb6e3d14370635b7d9ce28453f0b",
+    "md5": "9ec611ad2a1fd363ffc524e92e3eb820",
+    "sha3_384": "422d17ebc2b2da8c2d0d276a1babf896b4f7183940a379eb644a85cc797780879bc8fc3361b70c77dedb41dd80acad1e",
+    "tlsh": "T1EAD68A9B1EB75980DAB24333D8F78356F7B52CF218245BB13D89D56079E3A882CD029D",
+    "imphash": "8d84633dc4d866c84fac81c63ab9a7d5",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "49152:F8fId2uYwyCCX2Op8ffjaXdX7kQfbXZNrNKJ6q/uNIhyaGPSar+LCt:7dSfX2O2kdYKvw6JoyaGV"
+  },
+  "file_metadata": {
+    "names": [
+      "runailocally-dll.body"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 13763592,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "33.6% (.EXE) OS\/2 Executable (generic) (2029\/13)",
+      "33.1% (.EXE) Generic Win\/DOS Executable (2002\/3)",
+      "33.1% (.EXE) DOS Executable (generic) (2000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "dll-sideloading",
+      "exe",
+      "libcurl",
+      "MopsStealer",
+      "TrojanPony"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "MAL_Loader_Fake_Libcurl_WinGup_Nov26",
+        "author": "quiet-heron-sec",
+        "description": "Detects a fake libcurl.dll side-loaded by WinGup that exports the curl API without any socket import",
+        "reference": "https://www.virustotal.com/gui/file/22dadd303759f12dc11a17b7612178dd5a8615cbf365a3a617faa181438c8273"
+      },
+      {
+        "rule_name": "PE_Digital_Certificate",
+        "author": "albertzsigovits",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "Win32_Library_Libcurl_Artifacts",
+        "author": "Serhii Kocherhan",
+        "description": "Detects PE binaries or libraries containing multiple libcurl exported functions, associated with statically linked or compiled libcurl components.",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_3ee43008",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "Malicious activity",
+          "file_name": "exe",
+          "date": "2026-11-27 13:34:51",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/1c66dc0c-0d3d-4a05-b217-7afae4c7346f",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/260168c5edf011ea3f57db4a0dbc39b4b0368d0f167a42d91d00ed44fe5eb244\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b097a3d6b48daf092e71294\/reports\/\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/8018df8e-9d41-452c-8786-f8e65e3eabf4?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": "Win64.Trojan.AdvML",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-27 12:40:24",
+        "scanner_count": "37",
+        "scanner_match": "10",
+        "scanner_percent": "27.03"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261127-pwcd4atv6r\/",
+        "tags": [
+          "execution"
+        ],
+        "signatures": [
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Checks for VirtualBox DLLs, possible anti-VM trick",
+            "score": "4"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "260168c5edf011ea3f57db4a0dbc39b4b0368d0f167a42d91d00ed44fe5eb244",
+          "md5_hash": "9ec611ad2a1fd363ffc524e92e3eb820",
+          "sha1_hash": "6ddf80e90129cb6e3d14370635b7d9ce28453f0b",
+          "detections": [],
+          "link": "https:\/\/www.unpac.me\/results\/f15967bb-a261-4df3-8af5-6d7c1cf3e538\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Suspicious File",
+        "score": "0.56"
+      },
+      "vxCube": {
+        "verdict": "clean1",
+        "maliciousness": "0",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "shmulc",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-27T12:39:53Z",
+  "last_seen": null
+}

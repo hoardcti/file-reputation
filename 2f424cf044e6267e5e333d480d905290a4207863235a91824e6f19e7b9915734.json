@@ -1,0 +1,213 @@
+{
+  "hashes": {
+    "sha256": "2f424cf044e6267e5e333d480d905290a4207863235a91824e6f19e7b9915734",
+    "sha1": "fecff7a06f3d4507aecd6dd5a7696387030062ba",
+    "md5": "33051d89ef5a8acdcd6600cdac6975cc",
+    "sha3_384": "2c7c8be50f2acc51ea71f5a423bab64507e7c3e99967e0d9651396d294ed06169d6e26daf34b4e77ba143b19f7f3031d",
+    "tlsh": "T1EA21ED19DEB0FD8043DE71E0009C3D9B20598647EB759534EA21089BBD6D654EF1ABCD",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24:3oDHc+55AnmxdUG52MtpPsxMisxMisxjpPLicSpB1JQnPSUHhy:o829AJgk66jxLiLTJyPSUHhy"
+  },
+  "file_metadata": {
+    "names": [
+      "w.vbs"
+    ],
+    "mime_type": "text/plain",
+    "type": "vbs",
+    "size": 1431,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "vba",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "DDoS",
+      "SnoopyTriage",
+      "Swag",
+      "vbs"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "FreddyBearDropper",
+        "author": "Dwarozh Hoshiar",
+        "description": "Freddy Bear Dropper is dropping a malware through base63 encoded powershell scrip.",
+        "reference": null
+      },
+      {
+        "rule_name": "SUSP_PS1_JAB_Pattern_Jun22_1",
+        "author": "Florian Roth (Nextron Systems)",
+        "description": "Detects suspicious UTF16 and Base64 encoded PowerShell code that starts with a $ sign and a single char variable",
+        "reference": "Internal Research"
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/2f424cf044e6267e5e333d480d905290a4207863235a91824e6f19e7b9915734\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b097ba16b48daf092e71ab5\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Script-WScript.Downloader.Heuristic",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-27 12:45:32",
+        "scanner_count": "37",
+        "scanner_match": "3",
+        "scanner_percent": "8.11"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261127-py7b9agv3t\/",
+        "tags": [
+          "defense_evasion",
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Checks computer location settings",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Drops file in System32 directory",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a VBScript file via the Windows Script Host.",
+            "score": "5"
+          },
+          {
+            "signature": "Drops file in Windows directory",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates physical storage devices",
+            "score": "3"
+          },
+          {
+            "signature": "Modifies data under HKEY_USERS",
+            "score": null
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          },
+          {
+            "signature": "Views\/modifies file attributes",
+            "score": null
+          }
+        ],
+        "malware_config": [
+          {
+            "extraction": "dropper",
+            "family": null,
+            "c2": "https:\/\/swagbotnet.duckdns.org\/swag.win64.exe%20http:\/\/swagbotnet.duckdns.org\/swag.win64.exe%20http:\/\/swagbotnet.duckdns.org:8080\/swag.win64.exe%20http:\/\/77.239.124.181\/swag.win64.exe"
+          }
+        ]
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "suspicious",
+            "rule": "Query of malicious DNS domain"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request to an infection source"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-27T12:44:40Z",
+  "last_seen": null
+}

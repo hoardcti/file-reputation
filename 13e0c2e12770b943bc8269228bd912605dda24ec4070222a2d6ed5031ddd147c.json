@@ -1,0 +1,210 @@
+{
+  "hashes": {
+    "sha256": "13e0c2e12770b943bc8269228bd912605dda24ec4070222a2d6ed5031ddd147c",
+    "sha1": "6584c6af468b9d7095e0d45bc449107d48656c6f",
+    "md5": "d198495c6246cfcb21c1bfbdc6eec60a",
+    "sha3_384": "8c9324f3d830d7e8c36b4a5d21447457b88b1146fa546602d0722697d2607a60f27403061780e54e47a5f5d8ad8b192a",
+    "tlsh": "T1F561F817A4A81654C7728A13F1EB77A7B24F803F823A1B50727CC3C03F6896A877D486",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "96:lzbRnCmgRR6B8Naw38VGOkIDQbUV2787Bb8tIKZlwHUKUWZ:ln9CzRWv+N7nUV22DKCZ"
+  },
+  "file_metadata": {
+    "names": [
+      "raw.ps1"
+    ],
+    "mime_type": "text/plain",
+    "type": "ps1",
+    "size": 3418,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "powershell",
+    "trid": null,
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "DDoS",
+      "ps1",
+      "SnoopyTriage",
+      "Swag"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "detect_powershell",
+        "author": "daniyyell",
+        "description": "Detects suspicious PowerShell activity related to malware execution",
+        "reference": null
+      },
+      {
+        "rule_name": "Detect_PowerShell_Obfuscation",
+        "author": "daniyyell",
+        "description": "Detects obfuscated PowerShell commands commonly used in malicious scripts.",
+        "reference": null
+      },
+      {
+        "rule_name": "Disable_Defender",
+        "author": "iam-py-test",
+        "description": "Detect files disabling or modifying Windows Defender, Windows Firewall, or Microsoft Smartscreen",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/13e0c2e12770b943bc8269228bd912605dda24ec4070222a2d6ed5031ddd147c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b097b9c39f35ec0069d8a2f\/reports\/8b36c295-edbb-45ab-85a6-2b0b42021c53\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": "Text.Downloader.Marte",
+        "status": "MALICIOUS",
+        "first_seen": "2026-11-27 12:45:28",
+        "scanner_count": "37",
+        "scanner_match": "6",
+        "scanner_percent": "16.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "8",
+        "link": "https:\/\/tria.ge\/reports\/261127-pyk41stv8n\/",
+        "tags": [
+          "execution",
+          "persistence"
+        ],
+        "signatures": [
+          {
+            "signature": "Badlisted process makes network request",
+            "score": "8"
+          },
+          {
+            "signature": "Downloads MZ\/PE file",
+            "score": "8"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Command and Scripting Interpreter: PowerShell",
+            "score": "3"
+          },
+          {
+            "signature": "Scheduled Task\/Job: Scheduled Task",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "0.90"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Enabling autorun by creating a file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Sending a TCP request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating synchronization primitives"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Enabling the 'hidden' option for recently created files"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a process"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "Tuxxin",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-27T12:44:11Z",
+  "last_seen": null
+}
