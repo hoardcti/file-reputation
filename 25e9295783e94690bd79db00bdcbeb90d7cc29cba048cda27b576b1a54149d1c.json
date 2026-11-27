@@ -1,0 +1,171 @@
+{
+  "hashes": {
+    "sha256": "25e9295783e94690bd79db00bdcbeb90d7cc29cba048cda27b576b1a54149d1c",
+    "sha1": "09d1696b90c03d57afb0ff0b2344806bde964f2d",
+    "md5": "fe4dcd50d2bb55a250aaeaa67d2fe9dd",
+    "sha3_384": "5bd9aa90c881d98cea4e6e02014c6b543227b3bfad5dfb34f52891d3990fa5c1860da453931ac85b3c939a176594bf7e",
+    "tlsh": "T1191419A6FD42D852C0D429BAFA1E91CC334727BCC2EA3116DD05CB3525DF95E0E3AA91",
+    "imphash": null,
+    "telfhash": "t1dfb1886059bbb4b1f2a394e8d7b2b528a43d2d9d5f1538e30746767d6d43ac018f1c07",
+    "gimphash": null,
+    "ssdeep": "6144:IhVNS3yI12wIiQYRiricYo2yFzYz0ogxzJgcZ:27oP2wIiQYRi2cY5izJgc"
+  },
+  "file_metadata": {
+    "names": [
+      "svc"
+    ],
+    "mime_type": "application/x-executable",
+    "type": "elf",
+    "size": 204784,
+    "format": "ELF",
+    "arch": "ARM",
+    "info": null,
+    "magika": "elf",
+    "trid": [
+      "50.1% (.) ELF Executable and Linkable format (Linux) (4022\/12)",
+      "49.8% (.O) ELF Executable and Linkable format (generic) (4000\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": null,
+    "tags": [
+      "elf"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "ELF_IoT_Persistence_Hunt",
+        "author": "4r4",
+        "description": "Hunts for ELF files with persistence and download capabilities",
+        "reference": null
+      },
+      {
+        "rule_name": "SHA512_Constants",
+        "author": "phoul (@phoul)",
+        "description": "Look for SHA384/SHA512 constants",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_Generic_MassHunt_Linux_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Generic Linux malware mass-hunt rule - 2026",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "unixredflags3",
+        "author": "Tim Brown @timb_machine",
+        "description": "Hunts for UNIX red flags",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/25e9295783e94690bd79db00bdcbeb90d7cc29cba048cda27b576b1a54149d1c\/"
+      },
+      "FileScan-IO": {
+        "verdict": "LIKELY_MALICIOUS",
+        "threatlevel": "0.75",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b089e19246810bfb6d28774\/reports\/327bf59c-7f2e-4599-a64f-444728d3c259\/overview"
+      },
+      "Intezer": {
+        "verdict": "unknown",
+        "family_name": null,
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/98e27df3-e09b-48c6-8336-81d8e3a04d52?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-25 09:15:44",
+        "scanner_count": "37",
+        "scanner_match": "1",
+        "scanner_percent": "2.70"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261126-ztzrqaby7l\/",
+        "tags": [
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "privilege_escalation"
+        ],
+        "signatures": [
+          {
+            "signature": "Deletes itself",
+            "score": "7"
+          },
+          {
+            "signature": "Modifies Watchdog functionality",
+            "score": "7"
+          },
+          {
+            "signature": "Traces itself",
+            "score": "7"
+          },
+          {
+            "signature": "Creates\/modifies Cron job",
+            "score": "6"
+          },
+          {
+            "signature": "Enumerates running processes",
+            "score": "6"
+          },
+          {
+            "signature": "Modifies rc script",
+            "score": "6"
+          },
+          {
+            "signature": "Reads network interface configuration",
+            "score": "6"
+          },
+          {
+            "signature": "Reads system routing table",
+            "score": "6"
+          },
+          {
+            "signature": "Changes its process name",
+            "score": "4"
+          },
+          {
+            "signature": "Reads system network configuration",
+            "score": "4"
+          },
+          {
+            "signature": "Enumerates kernel\/hardware configuration",
+            "score": "3"
+          },
+          {
+            "signature": "Reads runtime system information",
+            "score": "3"
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "smica83",
+    "anonymous": false,
+    "origin_country": "FR"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-26T21:00:55Z",
+  "last_seen": "2026-11-26T21:20:39Z"
+}
