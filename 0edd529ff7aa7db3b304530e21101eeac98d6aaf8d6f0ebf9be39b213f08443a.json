@@ -1,0 +1,211 @@
+{
+  "hashes": {
+    "sha256": "0edd529ff7aa7db3b304530e21101eeac98d6aaf8d6f0ebf9be39b213f08443a",
+    "sha1": "165615584863b8899834e19c4cd88c34509450b8",
+    "md5": "9a4cfacba1854d300fa5bde9806ec40e",
+    "sha3_384": "3e5a7ea9d58930d3a59039bd1831d232a55101d867a6da5846bcd5d94657b5e4e757ef36710a505f5c90c3a65f035d25",
+    "tlsh": "T1F3F633092E2391FDC199E7BC0E7EF34656424FA1CA187C20253CF7681E266F9E645AF4",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "393216:HwnQN1bTnbIO54/pBTsP1SYmgyW7sc3PbPn4GDNQ:t1/opG5yK5bn4Gx"
+  },
+  "file_metadata": {
+    "names": [
+      "Installer.iso"
+    ],
+    "mime_type": "application/x-iso9660-image",
+    "type": "iso",
+    "size": 15675392,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "iso",
+    "trid": [
+      "88.7% (.NULL) null bytes (2048000\/1)",
+      "11.0% (.HTP) HomeLab\/BraiLab Tape image (256000\/1)",
+      "0.1% (.ISO) ISO 9660 CD image (2545\/36\/1)",
+      "0.0% (.BIN\/MACBIN) MacBinary 1 (1033\/5)",
+      "0.0% (.SMT) Memo File Apollo Database Engine (88\/84)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/tria.ge\/261127-dmp32saz61\/behavioral2"
+      },
+      {
+        "context": "dropping_sha256",
+        "value": "32eac20dee404ec6bfd5ec0353108810c2c316800952595ab27eb8c878faf982"
+      },
+      {
+        "context": "dropping_md5",
+        "value": "fb5633cb49ecb0042641aff6210aeeb7"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "CNBackdoor",
+    "tags": [
+      "CNBackdoor",
+      "iso"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "NET",
+        "author": "malware-lu",
+        "description": null,
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/0edd529ff7aa7db3b304530e21101eeac98d6aaf8d6f0ebf9be39b213f08443a\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b08f6aec37fee0c7b91e638\/reports\/72f08e9c-4102-4c09-b75e-c2bc2667d258\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "KNOWN",
+        "first_seen": "2026-11-27 01:53:22",
+        "scanner_count": "37",
+        "scanner_match": "6",
+        "scanner_percent": "16.22"
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": "cnbackdoor",
+        "score": "10",
+        "link": "https:\/\/tria.ge\/reports\/261127-gw6nyact7v\/",
+        "tags": [
+          "family:cnbackdoor",
+          "backdoor",
+          "defense_evasion",
+          "discovery",
+          "execution",
+          "persistence",
+          "themida",
+          "trojan"
+        ],
+        "signatures": [
+          {
+            "signature": "Family: CNBackdoor",
+            "score": "10"
+          },
+          {
+            "signature": "Enumerates VirtualBox registry keys",
+            "score": "9"
+          },
+          {
+            "signature": "Identifies VirtualBox via ACPI registry values (likely anti-VM)",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VirtualBox Guest Additions in registry",
+            "score": "9"
+          },
+          {
+            "signature": "Looks for VMWare Tools registry key",
+            "score": "8"
+          },
+          {
+            "signature": "Checks BIOS information in registry",
+            "score": "7"
+          },
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Themida packer",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security bypass",
+            "score": "7"
+          },
+          {
+            "signature": "Windows security modification",
+            "score": "7"
+          },
+          {
+            "signature": "Checks whether UAC is enabled",
+            "score": "6"
+          },
+          {
+            "signature": "Suspicious use of NtSetInformationThreadHideFromDebugger",
+            "score": "5"
+          },
+          {
+            "signature": "Executes a command shell one-liner",
+            "score": "3"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "System Location Discovery: System Language Discovery",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "Delays execution with timeout.exe",
+            "score": null
+          },
+          {
+            "signature": "Suspicious behavior: EnumeratesProcesses",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of AdjustPrivilegeToken",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          },
+          {
+            "signature": "Uses Task Scheduler COM API",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "iamaachum",
+    "anonymous": false,
+    "origin_country": "ES",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-27T03:18:44Z",
+  "last_seen": null
+}
