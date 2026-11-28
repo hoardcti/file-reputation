@@ -325,12 +325,12 @@
         "detections": []
       },
       "ReversingLabs": {
-        "threat_name": "Win64.Hacktool.AdvML",
+        "threat_name": "Win64.Malware.AdvML",
         "status": "MALICIOUS",
         "first_seen": "2026-11-27 16:43:20",
-        "scanner_count": "39",
-        "scanner_match": "7",
-        "scanner_percent": "17.95"
+        "scanner_count": "37",
+        "scanner_match": "10",
+        "scanner_percent": "27.03"
       },
       "Spamhaus_HBL": [
         {
@@ -338,6 +338,48 @@
           "link": "https:\/\/www.spamhaus.org\/hbl\/"
         }
       ],
+      "Triage": {
+        "malware_family": null,
+        "score": "7",
+        "link": "https:\/\/tria.ge\/reports\/261127-y1nscsev8q\/",
+        "tags": [
+          "discovery",
+          "persistence",
+          "spyware",
+          "stealer"
+        ],
+        "signatures": [
+          {
+            "signature": "Executes dropped EXE",
+            "score": "7"
+          },
+          {
+            "signature": "Reads user\/profile data of web browsers",
+            "score": "7"
+          },
+          {
+            "signature": "Adds Run key to start application",
+            "score": "6"
+          },
+          {
+            "signature": "Reads the TCP\/IP host and domain name from the registry",
+            "score": "3"
+          },
+          {
+            "signature": "Checks processor information in registry",
+            "score": null
+          },
+          {
+            "signature": "GoLang User-Agent",
+            "score": null
+          },
+          {
+            "signature": "Suspicious use of WriteProcessMemory",
+            "score": null
+          }
+        ],
+        "malware_config": []
+      },
       "UnpacMe": [
         {
           "sha256_hash": "93eaf1de5ea48ab6c9c82ee3c5579291e24177e847b16dc1c5ff667ee68c9cc8",
@@ -350,14 +392,48 @@
           "link": "https:\/\/www.unpac.me\/results\/ed72ab8b-51d1-4817-8788-1a6b014fd632\/"
         }
       ],
+      "VMRay": {
+        "verdict": "malicious",
+        "malware_family": null,
+        "report_link": "https:\/\/www.vmray.com\/analyses\/_mb\/93eaf1de5ea4\/report\/overview.html"
+      },
       "YOROI_YOMI": {
         "detection": "Malicious File",
         "score": "1.00"
       },
       "vxCube": {
-        "verdict": null,
-        "maliciousness": null,
-        "behaviour": []
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "malicious",
+            "rule": "Sending an HTTP GET request to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Connection attempt to an infection source"
+          },
+          {
+            "threat_level": "suspicious",
+            "rule": "Enabling autorun with the standard Software\\Microsoft\\Windows\\CurrentVersion\\Run registry branch"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a file in the %AppData% subdirectories"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process from a recently created file"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Creating a process with a hidden window"
+          },
+          {
+            "threat_level": "neutral",
+            "rule": "Launching a service"
+          }
+        ]
       }
     }
   },
