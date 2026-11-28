@@ -1,0 +1,233 @@
+{
+  "hashes": {
+    "sha256": "be5be8ed212c8d48fdd8ee02e5201daeab6f95069bc8bbb08f3c6ba065bbe904",
+    "sha1": "43f87ef837e0d055807448255d85fab7a90d4d8c",
+    "md5": "1788a2ee2c4c29fc51d21983e6d86579",
+    "sha3_384": "445dac97dbcfe248be15cf7692e00972a7c01e67c26b8c1299873441401903146cdeb8f81cac3c570645adf2d6ae5139",
+    "tlsh": "T1E495C018BBC4D551C4CFB2B1E0B30715753D285CE2E4A6876E056D78A9F77A88F2A383",
+    "imphash": "0cdadfa1098d845dd3b4cf92625b5f04",
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "24576:jbLgWbLgddQhfdmMSirYbcMNgef0QeQjGOaR7jrAeotsJdqf:jnXnAQqMSPbcBVQejxtHrqf"
+  },
+  "file_metadata": {
+    "names": [
+      "be5be8ed212c8d48fdd8ee02e5201daeab6f95069bc8bbb08f3c6ba065bbe904"
+    ],
+    "mime_type": "application/vnd.microsoft.portable-executable",
+    "type": "exe",
+    "size": 1918976,
+    "format": "PE",
+    "arch": "AMD64",
+    "info": null,
+    "magika": "pebin",
+    "trid": [
+      "39.7% (.EXE) Win32 Executable MS Visual C++ (generic) (31206\/45\/13)",
+      "21.0% (.EXE) Microsoft Visual C++ compiled executable (generic) (16529\/12\/5)",
+      "8.3% (.DLL) Win32 Dynamic Link Library (generic) (6578\/25\/2)",
+      "8.3% (.EXE) Win64 Executable (generic) (6522\/11\/2)",
+      "6.4% (.EXE) Win16 NE executable (generic) (5038\/12\/1)"
+    ],
+    "file_information": null,
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "WannaCry",
+    "tags": [
+      "dionaea",
+      "exe",
+      "WannaCry"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "CP_Script_Inject_Detector",
+        "author": "DiegoAnalytics",
+        "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+        "reference": null
+      },
+      {
+        "rule_name": "DebuggerCheck__API",
+        "author": null,
+        "description": null,
+        "reference": "https://github.com/naxonez/yaraRules/blob/master/AntiDebugging.yara"
+      },
+      {
+        "rule_name": "DetectEncryptedVariants",
+        "author": "Zinyth",
+        "description": "Detects 'encrypted' in ASCII, Unicode, base64, or hex-encoded",
+        "reference": null
+      },
+      {
+        "rule_name": "exploit_any_poppopret",
+        "author": "Jeff White [karttoon@gmail.com] @noottrak",
+        "description": "Identify POP -\u003e POP -\u003e RET opcodes for quick ROP Gadget creation in target binaries.",
+        "reference": null
+      },
+      {
+        "rule_name": "golang_bin_JCorn_CSC846",
+        "author": "Justin Cornwell",
+        "description": "CSC-846 Golang detection ruleset",
+        "reference": null
+      },
+      {
+        "rule_name": "malware_shellcode_hash",
+        "author": "JPCERT/CC Incident Response Group",
+        "description": "detect shellcode api hash value",
+        "reference": null
+      },
+      {
+        "rule_name": "RANSOMWARE",
+        "author": "ToroGuitar",
+        "description": null,
+        "reference": null
+      },
+      {
+        "rule_name": "suspicious_PEs",
+        "author": "txc",
+        "description": "This rule detected suspicious PE files, based on high entropy and low amount of imported DLLs. This behaviour indicates packed files or files, that hide their true intention.",
+        "reference": null
+      },
+      {
+        "rule_name": "Sus_CMD_Powershell_Usage",
+        "author": "XiAnzheng",
+        "description": "May Contain(Obfuscated or no) Powershell or CMD Command that can be abused by threat actor(can create FP)",
+        "reference": null
+      },
+      {
+        "rule_name": "TH_AntiVM_MassHunt_Win_Malware_2026_CYFARE",
+        "author": "CYFARE",
+        "description": "Detects Windows malware employing anti-VM / anti-sandbox evasion techniques across VMware, VirtualBox, Hyper-V, QEMU, Xen, and generic sandbox environments",
+        "reference": "https://cyfare.net/"
+      },
+      {
+        "rule_name": "VECT_Ransomware",
+        "author": "Mustafa Bakhit",
+        "description": "Detects activity associated with VECT ransomware. This includes registry modifications and deletions, execution of system and defense-evasion commands, suspicious API usage, mutex creation, file and memory manipulation, ransomware note generation, anti-debugging and anti-analysis techniques, and embedded cryptographic constants (SHA256) characteristic of this malware family. Designed for threat intelligence and malware detection environments.",
+        "reference": null
+      },
+      {
+        "rule_name": "WannaCry_Ransomware",
+        "author": "Florian Roth (Nextron Systems) (with the help of binar.ly)",
+        "description": "Detects WannaCry Ransomware",
+        "reference": "https://goo.gl/HG2j5T"
+      },
+      {
+        "rule_name": "WannaCry_Ransomware_Gen",
+        "author": "Florian Roth (Nextron Systems) (based on rule by US CERT)",
+        "description": "Detects WannaCry Ransomware",
+        "reference": "https://www.us-cert.gov/ncas/alerts/TA17-132A"
+      },
+      {
+        "rule_name": "WannaCry_Ransomware_Gen_RID302B",
+        "author": "Florian Roth (based on rule by US CERT)",
+        "description": "Detects WannaCry Ransomware",
+        "reference": "https://www.us-cert.gov/ncas/alerts/TA17-132A"
+      },
+      {
+        "rule_name": "WannaCry_Ransomware_Main",
+        "author": "Bristol Agri-Tech Solutions SOC",
+        "description": "Detects WannaCry ransomware main executable",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_ACRStealer_ForgeAuto_1084c837_Extrait",
+        "author": "Marjoriefort",
+        "description": "Detects ACRStealer (pe, etat extrait)",
+        "reference": null
+      },
+      {
+        "rule_name": "WIN_Malware_Unknown_ForgeAuto_7e8e91c4",
+        "author": "Marjoriefort",
+        "description": "Detects Unknown (pe, etat binaire)",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "ANY.RUN": [
+        {
+          "malware_family": null,
+          "verdict": "No threats detected",
+          "file_name": "exe",
+          "date": "2026-11-28 03:51:43",
+          "analysis_url": "https:\/\/app.any.run\/tasks\/165b4064-ad14-4723-98f0-3ad03bcf5b0f",
+          "tags": []
+        }
+      ],
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/be5be8ed212c8d48fdd8ee02e5201daeab6f95069bc8bbb08f3c6ba065bbe904\/"
+      },
+      "FileScan-IO": {
+        "verdict": "MALICIOUS",
+        "threatlevel": "1.0",
+        "confidence": "1.0",
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0a4bb18c0c5a1aafbadc91\/reports\/fea6b31c-d2fd-4fe6-8361-24d352d523d7\/overview"
+      },
+      "Intezer": {
+        "verdict": "malicious",
+        "family_name": "Mimikatz",
+        "analysis_url": "https:\/\/analyze.intezer.com\/analyses\/c0914f60-504c-4f0f-ba6a-3172eaac325f?utm_source=MalwareBazaar"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "Triage": {
+        "malware_family": null,
+        "score": "3",
+        "link": "https:\/\/tria.ge\/reports\/261128-d4t4bs1y8k\/",
+        "tags": [],
+        "signatures": [],
+        "malware_config": []
+      },
+      "UnpacMe": [
+        {
+          "sha256_hash": "be5be8ed212c8d48fdd8ee02e5201daeab6f95069bc8bbb08f3c6ba065bbe904",
+          "md5_hash": "1788a2ee2c4c29fc51d21983e6d86579",
+          "sha1_hash": "43f87ef837e0d055807448255d85fab7a90d4d8c",
+          "detections": [
+            "WannaCry",
+            "ransomware_windows_wannacry",
+            "WannaCry_Ransomware",
+            "WannaCry_Ransomware_Gen"
+          ],
+          "link": "https:\/\/www.unpac.me\/results\/d64277ef-6c26-44ac-94cc-fb4bec34f59b\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Malicious File",
+        "score": "1.00"
+      },
+      "vxCube": {
+        "verdict": "malware2",
+        "maliciousness": "100",
+        "behaviour": [
+          {
+            "threat_level": "neutral",
+            "rule": "Sending a custom TCP request"
+          }
+        ]
+      }
+    }
+  },
+  "submission": {
+    "reporter": "pawscobbler",
+    "anonymous": false,
+    "origin_country": "US"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-28T03:33:22Z",
+  "last_seen": null
+}

@@ -1,0 +1,113 @@
+{
+  "hashes": {
+    "sha256": "848c85bbc2f1753b9e156b378cd21e57b483b31f3423feca7362faa222a6be0b",
+    "sha1": "24f130bbf7c35fa372315b1a6a2d8d139e54e831",
+    "md5": "51905000334ef0ccb20441d65d1c8ef0",
+    "sha3_384": "a9d874b3939648aac52ce011817afdee5fcf0947520a6cb6c4aebb7433d10371123bde1751c0d506c2d8044014f64b44",
+    "tlsh": "T1D35129BCE80C50A5D0EA0ABAEAC4FD98026A77F21FE091ECF5014F5A057F65015AEC0A",
+    "imphash": null,
+    "telfhash": null,
+    "gimphash": null,
+    "ssdeep": "48:YhQOkI3tYQdrgrXaQrqbt0LzssRbwZLg7Zmv98v2hCPth1Bj37gxrxwu:YhQHI3tY8crrubuLzssd4LgN48vJ7NM5"
+  },
+  "file_metadata": {
+    "names": [
+      "stage1_848c85bbc2f1.zsh"
+    ],
+    "mime_type": "text/x-shellscript",
+    "type": "zsh",
+    "size": 2690,
+    "format": null,
+    "arch": null,
+    "info": null,
+    "magika": "shell",
+    "trid": [
+      "70.0% (.SH) Linux\/UNIX shell script (7000\/1)",
+      "30.0% (.) Unix-like shebang (var.3) (gen) (3000\/1)"
+    ],
+    "file_information": [
+      {
+        "context": "links",
+        "value": "https:\/\/www.virustotal.com\/gui\/file\/848c85bbc2f1753b9e156b378cd21e57b483b31f3423feca7362faa222a6be0b"
+      }
+    ],
+    "ole_information": []
+  },
+  "intelligence": {
+    "signature": "AMOS",
+    "tags": [
+      "AMOS",
+      "ClickFix",
+      "Foxveil",
+      "macOS",
+      "zsh"
+    ],
+    "yara_rules": [
+      {
+        "rule_name": "Foxveil_Stage1_Zsh_ConstKey_AesCtr",
+        "author": null,
+        "description": "Foxveil ClickFix stage-1 zsh dropper: hex blobs -\u003e md5(constant _kb) -\u003e openssl AES-128-CTR IV 0 -\u003e gunzip -\u003e zsh, behind a decoy maintenance script",
+        "reference": null
+      },
+      {
+        "rule_name": "Foxveil_Stage1_Zsh_ConstKey_AesCtr_B",
+        "author": null,
+        "description": "Foxveil ClickFix stage-1 zsh dropper, 2026-10-21 generator: any blob-array name and a _kb expression starting on a plain variable; hex blobs -\u003e md5(constant _kb) -\u003e openssl AES-128-CTR IV 0 -\u003e gunzip, run via eval",
+        "reference": null
+      },
+      {
+        "rule_name": "LIN_Dropper_Unknown_Zsh_AES_SplitCmd",
+        "author": "Marjoriefort",
+        "description": "Dropper zsh : commandes eclatees en variables (md5/xxd/openssl/gunzip) + payload AES-128-CTR decode puis execute via /bin/zsh",
+        "reference": "Veille glissante 2026-09-18_08 / cc922fb8"
+      },
+      {
+        "rule_name": "MAC_Dropper_Shell_CacheMaintenance_AES_CTR",
+        "author": "Marjoriefort",
+        "description": "macOS fake cache-maintenance dropper - payload AES-128-CTR via openssl, noms de commandes fragmentes",
+        "reference": null
+      }
+    ],
+    "vendor_intel": {
+      "CERT-PL_MWDB": {
+        "detection": null,
+        "link": "https:\/\/mwdb.cert.pl\/sample\/848c85bbc2f1753b9e156b378cd21e57b483b31f3423feca7362faa222a6be0b\/"
+      },
+      "FileScan-IO": {
+        "verdict": null,
+        "threatlevel": null,
+        "confidence": null,
+        "report_link": "https:\/\/www.filescan.io\/uploads\/6b0a77121e13ce9c71874964\/reports\/\/overview"
+      },
+      "ReversingLabs": {
+        "threat_name": null,
+        "status": "UNKNOWN",
+        "first_seen": null,
+        "scanner_count": null,
+        "scanner_match": null,
+        "scanner_percent": null
+      },
+      "Spamhaus_HBL": [
+        {
+          "detection": "suspicious",
+          "link": "https:\/\/www.spamhaus.org\/hbl\/"
+        }
+      ],
+      "YOROI_YOMI": {
+        "detection": "Legit File",
+        "score": "0.00"
+      }
+    }
+  },
+  "submission": {
+    "reporter": "c4ffeine",
+    "anonymous": false,
+    "origin_country": "US",
+    "delivery_method": "web_download"
+  },
+  "sources": [
+    "MalwareBazaar (abuse.ch)"
+  ],
+  "first_seen": "2026-11-28T06:38:34Z",
+  "last_seen": null
+}
